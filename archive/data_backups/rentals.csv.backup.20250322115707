@@ -1,0 +1,1177 @@
+url,price,size,room_type,location,is_rental,details,snapshot_date
+https://www.idealista.pt/en/imovel/34066961/,900.0,46.0,T1,"rua Estácio da Veiga, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/28137965/,1250.0,80.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34066573/,1400.0,46.0,T1,"avenida General Roçadas, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34047805/,1500.0,65.0,T2,"rua Domingos Sequeira, 5, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34066509/,980.0,45.0,T1,"rua José Estêvão, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046518/,1650.0,70.0,T2,"rua Ramalho Ortigão, 39, Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34066472/,1250.0,72.0,T2,"estrada de Benfica, Fonte Nova - Calhariz, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057031/,1300.0,48.0,T1,"beco da Cardosa, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34066489/,1500.0,54.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33956298/,1250.0,70.0,T2,"rua Afonso Annes Penedo, 42, Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31418564/,2200.0,110.0,T2,"rua Antero de Quental, 6, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065961/,1300.0,54.0,T1,"beco da Lapa, 140, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32580094/,1400.0,53.0,T1,"rua conde Monsaraz, 15, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34066431/,2750.0,120.0,T2,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33838923/,1450.0,82.0,T1,"rua da Rosa, 214, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34066022/,890.0,45.0,T1,"Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30534686/,1300.0,57.0,T1,"rua do Conde de Redondo, 4, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065907/,1200.0,78.0,T2,"Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33498256/,2200.0,75.0,T1,"rua do Crucifixo, 75, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33498335/,1900.0,60.0,T1,"rua do Crucifixo, 75, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065486/,828.0,60.0,T2,"rua do Vale Formoso, Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065501/,1450.0,80.0,T2,"praça Olegário Mariano, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065339/,1800.0,73.0,T1,"rua Academia das Ciências, 17 a, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065276/,1450.0,60.0,T1,"rua José Travassos, 23, Centro, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33484084/,1300.0,40.0,T1,"rua Rebelo da Silva, 45, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065310/,2100.0,57.0,T1,"rua Rodrigo da Fonseca, Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065059/,2300.0,64.0,T2,"travessa Amoreira, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065027/,1850.0,63.0,T2,"rua Doutor Rafael Duque, Arneiros, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065018/,2000.0,64.0,T2,"rua Machado de Castro, Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065017/,1800.0,43.0,T1,"praça Alvalade, São João de Brito, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065026/,1750.0,44.0,T1,"rua da Bombarda, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065025/,1600.0,64.0,T2,"praça Doutor Alfredo Cunha, Centro, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065040/,1600.0,43.0,T1,"rua Direita de Palma, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065030/,1600.0,45.0,T1,"travessa da Fábrica das Sedas, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065016/,1500.0,42.0,T1,"rua 1º de Maio, Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065015/,1500.0,63.0,T2,"largo de Santa Cruz do Castelo, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065052/,1400.0,43.0,T1,"rua Afonso Domingues, Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065050/,1380.0,44.0,T1,"beco João Alves, Rio Seco - Casalinho, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065039/,1350.0,44.0,T1,"rua Doutor Gama Barros, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065049/,1380.0,43.0,T1,"beco João Alves, Rio Seco - Casalinho, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065024/,1250.0,44.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064977/,1200.0,43.0,T1,"rua das Madres, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065008/,1200.0,42.0,T1,"rua do Garcia, Bairro Calçada dos Mestres, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064992/,1093.0,42.0,T1,"beco João Alves, Rio Seco - Casalinho, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065006/,1000.0,43.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065020/,1000.0,43.0,T1,"travessa Madressilva, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34065005/,978.0,44.0,T1,"rua Montepio Geral, Estrada de Benfica, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064968/,800.0,44.0,T1,"travessa do Rosário de Santa Clara, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33921476/,2100.0,44.0,T1,"praça Alvalade, São João de Brito, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33921256/,1200.0,62.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064799/,1700.0,65.0,T2,"rua Fernando Maurício, Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33876065/,990.0,45.0,T1,"rua Pedro Dias, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33585753/,1300.0,45.0,T1,"rua Sol a Chelas, Bairro dos Actores - Barão Sabrosa, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33410419/,1450.0,45.0,T2,"travessa do Forno aos Anjos, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33380694/,1500.0,60.0,T2,"travessa São Bernardino, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33359936/,900.0,52.0,T1,"rua Dom Tomás de Melo Breyner, Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33246798/,1650.0,65.0,T2,"rua da Palma, Rossio - Martim Moniz, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33146671/,1000.0,45.0,T2,"rua Academia das Ciências, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33146645/,1450.0,60.0,T2,"largo das Olarias, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33113048/,1295.0,60.0,T1,"rua do Embaixador, Centro, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33051578/,1700.0,70.0,T2,"rua Heróis de Quionga, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33051563/,1600.0,50.0,T1,"beco Carrasco, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32737892/,1950.0,55.0,T1,"travessa dos Inglesinhos, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32737870/,1380.0,49.0,T1,"rua de Gustavo de Matos Sequeira, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32655981/,1750.0,100.0,T2,"praça de Londres, Centro, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/28095284/,700.0,43.0,T1,"travessa do Rosário de Santa Clara, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/28047154/,850.0,43.0,T1,"rua do Jardim à Estrela, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/28038137/,1200.0,90.0,T1,"rua Luís Pastor de Macedo, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/27971463/,1500.0,44.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/27909726/,1300.0,64.0,T2,"praça João de Azevedo Coutinho, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/27908690/,990.0,43.0,T1,"rua Capitão Renato Baptista, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/27822291/,1000.0,44.0,T1,"avenida Elias Garcia, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/27806406/,1400.0,50.0,T2,"rua Castelo Branco Saraiva, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/27801735/,900.0,45.0,T1,"travessa do Conde de Avintes, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/27801611/,1150.0,43.0,T1,"rua Martin Luther King, Santa Clara, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/27801323/,1400.0,50.0,T1,"rua do Sol a Santa Catarina, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/27801271/,900.0,45.0,T1,"travessa do Conde de Avintes, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064720/,1400.0,94.0,T2,"avenida Almirante Reis, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064482/,1700.0,73.0,T2,"rua Artur Lamas, Junqueira, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063697/,1450.0,80.0,T1,"alameda Santo António dos Capuchos, 6, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062575/,1200.0,79.0,T2,"rua Antónia Pusich, 7, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064547/,3667.0,50.0,T1,"rua do Salitre, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064544/,5000.0,50.0,T2,"rua da Atalaia, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064531/,2867.0,50.0,T1,"beco dos Cativos, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064508/,1250.0,65.0,T1,"rua Latino Coelho, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064503/,3000.0,50.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064464/,4000.0,120.0,T2,"rua Giestal, Junqueira, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064461/,2500.0,95.0,T2,"rua 4 de Infantaria, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064436/,1400.0,50.0,T1,"Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064435/,1500.0,99.0,T2,"Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064391/,2050.0,67.0,T2,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064014/,2000.0,62.0,T2,"rua de São Lázaro, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064066/,2250.0,100.0,T2,"rua dos Douradores, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064064/,1650.0,70.0,T1,"rua de Pedrouços, Pedrouços, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064056/,1500.0,62.0,T2,"rua Lucinda Simões, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064062/,1300.0,64.0,T2,"rua André de Resende, Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064037/,1400.0,81.0,T2,"rua Coronel Santos Pedroso, Arneiros, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33921265/,1700.0,64.0,T2,"rua Actor João Rosa, Bairro dos Actores, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33688115/,1950.0,68.0,T2,"rua Luís Fernandes, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33663212/,1200.0,40.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33520973/,1550.0,65.0,T1,"rua Professor Francisco Gentil, Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33491618/,1150.0,65.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33427357/,1500.0,65.0,T2,"rua Ferreira Chaves, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33293443/,1500.0,65.0,T1,"rua do Olival, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33147158/,1500.0,79.0,T1,"avenida José Malhoa, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32984298/,1450.0,70.0,T1,"rua Angelina Vidal, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30555176/,1350.0,68.0,T1,"praça Praça Duque de Saldanha, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063923/,1200.0,90.0,T2,"rua Francisco de Holanda, 20, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32825962/,1600.0,120.0,T2,"Quinta dos Alcoutins, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063821/,1300.0,66.0,T2,"Estrada de Benfica, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063659/,2500.0,125.0,T2,"Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30635167/,1190.0,70.0,T1,"rua da Palmeira, 15, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063245/,1600.0,44.0,T1,"rua Conde das Antas, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063215/,1261.0,40.0,T1,"rua do Embaixador, Centro, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063242/,850.0,46.0,T1,"rua de Alcântara, Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063219/,1500.0,50.0,T2,"Amoreiras, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33514953/,1050.0,50.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063167/,1450.0,91.0,T2,"estrada de Benfica, Estrada de Benfica, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33815390/,1760.0,60.0,T1,"rua Domingos Sequeira, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33790731/,2000.0,60.0,T1,"rua das Praças, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33753089/,1550.0,65.0,T1,"rua General Taborda, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063087/,1200.0,58.0,T1,"Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33057168/,2000.0,90.0,T2,"rua Angelina Vidal, 12, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063068/,2400.0,103.0,T2,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32778833/,2750.0,70.0,T1,"avenida Duque de Ávila, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34063025/,1600.0,65.0,T2,"rua do Arco a Alcântara, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062926/,2000.0,80.0,T1,"rua Dom Pedro V, 107, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062914/,1250.0,63.0,T1,"Olaias, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32646199/,1000.0,55.0,T1,"avenida das Forças Armadas, 103, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062709/,1950.0,110.0,T1,"rua do Beato, 44, Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062636/,2000.0,75.0,T2,"rua de São Ciro, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33126805/,2000.0,70.0,T2,"avenida António Augusto de Aguiar, 30, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32022489/,2700.0,84.0,T1,"Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33685376/,1000.0,55.0,T1,"rua General Pimenta de Castro, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062437/,1600.0,74.0,T2,"praça São João Bosco, Prazeres, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062488/,1270.0,58.0,T1,"rua de Santo Amaro, 50, Largo do Rato - Estrela, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062351/,1700.0,90.0,T1,"travessa Paz, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062370/,1300.0,95.0,T2,"Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062337/,2750.0,106.0,T2,"rua da Misericórdia, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061297/,2500.0,160.0,T2,"rua Tomás Ribeiro, 93, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062254/,1950.0,80.0,T1,"Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061906/,1200.0,80.0,T2,"largo Paz, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061894/,2500.0,160.0,T2,"avenida António Augusto de Aguiar, Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061890/,1350.0,80.0,T2,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061788/,2400.0,120.0,T2,"estrada da Luz, 96, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061796/,1650.0,61.0,T2,"rua Paulo Dias de Novais, Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061163/,1550.0,58.0,T1,"rua Joaquim Rocha Cabral, 10, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061044/,1600.0,60.0,T1,"rua Paul Harris, 1, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34060834/,1150.0,88.0,T2,"avenida Afonso III, 74, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061728/,1300.0,77.0,T2,"bairro da Cáritas, Santa Clara, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061671/,2500.0,133.0,T1,"rua Maurício de Vasconcelos, Quinta dos Alcoutins, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061578/,1500.0,67.0,T1,"Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061558/,1450.0,58.0,T2,"Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33427451/,1300.0,75.0,T1,"largo do Mastro, 6, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061574/,1450.0,58.0,T2,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32328182/,1500.0,50.0,T1,"rua Pedro Dias, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061463/,1650.0,66.0,T1,"Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061348/,1900.0,80.0,T1,"travessa do Almada, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061014/,1300.0,73.0,T1,"Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34060874/,1500.0,68.0,T1,"Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34060262/,2000.0,120.0,T2,"rua dos Anjos, 61, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34060482/,890.0,65.0,T1,"rua da Boavista, 130, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34060274/,7000.0,215.0,T2,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34060273/,3800.0,116.0,T2,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059527/,1100.0,58.0,T1,"Bairro dos Actores - Barão Sabrosa, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059458/,1400.0,66.0,T2,"Alto de Alcântara, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059202/,1600.0,50.0,T2,"rua da Hera, 12, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059264/,2000.0,90.0,T2,"travessa do Noronha, Nn, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31318559/,820.0,40.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/31028571/,1250.0,50.0,T1,"rua Vale, 1, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057501/,1100.0,58.0,T1,"rua Alfredo Roque Gameiro, 1, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34056559/,900.0,40.0,T1,"rua Zófimo Pedroso, 47, Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34055834/,1500.0,66.0,T1,"rua Alfredo Roque Gameiro, Nn, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34055157/,1100.0,46.0,T1,"Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34054397/,1350.0,62.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34022836/,1600.0,50.0,T1,"rua do Almada, 6, Bica, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30407938/,1200.0,60.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32591210/,1600.0,65.0,T2,"rua de São Ciro, 3, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053653/,2100.0,108.0,T2,"Alto dos Moinhos, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34052849/,950.0,45.0,T1,"estrada A-da-Maia, 17, Portas de Benfica - Mercado de Benfica, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34052218/,1150.0,40.0,T1,"rua Prista Monteiro, 19, Telheiras, Carnide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32702706/,1800.0,84.0,T2,"rua do Pau de Bandeira, 32, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34051207/,1600.0,81.0,T2,"avenida General Roçadas, 72, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049691/,1200.0,62.0,T2,"rua Doutor Rafael Duque, Nn, Arneiros, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048751/,1000.0,50.0,T1,"rua Cláudio Nunes, 82, Arneiros, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048591/,1300.0,56.0,T2,"travessa do Olival à Graça, Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046852/,1100.0,77.0,T1,"alameda António Sérgio, 4, Santa Clara, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048140/,1250.0,86.0,T2,"rua General Leman, 11, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048058/,1100.0,62.0,T1,"avenida das Forças Armadas, 97, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34047049/,3000.0,97.0,T2,"rua Damasceno Monteiro, 21 a, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33870458/,1950.0,107.0,T2,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34040039/,2000.0,42.0,T1,"rua de Santo António da Glória, Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057948/,1875.0,73.0,T2,"rua dos Mouros, 32, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34061283/,2000.0,58.0,T1,"rua do Vale, 27, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053695/,1300.0,44.0,T1,"largo do Mastro, 13, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053659/,1400.0,50.0,T1,"rua Professor Simões Raposo, 9, Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049766/,1195.0,68.0,T1,"rua Ferreira Borges, Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049199/,1500.0,55.0,T2,"rua Jau, 14, Alto de Santo Amaro, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048399/,1300.0,50.0,T1,"rua Coronel Pereira da Silva, Centro, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31830537/,3300.0,119.0,T2,"rua Actor Taborda, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046613/,2100.0,98.0,T1,"Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34051326/,2800.0,90.0,T2,"Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057943/,2500.0,100.0,T1,"Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048290/,2950.0,100.0,T2,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059251/,3300.0,152.0,T2,"rua Padre Luís Aparício, Nn, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34039820/,1500.0,54.0,T1,"avenida Defensores de Chaves, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048483/,2000.0,90.0,T2,"travessa do Noronha, 22, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053382/,1500.0,118.0,T2,"rua Teófilo Carvalho dos Santos, 11, Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34042180/,1200.0,61.0,T2,"travessa Fornos, Nn, Rio Seco - Casalinho, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34050926/,2500.0,118.0,T2,"rua Doutor António Cândido, 8, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34055836/,2950.0,112.0,T2,"Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34056088/,1150.0,74.0,T2,"Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053143/,3667.0,75.0,T2,"estrada da Luz, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053178/,5000.0,50.0,T2,"praça Dom Luís I, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053173/,7167.0,50.0,T2,"rua Augusta, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057390/,3200.0,50.0,T1,"praça Dom Luís I, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053117/,5500.0,87.0,T2,"rua da Bombarda, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053126/,6333.0,50.0,T2,"rua de Santa Justa, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053150/,4067.0,40.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053122/,3400.0,50.0,T2,"rua das Taipas, Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053145/,3200.0,45.0,T1,"rua das Praças, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053142/,3867.0,60.0,T2,"rua São Francisco Borja, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053062/,2733.0,43.0,T1,"travessa dos Pescadores, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053190/,7167.0,135.0,T2,"rua da Madalena, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34055815/,2800.0,138.0,T2,"avenida Dom João II, 401, Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34054412/,1950.0,115.0,T2,"rua Dom Luís de Noronha, Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057391/,5633.0,50.0,T2,"rua da Boavista, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053155/,4667.0,80.0,T2,"rua de São Julião, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053192/,4733.0,60.0,T2,"rua de São Marçal, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053174/,4200.0,84.0,T1,"rua dos Sapateiros, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053125/,2733.0,65.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053180/,8500.0,50.0,T2,"largo Picadeiro, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053123/,3467.0,50.0,T2,"rua dos Mouros, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053106/,5667.0,50.0,T2,"rua de Santa Justa, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053156/,5600.0,50.0,T1,"rua do Crucifixo, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053172/,4033.0000000000005,60.0,T1,"rua São José, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049673/,2400.0,101.0,T1,"rua de Campolide, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057627/,1800.0,100.0,T2,"avenida Pádua, Gare do Oriente - Zona Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053181/,7667.0,50.0,T2,"rua do Carmo, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33996886/,1650.0,70.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33996886/,1650.0,70.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057627/,1800.0,100.0,T2,"avenida Pádua, Gare do Oriente - Zona Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048816/,1750.0,70.0,T2,"rua Chagas, Chiado - Pç. de Camões, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059556/,1600.0,56.0,T1,"Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049765/,1050.0,51.0,T1,"rua Azedo Gneco, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34050055/,1400.0,51.0,T1,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057483/,2500.0,133.0,T2,"avenida do Índico, 1, Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34051045/,1850.0,63.0,T1,"rua Angelina Vidal, 33, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34050328/,2400.0,101.0,T2,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34050272/,1600.0,62.0,T1,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053698/,1450.0,50.0,T1,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34058649/,2400.0,78.0,T1,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34050730/,2300.0,78.0,T1,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34051275/,1250.0,57.0,T1,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059342/,1650.0,84.0,T2,"Fonte Nova - Calhariz, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049796/,1150.0,54.0,T2,"rua Tenente Ferreira Durão, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34050529/,1000.0,53.0,T1,"Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34055171/,1100.0,63.0,T1,"Portas de Benfica - Mercado de Benfica, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046131/,2500.0,90.0,T2,"rua da Senhora da Glória, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34051352/,1400.0,57.0,T1,"rua da Páscoa, Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33693628/,1700.0,40.0,T1,"rua do Cardal de São José, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/27971466/,1500.0,40.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/28038134/,1050.0,44.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/27800787/,1300.0,63.0,T2,"rua Carvalho Araújo, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012491/,2650.0,44.0,T1,"beco do Salvador, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33564003/,2100.0,57.0,T1,"rua Dom Francisco Manuel de Melo, Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049065/,1450.0,60.0,T1,"travessa São Bernardino, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053148/,4067.0,45.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049394/,1480.0,63.0,T1,"rua de São João da Mata, Nn, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046028/,1950.0,172.0,T2,"Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049394/,1480.0,63.0,T1,"rua de São João da Mata, Nn, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34045984/,1995.0,110.0,T1,"Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046028/,1950.0,172.0,T2,"Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046831/,1800.0,120.0,T2,"avenida Pádua, Gare do Oriente - Zona Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059347/,1250.0,76.0,T1,"rua Melvin Jones, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34058999/,1450.0,100.0,T1,"Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049498/,1450.0,70.0,T1,"Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048311/,1500.0,74.0,T1,"rua Carlos George, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34055620/,1200.0,60.0,T1,"rua Marquês de Fronteira, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34047839/,1590.0,50.0,T1,"travessa das Isabéis, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057927/,1100.0,50.0,T1,"rua Correia Teles, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34055388/,1500.0,63.0,T1,"avenida Conselheiro Fernando de Sousa, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34050998/,1150.0,46.0,T1,"Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057015/,1950.0,125.0,T2,"rua Presidente Arriaga, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048301/,1650.0,135.0,T2,"rua José Maria Nicolau, Alto dos Moinhos, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34050252/,2300.0,130.0,T2,"avenida David Mourão-Ferreira, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053099/,2267.0,50.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34056490/,2000.0,94.0,T2,"Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34051458/,1450.0,72.0,T1,"Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059519/,2500.0,84.0,T1,"rua do Telhal, Nn, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34047807/,1250.0,67.0,T2,"Igreja de Benfica, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34052010/,1700.0,60.0,T2,"Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34057556/,1650.0,80.0,T2,"rua Josefa de Óbidos, 20, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33809985/,1255.0,50.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33992984/,850.0,44.0,T1,"travessa do Pasteleiro, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34051039/,1650.0,120.0,T2,"avenida da Ilha da Madeira, Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34048270/,900.0,46.0,T1,"rua Ilha Terceira, 20, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32859008/,2150.0,125.0,T2,"calçada do Poço, Nn, Santa Clara, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34002468/,1900.0,71.0,T1,"rua Pedro Dias, 13, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059524/,1300.0,58.0,T2,"rua Cândido de Oliveira, 12, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059524/,1300.0,58.0,T2,"rua Cândido de Oliveira, 12, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34037072/,1200.0,42.0,T1,"travessa dos Fiéis de Deus, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33991614/,3000.0,43.0,T1,"travessa de Santo Aleixo, Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33998216/,1400.0,42.0,T1,"rua Carlos Ribeiro, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999336/,3100.0,100.0,T2,"rua Adelas, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33990740/,2200.0,50.0,T1,"rua Carlos Ribeiro, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012480/,2499.0,62.0,T2,"beco das Farinhas, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999354/,1500.0,40.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999394/,2029.9999999999998,60.0,T2,"travessa de São Miguel, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34040605/,5000.0,63.0,T2,"rua da Lapa, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32737820/,900.0,51.0,T1,"rua Arco do Carvalhão, Prazeres - Maria Pia, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32863388/,1800.0,58.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33760325/,2200.0,75.0,T1,"rua da Cruz de Santa Apolónia, Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999369/,1390.0,65.0,T2,"beco do Salvador, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34049240/,1100.0,43.0,T1,"rua António Luís Inácio, Bairro dos Actores - Barão Sabrosa, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999391/,1710.0,66.0,T1,"rua do Sol a Santa Catarina, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33986248/,2500.0,100.0,T2,"rua Comandante Cousteau, Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34010269/,1900.0,62.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012454/,2499.0,63.0,T2,"beco das Farinhas, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33950408/,1900.0,103.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32849240/,1600.0,60.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/28074437/,2000.0,70.0,T1,"rua da Cruz dos Poiais, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34040596/,2456.0,43.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34040030/,2000.0,44.0,T1,"rua da Assunção, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012447/,2299.0,64.0,T2,"beco das Farinhas, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012448/,2950.0,62.0,T2,"beco do Salvador, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012335/,1249.0,43.0,T1,"beco das Farinhas, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33051692/,1700.0,158.0,T2,"rua Diogo do Couto, Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/28054219/,1590.0,62.0,T2,"rua da Bela Vista à Graça, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32986795/,1800.0,50.0,T1,"rua dos Lagares, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34037072/,1200.0,42.0,T1,"travessa dos Fiéis de Deus, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999336/,3100.0,100.0,T2,"rua Adelas, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012335/,1249.0,43.0,T1,"beco das Farinhas, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33051566/,1900.0,45.0,T2,"avenida 5 de Outubro, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/28074437/,2000.0,70.0,T1,"rua da Cruz dos Poiais, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34040030/,2000.0,44.0,T1,"rua da Assunção, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999391/,1710.0,66.0,T1,"rua do Sol a Santa Catarina, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34039349/,1600.0,62.0,T2,"rua Sousa Viterbo, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012454/,2499.0,63.0,T2,"beco das Farinhas, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33177172/,1500.0,50.0,T1,"rua Arco da Graça, Rossio - Martim Moniz, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999357/,2029.9999999999998,40.0,T2,"rua do Grilo, Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34040544/,2500.0,64.0,T2,"rua Pedro Dias, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999298/,1180.0,50.0,T1,"beco do Salvador, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34050718/,1250.0,72.0,T2,"avenida Gomes Pereira, 57, Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34055613/,1500.0,74.0,T2,"rua do Poço dos Negros, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33991573/,1150.0,43.0,T1,"rua da Atalaia, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999370/,1820.0,60.0,T2,"rua Marques da Silva, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34014085/,2600.0,43.0,T1,"rua dos Fanqueiros, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33964129/,900.0,60.0,T2,"rua dos Remedios à Lapa, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33691475/,1950.0,80.0,T2,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34052749/,1400.0,75.0,T2,"Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34059163/,2200.0,78.0,T1,"rua Capitão Ramires, Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34058675/,1737.0,103.0,T1,"rua do Poço dos Negros, 32, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046044/,1600.0,68.0,T1,"Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046062/,1650.0,90.0,T2,"Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34046049/,1750.0,108.0,T2,"Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/29429172/,1200.0,60.0,T1,"Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34045996/,1350.0,46.0,T1,"Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34045972/,2300.0,153.0,T2,"Expo Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34055717/,2900.0,112.0,T2,"rua Academia das Ciências, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071398/,1650.0,60.0,T2,"rua Damasceno Monteiro, 64, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34023410/,1400.0,151.0,T1,"beco dos Loios, 15, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071365/,1300.0,154.0,T1,"rua da Padaria, 22, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071286/,1800.0,80.0,T2,"rua Barão de Sabrosa, 134, Bairro dos Actores - Barão Sabrosa, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32069482/,1750.0,115.0,T1,"largo da Academia Nacional de Belas Artes, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071755/,1550.0,61.0,T2,"Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32276229/,2580.0,115.0,T2,"rua Arco do Carvalhão, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071308/,1350.0,140.0,T1,"caminho de Palma de Cima, 2, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32580864/,3050.0,127.0,T2,"rua Angelina Vidal, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071345/,1500.0,85.0,T2,"avenida Álvaro Pais, 25, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33133792/,3215.0,95.0,T2,"rua Capitão Ramires, Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33250490/,1800.0,64.0,T2,"Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33271703/,3150.0,133.0,T1,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071193/,1500.0,160.0,T1,"praça das Flores, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32845925/,2100.0,157.0,T1,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33652526/,1090.0,150.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32998485/,1900.0,62.0,T2,"travessa do Chafariz das Terras, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31894606/,1000.0,155.0,T1,"rua Prista Monteiro, 16, Telheiras, Carnide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32994094/,2180.0,83.0,T2,"travessa do Chafariz das Terras, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071134/,2200.0,160.0,T1,"avenida da Liberdade, 49, Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32994181/,2050.0,71.0,T2,"travessa do Chafariz das Terras, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071081/,1300.0,65.0,T2,"rua Angelina Vidal, 42, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32739180/,3300.0,117.0,T2,"rua das Janelas Verdes, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071095/,1350.0,62.0,T2,"rua José Lins do Rego, Nn, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33232851/,1620.0,153.0,T1,"rua Capitão Ramires, Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070915/,1300.0,171.0,T1,"avenida General Roçadas, Nn, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33393467/,2200.0,168.0,T1,"rua Domingos Monteiro, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34071000/,1600.0,115.0,T2,"Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33296947/,2650.0,113.0,T2,"avenida de Roma, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070846/,1000.0,61.0,T2,"rua Dom Fuas Roupinho, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32970927/,2065.0,148.0,T1,"rua Antónia Andrade, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070497/,1550.0,153.0,T1,"Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070503/,1700.0,110.0,T1,"rua Bartolomeu Dias, Torre de Belém, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32225907/,2290.0,149.0,T1,"rua Chaby Pinheiro, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070417/,1500.0,66.0,T2,"rua Alfredo Roque Gameiro, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070463/,1300.0,162.0,T1,"rua de Pedrouços, Pedrouços, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33571075/,2425.0,156.0,T1,"avenida 5 de Outubro, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070307/,1100.0,140.0,T1,"rua Correnteza de Baixo, Nn, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070252/,3150.0,100.0,T2,"rua Alexandre Herculano, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070247/,1325.0,65.0,T2,"rua Martins Barata, Torre de Belém, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33965122/,1200.0,152.0,T1,"travessa do Terreiro a Santa Catarina, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070246/,1100.0,76.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070240/,4500.0,114.0,T2,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32043981/,3200.0,90.0,T2,"avenida Duque de Loulé, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070225/,3500.0,168.0,T2,"Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32834132/,2965.0,86.0,T2,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070166/,1000.0,70.0,T2,"rua Conselheiro Martins de Carvalho, Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070054/,1850.0,80.0,T2,"rua Raúl Mesnier Du Ponsard, 5, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069796/,1350.0,72.0,T2,"rua da Penha de França, 100, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32771534/,1500.0,70.0,T2,"estrada da Luz, Alto dos Moinhos, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32286286/,1300.0,150.0,T1,"rua Latino Coelho, 12, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33897617/,1570.0,143.0,T1,"rua Rodrigues Sampaio, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069186/,1500.0,75.0,T2,"rua Filipe da Mata, 128, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33754001/,2350.0,123.0,T2,"avenida de Paris, Centro, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068938/,2350.0,190.0,T1,"rua Artilharia 1, 10, Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33547485/,1450.0,190.0,T1,"Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068029/,1400.0,152.0,T1,"avenida Luís Bívar, 8, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34070035/,2800.0,138.0,T2,"avenida Pacífico, Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33990075/,1950.0,95.0,T2,"rua Tomás da Fonseca, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069627/,2000.0,65.0,T2,"rua do Norte, 34, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33992107/,1500.0,63.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069554/,2400.0,75.0,T2,"rua do Norte, 34, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33965912/,3500.0,104.0,T2,"rua Miguel Lupi, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33811999/,1250.0,70.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32458120/,1860.0,60.0,T2,"rua Joshua Benoliel, Amoreiras, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069800/,1100.0,150.0,T1,"rua João de Castilho, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31923833/,1880.0,176.0,T1,"rua Cecílio de Sousa, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069720/,1400.0,138.0,T2,"rua Cândido Figueiredo, Estrada de Benfica, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32060245/,1870.0,65.0,T2,"beco do Olival, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069708/,1450.0,169.0,T1,"rua Adriano Correia de Oliveira, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33818957/,2250.0,73.0,T2,"avenida 5 de Outubro, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069618/,1400.0,163.0,T1,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33444018/,1350.0,156.0,T1,"rua da Paz, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069601/,2100.0,185.0,T1,"Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32694692/,2290.0,81.0,T2,"rua das Trinas, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069391/,1500.0,150.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33520911/,2230.0,102.0,T2,"avenida Poeta Mistral, Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069382/,1850.0,70.0,T2,"travessa Paulo Martins, Nn, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32341526/,2340.0,110.0,T2,"avenida Defensores de Chaves, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31900567/,3000.0,125.0,T2,"Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33161190/,2180.0,162.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33244664/,1800.0,91.0,T2,"avenida Cidade Bratislava, Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069178/,1500.0,153.0,T1,"rua da Barroca, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32694691/,1700.0,165.0,T1,"rua Ataíde, Chiado - Pç. de Camões, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069264/,4033.0000000000005,160.0,T1,"rua São José, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32354715/,2150.0,95.0,T2,"rua de Cascais, Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069263/,5600.0,135.0,T2,"rua da Madalena, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069261/,1750.0,165.0,T1,"rua Latino Coelho, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32104863/,3270.0,104.0,T2,"rua Padre António Vieira, Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069247/,3000.0,165.0,T1,"rua Dom Luís I, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33372335/,1580.0,144.0,T1,"rua de Santo António da Glória, Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069245/,2200.0,165.0,T1,"rua de São Paulo, Chiado - Pç. de Camões, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33564784/,1660.0,77.0,T2,"rua Paul Harris, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069242/,2000.0,165.0,T1,"rua Dom Luís I, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069235/,1850.0,165.0,T1,"estrada do Calhariz de Benfica, Fonte Nova - Calhariz, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069232/,7200.0,150.0,T1,"avenida da Liberdade, Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069191/,1450.0,160.0,T1,"Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069219/,1650.0,165.0,T1,"estrada do Calhariz de Benfica, Fonte Nova - Calhariz, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33186989/,2020.0,165.0,T1,"avenida Sacadura Cabral, Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069214/,2280.0,70.0,T2,"rua de Sant'Ana à Lapa, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33803250/,1590.0,155.0,T1,"rua da Palma, Rossio - Martim Moniz, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34069149/,980.0,145.0,T1,"rua José Estêvão, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33965870/,2600.0,178.0,T1,"rua Miguel Lupi, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068934/,1300.0,84.0,T2,"rua Saraiva de Carvalho, Largo do Rato - Estrela, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32872109/,1780.0,100.0,T2,"rua Bartolomeu Dias, 73, Torre de Belém, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068901/,1800.0,87.0,T2,"rua de Moçambique, Nn, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34026278/,1500.0,160.0,T1,"avenida Grão Vasco, Igreja de Benfica, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068364/,1500.0,70.0,T2,"rua do Galvão, Nn, Centro, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34016091/,2200.0,147.0,T2,"rua do Terreiro do Trigo, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33320663/,1200.0,63.0,T2,"rua Dom Tomás de Melo Breyner, 2 R/c Esquerdo, Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/28894111/,1200.0,76.0,T2,"rua Vieira Lusitano, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068333/,1350.0,92.0,T2,"rua João de Freitas Branco, Alto dos Moinhos, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33635049/,2650.0,162.0,T2,"rua Washington, 19, Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068371/,1100.0,60.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33093300/,1100.0,148.0,T1,"beco da Cardosa, 10, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068243/,1750.0,170.0,T1,"Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31439246/,1350.0,60.0,T2,"rua Cidade da Horta, 46, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068323/,1750.0,149.0,T1,"avenida Elias Garcia, 67, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30964832/,1250.0,150.0,T1,"travessa do Oleiro, 4, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33173210/,1400.0,100.0,T1,"rua Dom João de Castro, 54, Alto de Alcântara, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33715053/,1400.0,76.0,T2,"rua Conselheiro Martins de Carvalho, 13, Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068205/,1400.0,80.0,T2,"praça da Alegria, Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33639783/,1400.0,185.0,T1,"Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068213/,1650.0,78.0,T2,"Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34019942/,1100.0,165.0,T1,"travessa de Santo António a Santos, 26, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068063/,1250.0,87.0,T2,"rua Barão de Sabrosa, Bairro dos Actores - Barão Sabrosa, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068069/,2600.0,178.0,T1,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34068028/,1200.0,154.0,T1,"rua Cláudio Nunes, Nn, Arneiros, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067419/,1850.0,109.0,T2,"rua João de Freitas Branco, 29, Alto dos Moinhos, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067972/,1860.0,155.0,T1,"rua João de Oliveira Miguens, 76, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067937/,950.0,160.0,T1,"rua de São Lázaro, 144, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067887/,1000.0,160.0,T1,"rua de São Lázaro, 144, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067528/,2900.0,120.0,T2,"avenida Fontes Pereira de Melo, 35, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067553/,1490.0,90.0,T2,"rua Luís Piçarra, 6, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067529/,1300.0,65.0,T2,"avenida Defensores de Chaves, 42, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067462/,1400.0,165.0,T1,"Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067394/,1250.0,150.0,T1,"rua Gonçalves Crespo, 37 a, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067328/,1500.0,145.0,T1,"beco da Hera, 8, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067237/,1350.0,144.0,T1,"rua Fausto Guedes Teixeira, 2 , Rc esq, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067216/,1600.0,110.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32890520/,1600.0,75.0,T2,"rua Silva Carvalho, 139, Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067133/,1950.0,85.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067112/,2100.0,77.0,T2,"rua Padre Luís Aparício, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067026/,1400.0,75.0,T2,"rua Professor Simões Raposo, Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34066609/,850.0,151.0,T1,"rua Carlos Ribeiro, 28, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34067020/,1300.0,106.0,T2,"estrada de Benfica, Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34000332/,5100.0,180.0,T2,"Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31888723/,1325.0,95.0,T2,"rua do Olival, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33732903/,2950.0,139.0,T2,"alameda do Beato, 41, Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33129195/,1990.0,133.0,T2,"rua Poiais de São Bento, 7, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33855434/,1600.0,160.0,T1,"avenida Almirante Reis, 148, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33561603/,7000.0,182.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31930777/,1280.0,75.0,T2,"travessa do Conde da Ribeira, Junqueira, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33851150/,2300.0,199.0,T1,"Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33918124/,2100.0,97.0,T2,"Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30931632/,3500.0,77.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33962030/,2900.0,150.0,T2,"rua das Musas, Nn, Expo Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32160521/,2190.0,149.0,T1,"rua Chaby Pinheiro, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32593871/,1250.0,160.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32016877/,850.0,140.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32407604/,2985.0,94.0,T2,"rua Vítor Bastos, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33581385/,1600.0,64.0,T2,"rua de São Lázaro, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33930604/,2500.0,145.0,T2,"avenida Visconde de Valmor, 36, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33259997/,3000.0,108.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33940798/,1400.0,159.0,T1,"avenida Conselheiro Fernando de Sousa, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34038271/,3000.0,157.0,T2,"rua Sousa Pinto, 7, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33837071/,1700.0,64.0,T2,"rua de São Domingos, Nn, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33826197/,4500.0,140.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33175533/,1400.0,170.0,T1,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34021281/,1350.0,54.0,T2,"rua Florbela Espanca, 10, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33994971/,1500.0,177.0,T1,"largo de São Sebastião da Pedreira, 9, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34035419/,1400.0,169.0,T1,"avenida Conselheiro Fernando de Sousa, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33665191/,1000.0,169.0,T1,"São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33961540/,1600.0,155.0,T2,"rua Daciano Costa, Quinta dos Alcoutins, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34047550/,3250.0,196.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33879872/,1800.0,68.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33917689/,1600.0,71.0,T2,"rua das Beatas, Nn, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33907788/,1350.0,57.0,T2,"travessa dos Pescadores, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33918271/,1150.0,145.0,T1,"rua Barracas, 62, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33312115/,1800.0,58.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/34023834/,1500.0,165.0,T1,"rua Mário Cesariny, 6, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33907208/,2700.0,111.0,T2,"Largo do Rato - Estrela, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925227/,1800.0,117.0,T2,"rua Belo Marques, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33918453/,3200.0,134.0,T2,"Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33694670/,2900.0,89.0,T2,"avenida da Liberdade, Nn, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33985481/,1280.0,140.0,T1,"travessa Paulo Martins, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33969966/,2100.0,172.0,T1,"largo do Intendente Pina Manique, Nn, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34036274/,1900.0,180.0,T1,"rua Padre Manuel Antunes, Nn, Quinta dos Alcoutins, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34041750/,3200.0,98.0,T2,"rua Seara Nova, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34008368/,1450.0,176.0,T1,"rua Dom Carlos de Mascarenhas, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33474511/,1400.0,45.0,T2,"rua do Cardal de São José, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33923887/,1050.0,151.0,T1,"rua Tenente Ferreira Durão, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33955572/,1600.0,71.0,T2,"rua das Beatas, 9, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33896104/,2000.0,89.0,T2,"praça Afonso do Paço, Nn, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33908482/,3000.0,110.0,T2,"travessa de São Plácido, 21, Largo do Rato - Estrela, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33909102/,1900.0,100.0,T2,"rua Luciano Cordeiro, 67, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33873212/,1950.0,98.0,T2,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33854217/,3400.0,96.0,T2,"avenida Duque de Loulé, 86, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32469605/,2400.0,108.0,T2,"Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33951762/,1995.0,92.0,T2,"rua Gregório Lopes, Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33550478/,3700.0,108.0,T1,"rua do Barão, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33840533/,1400.0,150.0,T1,"avenida Gomes Pereira, Nn, Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34037695/,2500.0,100.0,T2,"rua Rodrigues Cabrilho, Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33867101/,1300.0,152.0,T1,"rua de São Bento, 363, Largo do Rato - Estrela, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34038133/,1390.0,122.0,T2,"rua Tomás da Anunciação, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33927346/,2500.0,166.0,T1,"rua Filipe Folque, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33577353/,5200.0,200.0,T2,"rua Tenente Valadim, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33798992/,3500.0,120.0,T2,"Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34038664/,1250.0,59.0,T2,"rua da Beneficência, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34027719/,1950.0,194.0,T1,"rua Basílio Teles, 35, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34013196/,1600.0,162.0,T1,"avenida Dom João II, 53 a, Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33915494/,1350.0,54.0,T2,"rua António Maria Baptista, Nn, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33981627/,1150.0,68.0,T2,"rua Dom António Caetano de Sousa, 7, Arneiros, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33912306/,1400.0,170.0,T1,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32647150/,2850.0,113.0,T2,"avenida de Roma, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33441118/,2605.0,168.0,T1,"rua Padre Luís Aparício, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32284638/,3000.0,90.0,T2,"rua da Bela Vista à Graça, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33896870/,1600.0,82.0,T2,"rua Professor Prado Coelho, Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33469385/,2895.0,107.0,T2,"avenida João XXI, Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32615422/,4220.0,119.0,T2,"rua de João Penha, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31788142/,2895.0,175.0,T1,"rua de São Filipe Néri, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33990883/,1500.0,55.0,T2,"rua Jau, 14, Alto de Santo Amaro, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33551653/,2700.0,103.0,T2,"rua Capitão Afonso Pala, 55, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33766021/,1800.0,71.0,T2,"Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33956862/,3800.0,114.0,T2,"rua Barata Salgueiro, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33841842/,1750.0,130.0,T2,"avenida João XXI, Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33971413/,1150.0,129.0,T1,"rua Martins Barata, Torre de Belém, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33932842/,1700.0,89.0,T2,"estrada da Luz, 220, Telheiras, Carnide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33995697/,5000.0,150.0,T2,"rua do Salitre, 100, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34036095/,2400.0,112.0,T2,"avenida Fontes Pereira de Melo, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/29623475/,2500.0,173.0,T1,"avenida da Liberdade, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33837517/,4800.0,168.0,T2,"rua do Paraíso, 1, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33887424/,1190.0,140.0,T1,"rua Paz à Ajuda, 8, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34020067/,1500.0,53.0,T2,"rua de São Miguel, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33828656/,2900.0,134.0,T2,"rua Capitão Afonso Pala, 55, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33829643/,1510.0,165.0,T1,"rua Almirante Barroso, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33961822/,2550.0,153.0,T2,"alameda dos Oceanos, Expo Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33868680/,2500.0,167.0,T2,"rua da Misericórdia, 4, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33772183/,1350.0,169.0,T1,"rua Cidade da Horta, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33949430/,1960.0,108.0,T2,"rua Tomás da Anunciação, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33994147/,1950.0,184.0,T1,"rua Gonçalves Crespo, Nn, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33912429/,2900.0,136.0,T2,"avenida Ressano Garcia, 22, Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33856845/,1450.0,160.0,T1,"Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34003923/,2300.0,124.0,T2,"rua de Cascais, Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34025168/,900.0,150.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32507260/,1500.0,102.0,T2,"rua da Escola Politécnica, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33668786/,1600.0,170.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33927650/,1850.0,81.0,T2,"beco Carrasco, 5, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33738758/,1400.0,90.0,T2,"praça Professor Santos Andrea, Fonte Nova - Calhariz, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34020443/,2100.0,180.0,T1,"rua do Pau de Bandeira, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33578931/,1400.0,72.0,T2,"rua Heróis de Quionga, 19, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33896324/,2000.0,87.0,T2,"rua Saraiva de Carvalho, 356, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33975776/,3200.0,115.0,T2,"rua Rodrigo da Fonseca, 40, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33827652/,1900.0,105.0,T2,"rua General Firmino Miguel, 14, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33713042/,1500.0,98.0,T2,"praça Doutor Ernesto Roma, 7, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33620516/,2100.0,143.0,T2,"rua do Ganges, 4, Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33989672/,1600.0,162.0,T1,"Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34009155/,1650.0,86.0,T2,"rua da Praia de Pedrouços, Pedrouços, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34042204/,1800.0,100.0,T2,"Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33862594/,2600.0,175.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33786655/,1400.0,150.0,T1,"beco da Lapa, 140, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33992831/,1800.0,105.0,T2,"Centro Histórico - Quinta da Luz, Carnide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33980185/,1100.0,140.0,T1,"travessa Santo António à Graça, 21, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33923278/,1550.0,157.0,T1,"rua da Bela Vista à Graça, Nn, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33923272/,2300.0,108.0,T2,"rua da Bela Vista à Graça, Nn, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34028005/,3000.0,155.0,T2,"rua Sousa Pinto, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34000012/,1500.0,78.0,T2,"Bairro dos Actores - Barão Sabrosa, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33973694/,1650.0,167.0,T1,"Telheiras, Carnide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33966870/,1900.0,156.0,T1,"Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33992477/,1700.0,167.0,T1,"Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34041422/,3500.0,114.0,T2,"Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33993828/,1350.0,158.0,T1,"rua Estácio da Veiga, 3, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012462/,3000.0,95.0,T2,"avenida Marquês de Tomar, Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33828697/,1700.0,60.0,T2,"rua Augusta, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33700161/,1900.0,106.0,T2,"rua Cidade de Bissau, 57, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33894230/,1450.0,175.0,T1,"Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31917565/,3260.0,95.0,T2,"rua Almeida Brandão, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31646713/,4345.0,123.0,T2,"rua Andaluz, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34020123/,4500.0,129.0,T2,"avenida da Liberdade, Nn, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32160155/,2290.0,149.0,T1,"rua Chaby Pinheiro, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33687726/,1650.0,168.0,T1,"rua Cidade de Bissau, Nn, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32433670/,2880.0,78.0,T2,"rua Almeida e Sousa, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33971232/,900.0,149.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33715861/,2355.0,167.0,T1,"avenida Ressano Garcia, Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32406594/,4320.0,120.0,T2,"avenida Infante Santo, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31850933/,2760.0,54.0,T2,"rua São José, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33161299/,3095.0,115.0,T2,"rua Capitão Ramires, Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32076981/,3295.0,70.0,T2,"rua da Palmeira, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33632905/,2250.0,122.0,T2,"praça da Armada, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33484740/,2225.0,170.0,T1,"avenida Duque de Loulé, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33080974/,3645.0,84.0,T2,"rua Sousa Martins, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32833522/,3230.0,86.0,T2,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33922530/,3500.0,183.0,T1,"avenida 24 de Julho, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32898739/,3045.0,180.0,T1,"rua Sousa Martins, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32395938/,3060.0,170.0,T1,"largo das Palmeiras, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33151861/,3550.0,106.0,T2,"rua Bernardo Lima, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34002015/,2000.0,119.0,T2,"passeio do Báltico, Expo Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33001036/,3390.0,175.0,T1,"rua Canto da Maya, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32924167/,3285.0,85.0,T2,"travessa da Praia, Junqueira, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33452703/,2770.0,113.0,T2,"avenida de Roma, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33271791/,2445.0,143.0,T1,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33133791/,3740.0,84.0,T2,"rua Sousa Martins, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31688827/,2945.0,79.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33228300/,4014.9999999999995,73.0,T2,"avenida Luís Bívar, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33589238/,2790.0,94.0,T2,"rua Visconde de Santarém, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32843588/,2315.0,165.0,T1,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33945057/,1200.0,80.0,T2,"largo Paz, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31998832/,2750.0,91.0,T2,"travessa Alcaide, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31562685/,3195.0,115.0,T2,"rua Viriato, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33799075/,2750.0,101.0,T2,"rua Professor Sousa da Câmara, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32082931/,2800.0,86.0,T2,"rua São João Nepomuceno, Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32826717/,3390.0,122.0,T2,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33311581/,2760.0,164.0,T1,"avenida de Berlim, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32736680/,3230.0,156.0,T1,"avenida Luís Bívar, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33117079/,4270.0,125.0,T2,"avenida 5 de Outubro, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33096648/,3340.0,87.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32760703/,2830.0,76.0,T2,"avenida Luís Bívar, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33266102/,2495.0,148.0,T1,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32643895/,3435.0,95.0,T2,"rua de Cascais, Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31813440/,3020.0,91.0,T2,"rua Áurea, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33271740/,4545.0,96.0,T2,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33493938/,3200.0,74.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32033832/,2660.0,88.0,T2,"rua de São João da Mata, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32681701/,3105.0,80.0,T2,"avenida Defensores de Chaves, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31714298/,2960.0,80.0,T2,"rua Sousa Martins, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31800213/,3250.0,109.0,T2,"rua de São Filipe Néri, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31714331/,3420.0,94.0,T2,"rua Joaquim António de Aguiar, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31588067/,4665.0,138.0,T1,"praça do Príncipe Real, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33091932/,3040.0,188.0,T1,"avenida 5 de Outubro, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33490171/,2715.0,124.0,T1,"rua Ferreira Lapa, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32864282/,3140.0,118.0,T2,"rua da Misericórdia, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31711742/,3100.0,81.0,T2,"rua de Dona Estefânia, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32736631/,3060.0,156.0,T1,"avenida Luís Bívar, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32839180/,3500.0,86.0,T2,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33220289/,2325.0,161.0,T1,"avenida de Berlim, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32788249/,2605.0,159.0,T1,"rua do Patrocínio, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32174345/,4735.0,310.0,T2,"rua do Desterro, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33949460/,2400.0,60.0,T2,"rua do Forno do Tijolo, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33035001/,3585.0,103.0,T2,"rua de São Bento, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33800505/,2750.0,101.0,T2,"rua Professor Sousa da Câmara, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33269311/,2740.0,80.0,T2,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33269038/,2945.0,171.0,T1,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31917163/,3585.0,115.0,T2,"rua Almeida Brandão, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32848640/,2535.0,157.0,T1,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33824378/,1250.0,61.0,T2,"estrada de Benfica, Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32209984/,2430.0,155.0,T1,"rua do Desterro, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31860866/,2505.0,74.0,T2,"rua da Lapa, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32839328/,2150.0,164.0,T1,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/29673834/,1150.0,151.0,T1,"rua Andrade Corvo, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33656389/,3500.0,87.0,T2,"rua Professor Sousa da Câmara, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33755325/,7000.0,148.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31837507/,3095.0,66.0,T2,"rua Rodrigues Sampaio, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33397232/,3485.0,88.0,T2,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31730749/,2730.0,164.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33073058/,3545.0,108.0,T2,"largo do Rato, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31651254/,2895.0,79.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/31496359/,2820.0,175.0,T1,"avenida Duque de Loulé, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33217988/,3515.0,98.0,T2,"avenida Sacadura Cabral, Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33309864/,3705.0,88.0,T2,"avenida Luís Bívar, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32831872/,3995.0,142.0,T2,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33965616/,1200.0,152.0,T1,"rua Andrade Corvo, Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33965001/,925.0,142.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33390856/,2355.0,151.0,T1,"praça Francisco Sá Carneiro, Centro, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31774937/,2360.0,156.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32834143/,2650.0,86.0,T2,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33589159/,2430.0,160.0,T1,"travessa do Noronha, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33688252/,1750.0,124.0,T2,"rua Joly Braga Santos, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32299580/,2945.0,111.0,T2,"travessa de São Plácido, Largo do Rato - Estrela, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33271646/,3895.0,83.0,T2,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999383/,1700.0,99.0,T2,"Centro Histórico - Quinta da Luz, Carnide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32502475/,4045.0,110.0,T2,"largo das Palmeiras, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32637427/,2995.0,113.0,T2,"avenida de Roma, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32846002/,2060.0,157.0,T1,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31718568/,2645.0,113.0,T2,"rua Frei Francisco Foreiro, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31883567/,3095.0,90.0,T2,"rua de Santa Catarina, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32155992/,3080.0,117.0,T2,"avenida 24 de Julho, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33006359/,3245.0,96.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32156046/,3595.0,117.0,T2,"avenida 24 de Julho, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33201937/,3505.0,93.0,T2,"rua Professor Sousa da Câmara, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31633200/,3095.0,71.0,T2,"rua Rodrigues Sampaio, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32855956/,1800.0,59.0,T2,"rua Antónia Andrade, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33508370/,2560.0,165.0,T1,"rua Vítor Cordon, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31522455/,3665.0,100.0,T2,"rua Joaquim António de Aguiar, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33147172/,3535.0,83.0,T2,"rua Luís Derouet, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33096631/,3010.0,178.0,T1,"travessa do Possolo, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32506101/,4155.0,81.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33873813/,1750.0,75.0,T2,"rua Dom Domingos Jardo, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32841574/,2310.0,163.0,T1,"travessa Henrique Cardoso, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32160193/,2460.0,88.0,T2,"rua Ilha Terceira, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33501814/,2600.0,70.0,T2,"travessa do Chafariz das Terras, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32632713/,2755.0,105.0,T2,"avenida de Roma, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33001015/,3190.0,175.0,T1,"rua Canto da Maya, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33265179/,2305.0,148.0,T1,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33937458/,3000.0,193.0,T1,"Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31942359/,2465.0,75.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33056750/,1970.0,149.0,T1,"rua Viriato, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33355262/,2820.0,99.0,T2,"rua Almeida e Sousa, Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33075960/,2190.0,160.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/31917707/,2680.0,95.0,T2,"rua Almeida Brandão, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31504760/,3480.0,137.0,T2,"rua da Fé, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34015479/,1500.0,84.0,T2,"rua Barão de Sabrosa, Bairro dos Actores, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34025073/,1850.0,70.0,T2,"travessa Paulo Martins, 47, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925010/,2300.0,110.0,T2,"Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33268138/,2295.0,148.0,T1,"rua Bernardo Lima, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33850320/,3400.0,94.0,T2,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33930320/,3000.0,121.0,T1,"Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33869743/,2500.0,125.0,T2,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31781410/,1150.0,75.0,T2,"rua Leite Vasconcelos, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33798261/,2800.0,110.0,T2,"Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33922793/,2900.0,144.0,T2,"rua da Assunção, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33755402/,2000.0,165.0,T1,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33681777/,1600.0,146.0,T1,"rua do Poço dos Negros, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33504009/,2000.0,163.0,T1,"São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33850819/,2950.0,143.0,T2,"Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32578288/,1150.0,50.0,T2,"largo Dona Estefânia, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33958995/,3000.0,104.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33906369/,3300.0,120.0,T2,"Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33909254/,1850.0,109.0,T2,"rua Basílio Teles, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33890215/,1350.0,149.0,T1,"Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33907993/,1450.0,130.0,T2,"Estrada de Benfica, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33490494/,2900.0,127.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32869522/,1950.0,100.0,T2,"travessa João de Deus, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33961825/,3000.0,130.0,T2,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33872202/,1200.0,161.0,T1,"Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33669690/,2200.0,84.0,T2,"Centro Histórico - Quinta da Luz, Carnide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33481982/,2900.0,127.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34016597/,1850.0,142.0,T2,"Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33858019/,2550.0,110.0,T2,"Casal Vistoso, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33850934/,1500.0,151.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33908602/,1680.0,159.0,T1,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34033004/,2000.0,163.0,T1,"Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34006025/,2300.0,100.0,T2,"São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33966339/,2500.0,145.0,T2,"avenida Visconde de Valmor, 36, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34023265/,3100.0,114.0,T2,"Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31934755/,2250.0,176.0,T1,"Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33767125/,3000.0,152.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33850971/,2600.0,152.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33850310/,2200.0,152.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33973153/,2500.0,140.0,T2,"avenida Visconde de Valmor, 36, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33864356/,1400.0,185.0,T1,"rua Paul Harris, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33850284/,2300.0,152.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33967484/,1250.0,160.0,T1,"Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33985483/,1700.0,170.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33850282/,2400.0,152.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33339078/,7000.0,151.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33482266/,2700.0,111.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34017746/,1750.0,175.0,T1,"Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33850157/,2800.0,185.0,T1,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33513874/,2700.0,103.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33969229/,1600.0,172.0,T1,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34030571/,2200.0,91.0,T2,"rua Professor Manuel Cavaleiro de Ferreira, Nn, Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34031147/,3100.0,104.0,T2,"rua da Esperança, 63, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32315434/,1450.0,155.0,T1,"rua doutor Amaral, 16, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33898580/,1600.0,135.0,T2,"rua Jorge Castilho, Casal Vistoso, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33922048/,3000.0,108.0,T2,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33934226/,4000.0,180.0,T1,"rua Canto da Maya, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33954757/,7000.0,178.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33850821/,2300.0,171.0,T1,"São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33698821/,1300.0,144.0,T1,"Igreja de Benfica, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33924452/,1750.0,112.0,T1,"rua Bartolomeu de Gusmão, 3, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33983276/,1500.0,160.0,T1,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33930194/,1200.0,140.0,T1,"rua Alexandre de Sá Pinto, 175, Centro, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33866440/,2100.0,97.0,T2,"Centro, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33969192/,2400.0,120.0,T2,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33485707/,2900.0,109.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34014565/,1150.0,170.0,T1,"rua Vicente Dias, Nn, Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34041871/,1900.0,132.0,T2,"Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34026491/,1150.0,174.0,T1,"rua Agostinho Neto, Nn, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33949353/,7000.0,182.0,T2,"avenida da Liberdade, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34064559/,4200.0,160.0,T1,"rua Gonçalves Crespo, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33992055/,1300.0,70.0,T2,"rua Maria Pia, Prazeres - Maria Pia, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33856882/,1850.0,150.0,T1,"Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33886874/,1600.0,120.0,T2,"rua C da Quinta dos Alcoutins, Quinta dos Alcoutins, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33811235/,1350.0,158.0,T1,"Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34019191/,1650.0,181.0,T1,"avenida Luís Bívar, Nn, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33983274/,1400.0,160.0,T1,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33819274/,2500.0,127.0,T2,"rua das Farinhas, 43, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33924478/,1600.0,160.0,T1,"rua Bartolomeu de Gusmão, 3, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33983292/,1500.0,156.0,T1,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33504441/,1450.0,170.0,T1,"rua do Borja, Prazeres, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32949729/,4000.0,174.0,T1,"rua Castilho, 72, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33083569/,4000.0,120.0,T2,"rua Basílio Teles, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33919126/,1050.0,147.0,T1,"rua Paio Peres Correia, 31 a, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33662687/,2500.0,89.0,T2,"Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33748472/,3500.0,110.0,T2,"avenida da Liberdade, 236, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33919087/,1250.0,60.0,T2,"rua Paio Peres Correia, 31, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33755204/,2100.0,155.0,T1,"Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33755224/,2000.0,55.0,T2,"Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33508292/,1250.0,50.0,T2,"rua Brotero, 43, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/28619169/,6000.0,154.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33755225/,2000.0,55.0,T2,"Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33755226/,2300.0,168.0,T1,"Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33992519/,1200.0,170.0,T1,"alameda da Música, 30, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34053221/,4500.0,150.0,T1,"rua Nogueira e Sousa, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31085060/,2700.0,113.0,T2,"Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33204200/,2500.0,180.0,T1,"Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33610849/,1400.0,146.0,T1,"rua da Páscoa, 39, Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999680/,2500.0,89.0,T2,"Chiado - Pç. de Camões, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32536015/,2500.0,173.0,T1,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33800184/,2300.0,75.0,T2,"Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31259341/,3000.0,172.0,T1,"Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33972374/,1500.0,75.0,T2,"rua da Voz do Operário, 42, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33610821/,1750.0,68.0,T2,"rua da Páscoa, 39, Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33469049/,2900.0,126.0,T2,"Prazeres, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33814439/,1500.0,83.0,T2,"Santa Clara, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33967903/,3000.0,101.0,T1,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33564301/,1800.0,68.0,T2,"Carriche - Hospital das Forças Armadas, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33457418/,6200.0,185.0,T2,"Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33866479/,3000.0,118.0,T2,"Expo Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33855420/,2500.0,180.0,T1,"Saldanha - Picoas, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33485775/,2000.0,161.0,T1,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/29450099/,2800.0,176.0,T1,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33468911/,2700.0,111.0,T2,"Alto de Santo Amaro, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33908399/,3000.0,194.0,T2,"Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33930478/,2200.0,100.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33778320/,2750.0,80.0,T2,"rua João de Castilho, 31300321, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33849408/,2100.0,184.0,T1,"Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/29450102/,3800.0,102.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33651806/,2000.0,155.0,T1,"São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31782696/,1800.0,180.0,T1,"Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33887718/,3200.0,81.0,T2,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34007014/,4250.0,126.0,T2,"Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33774677/,1800.0,72.0,T2,"Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33873943/,1950.0,164.0,T1,"São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31958216/,3900.0,185.0,T1,"Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33604600/,1600.0,163.0,T1,"Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34009117/,1800.0,117.0,T2,"rua Luís Braille, Nn, Torre de Belém, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34036910/,1900.0,170.0,T1,"avenida da Liberdade, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33595712/,1600.0,161.0,T1,"rua Maria Pia, Prazeres - Maria Pia, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32367810/,1300.0,160.0,T1,"rua Manuel Marques, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33969241/,1700.0,172.0,T1,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33976830/,1500.0,130.0,T2,"rua Teixeira de Pascoais, 10, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33874880/,2300.0,142.0,T1,"rua Pereira Henriques, 6, Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33915516/,1250.0,168.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33778170/,1850.0,100.0,T2,"rua Capitão-Mor Pedro Teixeira, 9, Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34006199/,1400.0,93.0,T2,"avenida Almirante Reis, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32354671/,1520.0,175.0,T1,"rua da Bica de Duarte Belo, 66, Bica, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33969233/,1650.0,172.0,T1,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33225314/,1750.0,93.0,T2,"Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33474435/,2500.0,70.0,T2,"rua da Atalaia, Nn, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33969248/,2450.0,120.0,T2,"rua de Campolide, 368, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33948595/,2200.0,113.0,T2,"avenida Miguel Torga, Nn, Nova Campolide, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33971364/,1400.0,191.0,T1,"rua Helena Vaz da Silva, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33934784/,2300.0,128.0,T2,"Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34030346/,1800.0,65.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32880914/,4000.0,144.0,T2,"avenida Gomes Pereira, Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33810579/,2050.0,109.0,T2,"rua Basílio Teles, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33569001/,1600.0,98.0,T2,"Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33750568/,1900.0,156.0,T1,"rua General Taborda, 25, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34032518/,1500.0,70.0,T2,"rua Lopes, 65, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33905924/,2600.0,103.0,T2,"rua de Santa Justa, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33945345/,2100.0,178.0,T1,"rua Vítor Cordon, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33447651/,2900.0,170.0,T1,"rua Canto da Maya, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33967823/,1200.0,142.0,T1,"rua da Bela Vista à Graça, 31, Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34032650/,1750.0,113.0,T2,"rua Nova dos Mercadores, Expo Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33593443/,2500.0,174.0,T1,"Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30284475/,5500.0,98.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33510393/,2000.0,180.0,T1,"avenida Duque de Ávila, São Sebastião da Pedreira, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33933273/,1350.0,54.0,T2,"rua Augusto Gil, 31, Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30284397/,3500.0,180.0,T1,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/32062561/,2000.0,88.0,T2,"travessa das Almas, 26, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33992791/,2300.0,120.0,T2,"avenida David Mourão-Ferreira, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33861289/,3700.0,144.0,T2,"avenida Gomes Pereira, 13, Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31520459/,4150.0,122.0,T2,"rua do Salitre, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33991071/,1200.0,140.0,T1,"rua Correnteza de Baixo, 9, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33978926/,2150.0,128.0,T2,"Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34034309/,1700.0,77.0,T2,"rua Abade Faria, 47, Bairro dos Actores, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33995771/,1980.0,128.0,T2,"rua Gregório Lopes, 1524, Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33460349/,2700.0,119.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33923339/,1800.0,169.0,T1,"Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33615513/,3750.0,143.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33861702/,1800.0,115.0,T2,"rua Jorge Castilho, Casal Vistoso, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33986232/,1300.0,69.0,T2,"rua Doutor João Couto, 6, Fonte Nova - Calhariz, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33795378/,1550.0,157.0,T1,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33906037/,3000.0,109.0,T2,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33712161/,3750.0,98.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33559872/,2865.0,163.0,T1,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33923295/,1700.0,183.0,T1,"Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33939129/,2400.0,155.0,T2,"Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33797731/,1400.0,81.0,T2,"praça Doutor Ernesto Roma, 7, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33848883/,2100.0,156.0,T2,"estrada da Cruz, Restelo, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33961648/,1400.0,66.0,T2,"Av. de Roma - Campo Pequeno, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34008522/,2500.0,125.0,T2,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33893069/,1800.0,108.0,T1,"rua do Beato, Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33114378/,5700.0,227.0,T2,"Arco do Cego, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33923677/,1450.0,75.0,T2,"rua Cidade de Rabat, 30, Estrada de Benfica, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34026463/,2500.0,157.0,T2,"rua Sampaio e Pina, Nn, Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33656481/,2500.0,107.0,T2,"largo de Andaluz, 17, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33561923/,1950.0,105.0,T2,"Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33940496/,3500.0,183.0,T1,"Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33976909/,2200.0,118.0,T2,"rua Natércia Freire, Alto dos Moinhos, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33912501/,1700.0,143.0,T1,"avenida Dom Carlos I, 42 a, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33675676/,1225.0,157.0,T1,"rua Gilberto Rola, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34008595/,1600.0,110.0,T2,"rua Joaquim Agostinho, Nn, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33945154/,1500.0,130.0,T2,"Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33940527/,1400.0,90.0,T2,"rua Bernardo Lima, 45, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33725775/,1650.0,171.0,T1,"rua de Campolide, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33978880/,1500.0,82.0,T2,"rua Professor Santos Lucas, 32, Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33926406/,2550.0,121.0,T2,"avenida Conde de Valbom, 82, Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33722924/,1700.0,172.0,T1,"rua de Campolide, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34041332/,1400.0,72.0,T2,"largo São Martinho, Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34014247/,2800.0,185.0,T1,"rua Rodrigues Sampaio, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33725310/,1450.0,156.0,T1,"rua de Campolide, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34004994/,3800.0,109.0,T2,"rua Rodrigues Sampaio, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34027844/,900.0,86.0,T2,"rua Direita de Palma, Nn, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33884329/,2950.0,168.0,T1,"Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33971539/,2300.0,107.0,T2,"rua Daciano Costa, 2, Quinta dos Alcoutins, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33722607/,1400.0,160.0,T1,"rua de Campolide, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33905163/,2300.0,199.0,T1,"rua Vítor Cordon, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33975788/,1700.0,69.0,T2,"Igreja de Benfica, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33725672/,1500.0,159.0,T1,"rua de Campolide, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33705217/,1950.0,120.0,T2,"rua Pascoal de Melo, 113, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33485863/,1300.0,65.0,T2,"rua David Lopes, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33502424/,1400.0,185.0,T1,"rua da Amendoeira, 9, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33557761/,2250.0,140.0,T1,"rua do Salitre, 29, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33550776/,3000.0,116.0,T2,"avenida da Liberdade, 236, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33938435/,1350.0,168.0,T1,"rua da Imprensa Nacional, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33951457/,2350.0,80.0,T2,"Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33389372/,2200.0,146.0,T1,"largo Rafael Bordalo Pinheiro, 13, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33912425/,1800.0,140.0,T2,"avenida Mediterrâneo, 3, Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33988549/,1600.0,70.0,T2,"rua das Praças, Nn, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33894343/,1700.0,168.0,T1,"rua Domingos Monteiro, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34004069/,1600.0,63.0,T2,"rua da Fé, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33857689/,1750.0,91.0,T2,"rua António Lopes Ribeiro, 1, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34020738/,1600.0,155.0,T1,"travessa da Arrochela, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33782028/,1850.0,107.0,T2,"rua Joaquim Rocha Cabral, 5, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33608334/,1490.0,185.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925151/,4500.0,114.0,T2,"rua Miguel Lupi, 30, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33912405/,1500.0,170.0,T1,"rua Mário Castelhano, 14, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925222/,3500.0,104.0,T2,"rua Miguel Lupi, 30, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33235488/,1800.0,118.0,T2,"rua Carlos de Oliveira, 3, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33490495/,2900.0,130.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33954834/,1300.0,173.0,T1,"alameda da Música, 21, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34040270/,1350.0,148.0,T1,"Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33919133/,1800.0,140.0,T2,"avenida Mediterrâneo, 3, Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33842296/,1800.0,88.0,T2,"travessa de Santa Quitéria, 30, Largo do Rato - Estrela, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33822715/,1350.0,169.0,T1,"rua do Poço dos Negros, 30, Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33535565/,3000.0,70.0,T2,"rua João de Castilho, 3, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33981572/,7900.0,300.0,T2,"avenida Padre Manuel da Nóbrega, 6, Centro, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33747132/,1500.0,92.0,T2,"rua de Alcântara, 2, Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925223/,3800.0,114.0,T2,"rua Miguel Lupi, 30, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33838693/,1200.0,150.0,T1,"rua do Conde de Redondo, 44, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925135/,4200.0,114.0,T2,"rua Miguel Lupi, 30, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34035545/,1550.0,82.0,T2,"Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999953/,1400.0,155.0,T1,"Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33851131/,1200.0,170.0,T1,"Centro, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999052/,1500.0,70.0,T2,"Alto de Santo Amaro, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34038073/,2780.0,119.0,T2,"Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34021402/,1200.0,167.0,T1,"rua das Trinas, Nn, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33965192/,1900.0,175.0,T1,"Quinta dos Alcoutins, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33927136/,1300.0,100.0,T1,"Santa Catarina, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31458770/,1550.0,78.0,T2,"rua do Ebro, Expo Norte, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33915286/,1200.0,173.0,T1,"rua da Bela Vista à Graça, 53, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33978370/,1990.0,105.0,T2,"avenida Infante Santo, 50, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33939228/,1400.0,81.0,T2,"travessa Mercês, Nn, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33842670/,900.0,61.0,T2,"rua Direita de Palma, Nn, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34021080/,2390.0,108.0,T2,"Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33973762/,1300.0,175.0,T1,"travessa Moinhos, Alto de Alcântara, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33935313/,1500.0,97.0,T2,"rua Professor Reinaldo dos Santos, 30 C, Alto dos Moinhos, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33869209/,1400.0,65.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33970340/,2600.0,125.0,T2,"rua de São Domingos, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34051312/,1000.0,153.0,T1,"rua do Benformoso, 165, Rossio - Martim Moniz, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33723092/,1900.0,55.0,T2,"travessa do Rosário, 22, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33833000/,4500.0,99.0,T2,"rua das Janelas Verdes, 38 - 1º b, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33804651/,1450.0,91.0,T2,"Alfama, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33893239/,1650.0,68.0,T2,"praça São Paulo, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33620087/,2500.0,110.0,T2,"rua Luciano Cordeiro, Nn, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33872353/,1320.0,80.0,T2,"rua Afonso Lopes Vieira, Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33809987/,2200.0,91.0,T2,"rua Luciano Cordeiro, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33832992/,5000.0,188.0,T2,"rua das Janelas Verdes, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34020473/,1420.0,77.0,T2,"Estrada de Benfica, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33956433/,2000.0,152.0,T1,"rua dos Remedios à Lapa, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34010376/,2550.0,121.0,T2,"Campo Grande, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33610817/,1400.0,143.0,T1,"rua da Páscoa, 39, Santa Isabel, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33989565/,1400.0,170.0,T1,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33804025/,2450.0,193.0,T1,"avenida Duque de Loulé, 90, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33999122/,2250.0,71.0,T2,"largo de Santa Cruz do Castelo, Mouraria - Castelo, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33956262/,1600.0,171.0,T1,"rua Conde Sabugosa, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33966497/,1200.0,80.0,T2,"estrada de Benfica, 696, Portas de Benfica - Mercado de Benfica, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925241/,2600.0,178.0,T1,"rua Miguel Lupi, 30, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33843851/,1600.0,70.0,T2,"rua do Benformoso, Rossio - Martim Moniz, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33766043/,1900.0,94.0,T2,"Expo Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925251/,2300.0,178.0,T1,"rua Miguel Lupi, 30, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33851383/,1800.0,174.0,T1,"Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925214/,2500.0,178.0,T1,"rua Miguel Lupi, 30, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33477392/,2850.0,174.0,T1,"Torre de Belém, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32508006/,1800.0,161.0,T1,"rua Franklin 4, Lisboa, Lisboa, 1170-393, Santa Engrácia, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33996669/,1600.0,80.0,T2,"rua Quintinha, Nn, Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925252/,2400.0,178.0,T1,"rua Miguel Lupi, 30, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32290915/,2500.0,92.0,T2,"Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33989083/,1200.0,66.0,T2,"Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30975576/,5500.0,170.0,T2,"Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33951035/,1400.0,160.0,T1,"Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33231987/,3400.0,121.0,T2,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33625278/,1500.0,146.0,T1,"rua Ferreira Lapa, 46, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33929209/,1700.0,80.0,T2,"largo da Graça, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34004969/,1800.0,172.0,T1,"Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33822628/,3900.0,122.0,T2,"Alto de Alcântara, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33852217/,1700.0,73.0,T2,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34004859/,1450.0,72.0,T2,"rua b Ao Bairro da Liberdade, 85, Bairro da Serafina, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33830915/,2700.0,137.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012940/,1600.0,168.0,T1,"travessa Conceição da Glória, Nn, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33808791/,1200.0,159.0,T1,"Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33825241/,2900.0,144.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33964071/,1600.0,140.0,T1,"Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33878371/,2600.0,165.0,T2,"Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33838311/,2400.0,140.0,T1,"Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33976812/,2700.0,124.0,T2,"Gulbenkian - Praça Espanha, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34010132/,1200.0,55.0,T2,"rua Maria Pia, Nn, Prazeres - Maria Pia, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34012939/,1600.0,155.0,T1,"travessa Conceição da Glória, Nn, Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33356547/,1150.0,70.0,T2,"travessa Dom Vasco, Centro, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33938095/,2750.0,108.0,T2,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33966108/,1300.0,85.0,T2,"rua Frederico George, Telheiras, Lumiar",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33964321/,2200.0,91.0,T2,"rua Escola do Exército, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34021691/,1750.0,156.0,T1,"rua Luciano Cordeiro, 13, Campo de Santana - Santa Marta, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34003070/,1500.0,69.0,T2,"largo José João Farinha Júnior, 6 b, Telheiras, Carnide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34011771/,3500.0,80.0,T2,"praça dos Restauradores, 14, Rossio - Martim Moniz, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34000755/,2900.0,137.0,T2,"rua das Amoreiras, 72 D, Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34042188/,3500.0,133.0,T2,"rua do Paraíso, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33815873/,2800.0,130.0,T1,"Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33833441/,6900.0,206.0,T2,"Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33747208/,1400.0,147.0,T1,"Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33640064/,1600.0,82.0,T2,"Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33481027/,1700.0,70.0,T2,"rua Conde Sabugosa, 9, Alvalade, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34062906/,900.0,152.0,T1,"rua de Xabregas, Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33903863/,2500.0,88.0,T2,"Centro, Campo de Ourique",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34017244/,1700.0,93.0,T2,"avenida Afonso III, 28, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32788280/,2200.0,154.0,T1,"Rato - Amoreiras, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33740060/,4500.0,140.0,T2,"rua Condes, 16, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34003871/,1500.0,90.0,T2,"rua General Taborda, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33965186/,1750.0,160.0,T1,"travessa Mercês, 6, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34009447/,1200.0,60.0,T2,"rua dos Arneiros, Arneiros, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33932486/,1400.0,52.0,T2,"rua dos Mastros, Cais do Sodré - Santos, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33766112/,1350.0,150.0,T1,"Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33648237/,1200.0,155.0,T1,"rua Leite de Vasconcelos, São Vicente de Fora, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34032290/,2150.0,117.0,T2,"Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33978899/,1100.0,142.0,T1,"rua do Sol à Graça, 36, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33181631/,1500.0,150.0,T1,"Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33810083/,3700.0,125.0,T2,"Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33963638/,2200.0,94.0,T2,"rua Escola do Exército, 11, Pena, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34029412/,2200.0,108.0,T2,"rua Angelina Vidal, 48, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33818290/,2100.0,95.0,T2,"Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33846384/,1850.0,102.0,T2,"Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34038698/,1200.0,70.0,T2,"rua Dom António Caetano de Sousa, 25, Arneiros, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33855328/,1950.0,60.0,T2,"Bairro dos Actores, Areeiro",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33881319/,2900.0,125.0,T2,"Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33604923/,1800.0,69.0,T2,"Igreja de Benfica, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33862801/,2600.0,125.0,T2,"rua de São Domingos, Nn, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33938950/,1300.0,150.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34032324/,2200.0,110.0,T2,"Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33613654/,1900.0,114.0,T2,"Alto dos Moinhos, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33970894/,2900.0,150.0,T2,"travessa Pinheiro, Nn, Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33939002/,1300.0,150.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33529387/,2350.0,123.0,T2,"avenida Almirante Reis, 18, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33687704/,2300.0,171.0,T1,"Bairro Azul - Parque Eduardo VII, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34009579/,1700.0,132.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33719403/,4000.0,125.0,T2,"Avenida do Uruguai, Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33939015/,1300.0,150.0,T1,"Príncipe Real, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33797019/,2800.0,109.0,T2,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33741901/,1600.0,140.0,T1,"Príncipe Real - São Bento, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33956711/,1550.0,165.0,T1,"Chiado - Pç. de Camões, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33677096/,3800.0,109.0,T2,"rua Rodrigues Sampaio, 2, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33225479/,2000.0,155.0,T1,"rua de Santo António da Glória, 6, Praça da Alegria, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34041787/,1950.0,108.0,T2,"Centro, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33840094/,1500.0,50.0,T2,"rua dos Anjos, 25, Anjos, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33397108/,8000.0,332.0,T1,"Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30716840/,1250.0,75.0,T2,"rua Arco de Carvalhão, 35, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34001517/,2300.0,102.0,T1,"rua Braamcamp, 5, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33776980/,1450.0,115.0,T2,"rua Cidade de Rabat, 30, Estrada de Benfica, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33910901/,2200.0,102.0,T2,"rua General Taborda, 7, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34020741/,1290.0,74.0,T2,"rua Jorge Colaço, São João de Brito, Alvalade",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32340195/,3900.0,160.0,T2,"rua Rodrigues Sampaio, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32745899/,1750.0,165.0,T1,"avenida João Crisóstomo, Nn, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33768663/,1400.0,90.0,T2,"rua Arco do Carvalhão, 35, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33487740/,2150.0,93.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33531305/,1200.0,150.0,T1,"rua Professor Mira Fernandes, Beato, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33912533/,1690.0,158.0,T1,"avenida Pádua, Gare do Oriente - Zona Sul, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33884381/,1275.0,170.0,T1,"rua Capitão Afonso Pala, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30495092/,2150.0,161.0,T1,"rua Basílio Teles, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/32867539/,2350.0,125.0,T2,"rua Professor Machado Macedo, 7, Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33896858/,2050.0,103.0,T2,"avenida Dom João II, 53, Expo Central, Parque das Nações",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33857958/,2300.0,195.0,T1,"rua da Bela Vista à Graça, Graça, São Vicente",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33220470/,1500.0,160.0,T1,"rua Luís de Camões, Alto de Santo Amaro, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33216651/,2000.0,70.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33500013/,2200.0,107.0,T2,"Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33862553/,1900.0,150.0,T1,"rua Vítor Cordon, Chiado, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33925946/,2300.0,98.0,T2,"rua Carlos George, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33796213/,1750.0,167.0,T1,"avenida Visconde de Valmor, Campo Pequeno, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34005290/,1480.0,75.0,T2,"rua da Beneficência, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34019600/,1450.0,71.0,T2,"praça Mota Veiga, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33937220/,1400.0,160.0,T1,"rua Passos Manuel, 15, Estefânia, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33978561/,1350.0,103.0,T2,"Marvila, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33018716/,3000.0,141.0,T1,"rua Canto da Maya, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34000238/,1850.0,125.0,T2,"rua Tomás da Fonseca, Laranjeiras, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33888859/,1850.0,118.0,T2,"rua Francisco Lyon de Castro, Entrecampos, Avenidas Novas",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33995811/,1500.0,165.0,T1,"rua Carlos George, Olivais, Lisboa",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33558727/,3600.0,109.0,T2,"rua Braamcamp, Av. da Liberdade - Marquês de Pombal, Santo António",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31507951/,2100.0,121.0,T2,"rua do Sacramento a Alcântara, Doca de Alcântara, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33879552/,1900.0,105.0,T2,,True,,2025-03-22
+https://www.idealista.pt/en/imovel/33877942/,1300.0,145.0,T1,"travessa Madressilva, 33, Calçada da Ajuda - Belém, Ajuda",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34040704/,3000.0,127.0,T2,"rua Nova do Almada, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33995031/,2950.0,187.0,T1,"rua Canto da Maya, Nn, Praça de Espanha - Sete Rios, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/30458447/,2100.0,80.0,T2,"rua Heróis de Quionga, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33702889/,1880.0,104.0,T2,"Torre de Belém, Belém",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33818152/,1600.0,61.0,T2,"rua de São João da Mata, Santos-o-Velho - Madragoa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/34043929/,3500.0,104.0,T2,"Lapa, Estrela",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33943707/,1900.0,64.0,T2,"rua do Loreto, Bairro Alto, Misericórdia",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31508862/,1900.0,71.0,T2,"rua Professor Celestino Costa, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33818062/,1900.0,71.0,T2,"rua do Carmo, Baixa, Santa Maria Maior",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31507670/,1600.0,71.0,T2,"rua Conde Antas, Centro, Campolide",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33831978/,1500.0,76.0,T2,"rua António Gonçalves, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31559847/,2100.0,71.0,T2,"rua António Maria Baptista, Centro, Penha de França",True,,2025-03-22
+https://www.idealista.pt/en/imovel/31508994/,1900.0,71.0,T2,"rua São Domingos de Benfica, Estrada de Benfica, São Domingos de Benfica",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33454670/,1950.0,193.0,T1,"rua 1º de Maio, Largo do Calvário - Lx Factory, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33816496/,1600.0,141.0,T1,"travessa Giestal, Alto de Alcântara, Alcântara",True,,2025-03-22
+https://www.idealista.pt/en/imovel/33818800/,2100.0,81.0,T2,"rua Sousa Viterbo, Alto de São João - Alto do Varejão, Penha de França",True,,2025-03-22

@@ -1,0 +1,449 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Neighborhood Price Comparison Report</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+        <style>
+            :root {
+                --primary-color: #2563eb;
+                --primary-hover: #1d4ed8;
+                --secondary-color: #64748b;
+                --accent-color: #f59e0b;
+                --danger-color: #dc2626;
+                --danger-hover: #b91c1c;
+                --success-color: #16a34a;
+                --background-color: #f8fafc;
+                --card-bg: #ffffff;
+                --border-color: #e2e8f0;
+                --text-primary: #1e293b;
+                --text-secondary: #64748b;
+                --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                --radius: 8px;
+            }
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Inter', sans-serif;
+                line-height: 1.6;
+                color: var(--text-primary);
+                background-color: var(--background-color);
+                padding: 2rem;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .header {
+                margin-bottom: 2rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 0.5rem;
+            }
+            
+            .header p {
+                color: var(--text-secondary);
+                font-size: 1.1rem;
+            }
+            
+            .table-container {
+                background-color: var(--card-bg);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                overflow: hidden;
+            }
+            
+            table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+                font-size: 0.875rem;
+            }
+            
+            th, td {
+                padding: 1rem;
+                text-align: left;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            th {
+                background-color: var(--background-color);
+                font-weight: 600;
+                color: var(--text-secondary);
+                position: sticky;
+                top: 0;
+                cursor: pointer;
+            }
+            
+            th:hover {
+                background-color: #edf2f7;
+            }
+            
+            tr:last-child td {
+                border-bottom: none;
+            }
+            
+            tr:hover td {
+                background-color: rgba(37, 99, 235, 0.05);
+            }
+            
+            .timestamp {
+                margin-top: 2rem;
+                text-align: right;
+                color: var(--text-secondary);
+                font-size: 0.875rem;
+            }
+        </style>
+        <script>
+            function sortTable(n) {
+                var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+                table = document.getElementById("neighborhoodTable");
+                switching = true;
+                dir = "asc";
+                
+                while (switching) {
+                    switching = false;
+                    rows = table.rows;
+                    
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        shouldSwitch = false;
+                        x = rows[i].getElementsByTagName("TD")[n];
+                        y = rows[i + 1].getElementsByTagName("TD")[n];
+                        
+                        if (dir == "asc") {
+                            if (isNaN(x.innerHTML.replace(/[^0-9.-]/g, ""))) {
+                                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                                    shouldSwitch = true;
+                                    break;
+                                }
+                            } else {
+                                if (parseFloat(x.innerHTML.replace(/[^0-9.-]/g, "")) > parseFloat(y.innerHTML.replace(/[^0-9.-]/g, ""))) {
+                                    shouldSwitch = true;
+                                    break;
+                                }
+                            }
+                        } else if (dir == "desc") {
+                            if (isNaN(x.innerHTML.replace(/[^0-9.-]/g, ""))) {
+                                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                    shouldSwitch = true;
+                                    break;
+                                }
+                            } else {
+                                if (parseFloat(x.innerHTML.replace(/[^0-9.-]/g, "")) < parseFloat(y.innerHTML.replace(/[^0-9.-]/g, ""))) {
+                                    shouldSwitch = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    
+                    if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                        switchcount++;
+                    } else {
+                        if (switchcount == 0 && dir == "asc") {
+                            dir = "desc";
+                            switching = true;
+                        }
+                    }
+                }
+                
+                // Update all headers to remove active class
+                var headers = table.getElementsByTagName("TH");
+                for (i = 0; i < headers.length; i++) {
+                    headers[i].classList.remove("active-sort");
+                    headers[i].classList.remove("asc");
+                    headers[i].classList.remove("desc");
+                }
+                
+                // Add active class to the clicked header
+                headers[n].classList.add("active-sort");
+                headers[n].classList.add(dir);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Neighborhood Price Comparison Report</h1>
+                <p>Analysis of property prices per square meter across different neighborhoods in Lisbon</p>
+            </div>
+            
+            <div class="table-container">
+                <table id="neighborhoodTable">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Neighborhood</th>
+                            <th onclick="sortTable(1)">Properties</th>
+                            <th onclick="sortTable(2)">Avg Price per sqm</th>
+                            <th onclick="sortTable(3)">Median Price per sqm</th>
+                            <th onclick="sortTable(4)">Min Price per sqm</th>
+                            <th onclick="sortTable(5)">Max Price per sqm</th>
+                            <th onclick="sortTable(6)">Price Range</th>
+                            <th onclick="sortTable(7)">Total Size (sqm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <table border="1" class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Properties</th>
+      <th>Avg Price per sqm</th>
+      <th>Median Price per sqm</th>
+      <th>Min Price per sqm</th>
+      <th>Max Price per sqm</th>
+      <th>Total Size (sqm)</th>
+      <th>Price Range</th>
+    </tr>
+    <tr>
+      <th>neighborhood</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Santo António</th>
+      <td>12</td>
+      <td>€5,861.51</td>
+      <td>€5,790.01</td>
+      <td>€5,090.91</td>
+      <td>€7,500.00</td>
+      <td>€581.00</td>
+      <td>€2,409.09</td>
+    </tr>
+    <tr>
+      <th>Belém</th>
+      <td>5</td>
+      <td>€5,802.93</td>
+      <td>€5,476.19</td>
+      <td>€4,538.46</td>
+      <td>€7,000.00</td>
+      <td>€237.00</td>
+      <td>€2,461.54</td>
+    </tr>
+    <tr>
+      <th>Avenidas Novas</th>
+      <td>2</td>
+      <td>€5,378.46</td>
+      <td>€5,378.46</td>
+      <td>€5,180.00</td>
+      <td>€5,576.92</td>
+      <td>€102.00</td>
+      <td>€396.92</td>
+    </tr>
+    <tr>
+      <th>Estrela</th>
+      <td>26</td>
+      <td>€5,213.06</td>
+      <td>€5,400.00</td>
+      <td>€2,663.55</td>
+      <td>€6,953.49</td>
+      <td>€1,405.00</td>
+      <td>€4,289.94</td>
+    </tr>
+    <tr>
+      <th>Misericórdia</th>
+      <td>34</td>
+      <td>€4,944.50</td>
+      <td>€4,912.08</td>
+      <td>€3,586.67</td>
+      <td>€7,268.29</td>
+      <td>€1,780.00</td>
+      <td>€3,681.62</td>
+    </tr>
+    <tr>
+      <th>Alcântara</th>
+      <td>16</td>
+      <td>€4,890.48</td>
+      <td>€5,092.59</td>
+      <td>€2,455.98</td>
+      <td>€6,125.00</td>
+      <td>€869.00</td>
+      <td>€3,669.02</td>
+    </tr>
+    <tr>
+      <th>São Domingos de Benfica</th>
+      <td>8</td>
+      <td>€4,768.23</td>
+      <td>€4,027.65</td>
+      <td>€3,492.06</td>
+      <td>€6,750.00</td>
+      <td>€465.00</td>
+      <td>€3,257.94</td>
+    </tr>
+    <tr>
+      <th>São Vicente</th>
+      <td>49</td>
+      <td>€4,765.23</td>
+      <td>€4,760.32</td>
+      <td>€2,084.21</td>
+      <td>€7,497.50</td>
+      <td>€2,832.00</td>
+      <td>€5,413.29</td>
+    </tr>
+    <tr>
+      <th>Arroios</th>
+      <td>29</td>
+      <td>€4,628.44</td>
+      <td>€4,300.00</td>
+      <td>€2,150.00</td>
+      <td>€7,000.00</td>
+      <td>€1,782.00</td>
+      <td>€4,850.00</td>
+    </tr>
+    <tr>
+      <th>Santa Maria Maior</th>
+      <td>52</td>
+      <td>€4,608.38</td>
+      <td>€4,460.58</td>
+      <td>€3,017.24</td>
+      <td>€7,048.78</td>
+      <td>€2,888.00</td>
+      <td>€4,031.54</td>
+    </tr>
+    <tr>
+      <th>Ajuda</th>
+      <td>23</td>
+      <td>€4,588.07</td>
+      <td>€4,382.35</td>
+      <td>€2,950.00</td>
+      <td>€7,500.00</td>
+      <td>€1,364.00</td>
+      <td>€4,550.00</td>
+    </tr>
+    <tr>
+      <th>Campo de Ourique</th>
+      <td>13</td>
+      <td>€4,505.75</td>
+      <td>€4,230.77</td>
+      <td>€3,454.55</td>
+      <td>€7,125.00</td>
+      <td>€745.00</td>
+      <td>€3,670.45</td>
+    </tr>
+    <tr>
+      <th>Benfica</th>
+      <td>11</td>
+      <td>€4,405.46</td>
+      <td>€3,962.26</td>
+      <td>€3,424.66</td>
+      <td>€6,309.52</td>
+      <td>€713.00</td>
+      <td>€2,884.86</td>
+    </tr>
+    <tr>
+      <th>Campolide</th>
+      <td>16</td>
+      <td>€4,246.46</td>
+      <td>€4,272.09</td>
+      <td>€1,571.43</td>
+      <td>€6,000.00</td>
+      <td>€1,042.00</td>
+      <td>€4,428.57</td>
+    </tr>
+    <tr>
+      <th>Carnide</th>
+      <td>1</td>
+      <td>€4,180.33</td>
+      <td>€4,180.33</td>
+      <td>€4,180.33</td>
+      <td>€4,180.33</td>
+      <td>€61.00</td>
+      <td>€0.00</td>
+    </tr>
+    <tr>
+      <th>Penha de França</th>
+      <td>45</td>
+      <td>€4,088.83</td>
+      <td>€4,020.41</td>
+      <td>€1,724.14</td>
+      <td>€5,647.83</td>
+      <td>€2,872.00</td>
+      <td>€3,923.69</td>
+    </tr>
+    <tr>
+      <th>Alvalade</th>
+      <td>5</td>
+      <td>€3,983.67</td>
+      <td>€3,815.79</td>
+      <td>€3,815.79</td>
+      <td>€4,655.17</td>
+      <td>€362.00</td>
+      <td>€839.38</td>
+    </tr>
+    <tr>
+      <th>Lisboa</th>
+      <td>58</td>
+      <td>€3,970.20</td>
+      <td>€3,999.17</td>
+      <td>€2,222.22</td>
+      <td>€5,978.26</td>
+      <td>€3,660.00</td>
+      <td>€3,756.04</td>
+    </tr>
+    <tr>
+      <th>Lumiar</th>
+      <td>1</td>
+      <td>€3,823.53</td>
+      <td>€3,823.53</td>
+      <td>€3,823.53</td>
+      <td>€3,823.53</td>
+      <td>€68.00</td>
+      <td>€0.00</td>
+    </tr>
+    <tr>
+      <th>Parque das Nações</th>
+      <td>8</td>
+      <td>€3,457.73</td>
+      <td>€3,662.70</td>
+      <td>€2,823.53</td>
+      <td>€4,042.55</td>
+      <td>€517.00</td>
+      <td>€1,219.02</td>
+    </tr>
+    <tr>
+      <th>Areeiro</th>
+      <td>2</td>
+      <td>€3,282.46</td>
+      <td>€3,282.46</td>
+      <td>€2,631.58</td>
+      <td>€3,933.33</td>
+      <td>€151.00</td>
+      <td>€1,301.75</td>
+    </tr>
+  </tbody>
+</table>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="timestamp">
+                Generated on 2025-03-24 17:12:36
+            </div>
+        </div>
+    </body>
+    </html>
+    

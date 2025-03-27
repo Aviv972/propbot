@@ -1,0 +1,10 @@
+Files integrated into PropBot that can be safely removed:
+
+1. convert_rental_data.py - Integrated into propbot/data_processing/data_cleaner.py
+2. fix_investment_metrics.py - Integrated into propbot/utils/data_validator.py
+3. find_best_properties.py - Integrated into propbot/analysis/metrics/investment_metrics.py
+4. improve_location_matching.py - Already integrated into propbot/data_processing/location_matching.py
+5. create_neighborhood_report.py - Integrated into propbot/report_generator.py
+6. check_csv_parsing.py, check_csv_patterns.py - Functionality integrated into data validation utilities
+
+All functionality from these files has been properly integrated into the PropBot structure.

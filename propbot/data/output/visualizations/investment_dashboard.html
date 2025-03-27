@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Investment Dashboard</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-color: #f5f8fa;
+            color: #333;
+        }
+        h1, h2 { 
+            color: #2c3e50; 
+            margin-bottom: 15px;
+        }
+        .summary { 
+            background-color: white; 
+            padding: 20px; 
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .stat-card {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .stat-label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            font-size: 22px;
+            color: #3498db;
+        }
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td { 
+            text-align: left; 
+            padding: 12px 15px; 
+            border-bottom: 1px solid #ddd; 
+        }
+        th { 
+            background-color: #4CAF50; 
+            color: white; 
+            font-weight: 500;
+        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f5f8; }
+        .high-yield { color: #27ae60; font-weight: bold; }
+        .medium-yield { color: #f39c12; font-weight: bold; }
+        .low-yield { color: #e74c3c; font-weight: bold; }
+        .view-button {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .view-button:hover {
+            background-color: #2980b9;
+        }
+        .timestamp {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Property Investment Dashboard</h1>
+    <div class="timestamp">Generated on 2025-03-22 19:09:46</div>
+    
+    <div class="summary">
+        <h2>Summary</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Properties</div>
+                <div class="stat-value">393</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Valid Estimates</div>
+                <div class="stat-value">389</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Average Rental Yield</div>
+                <div class="stat-value">6.84%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Yield Range</div>
+                <div class="stat-value">4.00% - 8.33%</div>
+            </div>
+        </div>
+    </div>
+    
+    <h2>Top Investment Properties</h2>
+    <table>
+        <tr>
+            <th>Details</th>
+            <th>Neighborhood</th>
+            <th>Price (€)</th>
+            <th>Size (m²)</th>
+            <th>Rooms</th>
+            <th>Estimated Rent (€)</th>
+            <th>NOI (€)</th>
+            <th>Cap Rate (%)</th>
+            <th>Gross Yield (%)</th>
+            <th>Cash on Cash Return (%)</th>
+            <th>Monthly Cash Flow (€)</th>
+            <th>Price per sqm (€)</th>
+        </tr>
+
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33980177/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€260,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,806</td>
+            <td>€15,167</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€657</td>
+            <td>€260,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33984524/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€215,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,493</td>
+            <td>€12,542</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€543</td>
+            <td>€215,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34052184/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€200,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,389</td>
+            <td>€11,667</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€506</td>
+            <td>€200,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34051152/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€269,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,868</td>
+            <td>€15,692</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€680</td>
+            <td>€269,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33985351/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€260,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,806</td>
+            <td>€15,167</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€657</td>
+            <td>€260,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34013579/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€200,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,389</td>
+            <td>€11,667</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€506</td>
+            <td>€200,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34003718/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€170,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,181</td>
+            <td>€9,917</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€430</td>
+            <td>€170,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34001087/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€200,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,389</td>
+            <td>€11,667</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€506</td>
+            <td>€200,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33572164/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€175,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,215</td>
+            <td>€10,208</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€442</td>
+            <td>€175,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33927261/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€269,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,868</td>
+            <td>€15,692</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€680</td>
+            <td>€269,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33758009/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€200,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,389</td>
+            <td>€11,667</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€506</td>
+            <td>€200,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33502393/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€220,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,528</td>
+            <td>€12,833</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€556</td>
+            <td>€220,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33879293/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€295,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€2,049</td>
+            <td>€17,208</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€746</td>
+            <td>€295,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33804904/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€295,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€2,049</td>
+            <td>€17,208</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€746</td>
+            <td>€295,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33940409/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€170,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,181</td>
+            <td>€9,917</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€430</td>
+            <td>€170,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33473969/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€295,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€2,049</td>
+            <td>€17,208</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€746</td>
+            <td>€295,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/31301952/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€290,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€2,014</td>
+            <td>€16,917</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€733</td>
+            <td>€290,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33674465/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€175,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,215</td>
+            <td>€10,208</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€442</td>
+            <td>€175,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33947763/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€200,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,389</td>
+            <td>€11,667</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€506</td>
+            <td>€200,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33906311/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€196,073</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,362</td>
+            <td>€11,438</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€496</td>
+            <td>€196,073</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33496582/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€209,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,451</td>
+            <td>€12,192</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€528</td>
+            <td>€209,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34073821/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€170,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,181</td>
+            <td>€9,917</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€430</td>
+            <td>€170,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/32486708/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€198,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,375</td>
+            <td>€11,550</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€500</td>
+            <td>€198,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33985662/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€210,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,458</td>
+            <td>€12,250</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€531</td>
+            <td>€210,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/32726243/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€249,990</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,736</td>
+            <td>€14,583</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€632</td>
+            <td>€249,990</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34034329/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€190,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,319</td>
+            <td>€11,083</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€480</td>
+            <td>€190,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34028556/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€140,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€972</td>
+            <td>€8,167</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€354</td>
+            <td>€140,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34050617/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€150,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,042</td>
+            <td>€8,750</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€379</td>
+            <td>€150,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34013996/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€285,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,979</td>
+            <td>€16,625</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€720</td>
+            <td>€285,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33969959/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€210,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,458</td>
+            <td>€12,250</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€531</td>
+            <td>€210,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33995413/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€165,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,146</td>
+            <td>€9,625</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€417</td>
+            <td>€165,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33985055/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€255,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,771</td>
+            <td>€14,875</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€645</td>
+            <td>€255,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34030535/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€293,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€2,035</td>
+            <td>€17,092</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€741</td>
+            <td>€293,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34047387/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€248,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,722</td>
+            <td>€14,467</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€627</td>
+            <td>€248,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34041499/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€250,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,736</td>
+            <td>€14,583</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€632</td>
+            <td>€250,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34003355/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€219,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,521</td>
+            <td>€12,775</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€554</td>
+            <td>€219,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33954045/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€299,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€2,076</td>
+            <td>€17,442</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€756</td>
+            <td>€299,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34008276/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€275,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,910</td>
+            <td>€16,042</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€695</td>
+            <td>€275,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33843371/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€180,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,250</td>
+            <td>€10,500</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€455</td>
+            <td>€180,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33929639/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€250,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,736</td>
+            <td>€14,583</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€632</td>
+            <td>€250,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34046084/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€160,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,111</td>
+            <td>€9,333</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€404</td>
+            <td>€160,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34003122/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€299,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€2,076</td>
+            <td>€17,442</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€756</td>
+            <td>€299,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33983218/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€299,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€2,076</td>
+            <td>€17,442</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€756</td>
+            <td>€299,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34027910/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€275,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,910</td>
+            <td>€16,042</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€695</td>
+            <td>€275,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33988435/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€135,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€938</td>
+            <td>€7,875</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€341</td>
+            <td>€135,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34024999/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€249,900</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,735</td>
+            <td>€14,577</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€632</td>
+            <td>€249,900</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33989423/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€250,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,736</td>
+            <td>€14,583</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€632</td>
+            <td>€250,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34009842/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€270,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,875</td>
+            <td>€15,750</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€682</td>
+            <td>€270,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/34010079/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€195,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,354</td>
+            <td>€11,375</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€493</td>
+            <td>€195,000</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.idealista.pt/en/imovel/33846538/" target="_blank" class="view-button">View</a></td>
+            <td>Unknown</td>
+            <td>€250,000</td>
+            <td>1</td>
+            <td>N/A</td>
+            <td>€1,736</td>
+            <td>€14,583</td>
+            <td>5.83%</td>
+            <td class="high-yield">8.33%</td>
+            <td>15.17%</td>
+            <td>€632</td>
+            <td>€250,000</td>
+        </tr>
+    </table>
+</body>
+</html>

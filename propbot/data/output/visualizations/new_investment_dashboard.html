@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropBot Investment Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --primary-dark: #1976D2;
+            --secondary-color: #26A69A;
+            --text-color: #333;
+            --text-light: #777;
+            --border-color: #ddd;
+            --light-bg: #f8f9fa;
+            --success-color: #4CAF50;
+            --danger-color: #F44336;
+            --warning-color: #FFC107;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .actions-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        
+        .action-button {
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-button i {
+            margin-right: 8px;
+        }
+        
+        .action-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .action-button.secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .action-button.secondary:hover {
+            background-color: #1c8579;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-title {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-label {
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+        
+        select {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: white;
+            min-width: 150px;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+        
+        .tab-button {
+            padding: 15px 30px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            flex-grow: 1;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+        }
+        
+        .tab-button:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: transparent;
+        }
+        
+        .tab-button.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-button.active:after {
+            background-color: var(--primary-color);
+        }
+        
+        .tab-button:hover {
+            background-color: var(--light-bg);
+        }
+        
+        .tab-content {
+            display: none;
+            background-color: white;
+            border-radius: 0 0 8px 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+        }
+        
+        th:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        tr:hover {
+            background-color: var(--light-bg);
+        }
+        
+        td a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        td a:hover {
+            text-decoration: underline;
+        }
+        
+        .high-yield {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .medium-yield {
+            color: orange;
+            font-weight: bold;
+        }
+        
+        .low-yield {
+            color: var(--danger-color);
+            font-weight: bold;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            align-items: center;
+        }
+        
+        .pagination button {
+            padding: 8px 16px;
+            margin: 0 5px;
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .pagination button:hover {
+            background-color: var(--light-bg);
+        }
+        
+        .pagination button.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagination .page-info {
+            margin: 0 15px;
+            color: #777;
+        }
+        
+        /* Neighborhood cards */
+        .neighborhood-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .neighborhood-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .neighborhood-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .neighborhood-metrics {
+            margin-top: 10px;
+        }
+        
+        .neighborhood-metric {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .neighborhood-metric-label {
+            color: var(--text-light);
+        }
+        
+        .neighborhood-metric .high {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .neighborhood-metric .medium {
+            color: orange;
+            font-weight: bold;
+        }
+        
+        .neighborhood-metric .low {
+            color: var(--danger-color);
+            font-weight: bold;
+        }
+        
+        .chart-container {
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        /* Property comparison */
+        .actions {
+            text-align: center;
+        }
+        
+        .actions button {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .actions button:hover {
+            color: var(--primary-dark);
+        }
+        
+        .comparison-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+        
+        .comparison-bar.show {
+            transform: translateY(0);
+        }
+        
+        .comparison-title {
+            font-weight: 500;
+            margin-right: 20px;
+        }
+        
+        .comparison-list {
+            display: flex;
+            flex-grow: 1;
+            overflow-x: auto;
+        }
+        
+        .comparison-item {
+            background-color: var(--light-bg);
+            border-radius: 4px;
+            padding: 10px 15px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .comparison-details {
+            margin-right: 10px;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .remove-btn:hover {
+            color: var(--danger-color);
+        }
+        
+        .compare-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .compare-button:hover:not(:disabled) {
+            background-color: var(--primary-dark);
+        }
+        
+        .compare-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Comparison modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .modal-title {
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        
+        .close-button:hover {
+            color: var(--danger-color);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background-color: var(--success-color);
+            color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.error {
+            background-color: var(--danger-color);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--text-light);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PropBot Investment Dashboard</h1>
+        <p>Interactive dashboard for property investment analysis in Lisbon</p>
+        
+        <div class="actions-container">
+            <button class="action-button" id="runPropBotBtn">
+                <i class="fas fa-sync-alt"></i> Run PropBot Workflow
+            </button>
+            <button class="action-button secondary" id="refreshDataBtn">
+                <i class="fas fa-database"></i> Refresh Data
+            </button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-title">Properties</div>
+                <div class="stat-value" id="totalProperties">190</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Avg. Yield</div>
+                <div class="stat-value" id="avgYield">9.6%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Max Yield</div>
+                <div class="stat-value" id="maxYield">9.6%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Median Price</div>
+                <div class="stat-value" id="medianPrice">€275,000</div>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="properties">Properties</button>
+            <button class="tab-button" data-tab="neighborhoods">Neighborhoods</button>
+        </div>
+        
+        <div id="properties" class="tab-content active">
+            <div class="filters">
+                <div class="filter-group">
+                    <label class="filter-label">Min. Yield</label>
+                    <select id="yieldFilter">
+                        <option value="all">All</option>
+                        <option value="8">8%+</option>
+                        <option value="7">7%+</option>
+                        <option value="6">6%+</option>
+                        <option value="5">5%+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Max. Price</label>
+                    <select id="priceFilter">
+                        <option value="all">All</option>
+                        <option value="200000">€200,000</option>
+                        <option value="250000">€250,000</option>
+                        <option value="300000">€300,000</option>
+                        <option value="350000">€350,000</option>
+                        <option value="400000">€400,000</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Min. Comparables</label>
+                    <select id="comparablesFilter">
+                        <option value="2+">2+</option>
+                        <option value="5+">5+</option>
+                        <option value="10+">10+</option>
+                        <option value="20+">20+</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property ID</th>
+                            <th>Price</th>
+                            <th>Monthly Rent</th>
+                            <th>Yield</th>
+                            <th>Comparables</th>
+                            <th>Date Added</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="propertyData">
+                        <tr>
+                            <td><a href="https://www.idealista.pt/imovel/33979881/" target="_blank">33979881</a></td>
+                            <td>€299,000</td>
+                            <td>€2,392</td>
+                            <td class="high-yield">9.6%</td>
+                            <td>99</td>
+                            <td>2024-03-15</td>
+                            <td class="actions">
+                                <button onclick="addToComparison('33979881')" title="Add to comparison">
+                                    <i class="fas fa-balance-scale"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://www.idealista.pt/imovel/33861608/" target="_blank">33861608</a></td>
+                            <td>€290,000</td>
+                            <td>€2,320</td>
+                            <td class="high-yield">9.6%</td>
+                            <td>36</td>
+                            <td>2024-03-10</td>
+                            <td class="actions">
+                                <button onclick="addToComparison('33861608')" title="Add to comparison">
+                                    <i class="fas fa-balance-scale"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://www.idealista.pt/imovel/33015058/" target="_blank">33015058</a></td>
+                            <td>€285,000</td>
+                            <td>€2,280</td>
+                            <td class="high-yield">9.6%</td>
+                            <td>47</td>
+                            <td>2024-03-05</td>
+                            <td class="actions">
+                                <button onclick="addToComparison('33015058')" title="Add to comparison">
+                                    <i class="fas fa-balance-scale"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="pagination">
+                    <button id="prevPage" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+                    <div class="page-info">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></div>
+                    <button id="nextPage">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="neighborhoods" class="tab-content">
+            <div class="neighborhood-grid">
+                <!-- Example neighborhood cards -->
+                <div class="neighborhood-card">
+                    <div class="neighborhood-name">Avenidas Novas</div>
+                    <div class="neighborhood-metrics">
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Property Count:</div>
+                            <div>25</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Average Price:</div>
+                            <div>€320,000</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Median Price:</div>
+                            <div>€295,000</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Average Yield:</div>
+                            <div class="high">7.8%</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Max Yield:</div>
+                            <div class="high">9.2%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="neighborhood-card">
+                    <div class="neighborhood-name">Benfica</div>
+                    <div class="neighborhood-metrics">
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Property Count:</div>
+                            <div>18</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Average Price:</div>
+                            <div>€260,000</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Median Price:</div>
+                            <div>€248,000</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Average Yield:</div>
+                            <div class="high">8.2%</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Max Yield:</div>
+                            <div class="high">9.6%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="neighborhood-card">
+                    <div class="neighborhood-name">Arroios</div>
+                    <div class="neighborhood-metrics">
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Property Count:</div>
+                            <div>31</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Average Price:</div>
+                            <div>€292,000</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Median Price:</div>
+                            <div>€280,000</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Average Yield:</div>
+                            <div class="high">7.5%</div>
+                        </div>
+                        <div class="neighborhood-metric">
+                            <div class="neighborhood-metric-label">Max Yield:</div>
+                            <div class="high">8.9%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="neighborhoodChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Generated by PropBot &copy; 2023 - Advanced Property Investment Analysis</p>
+    </footer>
+    
+    <div class="notification" id="notification">Operation completed successfully!</div>
+    
+    <!-- Property Comparison Bar -->
+    <div class="comparison-bar" id="comparisonBar">
+        <div class="comparison-title">
+            <i class="fas fa-balance-scale"></i> Property Comparison
+        </div>
+        <div class="comparison-list" id="comparisonList"></div>
+        <button class="compare-button" id="compareBtn" disabled onclick="showComparison()">
+            Compare Properties
+        </button>
+    </div>
+    
+    <!-- Comparison Modal -->
+    <div class="modal" id="comparisonModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Property Comparison</h2>
+                <button class="close-button" onclick="document.getElementById('comparisonModal').style.display='none'">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <table class="comparison-table" id="comparisonTable"></table>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Tabs navigation
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to the clicked tab
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+        
+        // Property comparison functionality
+        let comparisonQueue = [];
+        const maxComparison = 4;
+        
+        function addToComparison(propertyId) {
+            // Check if already in comparison
+            if (comparisonQueue.includes(propertyId)) {
+                showNotification('Property already in comparison', true);
+                return;
+            }
+            
+            // Check if we've reached the maximum
+            if (comparisonQueue.length >= maxComparison) {
+                showNotification(`Can only compare up to ${maxComparison} properties at once`, true);
+                return;
+            }
+            
+            // Add to comparison queue
+            comparisonQueue.push(propertyId);
+            updateComparisonUI();
+            showNotification('Property added to comparison');
+        }
+        
+        function removeFromComparison(propertyId) {
+            comparisonQueue = comparisonQueue.filter(id => id !== propertyId);
+            updateComparisonUI();
+            showNotification('Property removed from comparison');
+        }
+        
+        function updateComparisonUI() {
+            const comparisonBar = document.getElementById('comparisonBar');
+            const comparisonList = document.getElementById('comparisonList');
+            const compareBtn = document.getElementById('compareBtn');
+            
+            // Show comparison bar if we have properties to compare
+            if (comparisonQueue.length > 0) {
+                comparisonBar.classList.add('show');
+            } else {
+                comparisonBar.classList.remove('show');
+            }
+            
+            // Update the comparison list
+            comparisonList.innerHTML = '';
+            comparisonQueue.forEach(id => {
+                const item = document.createElement('div');
+                item.className = 'comparison-item';
+                item.innerHTML = `
+                    <div class="comparison-details">${id}</div>
+                    <button class="remove-btn" onclick="removeFromComparison('${id}')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                comparisonList.appendChild(item);
+            });
+            
+            // Enable/disable compare button
+            compareBtn.disabled = comparisonQueue.length < 2;
+        }
+        
+        function showComparison() {
+            const comparisonTable = document.getElementById('comparisonTable');
+            const modal = document.getElementById('comparisonModal');
+            
+            // Clear the table
+            comparisonTable.innerHTML = '';
+            
+            // Create headers from property IDs
+            let headerRow = '<tr><th>Metric</th>';
+            comparisonQueue.forEach(id => {
+                headerRow += `<th>${id}</th>`;
+            });
+            headerRow += '</tr>';
+            comparisonTable.innerHTML = headerRow;
+            
+            // Add rows for each metric
+            const metrics = [
+                { name: 'Price', values: {} },
+                { name: 'Monthly Rent', values: {} },
+                { name: 'Rental Yield', values: {}, highlight: true },
+                { name: 'Comparable Properties', values: {} },
+                { name: 'Date Added', values: {} }
+            ];
+            
+            // For demo, we'll use some sample data
+            const propertyData = {
+                '33979881': {
+                    'Price': '€299,000',
+                    'Monthly Rent': '€2,392',
+                    'Rental Yield': '9.6%',
+                    'Comparable Properties': '99',
+                    'Date Added': '2024-03-15'
+                },
+                '33861608': {
+                    'Price': '€290,000',
+                    'Monthly Rent': '€2,320',
+                    'Rental Yield': '9.6%',
+                    'Comparable Properties': '36',
+                    'Date Added': '2024-03-10'
+                },
+                '33015058': {
+                    'Price': '€285,000',
+                    'Monthly Rent': '€2,280',
+                    'Rental Yield': '9.6%',
+                    'Comparable Properties': '47',
+                    'Date Added': '2024-03-05'
+                }
+            };
+            
+            // Create rows for each metric
+            metrics.forEach(metric => {
+                let row = `<tr><td>${metric.name}</td>`;
+                
+                // Find the highest value for the metric (for highlighting)
+                let highestValue = 0;
+                if (metric.highlight) {
+                    comparisonQueue.forEach(id => {
+                        if (propertyData[id]) {
+                            const value = parseFloat(propertyData[id][metric.name]);
+                            if (!isNaN(value) && value > highestValue) {
+                                highestValue = value;
+                            }
+                        }
+                    });
+                }
+                
+                // Add cells for each property
+                comparisonQueue.forEach(id => {
+                    if (propertyData[id]) {
+                        const value = propertyData[id][metric.name];
+                        let className = '';
+                        
+                        // Add class for highlighting
+                        if (metric.highlight && parseFloat(value) === highestValue) {
+                            className = 'high-yield';
+                        }
+                        
+                        row += `<td class="${className}">${value}</td>`;
+                    } else {
+                        row += '<td>N/A</td>';
+                    }
+                });
+                
+                row += '</tr>';
+                comparisonTable.innerHTML += row;
+            });
+            
+            // Show the modal
+            modal.style.display = 'flex';
+        }
+        
+        // Notification functionality
+        function showNotification(message, isError = false) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = 'notification' + (isError ? ' error' : '');
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Pagination functionality
+        const itemsPerPage = 10;
+        let currentPage = 1;
+        const totalItems = document.querySelectorAll('#propertyData tr').length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        
+        document.getElementById('totalPages').textContent = totalPages;
+        
+        function updatePagination() {
+            const prevBtn = document.getElementById('prevPage');
+            const nextBtn = document.getElementById('nextPage');
+            const currentPageElem = document.getElementById('currentPage');
+            
+            // Update current page display
+            currentPageElem.textContent = currentPage;
+            
+            // Enable/disable prev/next buttons
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+            
+            // Show/hide rows based on current page
+            const rows = document.querySelectorAll('#propertyData tr');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            
+            rows.forEach((row, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePagination();
+            }
+        });
+        
+        document.getElementById('nextPage').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePagination();
+            }
+        });
+        
+        // Initialize pagination
+        updatePagination();
+        
+        // Neighborhood Chart
+        const ctx = document.getElementById('neighborhoodChart').getContext('2d');
+        const neighborhoodChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Neighborhoods',
+                    data: [
+                        { x: 320000, y: 7.8, label: 'Avenidas Novas' },
+                        { x: 260000, y: 8.2, label: 'Benfica' },
+                        { x: 292000, y: 7.5, label: 'Arroios' },
+                        { x: 230000, y: 6.8, label: 'Amadora' },
+                        { x: 350000, y: 6.2, label: 'Parque das Nações' },
+                        { x: 285000, y: 7.2, label: 'Alvalade' }
+                    ],
+                    backgroundColor: 'rgba(38, 166, 154, 0.6)',
+                    borderColor: 'rgba(38, 166, 154, 1)',
+                    borderWidth: 1,
+                    pointRadius: 8,
+                    pointHoverRadius: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.raw.label || '';
+                                const price = new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(context.raw.x);
+                                const yield = context.raw.y.toFixed(1) + '%';
+                                return `${label}: ${price}, Yield: ${yield}`;
+                            }
+                        }
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Average Price (€)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR', maximumSignificantDigits: 3 }).format(value);
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Average Yield (%)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Workflow buttons
+        document.getElementById('runPropBotBtn').addEventListener('click', function() {
+            showNotification('PropBot workflow started. This may take a few minutes.');
+            // Here you would normally call an API endpoint to start the workflow
+            // For demo, we'll just simulate a delay
+            setTimeout(() => {
+                showNotification('PropBot workflow completed successfully!');
+            }, 3000);
+        });
+        
+        document.getElementById('refreshDataBtn').addEventListener('click', function() {
+            showNotification('Refreshing dashboard data...');
+            // Here you would normally reload the data
+            // For demo, we'll just reload the page
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 

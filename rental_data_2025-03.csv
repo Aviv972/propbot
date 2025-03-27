@@ -1,0 +1,649 @@
+size,num_rooms,rent_price,location,url
+270 m²,T2,"1,300€/month","rua da Venezuela, 37, Bairro de Santa Cruz, Benfica",https://www.idealista.pt/en/imovel/34091330/
+290 m²,T2,"2,100€/month","avenida Duque de Loulé, Nn, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34089711/
+285 m²,T2,"1,150€/month","rua Eng Quartim Graça, Santa Clara, Lisboa",https://www.idealista.pt/en/imovel/28885618/
+155 m²,T1,"1,600€/month","avenida Duque de Loulé, Nn, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34089607/
+149 m²,T1,"1,150€/month",,https://www.idealista.pt/en/imovel/34091264/
+150 m²,T1,"1,960€/monthGarageoptional100 €/month","avenida António Augusto de Aguiar, Bairro Azul - Parque Eduardo VII, Avenidas Novas",https://www.idealista.pt/en/imovel/33863895/
+143 m²,T1,"1,100€/month","rua Carvalho Araújo, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34091261/
+170 m²,T1,"1,100€/month","rua Pinto Ferreira, 59, Centro, Belém",https://www.idealista.pt/en/imovel/33375545/
+142 m²,T1,"1,093€/month","rua do Cruzeiro, Alto de Alcântara, Alcântara",https://www.idealista.pt/en/imovel/34091253/
+143 m²,T1,"1,050€/month","rua do Telhal, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34091242/
+140 m²,T1,"1,050€/month","largo Severa, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34091227/
+142 m²,T1,"1,000€/month","rua Dom Domingos Jardo, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34091236/
+143 m²,T1,"1,000€/month","rua Alexandre O'Neill, Junqueira, Alcântara",https://www.idealista.pt/en/imovel/34091226/
+143 m²,T1,"1,000€/month",,https://www.idealista.pt/en/imovel/34091123/
+144 m²,T1,800€/month,"rua da Verónica, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34091206/
+265 m²,T2,"1,200€/month","rua Heróis de Quionga, 61, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34090906/
+170 m²,T1,"2,000€/month","rua de São Bento, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34090888/
+280 m²,T2,"1,500€/monthParking included","rua do Tamisa, Expo Norte, Parque das Nações",https://www.idealista.pt/en/imovel/34090883/
+2113 m²,T2,"1,295€/monthParking included","rua Jaime Lopes Dias, Quinta dos Alcoutins, Lumiar",https://www.idealista.pt/en/imovel/34090870/
+192 m²,T1,"1,800€/month","rua Marcos Portugal, 23, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34090828/
+270 m²,T2,"1,300€/monthParking included","rua Prista Monteiro, 12 , 4 andar, Telheiras, Carnide",https://www.idealista.pt/en/imovel/34090337/
+285 m²,T2,"1,300€/month","Estrada de Benfica, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34090773/
+285 m²,T2,"5,000€/month","rua de Moçambique, Anjos, Arroios",https://www.idealista.pt/en/imovel/34090823/
+250 m²,T2,"6,333€/month","rua de Santa Justa, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34090813/
+150 m²,T1,"5,600€/month","rua do Crucifixo, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34090812/
+145 m²,T1,"3,933€/month",,https://www.idealista.pt/en/imovel/34090810/
+260 m²,T2,"2,733€/month","rua Cavaleiro de Oliveira, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34090800/
+150 m²,T1,"1,450€/month","beco do Forno do Castelo, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34090796/
+282 m²,T2,"1,250€/month","estrada da Luz, Telheiras, Carnide",https://www.idealista.pt/en/imovel/34090794/
+2101 m²,T2,"1,750€/month","avenida Marechal Francisco da Costa Gomes, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34090793/
+268 m²,T2,"2,000€/month","Beato, Lisboa",https://www.idealista.pt/en/imovel/34090434/
+141 m²,T1,"1,200€/month",,https://www.idealista.pt/en/imovel/34090433/
+275 m²,T2,"1,450€/month","Santa Isabel, Campo de Ourique",https://www.idealista.pt/en/imovel/31215354/
+267 m²,T2,"1,150€/month","praça de Bilene, Olivais, Lisboa",https://www.idealista.pt/en/imovel/34090288/
+1120 m²,T1,"2,500€/month","avenida Conde de Valbom, 76, Gulbenkian - Praça Espanha, Avenidas Novas",https://www.idealista.pt/en/imovel/34090305/
+144 m²,T1,900€/month,"rua Lucinda Simões, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34090237/
+144 m²,T1,893€/month,"rua Major Neutel de Abreu, Alto dos Moinhos, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34090232/
+144 m²,T1,850€/month,"rua da Esperança, Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34090208/
+144 m²,T1,800€/month,"rua da Verónica, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34090205/
+144 m²,T1,800€/month,"rua da Verónica, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34090209/
+265 m²,T2,"1,300€/month","travessa Santo António a Belém, Centro, Belém",https://www.idealista.pt/en/imovel/34089904/
+271 m²,T2,"1,550€/month","rua da Senhora do Monte, Graça, São Vicente",https://www.idealista.pt/en/imovel/34089903/
+171 m²,T1,"1,350€/monthParking included","rua Francisco Lyon de Castro, Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34089871/
+2115 m²,T2,"1,740€/month","rua Aristides de Sousa Mendes, Telheiras, Carnide",https://www.idealista.pt/en/imovel/34089830/
+265 m²,T2,"1,600€/month","rua da Senhora da Glória, Graça, São Vicente",https://www.idealista.pt/en/imovel/34089778/
+2110 m²,T2,"1,500€/month","Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34089740/
+290 m²,T2,"2,200€/month","rua Leite de Vasconcelos, Santa Engrácia, São Vicente",https://www.idealista.pt/en/imovel/34089691/
+265 m²,T2,"1,500€/monthParking included",,https://www.idealista.pt/en/imovel/34089709/
+170 m²,T1,"1,450€/monthParking included","alameda dos Oceanos, 112, Expo Norte, Parque das Nações",https://www.idealista.pt/en/imovel/34089606/
+255 m²,T2,"1,400€/month","beco do Castelo, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34089625/
+162 m²,T1,"1,600€/month","rua Barros Queirós, Rossio - Martim Moniz, Santa Maria Maior",https://www.idealista.pt/en/imovel/33739311/
+162 m²,T1,"1,595€/month","alameda dos Oceanos, Nn, Expo Central, Parque das Nações",https://www.idealista.pt/en/imovel/34089186/
+2118 m²,T2,"1,900€/monthParking included2,000 €5%","avenida Miguel Torga, 14, Nova Campolide, Campolide",https://www.idealista.pt/en/imovel/34088796/
+188 m²,T1,"1,350€/monthParking included","rua Gregório Lopes, 1522, Restelo, Belém",https://www.idealista.pt/en/imovel/34088969/
+170 m²,T1,"1,700€/monthParking included","rua do Diário de Notícias, 58, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34088402/
+160 m²,T1,"4,200€/month","rua São José, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34089060/
+2115 m²,T2,"5,800€/month","rua São José, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34089055/
+250 m²,T2,"7,667€/month","rua do Carmo, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34089038/
+250 m²,T2,"6,333€/month","rua de Santa Justa, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34089031/
+144 m²,T1,"3,306€/month","rua Vítor Cordon, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34089022/
+282 m²,T2,"2,500€/month","rua das Trinas, Lapa, Estrela",https://www.idealista.pt/en/imovel/34089021/
+170 m²,T1,"1,650€/month",,https://www.idealista.pt/en/imovel/34089002/
+288 m²,T2,"1,950€/month","avenida Engenheiro Arantes e Oliveira, Olaias, Areeiro",https://www.idealista.pt/en/imovel/34088989/
+165 m²,T1,"1,650€/month","avenida Dom João II, 25, Expo Central, Parque das Nações",https://www.idealista.pt/en/imovel/34088096/
+140 m²,T1,"1,050€/month","rua da Paz, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34088315/
+1100 m²,T1,"1,800€/month",,https://www.idealista.pt/en/imovel/34088055/
+145 m²,T1,990€/month,"rua Pedro Dias, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34088101/
+295 m²,T2,"1,650€/monthParking included","Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34088062/
+165 m²,T1,"1,600€/month","passeio da Vila Expo, 13, Expo Central, Parque das Nações",https://www.idealista.pt/en/imovel/34087760/
+185 m²,T1,"2,200€/monthParking included","Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34087681/
+282 m²,T2,"1,800€/monthParking included","Lapa, Estrela",https://www.idealista.pt/en/imovel/34087679/
+2145 m²,T2,"4,200€/month","rua de São Paulo, Cais do Sodré - Santos, Misericórdia",https://www.idealista.pt/en/imovel/33466095/
+146 m²,T1,"1,100€/month",,https://www.idealista.pt/en/imovel/34087561/
+169 m²,T1,"1,150€/monthParking included",,https://www.idealista.pt/en/imovel/34087502/
+164 m²,T1,"1,300€/month","avenida General Roçadas, 143, Centro, Penha de França",https://www.idealista.pt/en/imovel/28735898/
+2200 m²,T2,"2,100€/monthParking included","rua Nova dos Mercadores, Nn, Expo Sul, Parque das Nações",https://www.idealista.pt/en/imovel/34087277/
+2150 m²,T2,"1,250€/month","rua Adelaide Cabete, 3, Centro Histórico - Quinta da Luz, Carnide",https://www.idealista.pt/en/imovel/33655161/
+2164 m²,T2,"3,400€/monthParking included","Saldanha - Picoas, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34087185/
+2106 m²,T2,"1,650€/monthParking included","rua do Volga, Expo Norte, Parque das Nações",https://www.idealista.pt/en/imovel/34087156/
+1127 m²,T1,"2,400€/monthParking included","Bairro dos Actores - Barão Sabrosa, Penha de França",https://www.idealista.pt/en/imovel/34087124/
+170 m²,T1,"2,750€/month","avenida Duque de Ávila, Saldanha - Picoas, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34087067/
+280 m²,T2,"2,079€/month",,https://www.idealista.pt/en/imovel/34087038/
+160 m²,T1,"2,000€/month","rua das Praças, Lapa, Estrela",https://www.idealista.pt/en/imovel/34087018/
+270 m²,T2,"2,000€/month","beco Birbantes, Pena, Arroios",https://www.idealista.pt/en/imovel/34087037/
+155 m²,T1,"1,950€/month","travessa dos Inglesinhos, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34087055/
+268 m²,T2,"1,950€/month","rua Luís Fernandes, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34087075/
+142 m²,T1,"1,900€/month","rua Maria, Anjos, Arroios",https://www.idealista.pt/en/imovel/34087044/
+245 m²,T2,"1,900€/month","avenida 5 de Outubro, Campo Pequeno, Avenidas Novas",https://www.idealista.pt/en/imovel/34087073/
+143 m²,T1,"1,850€/month","rua da Rosa, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34087072/
+160 m²,T1,"1,760€/month","rua Domingos Sequeira, Lapa, Estrela",https://www.idealista.pt/en/imovel/34087060/
+2100 m²,T2,"1,750€/month","praça de Londres, Centro, Areeiro",https://www.idealista.pt/en/imovel/34087049/
+264 m²,T2,"1,700€/month","rua Actor João Rosa, Bairro dos Actores, Areeiro",https://www.idealista.pt/en/imovel/34087012/
+270 m²,T2,"1,700€/month","rua Heróis de Quionga, Centro, Penha de França",https://www.idealista.pt/en/imovel/34087032/
+265 m²,T2,"1,650€/month","rua da Palma, Rossio - Martim Moniz, Santa Maria Maior",https://www.idealista.pt/en/imovel/34087031/
+150 m²,T1,"1,600€/month","beco Carrasco, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34086968/
+165 m²,T1,"1,550€/month","rua Professor Francisco Gentil, Telheiras, Lumiar",https://www.idealista.pt/en/imovel/34087005/
+165 m²,T1,"1,550€/month","rua General Taborda, Centro, Campolide",https://www.idealista.pt/en/imovel/34087021/
+265 m²,T2,"1,500€/month","rua Ferreira Chaves, Centro, Campolide",https://www.idealista.pt/en/imovel/34086967/
+179 m²,T1,"1,500€/month","avenida José Malhoa, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34087019/
+143 m²,T1,"1,500€/month","rua de Santo António da Glória, Praça da Alegria, Santo António",https://www.idealista.pt/en/imovel/34087004/
+260 m²,T2,"1,500€/month","travessa São Bernardino, Pena, Arroios",https://www.idealista.pt/en/imovel/34086996/
+165 m²,T1,"1,500€/month","rua do Olival, Lapa, Estrela",https://www.idealista.pt/en/imovel/34086995/
+185 m²,T1,"1,500€/month","travessa Paulo Martins, Calçada da Ajuda - Belém, Ajuda",https://www.idealista.pt/en/imovel/34087009/
+170 m²,T1,"1,450€/month","rua Angelina Vidal, Graça, São Vicente",https://www.idealista.pt/en/imovel/34086966/
+260 m²,T2,"1,450€/month","largo das Olarias, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34086986/
+245 m²,T2,"1,450€/month","travessa do Forno aos Anjos, Anjos, Arroios",https://www.idealista.pt/en/imovel/34086888/
+142 m²,T1,"1,420€/month","rua do Lumiar, Carriche - Hospital das Forças Armadas, Lumiar",https://www.idealista.pt/en/imovel/34086993/
+250 m²,T2,"1,400€/month","rua Castelo Branco Saraiva, Centro, Penha de França",https://www.idealista.pt/en/imovel/34086965/
+150 m²,T1,"1,400€/month","rua do Sol a Santa Catarina, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34086964/
+149 m²,T1,"1,380€/month","rua de Gustavo de Matos Sequeira, Rato - Amoreiras, Santo António",https://www.idealista.pt/en/imovel/34086980/
+145 m²,T1,"1,300€/month","rua Sol a Chelas, Bairro dos Actores - Barão Sabrosa, Penha de França",https://www.idealista.pt/en/imovel/34086978/
+150 m²,T1,"1,300€/month","travessa das Inglesinhas, Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34086977/
+160 m²,T1,"1,300€/month","largo dos Trigueiros, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34086976/
+264 m²,T2,"1,300€/month","praça João de Azevedo Coutinho, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34086975/
+160 m²,T1,"1,295€/month","rua do Embaixador, Centro, Belém",https://www.idealista.pt/en/imovel/34086944/
+142 m²,T1,"1,200€/month","rua Conde das Antas, Centro, Campolide",https://www.idealista.pt/en/imovel/34086961/
+190 m²,T1,"1,200€/month","rua Luís Pastor de Macedo, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",https://www.idealista.pt/en/imovel/34086970/
+262 m²,T2,"1,200€/month",,https://www.idealista.pt/en/imovel/34086938/
+140 m²,T1,"1,200€/month",,https://www.idealista.pt/en/imovel/34086928/
+165 m²,T1,"1,150€/month",,https://www.idealista.pt/en/imovel/34086941/
+143 m²,T1,"1,150€/month","rua Martin Luther King, Santa Clara, Lisboa",https://www.idealista.pt/en/imovel/34086881/
+245 m²,T2,"1,000€/month","rua Academia das Ciências, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34086911/
+144 m²,T1,"1,000€/month","avenida Elias Garcia, Campo Pequeno, Avenidas Novas",https://www.idealista.pt/en/imovel/34086907/
+143 m²,T1,990€/month,"rua Capitão Renato Baptista, Anjos, Arroios",https://www.idealista.pt/en/imovel/34086905/
+145 m²,T1,900€/month,"travessa do Conde de Avintes, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34086872/
+152 m²,T1,900€/month,"rua Dom Tomás de Melo Breyner, Beato, Lisboa",https://www.idealista.pt/en/imovel/34086871/
+143 m²,T1,850€/month,"rua do Jardim à Estrela, Lapa, Estrela",https://www.idealista.pt/en/imovel/34086743/
+143 m²,T1,700€/month,"travessa do Rosário de Santa Clara, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34086592/
+2120 m²,T2,"2,750€/monthParking included","rua Professor Sousa da Câmara, Centro, Campolide",https://www.idealista.pt/en/imovel/34085971/
+295 m²,T2,"1,700€/monthParking included","rua Comandante Cousteau, Expo Norte, Parque das Nações",https://www.idealista.pt/en/imovel/34085436/
+160 m²,T1,"2,750€/month","rua Manuel Marques, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",https://www.idealista.pt/en/imovel/33948297/
+180 m²,T1,"1,980€/month","largo das Olarias, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/33947788/
+155 m²,T1,"2,850€/month","avenida Marquês de Tomar, Gulbenkian - Praça Espanha, Avenidas Novas",https://www.idealista.pt/en/imovel/33948256/
+140 m²,T1,"1,400€/month1,600 €13%","travessa do Calado, Centro, Penha de França",https://www.idealista.pt/en/imovel/33947697/
+263 m²,T2,"4,000€/month","rua do Poço dos Negros, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/33948449/
+165 m²,T1,"1,300€/month","rua Braamcamp Freire, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/33947418/
+285 m²,T2,"2,000€/month","rua Rodrigues de Faria, Largo do Calvário - Lx Factory, Alcântara",https://www.idealista.pt/en/imovel/33947972/
+143 m²,T1,"2,200€/month","rua Nova do Desterro, Pena, Arroios",https://www.idealista.pt/en/imovel/33948099/
+155 m²,T1,"1,200€/month1,300 €8%","rua Dom Carlos de Mascarenhas, Centro, Campolide",https://www.idealista.pt/en/imovel/33947389/
+2130 m²,T2,"1,750€/month","Av. de Roma - Campo Pequeno, Areeiro",https://www.idealista.pt/en/imovel/34085211/
+262 m²,T2,"1,550€/month","rua General Justiniano Padrel, Santa Engrácia, São Vicente",https://www.idealista.pt/en/imovel/33947634/
+2120 m²,T2,"2,700€/month","rua Artilharia 1, Rato - Amoreiras, Santo António",https://www.idealista.pt/en/imovel/33948269/
+144 m²,T1,"1,420€/month","rua do Lumiar, Carriche - Hospital das Forças Armadas, Lumiar",https://www.idealista.pt/en/imovel/33947503/
+144 m²,T1,"1,600€/month","rua Actor Vale, Bairro dos Actores - Barão Sabrosa, Penha de França",https://www.idealista.pt/en/imovel/33947654/
+263 m²,T2,"1,400€/month",,https://www.idealista.pt/en/imovel/33947450/
+142 m²,T1,"1,500€/month","rua da Penha de França, Centro, Penha de França",https://www.idealista.pt/en/imovel/33947567/
+275 m²,T2,"1,875€/month","rua da Páscoa, Santa Isabel, Campo de Ourique",https://www.idealista.pt/en/imovel/33947889/
+160 m²,T1,"2,050€/month","rua de São Miguel, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/33948031/
+155 m²,T1,"1,800€/month","rua Ilha do Príncipe, Anjos, Arroios",https://www.idealista.pt/en/imovel/33947840/
+146 m²,T1,"1,100€/month","rua Frederico Perry Vidal, Nn, Beato, Lisboa",https://www.idealista.pt/en/imovel/34085045/
+160 m²,T1,"1,300€/month","rua Barão de Sabrosa, Bairro dos Actores - Barão Sabrosa, Penha de França",https://www.idealista.pt/en/imovel/33947380/
+169 m²,T1,"1,650€/monthParking included","alameda dos Oceanos, 19, Expo Central, Parque das Nações",https://www.idealista.pt/en/imovel/34085011/
+2102 m²,T2,"2,400€/month","rua do Garcia, Bairro Calçada dos Mestres, Campolide",https://www.idealista.pt/en/imovel/34084984/
+155 m²,T1,"1,860€/month","rua João de Oliveira Miguens, 76, Doca de Alcântara, Estrela",https://www.idealista.pt/en/imovel/34084446/
+142 m²,T1,895€/month,"avenida de Madrid, 12, Centro, Areeiro",https://www.idealista.pt/en/imovel/34075368/
+2120 m²,T2,"2,750€/monthParking included","rua Professor Sousa da Câmara, Centro, Campolide",https://www.idealista.pt/en/imovel/34084311/
+145 m²,T1,950€/month,"Rato - Amoreiras, Santo António",https://www.idealista.pt/en/imovel/34084002/
+160 m²,T1,"1,200€/monthParking included","rua Prista Monteiro, 15 loteandar, Telheiras, Carnide",https://www.idealista.pt/en/imovel/34082630/
+269 m²,T2,"1,175€/month","Bairro de Santa Cruz, Benfica",https://www.idealista.pt/en/imovel/34083156/
+2186 m²,T2,"2,100€/monthParking included","Santa Clara, Lisboa",https://www.idealista.pt/en/imovel/34083077/
+281 m²,T2,"1,200€/month","rua Cândido Figueiredo, Estrada de Benfica, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34081778/
+184 m²,T1,"1,750€/monthParking included","rua Gonçalves Crespo, Nn, Estefânia, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34081378/
+161 m²,T1,"1,400€/monthParking included","rua Luciano Freire, 18, Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34080291/
+250 m²,T2,"1,300€/month","rua do Paraíso, 108, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/32287004/
+291 m²,T2,"1,400€/month","estrada de Benfica, Estrada de Benfica, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34080280/
+2114 m²,T2,"4,200€/month","Lapa, Estrela",https://www.idealista.pt/en/imovel/34080142/
+148 m²,T1,"1,600€/month","rua Infantaria 16, 85, Centro, Campo de Ourique",https://www.idealista.pt/en/imovel/32414465/
+266 m²,T2,"1,400€/month","Alto de Alcântara, Alcântara",https://www.idealista.pt/en/imovel/34080073/
+2110 m²,T2,"1,500€/month","avenida Almirante Gago Coutinho, 101, São João de Brito, Alvalade",https://www.idealista.pt/en/imovel/34079533/
+170 m²,T1,"1,450€/monthParking included","rua Manuel Marques, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",https://www.idealista.pt/en/imovel/34079902/
+270 m²,T2,"1,250€/month",,https://www.idealista.pt/en/imovel/34079623/
+265 m²,T2,"1,800€/month",,https://www.idealista.pt/en/imovel/34079390/
+166 m²,T1,"1,250€/month","rua da Arrábida, Nn, Santa Isabel, Campo de Ourique",https://www.idealista.pt/en/imovel/34079392/
+180 m²,T1,"1,300€/month","avenida do Brasil, São João de Brito, Alvalade",https://www.idealista.pt/en/imovel/34078682/
+276 m²,T2,"1,600€/month","rua Francisco Sanches, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34077234/
+270 m²,T2,"1,500€/month","rua Rodrigues de Faria, 105, Largo do Calvário - Lx Factory, Alcântara",https://www.idealista.pt/en/imovel/33151632/
+286 m²,T2,"1,400€/month","estrada de Benfica, Nn, Fonte Nova - Calhariz, Benfica",https://www.idealista.pt/en/imovel/34074289/
+290 m²,T2,"1,600€/month","Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34074088/
+155 m²,T1,"1,200€/month","Campo Pequeno, Avenidas Novas",https://www.idealista.pt/en/imovel/34073626/
+2114 m²,T2,"1,900€/monthParking included","Alto dos Moinhos, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34072713/
+260 m²,T2,"1,650€/month","rua Damasceno Monteiro, 64, Anjos, Arroios",https://www.idealista.pt/en/imovel/34071398/
+265 m²,T2,"1,300€/month","rua Angelina Vidal, 42, Centro, Penha de França",https://www.idealista.pt/en/imovel/34071081/
+149 m²,T1,"1,750€/monthParking included","avenida Elias Garcia, 67, Campo Pequeno, Avenidas Novas",https://www.idealista.pt/en/imovel/34068323/
+262 m²,T2,"2,100€/month","rua das Pedreiras, Centro, Belém",https://www.idealista.pt/en/imovel/34059669/
+144 m²,T1,800€/month,"travessa do Rosário de Santa Clara, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34064968/
+298 m²,T2,"1,090€/month","rua do Embaixador, 124, Centro, Belém",https://www.idealista.pt/en/imovel/33864529/
+159 m²,T1,"1,400€/month1,500 €7%","avenida Conselheiro Fernando de Sousa, Centro, Campolide",https://www.idealista.pt/en/imovel/33940798/
+261 m²,T2,"1,000€/month","rua Dom Fuas Roupinho, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34070846/
+2100 m²,T2,"3,150€/monthParking included","rua Alexandre Herculano, Rato - Amoreiras, Santo António",https://www.idealista.pt/en/imovel/34070252/
+284 m²,T2,"1,300€/month","rua Saraiva de Carvalho, Largo do Rato - Estrela, Campo de Ourique",https://www.idealista.pt/en/imovel/34068934/
+140 m²,T1,"1,200€/month1,350 €11%","caminho de Palma de Cima, 2, Laranjeiras, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34071308/
+2134 m²,T2,"3,200€/month3,500 €9%","largo das Palmeiras, Nn, Saldanha - Picoas, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/33865999/
+171 m²,T1,"1,300€/month","avenida General Roçadas, Nn, Centro, Penha de França",https://www.idealista.pt/en/imovel/34070915/
+296 m²,T2,"3,350€/month","Largo do Rato - Estrela, Campo de Ourique",https://www.idealista.pt/en/imovel/34074193/
+264 m²,T2,"1,300€/month","rua Dom Fuas Roupinho, 26, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34073627/
+160 m²,T1,"3,867€/month4,200 €8%","rua São José, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34053308/
+2104 m²,T2,"2,500€/monthParking included","estrada das Laranjeiras, 130, Sete Rios, São Domingos de Benfica",https://www.idealista.pt/en/imovel/33896201/
+2168 m²,T2,"3,500€/month","Praça da Alegria, Santo António",https://www.idealista.pt/en/imovel/34070225/
+2119 m²,T2,"2,450€/monthParking included","praceta Teófilo Ferreira, Largo do Calvário - Lx Factory, Alcântara",https://www.idealista.pt/en/imovel/34083290/
+276 m²,T2,"1,100€/month",,https://www.idealista.pt/en/imovel/34070246/
+154 m²,T1,"1,200€/month","rua Cláudio Nunes, Nn, Arneiros, Benfica",https://www.idealista.pt/en/imovel/34068028/
+2115 m²,T2,"1,800€/month","rua Jorge Castilho, Casal Vistoso, Areeiro",https://www.idealista.pt/en/imovel/34080605/
+295 m²,T2,"2,000€/month","rua Coelho da Rocha, Nn, Centro, Campo de Ourique",https://www.idealista.pt/en/imovel/34072364/
+155 m²,T1,"1,600€/month","travessa da Arrochela, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34020738/
+2115 m²,T2,"1,500€/month1,600 €6%","Avenida do Uruguai, Benfica",https://www.idealista.pt/en/imovel/34071000/
+280 m²,T2,"1,250€/month","travessa Giestal, 21, Alto de Alcântara, Alcântara",https://www.idealista.pt/en/imovel/34073955/
+1110 m²,T1,"1,600€/monthParking included",,https://www.idealista.pt/en/imovel/34067216/
+272 m²,T2,"1,450€/month","rua b Ao Bairro da Liberdade, 85, Bairro da Serafina, Campolide",https://www.idealista.pt/en/imovel/34079586/
+155 m²,T1,975€/month,"travessa dos Inglesinhos, 27, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34074325/
+262 m²,T2,"1,350€/month","rua José Lins do Rego, Nn, Campo Grande, Alvalade",https://www.idealista.pt/en/imovel/34071095/
+170 m²,T1,"1,800€/month","rua Eduardo Coelho, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34084578/
+265 m²,T2,"1,325€/month","rua Martins Barata, Torre de Belém, Belém",https://www.idealista.pt/en/imovel/34070247/
+160 m²,T1,"2,200€/monthParking included","avenida da Liberdade, 49, Praça da Alegria, Santo António",https://www.idealista.pt/en/imovel/34071134/
+150 m²,T1,"1,600€/month",,https://www.idealista.pt/en/imovel/34073860/
+150 m²,T1,"1,100€/month","rua de São Marçal, Nn, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34072263/
+2114 m²,T2,"4,500€/month","Lapa, Estrela",https://www.idealista.pt/en/imovel/34070240/
+268 m²,T2,"1,250€/month",,https://www.idealista.pt/en/imovel/34077840/
+178 m²,T1,"2,600€/month","Lapa, Estrela",https://www.idealista.pt/en/imovel/34068069/
+295 m²,T2,"1,550€/monthParking included","Restelo, Belém",https://www.idealista.pt/en/imovel/34075120/
+172 m²,T1,"1,100€/month","Telheiras, Carnide",https://www.idealista.pt/en/imovel/34076227/
+285 m²,T2,"1,950€/month",,https://www.idealista.pt/en/imovel/34067133/
+285 m²,T2,"1,700€/month","Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34075400/
+270 m²,T2,"1,950€/month","rua da Vinha, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34080368/
+143 m²,T1,"1,600€/month","rua Direita de Palma, Laranjeiras, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34065040/
+142 m²,T1,"1,250€/month1,750 €29%","rua Latino Coelho, São Sebastião da Pedreira, Avenidas Novas",https://www.idealista.pt/en/imovel/34039690/
+270 m²,T2,"2,380€/month","rua de Guilherme Braga, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045285/
+144 m²,T1,"1,000€/month1,100 €9%","estrada do Desvio, Santa Clara, Lisboa",https://www.idealista.pt/en/imovel/34044780/
+264 m²,T2,"3,000€/month","travessa de Santos, Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34045783/
+280 m²,T2,"2,079€/month","rua Bartolomeu da Costa, Santa Engrácia, São Vicente",https://www.idealista.pt/en/imovel/34040102/
+175 m²,T1,"1,550€/month",,https://www.idealista.pt/en/imovel/34071967/
+142 m²,T1,"1,149€/month1,249 €8%","beco das Farinhas, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34044786/
+263 m²,T2,"1,300€/month1,400 €7%","rua do Passadiço, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34044843/
+145 m²,T1,"1,600€/month","travessa da Fábrica das Sedas, Rato - Amoreiras, Santo António",https://www.idealista.pt/en/imovel/34065030/
+2116 m²,T2,"2,950€/month","rua Latino Coelho, São Sebastião da Pedreira, Avenidas Novas",https://www.idealista.pt/en/imovel/34075198/
+144 m²,T1,893€/month978 €9%,"rua Montepio Geral, Estrada de Benfica, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34065005/
+263 m²,T2,"2,500€/month","travessa de Santos, Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34045419/
+264 m²,T2,"2,100€/month2,300 €9%","travessa Amoreira, Lapa, Estrela",https://www.idealista.pt/en/imovel/34065059/
+151 m²,T1,"1,050€/month","rua Azedo Gneco, Centro, Campo de Ourique",https://www.idealista.pt/en/imovel/34063279/
+143 m²,T1,"1,400€/month","rua Afonso Domingues, Santa Engrácia, São Vicente",https://www.idealista.pt/en/imovel/34065052/
+140 m²,T1,"1,510€/month","rua de Marcos Marreiros, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34039217/
+170 m²,T1,"2,100€/month","rua Vítor Cordon, 40, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34073344/
+298 m²,T2,"1,950€/monthParking included","rua C à Avenida Cidade de Praga, Centro Histórico - Quinta da Luz, Carnide",https://www.idealista.pt/en/imovel/34078609/
+195 m²,T1,"1,600€/monthParking included","rua Doutor Bastos Gonçalves, Laranjeiras, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34072431/
+175 m²,T1,"1,500€/monthParking included","travessa da Horta Navia, Prazeres, Estrela",https://www.idealista.pt/en/imovel/34075318/
+196 m²,T1,"3,250€/month",,https://www.idealista.pt/en/imovel/34047550/
+271 m²,T2,"2,000€/month","rua Latino Coelho, São Sebastião da Pedreira, Avenidas Novas",https://www.idealista.pt/en/imovel/34083458/
+164 m²,T1,"1,400€/monthParking included","rua Nova dos Mercadores, Expo Sul, Parque das Nações",https://www.idealista.pt/en/imovel/32506257/
+160 m²,T1,"1,900€/monthGarageoptional100 €/month","rua das Taipas, Praça da Alegria, Santo António",https://www.idealista.pt/en/imovel/34072580/
+254 m²,T2,"1,350€/month1,500 €10%","rua António Maria Baptista, Nn, Centro, Penha de França",https://www.idealista.pt/en/imovel/33915494/
+144 m²,T1,"1,400€/month1,500 €7%","rua Professor Sousa da Câmara, Centro, Campolide",https://www.idealista.pt/en/imovel/34069021/
+287 m²,T2,"1,250€/month","rua Barão de Sabrosa, Bairro dos Actores - Barão Sabrosa, Penha de França",https://www.idealista.pt/en/imovel/34068063/
+190 m²,T1,"2,600€/month3,000 €13%","rua de São Bento, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34053255/
+160 m²,T1,"1,000€/month","rua Passos Manuel, Estefânia, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/33893877/
+163 m²,T1,"1,400€/month","avenida Conselheiro Fernando de Sousa, Centro, Campolide",https://www.idealista.pt/en/imovel/34069618/
+149 m²,T1,"1,300€/month","Lapa, Estrela",https://www.idealista.pt/en/imovel/34079473/
+163 m²,T1,"2,000€/month","Saldanha - Picoas, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/33506706/
+150 m²,T1,"1,400€/monthParking included",,https://www.idealista.pt/en/imovel/34078708/
+2108 m²,T2,"2,500€/monthParking included","rua das Beatas, Graça, São Vicente",https://www.idealista.pt/en/imovel/34078805/
+161 m²,T1,"1,900€/month","rua Pedro Nunes, São Sebastião da Pedreira, Avenidas Novas",https://www.idealista.pt/en/imovel/34080222/
+270 m²,T2,"1,150€/month","rua Antonino e Sá, 2 b, Laranjeiras, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34023441/
+155 m²,T1,"1,700€/month","Lapa, Estrela",https://www.idealista.pt/en/imovel/34074014/
+2140 m²,T2,"7,100€/monthParking included","Bairro Azul - Parque Eduardo VII, Avenidas Novas",https://www.idealista.pt/en/imovel/34068914/
+145 m²,T1,"1,400€/month1,500 €7%","rua do Cardal de São José, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34039185/
+285 m²,T2,"1,500€/month",,https://www.idealista.pt/en/imovel/34077431/
+175 m²,T1,"1,150€/month","praça da Estrela, Nn, Lapa, Estrela",https://www.idealista.pt/en/imovel/33724852/
+270 m²,T2,"1,500€/month","rua do Galvão, Nn, Centro, Belém",https://www.idealista.pt/en/imovel/34068364/
+140 m²,T1,"1,350€/month1,500 €10%","beco das Cruzes, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039172/
+143 m²,T1,"1,525€/month",,https://www.idealista.pt/en/imovel/34045078/
+270 m²,T2,"1,500€/month","rua Arco do Carvalhão, Nn, Prazeres - Maria Pia, Campo de Ourique",https://www.idealista.pt/en/imovel/34072082/
+2106 m²,T2,"1,300€/month","estrada de Benfica, Avenida do Uruguai, Benfica",https://www.idealista.pt/en/imovel/34067020/
+262 m²,T2,"1,800€/month","beco de Maria da Guerra, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045222/
+2118 m²,T2,"2,200€/month",,https://www.idealista.pt/en/imovel/34080444/
+190 m²,T1,"2,350€/month","rua Artilharia 1, 10, Bairro Azul - Parque Eduardo VII, Avenidas Novas",https://www.idealista.pt/en/imovel/34068938/
+281 m²,T2,"1,600€/month","estrada da Luz, Laranjeiras, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34084051/
+283 m²,T2,"1,350€/month1,500 €10%","rua Frei Manuel do Cenáculo, 15, Centro, Penha de França",https://www.idealista.pt/en/imovel/34072729/
+2109 m²,T2,"1,850€/monthGarageoptional100 €/month","rua João de Freitas Branco, 29, Alto dos Moinhos, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34067419/
+155 m²,T1,"1,250€/month","rua Carlos Mardel, 111, Bairro dos Actores, Areeiro",https://www.idealista.pt/en/imovel/33772785/
+265 m²,T2,"1,250€/monthParking included","avenida Marechal Francisco da Costa Gomes, 55, Bairro dos Actores - Barão Sabrosa, Penha de França",https://www.idealista.pt/en/imovel/34080070/
+290 m²,T2,"1,680€/month","rua da Sociedade Farmacêutica, 40, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34075090/
+170 m²,T1,"2,000€/month","rua Vítor Cordon, 38, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34072477/
+270 m²,T2,"1,300€/monthParking included","rua Conde Almoster, 90, Estrada de Benfica, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34072212/
+292 m²,T2,"1,350€/monthParking included","rua João de Freitas Branco, Alto dos Moinhos, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34068333/
+270 m²,T2,"1,500€/month","praça Paiva Couceiro, Nn, Centro, Penha de França",https://www.idealista.pt/en/imovel/34080429/
+270 m²,T2,"1,600€/month",,https://www.idealista.pt/en/imovel/34039288/
+295 m²,T2,"2,350€/month","rua do Galvão, Centro, Belém",https://www.idealista.pt/en/imovel/34045282/
+144 m²,T1,"1,950€/month","travessa Giestal, Alto de Alcântara, Alcântara",https://www.idealista.pt/en/imovel/34045197/
+160 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039387/
+280 m²,T2,"2,079€/month","avenida Elias Garcia, Campo Pequeno, Avenidas Novas",https://www.idealista.pt/en/imovel/34040091/
+260 m²,T2,"1,455€/month","rua do Olival, Lapa, Estrela",https://www.idealista.pt/en/imovel/34038623/
+275 m²,T2,"1,665€/month","rua Marques da Silva, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34039419/
+142 m²,T1,"3,000€/month","rua Tenente Valadim, Doca de Alcântara, Estrela",https://www.idealista.pt/en/imovel/34045784/
+260 m²,T2,"2,160€/month","travessa Santana da Cruz, Pena, Arroios",https://www.idealista.pt/en/imovel/34040133/
+290 m²,T2,"2,079€/month","rua Vítor Bastos, Centro, Campolide",https://www.idealista.pt/en/imovel/34040080/
+290 m²,T2,"1,730€/month","largo Francisco Smith, Bairro Novo, Carnide",https://www.idealista.pt/en/imovel/34039646/
+290 m²,T2,"2,160€/month","rua do Olival, Lapa, Estrela",https://www.idealista.pt/en/imovel/34040114/
+2100 m²,T2,"2,000€/month","travessa do Possolo, Lapa, Estrela",https://www.idealista.pt/en/imovel/34040005/
+262 m²,T2,"3,750€/month","rua da Penha de França, Centro, Penha de França",https://www.idealista.pt/en/imovel/34045900/
+260 m²,T2,"1,400€/month","rua da Bombarda, Anjos, Arroios",https://www.idealista.pt/en/imovel/34038536/
+142 m²,T1,"1,500€/month","travessa das Freiras, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34045114/
+270 m²,T2,"1,280€/month","avenida Visconde de Valmor, Gulbenkian - Praça Espanha, Avenidas Novas",https://www.idealista.pt/en/imovel/34038383/
+142 m²,T1,"2,500€/month","rua Arco da Graça, Rossio - Martim Moniz, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045363/
+270 m²,T2,"1,559€/month","rua Conde das Antas, Centro, Campolide",https://www.idealista.pt/en/imovel/34039235/
+275 m²,T2,"1,750€/month","rua Correia Teles, Centro, Campo de Ourique",https://www.idealista.pt/en/imovel/34039661/
+268 m²,T2,"1,769€/month","rua da Boavista, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34039706/
+274 m²,T2,"1,300€/month","rua do Poço dos Negros, Cais do Sodré - Santos, Misericórdia",https://www.idealista.pt/en/imovel/34081812/
+290 m²,T2,"1,975€/month","travessa da Pereira, Graça, São Vicente",https://www.idealista.pt/en/imovel/34039989/
+263 m²,T2,"1,975€/month",,https://www.idealista.pt/en/imovel/34039968/
+2120 m²,T2,"1,559€/month","rua Filipe da Mata, Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34039279/
+275 m²,T2,"2,500€/month","rua Alexandre Braga, Estefânia, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34045390/
+143 m²,T1,"1,400€/month","rua Lucinda Simões, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34044844/
+163 m²,T1,"3,822€/month","travessa Santana da Cruz, Pena, Arroios",https://www.idealista.pt/en/imovel/34045910/
+265 m²,T2,"2,160€/month","rua das Olarias, Graça, São Vicente",https://www.idealista.pt/en/imovel/34040143/
+144 m²,T1,"2,000€/month","rua Dom Luís I, Cais do Sodré - Santos, Misericórdia",https://www.idealista.pt/en/imovel/34040006/
+142 m²,T1,"8,000€/month","rua Augusta, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045947/
+290 m²,T2,"1,875€/month","rua Cidade de Cardiff, Centro, Penha de França",https://www.idealista.pt/en/imovel/34039919/
+150 m²,T1,"1,620€/month","beco do Forno do Sol, Graça, São Vicente",https://www.idealista.pt/en/imovel/34039297/
+270 m²,T2,"1,455€/month","rua da Penha de França, Centro, Penha de França",https://www.idealista.pt/en/imovel/34038617/
+262 m²,T2,"1,575€/month",,https://www.idealista.pt/en/imovel/34045165/
+165 m²,T1,"1,750€/month","avenida Almirante Reis, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34039477/
+142 m²,T1,"1,173€/month","beco João Alves, Rio Seco - Casalinho, Ajuda",https://www.idealista.pt/en/imovel/34036940/
+275 m²,T2,"1,559€/month","largo Monsenhor Dalgado, Estrada de Benfica, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34039227/
+260 m²,T2,"2,079€/month","rua António Maria Baptista, Centro, Penha de França",https://www.idealista.pt/en/imovel/34040100/
+142 m²,T1,"3,000€/month","rua Damasceno Monteiro, Graça, São Vicente",https://www.idealista.pt/en/imovel/34045765/
+290 m²,T2,"1,590€/month","rua Marques da Silva, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34039284/
+262 m²,T2,"1,590€/month","rua da Bela Vista à Graça, Graça, São Vicente",https://www.idealista.pt/en/imovel/34039248/
+265 m²,T2,"2,285€/month","rua Tomás Ribeiro, Saldanha - Picoas, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34045278/
+270 m²,T2,"2,499€/month","rua Maria Pia, Prazeres - Maria Pia, Campo de Ourique",https://www.idealista.pt/en/imovel/34045370/
+280 m²,T2,"2,079€/month","rua Sousa Viterbo, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34040081/
+265 m²,T2,"1,700€/month","rua da Beneficência, Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34039639/
+160 m²,T1,"1,700€/month","rua do Olival, Lapa, Estrela",https://www.idealista.pt/en/imovel/34045115/
+298 m²,T2,"3,130€/month","avenida da Liberdade, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/33147125/
+170 m²,T1,"1,500€/month","rua da Páscoa, Santa Isabel, Campo de Ourique",https://www.idealista.pt/en/imovel/34039068/
+142 m²,T1,"1,800€/month","largo Conde Ottolini, Estrada de Benfica, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34045220/
+160 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039386/
+144 m²,T1,"1,950€/month","rua João da Silva, Casal Vistoso, Areeiro",https://www.idealista.pt/en/imovel/34045249/
+264 m²,T2,"1,600€/month","praça Doutor Alfredo Cunha, Centro, Belém",https://www.idealista.pt/en/imovel/34065025/
+266 m²,T2,"1,500€/month","rua Alfredo Roque Gameiro, Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34070417/
+143 m²,T1,"1,620€/month","beco do Índia, Pena, Arroios",https://www.idealista.pt/en/imovel/34039360/
+145 m²,T1,"3,314€/month","rua de São Pedro de Alcântara, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34045833/
+290 m²,T2,"2,160€/month","rua Presidente Arriaga, Lapa, Estrela",https://www.idealista.pt/en/imovel/34040112/
+270 m²,T2,"2,380€/month","rua da Condessa, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045296/
+290 m²,T2,"3,000€/month","rua Almeida Brandão, Lapa, Estrela",https://www.idealista.pt/en/imovel/34045761/
+170 m²,T1,"1,200€/month","travessa Açougue a Benfica, Igreja de Benfica, Benfica",https://www.idealista.pt/en/imovel/34037021/
+250 m²,T2,"1,800€/month","rua Esperança do Cardal, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34039740/
+250 m²,T2,"2,160€/month","rua de São Miguel, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34040125/
+160 m²,T1,"2,160€/month","rua de São Bento, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34040159/
+144 m²,T1,"3,500€/month","rua do Poço dos Negros, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34045862/
+190 m²,T1,"1,400€/month","rua Belo Marques, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",https://www.idealista.pt/en/imovel/34038524/
+144 m²,T1,"2,500€/month","rua da Oliveira ao Carmo, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045393/
+255 m²,T2,"1,500€/month","beco Arciprestes, Bica, Misericórdia",https://www.idealista.pt/en/imovel/34039183/
+263 m²,T2,"3,500€/month","travessa de Santos, Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34045867/
+280 m²,T2,"2,850€/month","rua da Glória, Praça da Alegria, Santo António",https://www.idealista.pt/en/imovel/34045732/
+144 m²,T1,"2,079€/month","rua Cidade da Horta, Estefânia, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34040055/
+160 m²,T1,"1,595€/month","largo do Leão, Estefânia, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34039312/
+160 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039398/
+155 m²,T1,"1,840€/month","beco do Almotacé, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039857/
+262 m²,T2,"10,000€/month","rua Augusta, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045948/
+2170 m²,T2,"2,500€/month","rua Luciano Cordeiro, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34045338/
+2105 m²,T2,"2,079€/month",,https://www.idealista.pt/en/imovel/34040066/
+150 m²,T1,"1,700€/month","rua de São João da Mata, Lapa, Estrela",https://www.idealista.pt/en/imovel/34039493/
+290 m²,T2,"3,650€/month","rua Dom Pedro V, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34045870/
+142 m²,T1,"1,700€/month","avenida 24 de Julho, Doca de Alcântara, Estrela",https://www.idealista.pt/en/imovel/34045192/
+160 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039400/
+244 m²,T2,"2,000€/month","rua da Silva, Cais do Sodré - Santos, Misericórdia",https://www.idealista.pt/en/imovel/34040015/
+150 m²,T1,"2,100€/month","rua de Campolide, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34040129/
+265 m²,T2,"1,875€/month","rua Coronel Luna de Oliveira, Bairro dos Actores - Barão Sabrosa, Penha de França",https://www.idealista.pt/en/imovel/34039901/
+155 m²,T1,"1,840€/month","rua do Carrião, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34039882/
+264 m²,T2,"1,200€/month","rua dos Lagares, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34061979/
+165 m²,T1,"2,000€/month","rua Dom Luís I, Cais do Sodré - Santos, Misericórdia",https://www.idealista.pt/en/imovel/34040011/
+165 m²,T1,"1,799€/month","beco das Farinhas, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039710/
+290 m²,T2,"3,460€/month","praça dos Restauradores, Rossio - Martim Moniz, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045869/
+280 m²,T2,"2,160€/month","rua do Duque, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34040128/
+2120 m²,T2,"3,500€/month","rua António Alçada Baptista, Alto dos Moinhos, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34045866/
+263 m²,T2,"4,000€/month","rua de Moçambique, Anjos, Arroios",https://www.idealista.pt/en/imovel/34045875/
+160 m²,T1,"1,400€/month","rua do Cardal de São José, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34038604/
+255 m²,T2,"2,160€/month","rua do Duque, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34040137/
+142 m²,T1,"3,500€/month","rua do Poço dos Negros, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34045837/
+2100 m²,T2,"2,380€/month","rua Marcos Portugal, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34045284/
+297 m²,T2,"2,079€/month","rua General Taborda, Centro, Campolide",https://www.idealista.pt/en/imovel/34040090/
+144 m²,T1,"3,000€/month","rua da Lapa, Lapa, Estrela",https://www.idealista.pt/en/imovel/34045768/
+280 m²,T2,"1,875€/month","rua Dom Fuas Roupinho, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34039834/
+290 m²,T2,"3,000€/month","travessa de Santos, Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34045767/
+160 m²,T1,"1,650€/month","rua da Misericórdia, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34039391/
+275 m²,T2,"2,200€/month","rua do Cabo, Santa Isabel, Campo de Ourique",https://www.idealista.pt/en/imovel/34045258/
+160 m²,T1,"2,000€/month","avenida das Nações Unidas, Telheiras, Carnide",https://www.idealista.pt/en/imovel/34039993/
+262 m²,T2,"3,900€/month","rua Rodrigues Sampaio, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34045845/
+144 m²,T1,"3,478€/month","rua da Condessa, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045860/
+150 m²,T1,"2,050€/month","rua dos Correeiros, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34040053/
+275 m²,T2,"1,665€/month","rua Maria Pia, Prazeres - Maria Pia, Campo de Ourique",https://www.idealista.pt/en/imovel/34039388/
+275 m²,T2,"2,800€/month","rua Soeiro Pereira Gomes, Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34045703/
+260 m²,T2,"3,560€/month","rua Anchieta, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045884/
+262 m²,T2,"1,400€/month","rua do Paraíso, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34038599/
+264 m²,T2,"1,950€/month","rua dos Lagares, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039963/
+143 m²,T1,"3,591€/month",,https://www.idealista.pt/en/imovel/34045844/
+255 m²,T2,"1,940€/month","rua do Cardal de São José, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34039905/
+182 m²,T1,"1,400€/monthParking included","rua Marvila, Marvila, Lisboa",https://www.idealista.pt/en/imovel/34081513/
+150 m²,T1,"1,200€/month","rua de Martim Vaz, Pena, Arroios",https://www.idealista.pt/en/imovel/34050005/
+275 m²,T2,"1,455€/month","rua Passos Manuel, Estefânia, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34038616/
+290 m²,T2,"2,500€/month","rua da Indústria, Alto de Santo Amaro, Alcântara",https://www.idealista.pt/en/imovel/34045366/
+150 m²,T1,"1,700€/month","rua António Pedro, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34039472/
+280 m²,T2,"1,559€/month","rua Francisco Pedro Curado, Centro, Penha de França",https://www.idealista.pt/en/imovel/34039263/
+280 m²,T2,"2,500€/month","rua Doutor Gama Barros, Alvalade, Alvalade",https://www.idealista.pt/en/imovel/34045353/
+150 m²,T1,"2,160€/month","rua Pinheiro Chagas, São Sebastião da Pedreira, Avenidas Novas",https://www.idealista.pt/en/imovel/34040170/
+264 m²,T2,"1,800€/month","travessa de Santo António a Santos, Lapa, Estrela",https://www.idealista.pt/en/imovel/34045214/
+262 m²,T2,"1,850€/month",,https://www.idealista.pt/en/imovel/34045225/
+270 m²,T2,"1,500€/month","largo de Jesus, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34050031/
+2100 m²,T2,"1,750€/month","alameda das Linhas de Torres, Centro, Lumiar",https://www.idealista.pt/en/imovel/34050041/
+275 m²,T2,"1,665€/month","rua Braamcamp, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34039421/
+160 m²,T1,"1,500€/month","rua Natália Correia, Graça, São Vicente",https://www.idealista.pt/en/imovel/34039175/
+270 m²,T2,"7,000€/month","rua dos Sapateiros, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045894/
+270 m²,T2,"2,079€/month",,https://www.idealista.pt/en/imovel/34040068/
+147 m²,T1,"2,500€/month","rua do Olival, Lapa, Estrela",https://www.idealista.pt/en/imovel/34045336/
+143 m²,T1,"2,250€/month","rua Duques de Bragança, Chiado - Pç. de Camões, Misericórdia",https://www.idealista.pt/en/imovel/34045265/
+260 m²,T2,"1,559€/month","rua de São João da Mata, Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34039262/
+270 m²,T2,"2,079€/month","rua António Maria Baptista, Centro, Penha de França",https://www.idealista.pt/en/imovel/34039958/
+275 m²,T2,"2,079€/month","rua Sebastião Saraiva Lima, Centro, Penha de França",https://www.idealista.pt/en/imovel/34040026/
+157 m²,T1,"2,000€/month","rua São Sebastião da Pedreira, São Sebastião da Pedreira, Avenidas Novas",https://www.idealista.pt/en/imovel/34040019/
+260 m²,T2,"2,160€/month","travessa Santana da Cruz, Pena, Arroios",https://www.idealista.pt/en/imovel/34040088/
+285 m²,T2,"5,000€/month","rua dos Fanqueiros, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045950/
+168 m²,T1,"4,000€/month","rua Pascoal de Melo, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34045876/
+280 m²,T2,"1,559€/month",,https://www.idealista.pt/en/imovel/34039236/
+271 m²,T2,"2,050€/month","rua de Campolide, Nova Campolide, Campolide",https://www.idealista.pt/en/imovel/34040048/
+160 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039396/
+142 m²,T1,"1,800€/month",,https://www.idealista.pt/en/imovel/34039723/
+150 m²,T1,"1,800€/month","rua Maria Pia, Prazeres - Maria Pia, Campo de Ourique",https://www.idealista.pt/en/imovel/34039716/
+150 m²,T1,"1,840€/month","rua Silva Carvalho, Amoreiras, Campo de Ourique",https://www.idealista.pt/en/imovel/34039866/
+155 m²,T1,"1,100€/month","rua de Ponta Delgada, Estefânia, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34036830/
+263 m²,T2,"1,500€/month","rua de Alcântara, Largo do Calvário - Lx Factory, Alcântara",https://www.idealista.pt/en/imovel/34045088/
+1140 m²,T1,"1,450€/month","rua do Alvito, Alvito - Quinta do Jacinto, Alcântara",https://www.idealista.pt/en/imovel/34038613/
+170 m²,T1,"1,470€/month","travessa dos Poiais, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34038640/
+260 m²,T2,"1,600€/month",,https://www.idealista.pt/en/imovel/34039308/
+147 m²,T1,"1,300€/month","rua General Taborda, Centro, Campolide",https://www.idealista.pt/en/imovel/34038450/
+2106 m²,T2,"2,500€/month",,https://www.idealista.pt/en/imovel/34045361/
+255 m²,T2,"2,160€/month","rua Rodrigues de Faria, Largo do Calvário - Lx Factory, Alcântara",https://www.idealista.pt/en/imovel/34040138/
+270 m²,T2,"1,875€/month","rua de São Domingos de Benfica, Estrada de Benfica, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34039910/
+143 m²,T1,"1,490€/month","rua da Boavista, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34039149/
+255 m²,T2,"2,160€/month",,https://www.idealista.pt/en/imovel/34040149/
+270 m²,T2,"1,875€/month","rua do Carmo, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039912/
+275 m²,T2,"2,100€/month","avenida Almirante Reis, Anjos, Arroios",https://www.idealista.pt/en/imovel/34040120/
+280 m²,T2,"1,400€/month","rua Doutor Joaquim Manso, Charquinho, Benfica",https://www.idealista.pt/en/imovel/34038564/
+150 m²,T1,"1,800€/month","rua dos Lagares, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34046600/
+160 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039397/
+175 m²,T1,"4,000€/month","rua Manuel da Silva Leal, Laranjeiras, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34045920/
+170 m²,T1,"2,000€/month","rua da Cruz dos Poiais, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34040017/
+280 m²,T2,"2,380€/month","rua Presidente Arriaga, Lapa, Estrela",https://www.idealista.pt/en/imovel/34045319/
+142 m²,T1,"1,900€/month","rua General Taborda, Centro, Campolide",https://www.idealista.pt/en/imovel/34039923/
+275 m²,T2,"1,455€/month","rua Filipe da Mata, Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34038635/
+264 m²,T2,"3,000€/month","rua de São Julião, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045758/
+250 m²,T2,"1,570€/month","rua dos Lagares, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039309/
+160 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039278/
+143 m²,T1,"1,050€/month","rua Sebastião Saraiva Lima, Centro, Penha de França",https://www.idealista.pt/en/imovel/34035844/
+290 m²,T2,"2,079€/month","rua da Verónica, Graça, São Vicente",https://www.idealista.pt/en/imovel/34040099/
+280 m²,T2,"2,079€/month","rua Mirante, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34040079/
+146 m²,T1,"1,400€/month","avenida General Roçadas, Centro, Penha de França",https://www.idealista.pt/en/imovel/34066573/
+275 m²,T2,"2,915€/month","rua da Madalena, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045706/
+265 m²,T2,"1,495€/month",,https://www.idealista.pt/en/imovel/34050021/
+150 m²,T1,"2,160€/month","rua Nova do Almada, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34040098/
+292 m²,T2,"1,990€/month","rua Paiva de Andrada, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039976/
+2105 m²,T2,"1,650€/month","rua dos Sapadores, Graça, São Vicente",https://www.idealista.pt/en/imovel/34039399/
+2130 m²,T2,"2,705€/month","rua António Alçada Baptista, Alto dos Moinhos, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34045668/
+298 m²,T2,"2,000€/month","rua Morais Soares, Centro, Penha de França",https://www.idealista.pt/en/imovel/34039982/
+144 m²,T1,"2,000€/month","rua Maria, Anjos, Arroios",https://www.idealista.pt/en/imovel/34080621/
+290 m²,T2,"2,160€/month","rua Eça de Queiroz, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34040153/
+140 m²,T1,"1,510€/month","travessa Henrique Cardoso, Alvalade, Alvalade",https://www.idealista.pt/en/imovel/34039218/
+155 m²,T1,"1,000€/month","beco Arciprestes, Bica, Misericórdia",https://www.idealista.pt/en/imovel/34049927/
+264 m²,T2,"1,940€/month","rua da Oliveirinha, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34045240/
+264 m²,T2,"2,500€/month","rua Comandante Cousteau, Expo Norte, Parque das Nações",https://www.idealista.pt/en/imovel/34045375/
+275 m²,T2,"1,455€/month","rua António Gonçalves, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34038618/
+145 m²,T1,"1,500€/month","rua de Santa Marta, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34039127/
+262 m²,T2,"1,500€/month","rua Jacinta Marto, Anjos, Arroios",https://www.idealista.pt/en/imovel/34045157/
+280 m²,T2,"2,079€/month","rua General Taborda, Centro, Campolide",https://www.idealista.pt/en/imovel/34040057/
+2120 m²,T2,"8,000€/month","rua do Carmo, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045953/
+2100 m²,T2,"2,079€/month","avenida Engenheiro Duarte Pacheco, Rato - Amoreiras, Santo António",https://www.idealista.pt/en/imovel/34040075/
+160 m²,T1,"1,685€/month","avenida Júlio Dinis, Campo Pequeno, Avenidas Novas",https://www.idealista.pt/en/imovel/34039150/
+150 m²,T1,"1,240€/month","travessa dos Poiais, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34038363/
+160 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039410/
+175 m²,T1,"2,150€/month",,https://www.idealista.pt/en/imovel/34040028/
+145 m²,T1,"1,840€/month","travessa da Portuguesa, Bica, Misericórdia",https://www.idealista.pt/en/imovel/34039875/
+274 m²,T2,"1,500€/month","rua General Taborda, Centro, Campolide",https://www.idealista.pt/en/imovel/34039171/
+278 m²,T2,"2,280€/month","rua de Sant'Ana à Lapa, Lapa, Estrela",https://www.idealista.pt/en/imovel/34045266/
+253 m²,T2,"2,100€/month","beco das Cruzes, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34040119/
+250 m²,T2,"2,900€/month","rua de São João da Mata, Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34045726/
+150 m²,T1,"1,510€/month","travessa do Olival à Graça, Santa Engrácia, São Vicente",https://www.idealista.pt/en/imovel/34039241/
+160 m²,T1,"1,870€/month","travessa do Olival à Graça, Santa Engrácia, São Vicente",https://www.idealista.pt/en/imovel/34039886/
+270 m²,T2,"3,500€/month",,https://www.idealista.pt/en/imovel/34045883/
+264 m²,T2,"2,000€/month","rua Machado de Castro, Santa Engrácia, São Vicente",https://www.idealista.pt/en/imovel/34065018/
+144 m²,T1,"2,500€/month","rua Damasceno Monteiro, Graça, São Vicente",https://www.idealista.pt/en/imovel/34045348/
+272 m²,T2,"2,000€/month","rua do Loreto, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34039954/
+260 m²,T2,"2,000€/month","rua do Monte Olivete, Príncipe Real, Santo António",https://www.idealista.pt/en/imovel/34040020/
+160 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039392/
+285 m²,T2,"1,940€/month","avenida Duque de Loulé, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34039927/
+2100 m²,T2,"2,590€/month","rua do Vigário, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045432/
+168 m²,T1,"1,200€/month","rua Marcos Portugal, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34036932/
+145 m²,T1,"1,800€/month","rua de Guilherme Braga, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039744/
+270 m²,T2,"2,135€/month","rua de São João da Praça, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34040121/
+145 m²,T1,"1,769€/month","travessa Conceição da Glória, Príncipe Real, Santo António",https://www.idealista.pt/en/imovel/34039695/
+2100 m²,T2,"2,250€/month","rua dos Douradores, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34064066/
+280 m²,T2,"1,980€/month","travessa João de Deus, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039928/
+295 m²,T2,"2,499€/month","rua Sousa Martins, Saldanha - Picoas, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34045352/
+150 m²,T1,"1,620€/month","beco do Forno do Sol, Graça, São Vicente",https://www.idealista.pt/en/imovel/34039356/
+144 m²,T1,"3,000€/month","beco dos Peixinhos, Graça, São Vicente",https://www.idealista.pt/en/imovel/34045766/
+140 m²,T1,"1,769€/month","travessa Giestal, Alto de Alcântara, Alcântara",https://www.idealista.pt/en/imovel/34039705/
+140 m²,T1,"1,730€/month","rua dos Cordoeiros a Pedrouços, Pedrouços, Belém",https://www.idealista.pt/en/imovel/34039635/
+264 m²,T2,"2,250€/month","rua da Bica de Duarte Belo, Bica, Misericórdia",https://www.idealista.pt/en/imovel/34084005/
+142 m²,T1,"2,000€/month","rua de São Julião, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039978/
+265 m²,T2,"2,050€/month","rua da Bombarda, Anjos, Arroios",https://www.idealista.pt/en/imovel/34039956/
+264 m²,T2,"1,400€/month",,https://www.idealista.pt/en/imovel/34038596/
+175 m²,T1,"4,000€/month","rua de Guilherme Braga, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045915/
+262 m²,T2,"1,950€/month","rua do Carrião, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34045251/
+150 m²,T1,"2,700€/month","rua Carlos Ribeiro, Centro, Penha de França",https://www.idealista.pt/en/imovel/34045685/
+270 m²,T2,"1,875€/month","rua Heróis de Quionga, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34039835/
+270 m²,T2,"2,050€/month","rua dos Remédios, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34040052/
+275 m²,T2,"1,559€/month","rua Cidade de Manchester, Anjos, Arroios",https://www.idealista.pt/en/imovel/34039234/
+144 m²,T1,"1,250€/month","rua da Bica de Duarte Belo, Bica, Misericórdia",https://www.idealista.pt/en/imovel/34044805/
+260 m²,T2,"2,160€/month",,https://www.idealista.pt/en/imovel/34040096/
+160 m²,T1,"2,050€/month",,https://www.idealista.pt/en/imovel/34040025/
+150 m²,T1,"1,500€/month","travessa do Conde de Avintes, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34039162/
+158 m²,T1,"1,280€/month","beco das Flores, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34038402/
+150 m²,T1,"1,450€/month","rua dos Remédios, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34038614/
+143 m²,T1,"2,500€/month","rua João do Outeiro, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045357/
+160 m²,T1,"1,620€/month","avenida Marechal Francisco da Costa Gomes, Beato, Lisboa",https://www.idealista.pt/en/imovel/34039298/
+275 m²,T2,"2,079€/month","rua Angelina Vidal, Centro, Penha de França",https://www.idealista.pt/en/imovel/34040072/
+272 m²,T2,"2,000€/month","rua São José, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34040009/
+166 m²,T1,"1,665€/month","rua Delfim de Brito Guimarães, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34039429/
+145 m²,T1,"1,550€/month","avenida Defensores de Chaves, Saldanha - Picoas, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34050022/
+261 m²,T2,"1,550€/month","Graça, São Vicente",https://www.idealista.pt/en/imovel/34071755/
+150 m²,T1,"1,100€/month","rua de São Marçal, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34078739/
+1100 m²,T1,"1,350€/monthParking included","avenida da Peregrinação, Expo Norte, Parque das Nações",https://www.idealista.pt/en/imovel/34078157/
+153 m²,T1,"1,500€/month","rua da Barroca, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34069178/
+278 m²,T2,"1,650€/monthParking included","Expo Norte, Parque das Nações",https://www.idealista.pt/en/imovel/34068213/
+170 m²,T1,"1,300€/monthParking included","rua Mariana Vilar, Centro Histórico - Quinta da Luz, Carnide",https://www.idealista.pt/en/imovel/33246894/
+2124 m²,T2,"1,750€/monthParking included","rua Joly Braga Santos, Laranjeiras, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34080377/
+290 m²,T2,"1,800€/monthGarageoptional100 €/month1,900 €5%",,https://www.idealista.pt/en/imovel/34080198/
+140 m²,T1,980€/month,"rua Borges Grainha, Centro, Penha de França",https://www.idealista.pt/en/imovel/34076582/
+160 m²,T1,"1,500€/month","praça das Flores, Príncipe Real - São Bento, Misericórdia",https://www.idealista.pt/en/imovel/34071193/
+275 m²,T2,"1,400€/month","rua Moniz Barreto, Alvalade, Alvalade",https://www.idealista.pt/en/imovel/34067026/
+2100 m²,T2,"1,600€/month","rua da Sociedade Farmacêutica, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34077298/
+142 m²,T1,"1,600€/month1,700 €6%","rua Ataíde, Chiado - Pç. de Camões, Misericórdia",https://www.idealista.pt/en/imovel/34039516/
+280 m²,T2,"1,400€/month","praça da Alegria, Praça da Alegria, Santo António",https://www.idealista.pt/en/imovel/34068205/
+2138 m²,T2,"2,800€/monthParking included","avenida Pacífico, Expo Central, Parque das Nações",https://www.idealista.pt/en/imovel/34070035/
+140 m²,T1,"1,300€/month1,400 €7%","travessa do Meio, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34038413/
+2120 m²,T2,"2,750€/month","Lapa, Estrela",https://www.idealista.pt/en/imovel/34066431/
+145 m²,T1,"1,100€/month","rua Maestro Jaime Silva (Filho), Alto dos Moinhos, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34074087/
+150 m²,T1,"1,500€/month",,https://www.idealista.pt/en/imovel/34069391/
+2101 m²,T2,"2,400€/monthParking included","rua de Campolide, Praça de Espanha - Sete Rios, Campolide",https://www.idealista.pt/en/imovel/34077044/
+195 m²,T1,"1,600€/monthParking included","Laranjeiras, São Domingos de Benfica",https://www.idealista.pt/en/imovel/34083454/
+165 m²,T1,"2,000€/month","rua Dom Luís I, Cais do Sodré - Santos, Misericórdia",https://www.idealista.pt/en/imovel/34069242/
+165 m²,T1,"3,000€/month","rua Dom Luís I, Cais do Sodré - Santos, Misericórdia",https://www.idealista.pt/en/imovel/34075935/
+270 m²,T2,"2,280€/month","rua de Sant'Ana à Lapa, Lapa, Estrela",https://www.idealista.pt/en/imovel/34069214/
+266 m²,T2,"3,233€/month","largo Mitelo, Pena, Arroios",https://www.idealista.pt/en/imovel/34057353/
+250 m²,T2,"3,467€/month","rua da Voz do Operário, Graça, São Vicente",https://www.idealista.pt/en/imovel/34075826/
+1100 m²,T1,"1,300€/month1,400 €7%","rua Dom João de Castro, 54, Alto de Alcântara, Alcântara",https://www.idealista.pt/en/imovel/33173210/
+165 m²,T1,"3,000€/month","rua Dom Luís I, Cais do Sodré - Santos, Misericórdia",https://www.idealista.pt/en/imovel/34069247/
+265 m²,T2,"3,133€/month","rua Lopes, Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34075829/
+250 m²,T2,"2,600€/month","rua do Salvador, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34057380/
+250 m²,T2,"3,467€/month",,https://www.idealista.pt/en/imovel/34057370/
+150 m²,T1,"2,267€/month","rua do Benformoso, Rossio - Martim Moniz, Santa Maria Maior",https://www.idealista.pt/en/imovel/34057377/
+275 m²,T2,"1,850€/month","rua Jorge Colaço, São João de Brito, Alvalade",https://www.idealista.pt/en/imovel/34075852/
+255 m²,T2,"1,250€/month","rua do Paraíso, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34080027/
+160 m²,T1,"4,200€/month","rua Gonçalves Crespo, Estefânia, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34064559/
+250 m²,T2,"3,467€/month","rua dos Mouros, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34075924/
+275 m²,T2,"3,667€/month","rua do Poço dos Negros, Santa Catarina, Misericórdia",https://www.idealista.pt/en/imovel/34079992/
+184 m²,T1,"4,400€/month","rua dos Sapateiros, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34076032/
+160 m²,T1,"4,200€/month","rua São José, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34076012/
+250 m²,T2,"3,000€/month",,https://www.idealista.pt/en/imovel/34064503/
+2131 m²,T2,"4,641€/month","largo das Palmeiras, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34075909/
+150 m²,T1,"4,500€/month","rua Nogueira e Sousa, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34053221/
+160 m²,T1,"2,532€/month","travessa dos Fiéis de Deus, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34076036/
+165 m²,T1,"1,750€/month","rua Latino Coelho, São Sebastião da Pedreira, Avenidas Novas",https://www.idealista.pt/en/imovel/34069261/
+160 m²,T1,"1,400€/month","rua Marquesa de Alorna, São João de Brito, Alvalade",https://www.idealista.pt/en/imovel/34072436/
+184 m²,T1,"1,500€/monthParking included","rua Tomás da Fonseca, Campo Grande, Alvalade",https://www.idealista.pt/en/imovel/34074478/
+170 m²,T1,"2,587€/month","rua Luciano Cordeiro, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34075978/
+160 m²,T1,"4,033€/month","rua São José, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34069264/
+150 m²,T1,"2,433€/month","rua Nova da Trindade, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34057372/
+268 m²,T2,"2,500€/month","rua Nova da Trindade, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34078741/
+299 m²,T2,"1,500€/monthParking included","rua Teófilo Carvalho dos Santos, Telheiras, Lumiar",https://www.idealista.pt/en/imovel/34079329/
+170 m²,T1,"2,177€/month","rua Luciano Cordeiro, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34075895/
+2135 m²,T2,"5,600€/month","rua da Madalena, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34069263/
+265 m²,T2,"3,990€/month","avenida Infante Santo, Lapa, Estrela",https://www.idealista.pt/en/imovel/34079982/
+160 m²,T1,"3,701€/month","avenida Pádua, Gare do Oriente - Zona Sul, Parque das Nações",https://www.idealista.pt/en/imovel/34075883/
+242 m²,T2,"1,400€/monthParking included1,500 €7%","travessa do Meio do Forte, 21, Pena, Arroios",https://www.idealista.pt/en/imovel/34071334/
+2102 m²,T2,"1,960€/month","rua Maria Pia, Amoreiras, Campo de Ourique",https://www.idealista.pt/en/imovel/34072213/
+153 m²,T1,"2,177€/month","rua Madalena Iglésias, Marvila, Lisboa",https://www.idealista.pt/en/imovel/34075963/
+165 m²,T1,"1,700€/month","praça Gonçalo Trancoso, Alvalade, Alvalade",https://www.idealista.pt/en/imovel/34075958/
+183 m²,T1,"3,128€/month","rua do Desterro, Pena, Arroios",https://www.idealista.pt/en/imovel/34075867/
+148 m²,T1,"1,200€/month","beco da Cardosa, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34080007/
+150 m²,T1,"2,374€/month","rua do Crucifixo, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34075911/
+2114 m²,T2,"2,689€/month","rua da Junqueira, Junqueira, Alcântara",https://www.idealista.pt/en/imovel/34075947/
+2100 m²,T2,"2,978€/month","rua Afonso Annes Penedo, Marvila, Lisboa",https://www.idealista.pt/en/imovel/34075848/
+160 m²,T1,"2,423€/month","travessa dos Fiéis de Deus, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34075866/
+160 m²,T1,"2,760€/month","travessa dos Fiéis de Deus, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34075937/
+270 m²,T2,"3,187€/month","rua Luís de Camões, Alto de Santo Amaro, Alcântara",https://www.idealista.pt/en/imovel/34075878/
+265 m²,T2,"3,197€/month","rua Dom Carlos de Mascarenhas, Centro, Campolide",https://www.idealista.pt/en/imovel/34075929/
+264 m²,T2,"1,200€/month","Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34083369/
+298 m²,T2,"3,250€/month","Rossio - Martim Moniz, Santa Maria Maior",https://www.idealista.pt/en/imovel/34083891/
+270 m²,T2,"1,730€/month","Alto de São João - Alto do Varejão, Penha de França",https://www.idealista.pt/en/imovel/34039784/
+158 m²,T1,"1,100€/month","rua Luís de Camões, Alto de Santo Amaro, Alcântara",https://www.idealista.pt/en/imovel/34074048/
+2125 m²,T2,"3,000€/monthParking included","Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/31900567/
+142 m²,T1,"1,200€/month","rua do Garcia, Bairro Calçada dos Mestres, Campolide",https://www.idealista.pt/en/imovel/34065008/
+270 m²,T2,"1,400€/month1,500 €7%","rua de Campolide, 209 a, Nova Campolide, Campolide",https://www.idealista.pt/en/imovel/33950243/
+142 m²,T1,"1,150€/month",,https://www.idealista.pt/en/imovel/34044748/
+160 m²,T1,"1,350€/month","rua da Verónica, Graça, São Vicente",https://www.idealista.pt/en/imovel/34050020/
+145 m²,T1,"1,500€/month","travessa do Meio, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34039199/
+150 m²,T1,"1,840€/month","rua do Terreirinho, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039846/
+264 m²,T2,"2,500€/month","travessa Escola Araújo, Estefânia, São Jorge de Arroios, Arroios",https://www.idealista.pt/en/imovel/34045392/
+145 m²,T1,"2,000€/month","beco do Loureiro, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34040022/
+159 m²,T1,"1,325€/month","rua Mário Cesariny, Entrecampos, Avenidas Novas",https://www.idealista.pt/en/imovel/34038484/
+289 m²,T2,"1,400€/month","avenida João XXI, Av. de Roma - Campo Pequeno, Areeiro",https://www.idealista.pt/en/imovel/34038534/
+275 m²,T2,"8,730€/month","rua da Prata, Baixa, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045895/
+262 m²,T2,"2,000€/month","rua de São Lázaro, Pena, Arroios",https://www.idealista.pt/en/imovel/34064014/
+142 m²,T1,"1,750€/month",,https://www.idealista.pt/en/imovel/34045202/
+150 m²,T1,"2,700€/month","rua Pereira e Sousa, Centro, Campo de Ourique",https://www.idealista.pt/en/imovel/34045716/
+165 m²,T1,"3,500€/month","rua do Alviela, Santa Engrácia, São Vicente",https://www.idealista.pt/en/imovel/34045881/
+144 m²,T1,"1,395€/month",,https://www.idealista.pt/en/imovel/34038542/
+143 m²,T1,"2,250€/month","rua do Salitre, Av. da Liberdade - Marquês de Pombal, Santo António",https://www.idealista.pt/en/imovel/34040109/
+290 m²,T2,"2,500€/month","rua Lucília do Carmo, Caselas, Belém",https://www.idealista.pt/en/imovel/34045399/
+160 m²,T1,"1,750€/month","avenida General Roçadas, Centro, Penha de França",https://www.idealista.pt/en/imovel/34039662/
+190 m²,T1,"1,800€/month","rua Helena Vaz da Silva, Alto do Lumiar - Quinta das Conchas - Quinta do Lambert, Lumiar",https://www.idealista.pt/en/imovel/34045223/
+262 m²,T2,"5,000€/month","avenida Fontes Pereira de Melo, São Sebastião da Pedreira, Avenidas Novas",https://www.idealista.pt/en/imovel/34045934/
+263 m²,T2,"2,100€/month","rua Sebastião Saraiva Lima, Centro, Penha de França",https://www.idealista.pt/en/imovel/34040131/
+166 m²,T1,"2,090€/month","rua Frederico de Brito, Santa Clara, Lisboa",https://www.idealista.pt/en/imovel/34040103/
+175 m²,T1,"1,400€/month","travessa Henrique Cardoso, Alvalade, Alvalade",https://www.idealista.pt/en/imovel/34038551/
+255 m²,T2,"1,600€/month","rua Conde das Antas, Centro, Campolide",https://www.idealista.pt/en/imovel/34039326/
+262 m²,T2,"2,500€/month",,https://www.idealista.pt/en/imovel/34045374/
+290 m²,T2,"2,300€/month","avenida do Brasil, Campo Grande, Alvalade",https://www.idealista.pt/en/imovel/34045287/
+160 m²,T1,"2,050€/month","rua da Verónica, São Vicente de Fora, São Vicente",https://www.idealista.pt/en/imovel/34039987/
+162 m²,T1,"1,500€/month","rua Francisco de Assis Rodrigues, Centro, Campolide",https://www.idealista.pt/en/imovel/34039153/
+142 m²,T1,"1,700€/month","rua Conde das Antas, Centro, Campolide",https://www.idealista.pt/en/imovel/34045177/
+147 m²,T1,"2,000€/month","rua Angelina Vidal, Anjos, Arroios",https://www.idealista.pt/en/imovel/34040016/
+260 m²,T2,"1,650€/month","travessa da Memória, Calçada da Ajuda - Belém, Ajuda",https://www.idealista.pt/en/imovel/34039277/
+150 m²,T1,"2,200€/month","rua de Martim Vaz, Pena, Arroios",https://www.idealista.pt/en/imovel/34045208/
+255 m²,T2,"1,300€/month","beco dos Cativos, Alfama, Santa Maria Maior",https://www.idealista.pt/en/imovel/34038459/
+160 m²,T1,"1,850€/month","beco dos Peixinhos, Graça, São Vicente",https://www.idealista.pt/en/imovel/34039885/
+270 m²,T2,"2,800€/month","rua de São Lázaro, Pena, Arroios",https://www.idealista.pt/en/imovel/34045742/
+255 m²,T2,"1,700€/month","rua Sebastião Saraiva Lima, Centro, Penha de França",https://www.idealista.pt/en/imovel/34039495/
+264 m²,T2,"1,825€/month",,https://www.idealista.pt/en/imovel/34045216/
+290 m²,T2,"3,000€/month","rua Neves Ferreira, Centro, Penha de França",https://www.idealista.pt/en/imovel/34045790/
+155 m²,T1,"2,352€/month","estrada Moscavide, Gare do Oriente - Zona Sul, Parque das Nações",https://www.idealista.pt/en/imovel/34045295/
+143 m²,T1,"1,200€/month","rua das Madres, Santos-o-Velho - Madragoa, Estrela",https://www.idealista.pt/en/imovel/34064977/
+280 m²,T2,"2,700€/month","rua do Cardal de São José, Campo de Santana - Santa Marta, Santo António",https://www.idealista.pt/en/imovel/34045686/
+165 m²,T1,"2,700€/month","rua do Olival, Lapa, Estrela",https://www.idealista.pt/en/imovel/34045715/
+144 m²,T1,"1,195€/month","rua Eugénio de Castro, Campo Grande, Alvalade",https://www.idealista.pt/en/imovel/34036992/
+150 m²,T1,"1,750€/month","rua das Praças, Lapa, Estrela",https://www.idealista.pt/en/imovel/34039666/
+140 m²,T1,"1,800€/month","travessa da Espera, Bairro Alto, Misericórdia",https://www.idealista.pt/en/imovel/34039734/
+2110 m²,T2,"3,250€/month","rua Garrett, Chiado, Santa Maria Maior",https://www.idealista.pt/en/imovel/34045788/
+250 m²,T2,"1,750€/month","rua do Terreirinho, Mouraria - Castelo, Santa Maria Maior",https://www.idealista.pt/en/imovel/34039638/
+2150 m²,T2,"7,500€/monthParking included","avenida da Liberdade, 49, Praça da Alegria, Santo António",https://www.idealista.pt/en/imovel/34064679/
+240 m²,T2,"1,650€/month","travessa da Cruz da Rocha, Lapa, Estrela",https://www.idealista.pt/en/imovel/34039381/

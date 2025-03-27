@@ -1,0 +1,435 @@
+﻿Scraping Idealista Properties with ScrapingBee: Step-by-Step Guide
+This guide will show you how to scrape property listings (details, prices, and locations) from Idealista using the ScrapingBee API. We’ll cover setting up the scraper, filtering results, scheduling it to run three times a day, and storing new or updated properties in JSON format. We’ll also discuss using ScrapingBee’s proxy rotation and CAPTCHA avoidance features for reliable scraping, handling pagination, respecting rate limits, and following ethical practices.
+1. Define Target Data and Filtering Criteria
+Data to Scrape: Identify the specific information you need from each property listing. For Idealista listings, relevant fields include:
+* Property Title/Details: A brief description or title of the property (often including type and key features like number of rooms or area).
+* Price: The listed price (including currency).
+* Location: The location of the property (neighborhood and city).
+* Listing URL: The unique URL of the property listing (useful as an identifier).
+These elements are typically available on the search results page for each listing​
+webscrapingapi.com
+​
+scrapfly.io
+. For example, Idealista listings show a title, price, and a short detail blurb (e.g., number of bedrooms and size). The location (like the neighborhood and city) is also usually visible or can be derived from the listing info. We will focus on extracting these key fields.
+Filtering Criteria: Use the provided filtered URL to narrow down the listings. The example filter URL is:
+ruby
+Copy
+https://www.idealista.pt/en/comprar-casas/lisboa/com-preco-max_300000,tamanho-min_40,t1,t2,publicado_ultimo-mes/
+
+
+This URL filters for properties in Lisboa (Lisbon) that are for sale, with a max price of €300,000, minimum size 40 m², with 1 or 2 bedrooms (T1, T2), and listed in the last month. By starting with this URL, your scraper will only retrieve listings meeting these criteria.
+Best Practice: Always verify that the URL shows the expected results in a browser before using it in your scraper. The query parameters (like preco-max_300000 for max price, etc.) ensure you only scrape relevant data.
+2. Set Up ScrapingBee API Access
+Before writing the scraper, set up your environment and ScrapingBee access:
+* ScrapingBee Account and API Key: Sign up for ScrapingBee and obtain an API key. You get free credits (e.g., 1,000 free API requests) to start​
+scrapingbee.com
+. The API key will be used to authenticate your requests.
+* Python Environment: Ensure you have Python installed with the necessary libraries: we’ll use the built-in requests library to call the API and BeautifulSoup from the bs4 library (for HTML parsing). Install dependencies with pip if needed: pip install requests bs4.
+* ScrapingBee Python Library (Optional): ScrapingBee offers an official Python SDK for convenience​
+scrapingbee.com
+, but here we’ll demonstrate using basic HTTP requests for clarity. (If you use the SDK, follow its documentation for installation and usage.)
+ScrapingBee API Endpoint: The ScrapingBee base URL for the HTML scraping API is:
+ruby
+Copy
+https://app.scrapingbee.com/api/v1/?api_key=YOUR-API-KEY&url=TARGET-URL
+
+
+You’ll add parameters to this URL query string (like your API key, the target page URL, and any optional settings). For example, a simple GET request with cURL looks like:
+bash
+Copy
+curl "https://app.scrapingbee.com/api/v1/?api_key=YOUR-API-KEY&url=YOUR-URL"
+
+
+scrapingbee.com
+. We will do the equivalent in Python.
+3. Configure ScrapingBee for Proxy Rotation and CAPTCHA Bypass
+One of the advantages of ScrapingBee is that it handles proxies and headless browsers for you​
+scrapingbee.com
+. This means you can worry less about being blocked or encountering CAPTCHAs. Before coding the scraper, decide on any special ScrapingBee parameters:
+   * Proxy Rotation: By default, ScrapingBee rotates through a pool of IP addresses to reduce the chance of being blocked. This helps bypass rate limiting on the target site​
+scrapingbee.com
+. You usually do not need to do anything extra to enable basic rotation – it’s built-in. For particularly strict sites, ScrapingBee also offers premium proxies (residential IPs) that are “rarely blocked”​
+scrapingbee.com
+. You can enable these by adding premium_proxy=true to your API request if necessary​
+scrapingbee.com
+, though note this consumes more credits.
+
+   * CAPTCHA Avoidance: ScrapingBee’s infrastructure is tuned to avoid triggering CAPTCHAs in the first place​
+scrapingbee.com
+. The combination of rotating proxies and managed browsers means your requests appear more like normal user traffic. In many cases, you won’t need to solve CAPTCHAs at all. (ScrapingBee can also auto-solve some CAPTCHAs if encountered, ensuring uninterrupted scraping​
+hexomatic.com
+.) If Idealista ever presents a CAPTCHA or block page, you can enable strategies like headless browser rendering or premium proxies to work around it.
+
+   * JavaScript Rendering: Idealista’s listing pages are mostly static HTML, so you can save credits by turning off JavaScript rendering. By default, render_js=true on ScrapingBee, meaning it loads the page in a headless Chrome browser​
+scrapingbee.com
+. For a static listing page, you can request the raw HTML faster by setting render_js=false to use a regular HTTP fetch​
+scrapingbee.com
+​
+scrapingbee.com
+. If you find any data missing due to dynamic loading, you can leave JS rendering on (the default). In our case, we’ll try without JS first for efficiency.
+
+In summary, we’ll leverage ScrapingBee’s proxy rotation and headless browsing to ensure our scraper runs smoothly without getting blocked. ScrapingBee automatically handles many anti-bot measures (IP blocks, CAPTCHAs, etc.) behind the scenes​
+hexomatic.com
+.
+4. Fetch the Listings Page with Python and ScrapingBee
+Now we can write the Python code to retrieve the filtered listings page using ScrapingBee. We’ll call the ScrapingBee API endpoint with our API key, target URL, and any parameters discussed.
+Step 4.1: Define your variables and target URL. For clarity, put your API key and the filtered Idealista URL into variables. For example:
+python
+Copy
+import requests
+
+
+API_KEY = "YOUR_SCRAPINGBEE_API_KEY"
+target_url = "https://www.idealista.pt/en/comprar-casas/lisboa/com-preco-max_300000," \
+             "tamanho-min_40,t1,t2,publicado_ultimo-mes/"
+
+
+Make sure to replace "YOUR_SCRAPINGBEE_API_KEY" with your actual key. The target_url is the filter URL provided (ensure it’s exactly as given, including all commas and parameters).
+Step 4.2: Make the GET request to ScrapingBee. Construct the request to ScrapingBee’s API. You can pass the parameters as a dictionary to requests.get for convenience:
+python
+Copy
+params = {
+    "api_key": API_KEY,
+    "url": target_url,
+    "render_js": "false"    # disable JS rendering for speed (optional)
+    # You can add "premium_proxy": "true" here if needed for blocking issues
+}
+response = requests.get("https://app.scrapingbee.com/api/v1/", params=params)
+
+
+This will send a request to ScrapingBee, which in turn fetches the Idealista page on our behalf. We included render_js=false to just get the static HTML. If response.status_code == 200, the response.text will contain the HTML of the listings page.
+Step 4.3: Check the response. Always verify you got a valid page. For example:
+python
+Copy
+if response.status_code == 200:
+    html_content = response.text
+else:
+    print("Error:", response.status_code, response.text)
+
+
+If the status code is not 200, inspect the output. A common issue might be running out of ScrapingBee credits or an invalid API key (leading to a 401/402 error in the response). Monitor for any error messages in response.text as well (ScrapingBee might return an explanatory JSON on failure). If you see signs of blocking (e.g., the HTML contains texts like “blocked” or a CAPTCHA form), you should enable premium_proxy or ensure you use render_js=true so that ScrapingBee’s headless browser can bypass it.
+Step 4.4: Handling Pagination. The filter results might span multiple pages of listings. Idealista typically shows a pagination bar on the search results. You’ll need to scrape subsequent pages (page 2, page 3, etc.) to get all recent listings.
+To handle this, identify the “next page” link in the HTML. Idealista’s pagination links might be in a <ul> or <nav> element. Look for something like: <a class="icon-arrow-right-after" href="..."> which could indicate the next page. You can extract the href for the next page and then repeat the ScrapingBee request for that URL. Keep doing this until no further “next” link is found.
+For simplicity, if the number of pages is not too large, you could also append pagina={page_number} to the URL if Idealista’s URL scheme uses a page parameter. (Many sites use something like ?pagina=2 or similar for page navigation – check the structure of the pagination URL in the HTML or browser address bar when clicking page 2.)
+Example Pagination Loop: (Pseudo-code)
+python
+Copy
+current_url = target_url
+all_listings = []
+while current_url:
+    # Fetch current_url via ScrapingBee (as above)
+    # Parse html_content to extract property data (we will do this in the next step)
+    # Also find the 'next page' link:
+    soup = BeautifulSoup(html_content, "html.parser")
+    next_link = soup.find("a", {"class": "icon-arrow-right-after"})
+    if next_link:
+        next_href = next_link['href']
+        current_url = "https://www.idealista.pt" + next_href  # construct full URL if needed
+        # Fetch next page in next iteration
+    else:
+        current_url = None  # no more pages
+
+
+This approach will iterate through all pages. Make sure to call requests.get with the new URL each time inside the loop (updating the params['url']). Be mindful of rate limits – you might introduce a short delay (time.sleep(1) or a few seconds) between page fetches to avoid overwhelming the site or your API limits (more on rate limits later).
+5. Parse the HTML for Property Details
+Once you have the HTML content of a page (e.g., stored in html_content), use an HTML parser to extract the desired data fields. We can use BeautifulSoup for parsing:
+python
+Copy
+from bs4 import BeautifulSoup
+
+
+soup = BeautifulSoup(html_content, "html.parser")
+
+
+Now, analyze the structure of the Idealista listings in the HTML. Each property listing on the results page is typically contained in an element (for example, an <article> tag with a specific class). From the Idealista HTML structure (as noted in scraping tutorials), each listing appears to be an <article> with class names containing "item"​
+scrapingbee.com
+. Within each listing container, key elements include:
+      * An <a> tag with class "item-link" – this is the link to the property detail page, and its text is often the title or brief description​
+scrapingbee.com
+.
+      * A <div> with class "price-row" – contains the price (and currency symbol)​
+scrapingbee.com
+​
+scrapingbee.com
+.
+      * A <div> with class "item-detail-char" – contains property characteristics like number of bedrooms and area​
+scrapingbee.com
+.
+      * Possibly a <div> with class "item-description" – a short description snippet.
+We will locate these elements for each listing. Using BeautifulSoup, you can find all listing containers and then get sub-elements:
+python
+Copy
+properties_data = []  # list to store our property dicts
+listing_containers = soup.find_all("article", {"class": lambda x: x and "item" in x})
+for listing in listing_containers:
+    title_elem = listing.find("a", {"class": "item-link"})
+    price_elem = listing.find("div", {"class": "price-row"})
+    detail_elem = listing.find("div", {"class": "item-detail-char"})
+    if not title_elem or not price_elem:
+        continue  # skip if something is missing, just in case
+
+
+    title = title_elem.get_text(strip=True)
+    url = title_elem['href']
+    # Ensure the URL is absolute
+    if url.startswith("/"):
+        url = "https://www.idealista.pt" + url
+    price = price_elem.get_text(strip=True)
+    details = detail_elem.get_text(strip=True) if detail_elem else ""
+
+
+    property_record = {
+        "title": title,
+        "url": url,
+        "price": price,
+        "details": details
+    }
+    # Location handling:
+    # If the title or details contain location info, you can parse it out.
+    # Alternatively, you might find a specific span for location if available.
+    # For now, we include title and details which often imply location.
+    properties_data.append(property_record)
+
+
+In this code, we:
+         * Find all <article> elements whose class contains "item" (this grabs each listing).
+         * For each listing, find the anchor with class "item-link" to get title text and the link URL​
+scrapingbee.com
+. The anchor text often includes the property type or brief title. (If the location is part of the title text, it will be captured here. In some cases, the title might be something like "Apartment in Bairro Alto, Lisboa" – giving location as part of it. If not, we may need to get location from another tag or from the detail page if required.)
+         * Find the price from the "price-row" div​
+scrapingbee.com
+. This typically yields a string like "250,000 €". We’ll keep it as a string including the currency. You could also parse out the numeric value and currency symbol separately if needed.
+         * Find the property details from "item-detail-char"​
+scrapingbee.com
+. This might look like "2 hab. 60 m²" (e.g., “2 bedrooms, 60 m²”). We store it as a details string.
+         * Construct a dictionary property_record with the extracted fields and append it to properties_data.
+If an element isn’t found (e.g., some listings might not have certain details), we skip or handle accordingly. We also convert any relative URL to a full URL by prefixing the domain.
+After this loop, properties_data will be a list of dictionaries, each representing a property listing with its data. For example, one entry might look like:
+json
+Copy
+{
+  "title": "T2 Apartment in Bairro Alto, Lisboa",
+  "url": "https://www.idealista.pt/en/imovel123456/",
+  "price": "250000 €",
+  "details": "2 hab. 60 m²"
+}
+
+
+(The exact text depends on how Idealista formats it. You should adjust parsing logic if needed after inspecting the actual HTML structure.)
+If you also want the short description snippet (the truncated description on the listing page), you could similarly grab the "item-description" div text. That’s optional for our purposes, since we mainly focus on price and location-related info.
+Note on Location: If the location (neighborhood) isn’t clearly separated in the listing snippet, you have a couple of options:
+            * Often the title text or the details string contains the neighborhood or area name. For instance, the title might include the area (“Apartment in Neighborhood”). You can split or regex the title to isolate known location patterns, or simply include it as part of the title.
+            * For a precise location, you might need to click the property URL and parse the individual property page where the address or area is listed explicitly (often in a header section). This would require another request per listing (which increases complexity and ScrapingBee usage). For this guide, we’ll assume the listing page info is sufficient (perhaps giving city and general area).
+6. Storing Data in JSON Format
+With the data extracted into Python dictionaries, we can now store or output it in JSON. The goal is to maintain a database of listings and update it with new or changed entries over time.
+Step 6.1: Choose a storage method. For simplicity, we can use a JSON file to store the collected listings. The JSON structure could be a list of property objects (as shown above). Alternatively, a JSON Lines format (each JSON object on a separate line) is useful for appending new entries without rewriting the whole file. For more robust usage, you might use a database, but that’s beyond this scope.
+Step 6.2: Write initial results to JSON. After scraping a page (or all pages) the first time, save the results:
+python
+Copy
+import json
+
+
+# Suppose properties_data is our list of dicts from the parsing step
+with open("idealista_listings.json", "w", encoding="utf-8") as f:
+    json.dump(properties_data, f, ensure_ascii=False, indent=2)
+
+
+This will create a JSON file with a list of listings. ensure_ascii=False and indent=2 are just to make the file human-readable (and to preserve any non-ASCII characters like accented location names properly).
+Step 6.3: Only add new or updated properties on subsequent runs. The scraper will run three times a day, so we want to avoid duplicating data. Each time it runs, it should compare the newly scraped listings with what’s already stored:
+            * Identify each property uniquely: The url or a listing ID (often part of the URL) can serve as a unique key. Idealista URLs usually contain an ID (e.g., /inmueble/12345678/). Use that to identify the listing.
+            * Detect new listings: If a scraped listing’s ID is not in our stored data, it’s a new listing. We should add it.
+            * Detect updates: If a listing ID is already in the stored data, compare important fields (e.g., price). If something like the price or details have changed since last scrape, we consider it “updated”. We can then update the stored record (and maybe log that it was updated).
+One simple approach is to keep a Python set of seen IDs and a dict mapping ID to the record. For example:
+python
+Copy
+# Load existing data
+try:
+    with open("idealista_listings.json", "r", encoding="utf-8") as f:
+        stored_listings = json.load(f)
+except FileNotFoundError:
+    stored_listings = []
+
+
+seen_ids = { item['url'] for item in stored_listings }  # set of URLs (IDs)
+stored_data_map = { item['url']: item for item in stored_listings }
+
+
+new_entries = []
+for prop in properties_data:  # properties_data from current scrape
+    prop_id = prop['url']
+    if prop_id in seen_ids:
+        # Already have this property
+        # Check if something changed (price, etc.)
+        stored_item = stored_data_map[prop_id]
+        if prop['price'] != stored_item.get('price') or prop['details'] != stored_item.get('details'):
+            print(f"Property {prop_id} has an update (price or details changed).")
+            # Update the stored data map with new info
+            stored_data_map[prop_id] = prop
+    else:
+        # New property found
+        print(f"New property found: {prop_id}")
+        seen_ids.add(prop_id)
+        stored_data_map[prop_id] = prop
+        new_entries.append(prop)
+
+
+After this loop, stored_data_map contains the merged up-to-date data (with any updates applied, and including new entries). We can then write it back to the JSON file:
+python
+Copy
+updated_listings = list(stored_data_map.values())
+with open("idealista_listings.json", "w", encoding="utf-8") as f:
+    json.dump(updated_listings, f, ensure_ascii=False, indent=2)
+
+
+This way, the JSON file grows only by new entries, and existing entries are kept up to date. No duplicates will be added because we check against seen_ids. This approach is similar to a “deduplication filter” used in continuous scraping tasks​
+scrapfly.io
+.
+(In a production scenario, you might use a database with a unique key on the listing ID and an “upsert” operation to insert or update records accordingly. The JSON file approach here illustrates the concept.)
+If you prefer appending only new records to a separate file (for logging purposes), you could write new_entries to another JSON lines file. But maintaining a master JSON database as above is usually easier for checking what you have.
+7. Scheduling the Scraper to Run Thrice Daily
+Frequency: The requirement is to run the scraping process three times a day. For example, you might schedule it to run morning, midday, and evening to catch new listings quickly. Regular scheduling ensures you capture new listings shortly after they appear and catch any updates to existing ones (like price changes).
+There are a few ways to schedule your Python script:
+            * Cron Job (Linux/Mac): You can set up a cron job to execute the Python script at specific times (e.g., 0 8,13,18 * * * for 8:00, 13:00, 18:00 every day). The cron job would simply call python scrape_idealista.py (or whatever your script is named).
+            * Task Scheduler (Windows): Similar scheduling can be done with Windows Task Scheduler for specified times.
+            * Python Scheduling Libraries: Alternatively, use a Python scheduler like schedule or APScheduler within your script to sleep and run at intervals. For instance, using schedule.every(8).hours.do(run_scrape) could approximate three times a day, or schedule specific times with schedule.every().day.at("08:00").do(run_scrape), etc. The script would need to run continuously in the background for this approach.
+            * Cloud Functions/CI: If you deploy this on a cloud platform, you could use something like AWS Lambda with a CloudWatch Events trigger or a GitHub Actions workflow on a schedule.
+Choose the method that fits your deployment. The key is that between runs, the script should persist its data (the JSON file or database) so that it can compare new results with previous ones.
+Only scrape new/updated data: As implemented in Step 6, each run will compare against stored data and only add new or updated records. This ensures our JSON database grows over time with unique entries. Scheduling three times a day is frequent enough for near real-time updates, yet it’s infrequent enough to avoid excessive load on the site. (ScrapingBee also supports scheduling and real-time scraping needs​
+hexomatic.com
+– the chosen frequency should balance timeliness and rate limiting.)
+8. Managing Rate Limits and API Usage
+Avoiding Rate Limits: Even though we scrape only three times a day, each run might involve multiple requests (one for each page of results, potentially dozens of pages if there are many listings, and possibly requests for each property page if you choose to get more details like full descriptions). We need to manage the request rate to avoid triggering any limits or blocks:
+            * ScrapingBee Rate Limits: ScrapingBee’s API itself is credit-based. Ensure you have enough credits for the number of requests you plan (each page fetch is one API call, using 1 credit with JS off, or more if JS on or premium proxy). If you approach your monthly credit limit, you may get failed requests. Monitor the response.status_code and content; if ScrapingBee returns an error like 429 or a message about rate/credit limit, you’ll need to slow down or upgrade your plan. Typically, spreading 3 runs across the day for one city’s listings is not heavy, but do keep an eye on usage. Use ScrapingBee’s usage monitoring features if available​
+hexomatic.com
+.
+
+            * Website Rate Limits: Even though ScrapingBee rotates proxies to help bypass the target site’s rate limits​
+scrapingbee.com
+, it’s good practice not to scrape too aggressively. In our case, three times a day is gentle. Within each run, avoid bombarding the site: if you fetch, say, 5 pages of listings in quick succession, it’s usually fine, but if you had to fetch hundreds of pages or many property details, consider a short delay between requests. This mimics human browsing and reduces load. ScrapingBee’s proxy rotation means each request might come from a different IP, which further reduces the chance of hitting per-IP limits​
+scrapingbee.com
+.
+
+            * Backoff on Errors: If you start getting HTTP 503/429 from the target or empty pages, it may be a sign to slow down. Implement simple retry logic with exponential backoff for robustness. For example, if a page fails to load, wait a bit and try again, or skip and log it to revisit later.
+
+            * Optimize Requests: Only scrape when needed. Since we know we only need to check every 8 hours or so, make sure the scheduler doesn’t run more often by mistake. Also, if an Idealista page has 50 results and rarely goes beyond that for new listings in a day, you might not need to scrape dozens of pages each time – maybe just the first few pages. Tailor the depth of scraping to the volume of new listings expected.
+
+By monitoring the API responses and adjusting accordingly, you can stay within limits. ScrapingBee’s dashboard can show your request counts; keep an eye especially when testing.
+9. Ethical Web Scraping Practices and Compliance
+When scraping, always adhere to ethical guidelines and legal policies:
+               * Respect the Target Site’s Rules: Check Idealista’s robots.txt and terms of service. While public listing data is generally scrapeable, Idealista may have provisions against automated scraping. ScrapingBee’s terms remind users that some websites explicitly prohibit scraping, and it’s the user’s responsibility to check for such restrictions​
+scrapingbee.com
+. If Idealista disallows scraping in their terms or robots, you should obtain permission or reconsider the approach. Always err on the side of caution if unsure.
+
+               * Do Not Hammer the Website: We’ve chosen three times a day as a reasonable frequency, which is quite conservative. Avoid scraping at a rate that could impair the website’s performance. A good rule is to mimic human browsing patterns and keep requests spread out​
+scrapingbee.com
+. For example, scraping thousands of pages per minute would be unethical and likely blocked; our approach of a few pages a few times a day is polite.
+
+               * Avoid Personal Data and Privacy Concerns: Only scrape publicly available information. We are collecting listing data (prices, locations, descriptions) which is public on Idealista. Do not attempt to scrape user contact information or any private data that might be behind logins. Also be mindful of privacy laws (like GDPR) – do not store personal identifiable information (PII) about individuals without consent​
+scrapfly.io
+. In our case, data like prices and general locations are fine. If you ever collected agent names or phone numbers (sometimes listed for properties), handle that data carefully and comply with privacy regulations.
+
+               * Use Data Responsibly: Do not republish or sell the scraped data in a way that violates Idealista’s copyrights or terms. This guide assumes you’re using the data for analysis or personal use. Repurposing entire datasets from a site might be illegal in some jurisdictions​
+scrapfly.io
+.
+
+               * Comply with ScrapingBee’s Policies: ScrapingBee has an Acceptable Use Policy and general terms. Ensure your usage of their service is within allowed use. For example, using ScrapingBee to scrape a site in a way that causes legal issues could violate their terms. As long as you scrape ethically and legally, you should be in compliance. ScrapingBee is designed to help clients scrape without getting blocked​
+scrapingbee.com
+, but it’s still on you to use that power responsibly.
+
+               * Identification: Sometimes it’s good practice to identify your bot via a custom User-Agent string (if allowed) or in requests, so webmasters can contact you if there’s an issue. ScrapingBee manages headers and user agents for you, so this may not be straightforward, but just a point to consider in ethical scraping.
+
+By following these best practices, you make sure your scraping project remains ethical, legal, and sustainable. Web scraping, when done responsibly, is a powerful tool (and generally legal for public data) – just keep mindful of the impact on the target service and any conditions they have.
+10. Implementation Recap and Example
+Putting it all together, here’s a condensed outline of the scraper flow in code form:
+python
+Copy
+import requests, json
+from bs4 import BeautifulSoup
+import time
+
+
+API_KEY = "YOUR_API_KEY"
+BASE_API_URL = "https://app.scrapingbee.com/api/v1/"
+target_url = "https://www.idealista.pt/en/comprar-casas/lisboa/com-preco-max_300000," \
+             "tamanho-min_40,t1,t2,publicado_ultimo-mes/"
+
+
+# Load previously seen listings
+try:
+    with open("idealista_listings.json", "r", encoding="utf-8") as f:
+        stored_listings = json.load(f)
+except FileNotFoundError:
+    stored_listings = []
+stored_map = { item['url']: item for item in stored_listings }
+
+
+current_url = target_url
+new_found = False
+
+
+while current_url:
+    params = {"api_key": API_KEY, "url": current_url, "render_js": "false"}
+    response = requests.get(BASE_API_URL, params=params)
+    if response.status_code != 200:
+        print(f"Failed to fetch {current_url}: {response.status_code}")
+        break
+
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    listings = soup.find_all("article", {"class": lambda x: x and "item" in x})
+    for listing in listings:
+        a = listing.find("a", {"class": "item-link"})
+        price_div = listing.find("div", {"class": "price-row"})
+        detail_div = listing.find("div", {"class": "item-detail-char"})
+        if not a or not price_div:
+            continue
+        url = a['href']
+        if url.startswith("/"):  # make full URL
+            url = "https://www.idealista.pt" + url
+        title = a.get_text(strip=True)
+        price = price_div.get_text(strip=True)
+        details = detail_div.get_text(strip=True) if detail_div else ""
+        # Check if new or updated:
+        if url in stored_map:
+            # Already have it, check for update
+            old = stored_map[url]
+            if old.get('price') != price or old.get('details') != details:
+                stored_map[url] = {"title": title, "url": url, "price": price, "details": details}
+                print(f"Updated property: {url} (price/details changed)")
+        else:
+            # New property
+            stored_map[url] = {"title": title, "url": url, "price": price, "details": details}
+            new_found = True
+            print(f"New property found: {url}")
+
+
+    # Find next page link
+    next_link = soup.find("a", {"class": "icon-arrow-right-after"})
+    if next_link:
+        next_href = next_link['href']
+        current_url = "https://www.idealista.pt" + next_href
+        time.sleep(2)  # polite delay before next page
+    else:
+        current_url = None
+
+
+# Save updated data
+updated_list = list(stored_map.values())
+with open("idealista_listings.json", "w", encoding="utf-8") as f:
+    json.dump(updated_list, f, ensure_ascii=False, indent=2)
+
+
+if new_found:
+    print("New listings added to database.")
+else:
+    print("No new listings this run.")
+
+
+This script can be run on a schedule. It will print out any new or updated properties it finds and maintain the JSON file as a database. Each run only appends new entries or updates existing ones, as required.
+11. Final Thoughts
+Using ScrapingBee simplifies the web scraping process significantly. We offloaded the heavy lifting of handling IP rotation and headless browsers to the API, allowing us to focus on parsing data​
+scrapingbee.com
+. The result is a scraper that can reliably collect real estate data without being blocked, and with the scheduling in place, it provides near real-time updates (three times daily). Always keep in mind both the technical constraints (rate limits, data accuracy) and the ethical considerations when scraping. Happy scraping – and may your scraper run smoothly with fresh data!​
+scrapfly.io
+​
+scrapingbee.com

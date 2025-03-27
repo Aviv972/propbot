@@ -1,0 +1,117 @@
+total 16
+-rw-r--r--@  1 avivcarmi  staff  2358 Mar 22 15:55 README.md
+-rw-r--r--@  1 avivcarmi  staff     0 Mar 22 16:15 directory_structure.txt
+drwxr-xr-x@ 12 avivcarmi  staff   384 Mar 22 15:54 metadata
+drwxr-xr-x@  4 avivcarmi  staff   128 Mar 22 16:15 output
+drwxr-xr-x@ 13 avivcarmi  staff   416 Mar 22 16:14 processed
+drwxr-xr-x@  6 avivcarmi  staff   192 Mar 22 16:14 raw
+-rw-r--r--@  1 avivcarmi  staff    70 Mar 20 17:36 scrapingbee_credits.json
+
+propbot/data//metadata:
+total 2296
+-rw-r--r--@ 1 avivcarmi  staff    2685 Mar 22 15:54 metadata.json
+-rw-r--r--@ 1 avivcarmi  staff   14846 Mar 22 15:54 neighborhood_stats.json
+-rw-r--r--@ 1 avivcarmi  staff  436941 Mar 22 15:54 property_expense_report.json
+-rw-r--r--@ 1 avivcarmi  staff     481 Mar 22 15:54 rental_consolidated_metadata.json
+-rw-r--r--@ 1 avivcarmi  staff  165344 Mar 22 15:54 rental_income_report_improved.json
+-rw-r--r--@ 1 avivcarmi  staff  396760 Mar 22 15:54 rental_listings_consolidated.json
+-rw-r--r--@ 1 avivcarmi  staff     322 Mar 22 15:54 sales_consolidated_metadata.json
+-rw-r--r--@ 1 avivcarmi  staff     185 Mar 22 15:54 sales_data_metadata.json
+-rw-r--r--@ 1 avivcarmi  staff  131428 Mar 22 15:54 sales_listings_consolidated.json
+-rw-r--r--@ 1 avivcarmi  staff      70 Mar 22 15:54 scrapingbee_credits.json
+
+propbot/data//output:
+total 0
+drwxr-xr-x@  8 avivcarmi  staff  256 Mar 22 16:15 reports
+drwxr-xr-x@ 11 avivcarmi  staff  352 Mar 22 16:13 visualizations
+
+propbot/data//output/reports:
+total 2320
+-rw-r--r--@ 1 avivcarmi  staff   63140 Mar 22 16:13 investment_metrics_current.csv
+-rw-r--r--@ 1 avivcarmi  staff   14846 Mar 22 16:15 neighborhood_stats_current.json
+-rw-r--r--@ 1 avivcarmi  staff  436941 Mar 22 15:54 property_expense_report.json
+-rw-r--r--@ 1 avivcarmi  staff  436941 Mar 22 16:15 property_expense_report_current.json
+-rw-r--r--@ 1 avivcarmi  staff   57384 Mar 22 16:13 rental_income_report_current.csv
+-rw-r--r--@ 1 avivcarmi  staff  165344 Mar 22 16:14 rental_income_report_current.json
+
+propbot/data//output/visualizations:
+total 952
+-rw-r--r--@ 1 avivcarmi  staff  140162 Mar 22 16:00 dashboard_data.json
+-rw-r--r--@ 1 avivcarmi  staff  162615 Mar 22 16:13 expense_report.html
+-rw-r--r--@ 1 avivcarmi  staff   19485 Mar 22 16:13 investment_dashboard.html
+-rw-r--r--@ 1 avivcarmi  staff   55083 Mar 22 16:13 location_matching_report.html
+-rw-r--r--@ 1 avivcarmi  staff    1624 Mar 22 16:13 neighborhood_report.html
+-rw-r--r--@ 1 avivcarmi  staff   29733 Mar 22 16:13 neighborhood_report_updated.html
+-rw-r--r--@ 1 avivcarmi  staff   14846 Mar 22 16:00 neighborhood_stats.json
+-rw-r--r--@ 1 avivcarmi  staff   38408 Mar 22 16:13 new_investment_dashboard.html
+-rw-r--r--@ 1 avivcarmi  staff    8043 Mar 22 16:13 run_propbot.html
+
+propbot/data//processed:
+total 2064
+drwxr-xr-x@ 10 avivcarmi  staff     320 Mar 22 16:14 archive
+-rw-r--r--@  1 avivcarmi  staff   63140 Mar 22 15:48 investment_metrics.csv
+-rw-r--r--@  1 avivcarmi  staff    2685 Mar 22 15:48 metadata.json
+-rw-r--r--@  1 avivcarmi  staff   14846 Mar 22 15:25 neighborhood_stats.json
+-rw-r--r--@  1 avivcarmi  staff  436941 Mar 20 20:32 property_expense_report.json
+-rw-r--r--@  1 avivcarmi  staff   46066 Mar 21 14:06 rental_data_2025-03.csv
+-rw-r--r--@  1 avivcarmi  staff   57384 Mar 22 15:48 rental_income_report_improved.csv
+-rw-r--r--@  1 avivcarmi  staff  165344 Mar 22 15:48 rental_income_report_improved.json
+-rw-r--r--@  1 avivcarmi  staff  181324 Mar 22 15:48 rentals_current.csv
+-rw-r--r--@  1 avivcarmi  staff   64568 Mar 22 13:18 sales_current.csv
+-rw-r--r--@  1 avivcarmi  staff     185 Mar 22 12:08 sales_data_metadata.json
+
+propbot/data//processed/archive:
+total 1768
+-rw-r--r--@ 1 avivcarmi  staff   90393 Mar 22 15:24 investment_metrics.csv.backup
+-rw-r--r--@ 1 avivcarmi  staff   63140 Mar 22 16:14 investment_metrics_2025-03-22.csv
+-rw-r--r--@ 1 avivcarmi  staff   57384 Mar 22 16:14 rental_income_report_2025-03-22.csv
+-rw-r--r--@ 1 avivcarmi  staff  177884 Mar 22 15:24 rentals.csv.backup
+-rw-r--r--@ 1 avivcarmi  staff  177884 Mar 22 15:25 rentals.csv.backup.20250322154841
+-rw-r--r--@ 1 avivcarmi  staff  181324 Mar 22 16:14 rentals_2025-03-22.csv
+-rw-r--r--@ 1 avivcarmi  staff   72345 Mar 22 12:08 sales.csv.backup.20250322131855
+-rw-r--r--@ 1 avivcarmi  staff   64568 Mar 22 16:14 sales_2025-03-22.csv
+
+propbot/data//raw:
+total 0
+drwxr-xr-x@ 6 avivcarmi  staff  192 Mar 22 15:54 consolidated
+drwxr-xr-x@ 4 avivcarmi  staff  128 Mar 21 14:07 rentals
+drwxr-xr-x@ 4 avivcarmi  staff  128 Mar 20 20:23 sales
+drwxr-xr-x@ 4 avivcarmi  staff  128 Mar 22 16:14 scrape_history
+
+propbot/data//raw/consolidated:
+total 1056
+-rw-r--r--@ 1 avivcarmi  staff     481 Mar 22 16:13 rental_consolidated_metadata.json
+-rw-r--r--@ 1 avivcarmi  staff  396760 Mar 22 16:13 rental_listings_consolidated.json
+-rw-r--r--@ 1 avivcarmi  staff     322 Mar 22 16:13 sales_consolidated_metadata.json
+-rw-r--r--@ 1 avivcarmi  staff  131428 Mar 22 16:13 sales_listings_consolidated.json
+
+propbot/data//raw/rentals:
+total 416
+-rw-r--r--@ 1 avivcarmi  staff    1452 Mar 21 14:05 rental_credits_usage.json
+-rw-r--r--@ 1 avivcarmi  staff  206823 Mar 21 14:06 rental_listings.json
+
+propbot/data//raw/sales:
+total 256
+-rw-r--r--@ 1 avivcarmi  staff     221 Mar 20 20:23 credits_usage.json
+-rw-r--r--@ 1 avivcarmi  staff  124975 Mar 20 20:23 idealista_listings.json
+
+propbot/data//raw/scrape_history:
+total 0
+drwxr-xr-x@ 3 avivcarmi  staff   96 Mar 22 15:54 2025-03-21
+drwxr-xr-x@ 4 avivcarmi  staff  128 Mar 22 16:14 2025-03-22
+
+propbot/data//raw/scrape_history/2025-03-21:
+total 96
+-rw-r--r--@ 1 avivcarmi  staff  46066 Mar 22 15:54 rental_data_2025-03.csv
+
+propbot/data//raw/scrape_history/2025-03-22:
+total 0
+drwxr-xr-x@ 3 avivcarmi  staff  96 Mar 22 16:14 rentals
+drwxr-xr-x@ 2 avivcarmi  staff  64 Mar 22 16:13 sales
+
+propbot/data//raw/scrape_history/2025-03-22/rentals:
+total 96
+-rw-r--r--@ 1 avivcarmi  staff  46066 Mar 22 16:13 rental_data_2025-03.csv
+
+propbot/data//raw/scrape_history/2025-03-22/sales:
+total 0

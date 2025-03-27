@@ -1,0 +1,1177 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Location Matching Analysis</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+            h1, h2, h3 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .highlight { background-color: #ffe6e6; }
+            .good-match { background-color: #e6ffe6; }
+            .summary { background-color: #f0f0f0; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        </style>
+    </head>
+    <body>
+        <h1>Location Matching Analysis Report</h1>
+        
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>Sales Locations: 345 (unique standardized: 197)</p>
+            <p>Rental Locations: 118 (unique standardized: 102)</p>
+            <p>Unmatched Sales Locations: 161</p>
+        </div>
+        
+        <h2>Unmatched Sales Locations</h2>
+        <table>
+            <tr>
+                <th>Original Location</th>
+                <th>Standardized</th>
+                <th>Best Rental Match</th>
+                <th>Match Score</th>
+            </tr>
+    
+            <tr class="highlight">
+                <td>rua dom joão de castro, alto de alcântara, alcântara</td>
+                <td>dom joão de castro alto de alcântara alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua particular à rua arco do carvalhão, nn, bairro calçada dos mestres, campolide</td>
+                <td>particular à arco do carvalhão nn dos mestres campolide</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua santa bárbara, anjos, arroios</td>
+                <td>santa bárbara anjos arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua emília das neves, portas de benfica - mercado de benfica, benfica</td>
+                <td>benfica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>beco do forno do sol, graça, são vicente</td>
+                <td>do forno do sol graça são vicente</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua comandante nunes da silva, 1, centro, ajuda</td>
+                <td>comandante nunes da silva centro ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua amadeu de sousa cardoso, alto de santo amaro, alcântara</td>
+                <td>amadeu de sousa cardoso alto de santo amaro alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>praça faria da costa, olivais, lisboa</td>
+                <td>faria da costa olivais lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa paulo martins, calçada da ajuda - belém, ajuda</td>
+                <td>paulo martins da ajuda belém ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua do figueiredo, centro, belém</td>
+                <td>do figueiredo centro belém</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua alfredo roque gameiro, 1, entrecampos, avenidas novas</td>
+                <td>alfredo roque gameiro entrecampos s novas</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua paz à ajuda, calçada da ajuda - belém, ajuda</td>
+                <td>paz à ajuda da ajuda belém ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua comandante nunes da silva, 1, centro, ajuda</td>
+                <td>comandante nunes da silva centro ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa do oleiro, nn, santa catarina, misericórdia</td>
+                <td>do oleiro nn santa catarina misericórdia</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua carlos ribeiro, centro, penha de frança</td>
+                <td>carlos ribeiro centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa do oleiro, santa catarina, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua cláudio nunes, 85, arneiros, benfica</td>
+                <td>cláudio nunes arneiros benfica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>estrada de chelas, 6, santa apolónia - cruz da pedra, penha de frança</td>
+                <td>de chelas santa apolónia cruz da pedra penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua luís monteiro, 56, bairro dos actores - barão sabrosa, penha de frança</td>
+                <td>luís monteiro dos actores barão sabrosa penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua mestre antónio martins, 15, centro, penha de frança</td>
+                <td>mestre antónio martins centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua frei fortunato de são boaventura, nn, beato, lisboa</td>
+                <td>frei fortunato de são boaventura nn beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua carlos ribeiro, nn, centro, penha de frança</td>
+                <td>carlos ribeiro nn centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>estrada de chelas, santa apolónia - cruz da pedra, penha de frança</td>
+                <td>de chelas santa apolónia cruz da pedra penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua norberto de araújo, alfama, santa maria maior</td>
+                <td>norberto de araújo alfama santa maria maior</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>estrada do desvio, nn, santa clara, lisboa</td>
+                <td>do desvio nn santa clara lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua general taborda, 28, centro, campolide</td>
+                <td>general taborda centro campolide</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua de são lázaro, pena, arroios</td>
+                <td>de são lázaro pena arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>anjos, arroios</td>
+                <td>arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua doutor joão de barros, arneiros, benfica</td>
+                <td>doutor joão de barros arneiros benfica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>estrada loureiro, 13, prazeres, estrela</td>
+                <td>loureiro prazeres estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua professor veiga beirão, nn, são joão de brito, alvalade</td>
+                <td>professor veiga beirão nn são joão de brito alvalade</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua professor veiga beirão, nn, são joão de brito, alvalade</td>
+                <td>professor veiga beirão nn são joão de brito alvalade</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua professor veiga beirão, nn, são joão de brito, alvalade</td>
+                <td>professor veiga beirão nn são joão de brito alvalade</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua 3, alvito - quinta do jacinto, alcântara</td>
+                <td>alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>pena, arroios</td>
+                <td>arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>santa catarina, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua 1º de maio, 63, largo do calvário - lx factory, alcântara</td>
+                <td>alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua mestre antónio martins, centro, penha de frança</td>
+                <td>mestre antónio martins centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua doutor josé saraiva, olivais, lisboa</td>
+                <td>doutor josé saraiva olivais lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua barata feyo, santa clara, lisboa</td>
+                <td>barata feyo santa clara lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua cotovelo, bairro da serafina, campolide</td>
+                <td>cotovelo da serafina campolide</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>marvila, lisboa</td>
+                <td>marvila lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>alto de alcântara, alcântara</td>
+                <td>alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>bairro novo, carnide</td>
+                <td>novo carnide</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>marvila, lisboa</td>
+                <td>marvila lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua do galvão, centro, belém</td>
+                <td>do galvão centro belém</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>beato, lisboa</td>
+                <td>beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>santa clara, lisboa</td>
+                <td>santa clara lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua de campolide, nova campolide, campolide</td>
+                <td>de campolide nova campolide campolide</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>avenida vergílio ferreira, marvila, lisboa</td>
+                <td>vergílio ferreira marvila lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua humberto madeira, olivais, lisboa</td>
+                <td>humberto madeira olivais lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>santa clara, lisboa</td>
+                <td>santa clara lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua 1º cabo josé martins silvestre, olivais, lisboa</td>
+                <td>º cabo josé martins silvestre olivais lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>beato, lisboa</td>
+                <td>beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>estrada a-da-maia, 60 2°b, portas de benfica - mercado de benfica, benfica</td>
+                <td>benfica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua garrido, bairro dos actores, areeiro</td>
+                <td>garrido dos actores areeiro</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa do pasteleiro, 5, santos-o-velho - madragoa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua das beatas, 9, graça, são vicente</td>
+                <td>das beatas graça são vicente</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua andré vidal negreiros, marvila, lisboa</td>
+                <td>andré vidal negreiros marvila lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua frei manuel do cenáculo, centro, penha de frança</td>
+                <td>frei manuel do cenáculo centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua professor veiga beirão, são joão de brito, alvalade</td>
+                <td>professor veiga beirão são joão de brito alvalade</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua dos remédios, alfama, santa maria maior</td>
+                <td>dos remédios alfama santa maria maior</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua fernando gusmão, santa clara, lisboa</td>
+                <td>fernando gusmão santa clara lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua actor augusto de melo, beato, lisboa</td>
+                <td>actor augusto de melo beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua da beneficência, entrecampos, avenidas novas</td>
+                <td>da beneficência entrecampos s novas</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua de marcos marreiros, santa catarina, misericórdia</td>
+                <td>de marcos marreiros santa catarina misericórdia</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua dos remédios, alfama, santa maria maior</td>
+                <td>dos remédios alfama santa maria maior</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua bartolomeu de gusmão, alfama, santa maria maior</td>
+                <td>bartolomeu de gusmão alfama santa maria maior</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua do grilo, 104, beato, lisboa</td>
+                <td>do grilo beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>avenida conselheiro barjona de freitas, 18, estrada de benfica, são domingos de benfica</td>
+                <td>conselheiro barjona de freitas de benfica são domingos de benfica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua andré vidal negreiros, marvila, lisboa</td>
+                <td>andré vidal negreiros marvila lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua da esperança, santos-o-velho - madragoa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua sargento armando monteiro ferreira, olivais, lisboa</td>
+                <td>sargento armando monteiro ferreira olivais lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua da esperança, santos-o-velho - madragoa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua cesário verde, centro, penha de frança</td>
+                <td>cesário verde centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua castelo branco saraiva, centro, penha de frança</td>
+                <td>castelo branco saraiva centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua da esperança, santos-o-velho - madragoa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua raul de carvalho, santa clara, lisboa</td>
+                <td>raul de carvalho santa clara lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua cesário verde, centro, penha de frança</td>
+                <td>cesário verde centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>lapa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua da bombarda, 53, anjos, arroios</td>
+                <td>da bombarda anjos arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua vítor bastos, 48, centro, campolide</td>
+                <td>vítor bastos centro campolide</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua do embaixador, 146, centro, belém</td>
+                <td>do embaixador centro belém</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa do convento da encarnação, 21, pena, arroios</td>
+                <td>do convento da encarnação pena arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>boa hora, ajuda</td>
+                <td>ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>boa hora, ajuda</td>
+                <td>ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa irmãzinhas dos pobres, 5, centro, campolide</td>
+                <td>irmãzinhas dos pobres centro campolide</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua do vale formoso de cima, marvila, lisboa</td>
+                <td>do vale formoso de cima marvila lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua aliança operária, boa hora, ajuda</td>
+                <td>aliança operária boa hora ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua doutor joão de barros, arneiros, benfica</td>
+                <td>doutor joão de barros arneiros benfica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>marvila, lisboa</td>
+                <td>marvila lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua capitão roby, nn, beato, lisboa</td>
+                <td>capitão roby nn beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>anjos, arroios</td>
+                <td>arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa de são miguel, 10, alfama, santa maria maior</td>
+                <td>de são miguel alfama santa maria maior</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua doutor joão de barros, arneiros, benfica</td>
+                <td>doutor joão de barros arneiros benfica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua francisco mantero, olivais, lisboa</td>
+                <td>francisco mantero olivais lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>largo do calvário - lx factory, alcântara</td>
+                <td>alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>lapa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>anjos, arroios</td>
+                <td>arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua aliança operária, alto de alcântara, alcântara</td>
+                <td>aliança operária alto de alcântara alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>alvito - quinta do jacinto, alcântara</td>
+                <td>alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua castelo branco saraiva, 47, centro, penha de frança</td>
+                <td>castelo branco saraiva centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua da senhora do monte, 5, graça, são vicente</td>
+                <td>da senhora do monte graça são vicente</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>bairro alto, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>santos-o-velho - madragoa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua maestro antónio taborda, lapa, estrela</td>
+                <td>maestro antónio taborda lapa estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa do oleiro, 17, santa catarina, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa do oleiro, santa catarina, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua guarda jóias,, boa hora, ajuda</td>
+                <td>guarda jóias boa hora ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>santos-o-velho - madragoa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa do oleiro, santa catarina, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>bica, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>lapa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa alcaide, 16, santa catarina, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>centro, belém</td>
+                <td>belém</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>pena, arroios</td>
+                <td>arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>anjos, arroios</td>
+                <td>arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>beato, lisboa</td>
+                <td>beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua engenheiro paulo barros, bairro de santa cruz, benfica</td>
+                <td>engenheiro paulo barros de santa cruz benfica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua paz à ajuda, calçada da ajuda - belém, ajuda</td>
+                <td>paz à ajuda da ajuda belém ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>santa catarina, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>marvila, lisboa</td>
+                <td>marvila lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>estrada de chelas, beato, lisboa</td>
+                <td>de chelas beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>alvito - quinta do jacinto, alcântara</td>
+                <td>alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua hugo casaes, nn, santa clara, lisboa</td>
+                <td>hugo casaes nn santa clara lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua general taborda, centro, campolide</td>
+                <td>general taborda centro campolide</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>arneiros, benfica</td>
+                <td>benfica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>anjos, arroios</td>
+                <td>arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa giestal, nn, alto de alcântara, alcântara</td>
+                <td>alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua borges grainha, 38, centro, penha de frança</td>
+                <td>borges grainha centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua acúrsio pereira, nn, olivais, lisboa</td>
+                <td>acúrsio pereira nn olivais lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua dos remédios, alfama, santa maria maior</td>
+                <td>dos remédios alfama santa maria maior</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa do oleiro, santa catarina, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua dos remédios, alfama, santa maria maior</td>
+                <td>dos remédios alfama santa maria maior</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>lapa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa crossing verbena, calçada da ajuda - belém, ajuda</td>
+                <td>crossing verbena da ajuda belém ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>beco do maquinez, alfama, santa maria maior</td>
+                <td>do maquinez alfama santa maria maior</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>pena, arroios</td>
+                <td>arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua frederico perry vidal, 6, beato, lisboa</td>
+                <td>frederico perry vidal beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>pena, arroios</td>
+                <td>arroios</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>beato, lisboa</td>
+                <td>beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua do sol a santa catarina, nn, santa catarina, misericórdia</td>
+                <td>do sol a santa catarina nn santa catarina misericórdia</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa amoreira, nn, lapa, estrela</td>
+                <td>amoreira nn lapa estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>lapa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua castelo branco saraiva, 68, centro, penha de frança</td>
+                <td>castelo branco saraiva centro penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua antónio luís inácio, 61, bairro dos actores - barão sabrosa, penha de frança</td>
+                <td>antónio luís inácio dos actores barão sabrosa penha de frança</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>santos-o-velho - madragoa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua frei fortunato são boaventura, beato, lisboa</td>
+                <td>frei fortunato são boaventura beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>marvila, lisboa</td>
+                <td>marvila lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua frei fortunato de são boaventura, beato, lisboa</td>
+                <td>frei fortunato de são boaventura beato lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>alto da ajuda, ajuda</td>
+                <td>ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>alto da ajuda, ajuda</td>
+                <td>ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa paulo martins, calçada da ajuda - belém, ajuda</td>
+                <td>paulo martins da ajuda belém ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua da quinta do jacinto, nn, alvito - quinta do jacinto, alcântara</td>
+                <td>da quinta do jacinto nn alvito quinta do jacinto alcântara</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>lapa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>travessa do oleiro, santa catarina, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rossio - martim moniz, santa maria maior</td>
+                <td>rossio martim moniz santa maria maior</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>centro, ajuda</td>
+                <td>ajuda</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>lapa, estrela</td>
+                <td>estrela</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>rua sargento armando monteiro ferreira, olivais, lisboa</td>
+                <td>sargento armando monteiro ferreira olivais lisboa</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+            <tr class="highlight">
+                <td>bica, misericórdia</td>
+                <td>bica</td>
+                <td>No match</td>
+                <td>0</td>
+            </tr>
+        
+        </table>
+        
+        <h2>Unique Standardized Sales Locations</h2>
+        <ul>
+    <li>abel botelho de benfica são domingos de benfica</li><li>actor augusto de melo beato lisboa</li><li>acúrsio pereira nn olivais lisboa</li><li>afonso domingues santa engrácia são vicente</li><li>afonso iii alto de são joão alto do varejão penha de frança</li><li>ajuda</li><li>alcântara</li><li>alfama</li><li>alferes carvalho pereira olivais lisboa</li><li>alfredo roque gameiro entrecampos s novas</li><li>aliança operária alto de alcântara alcântara</li><li>aliança operária boa hora ajuda</li><li>almirante reis alameda do chile almirante reis são jorge de arroios arroios</li><li>alto de santo amaro alcântara</li><li>alto de são joão alto do varejão penha de frança</li><li>alto dos moinhos são domingos de benfica</li><li>alviela santa engrácia são vicente</li><li>amadeu de sousa cardoso alto de santo amaro alcântara</li><li>amoreira nn lapa estrela</li><li>andré vidal negreiros marvila lisboa</li><li>antónio luís inácio dos actores barão sabrosa penha de frança</li><li>arroios</li><li>ascensor da bica bica misericórdia</li><li>barata feyo santa clara lisboa</li><li>bartolomeu de gusmão alfama santa maria maior</li><li>beato lisboa</li><li>beirolas gare do oriente zona sul parque das nações</li><li>bela flor dos mestres campolide</li><li>belém</li><li>benfica</li><li>bica</li><li>birbantes pena arroios</li><li>borges grainha centro penha de frança</li><li>cais do sodré santos misericórdia</li><li>campo de ourique</li><li>campo de santana santa marta santo antónio</li><li>campolide</li><li>capitão roby nn beato lisboa</li><li>carlos pereira de benfica são domingos de benfica</li><li>carlos ribeiro centro penha de frança</li><li>carlos ribeiro nn centro penha de frança</li><li>castelo branco saraiva centro penha de frança</li><li>cesário verde centro penha de frança</li><li>cidade da horta estefânia são jorge de arroios arroios</li><li>cláudio nunes arneiros benfica</li><li>comandante nunes da silva centro ajuda</li><li>conselheiro barjona de freitas de benfica são domingos de benfica</li><li>cotovelo da serafina campolide</li><li>crossing verbena da ajuda belém ajuda</li><li>da atalaia alto misericórdia</li><li>da atalaia nn alto misericórdia</li><li>da beneficência entrecampos s novas</li><li>da bombarda anjos arroios</li><li>da cardoso baixa santa maria maior</li><li>da graça graça são vicente</li><li>da madalena baixa santa maria maior</li><li>da madalena nn mouraria castelo santa maria maior</li><li>da oliveira ao carmo chiado santa maria maior</li><li>da penha de frança centro penha de frança</li><li>da quinta do jacinto nn alvito quinta do jacinto alcântara</li><li>da senhora do monte graça são vicente</li><li>da silva cais do sodré santos misericórdia</li><li>da verónica nn graça são vicente</li><li>da verónica são vicente de fora são vicente</li><li>das amoreiras a arroios alameda do chile almirante reis são jorge de arroios arroios</li><li>das beatas graça são vicente</li><li>das farinhas mouraria castelo santa maria maior</li><li>das fiandeiras rio seco casalinho ajuda</li><li>das mónicas graça são vicente</li><li>david lopes alto de são joão alto do varejão penha de frança</li><li>de alegria da alegria santo antónio</li><li>de benfica são domingos de benfica</li><li>de campolide nova campolide campolide</li><li>de chelas beato lisboa</li><li>de chelas santa apolónia cruz da pedra penha de frança</li><li>de marcos marreiros santa catarina misericórdia</li><li>de ponta delgada estefânia são jorge de arroios arroios</li><li>de santa marinha graça são vicente</li><li>de santo amaro lapa estrela</li><li>de são bento príncipe real são bento misericórdia</li><li>de são lázaro pena arroios</li><li>de são miguel alfama santa maria maior</li><li>de são pedro mártir mouraria castelo santa maria maior</li><li>do alegrete mouraria castelo santa maria maior</li><li>do cabral bica misericórdia</li><li>do chão da feira alfama santa maria maior</li><li>do convento da encarnação pena arroios</li><li>do cruzeiro rio seco casalinho ajuda</li><li>do desvio nn santa clara lisboa</li><li>do duque chiado santa maria maior</li><li>do embaixador centro belém</li><li>do figueiredo centro belém</li><li>do forno do sol graça são vicente</li><li>do galvão centro belém</li><li>do grilo beato lisboa</li><li>do maquinez alfama santa maria maior</li><li>do mato grosso santa engrácia são vicente</li><li>do meio à lapa lapa estrela</li><li>do mirante são vicente de fora são vicente</li><li>do oleiro nn santa catarina misericórdia</li><li>do olival lapa estrela</li><li>do passadiço campo de santana santa marta santo antónio</li><li>do passadiço nn campo de santana santa marta santo antónio</li><li>do sol a santa catarina nn santa catarina misericórdia</li><li>do sol à graça graça são vicente</li><li>do terreirinho mouraria castelo santa maria maior</li><li>do uruguai benfica</li><li>do vale de santo antónio santa engrácia são vicente</li><li>do vale de santo antónio são vicente de fora são vicente</li><li>do vale formoso de cima marvila lisboa</li><li>do zagalo são vicente de fora são vicente</li><li>dom joão de castro alto de alcântara alcântara</li><li>dos mouros alto misericórdia</li><li>dos pescadores cais do sodré santos misericórdia</li><li>dos remédios alfama santa maria maior</li><li>dos trigueiros mouraria castelo santa maria maior</li><li>doutor augusto de castro marvila lisboa</li><li>doutor josé saraiva olivais lisboa</li><li>doutor joão de barros arneiros benfica</li><li>engenheiro paulo barros de santa cruz benfica</li><li>engenheiro santos simões n alto de são joão alto do varejão penha de frança</li><li>estefânia são jorge de arroios arroios</li><li>estrela</li><li>faria da costa olivais lisboa</li><li>fernando gusmão santa clara lisboa</li><li>flores são vicente de fora são vicente</li><li>fonseca benevides rio seco casalinho ajuda</li><li>francisco mantero olivais lisboa</li><li>francisco sanches alameda do chile almirante reis são jorge de arroios arroios</li><li>frederico perry vidal beato lisboa</li><li>frei fortunato de são boaventura beato lisboa</li><li>frei fortunato de são boaventura nn beato lisboa</li><li>frei fortunato são boaventura beato lisboa</li><li>frei manuel do cenáculo centro penha de frança</li><li>gare do oriente zona sul parque das nações</li><li>garrido dos actores areeiro</li><li>general justiniano padrel santa engrácia são vicente</li><li>general roçadas centro penha de frança</li><li>general taborda centro campolide</li><li>graça</li><li>guarda jóias boa hora ajuda</li><li>heliodoro salgado nn anjos arroios</li><li>heróis de quionga nn alameda do chile almirante reis são jorge de arroios arroios</li><li>hugo casaes nn santa clara lisboa</li><li>humberto madeira olivais lisboa</li><li>irmãzinhas dos pobres centro campolide</li><li>jacinto nunes centro penha de frança</li><li>joão alves rio seco casalinho ajuda</li><li>joão do nascimento costa b beato lisboa</li><li>joão do outeiro mouraria castelo santa maria maior</li><li>lopes alto de são joão alto do varejão penha de frança</li><li>loureiro prazeres estrela</li><li>luís de camões alto de santo amaro alcântara</li><li>luís monteiro dos actores barão sabrosa penha de frança</li><li>maestro antónio taborda lapa estrela</li><li>marcos portugal príncipe real são bento misericórdia</li><li>marques da silva alameda do chile almirante reis são jorge de arroios arroios</li><li>martins sarmento centro penha de frança</li><li>marvila lisboa</li><li>mestre antónio martins centro penha de frança</li><li>moinho velho boa hora ajuda</li><li>mouraria castelo santa maria maior</li><li>norberto de araújo alfama santa maria maior</li><li>nova de dom vasco boa hora ajuda</li><li>novo carnide</li><li>olivais lisboa</li><li>paio peres correia alto de são joão alto do varejão penha de frança</li><li>parreiras campo de santana santa marta santo antónio</li><li>particular à arco do carvalhão nn dos mestres campolide</li><li>passos manuel estefânia são jorge de arroios arroios</li><li>passos manuel nn estefânia são jorge de arroios arroios</li><li>paulo martins da ajuda belém ajuda</li><li>paz à ajuda da ajuda belém ajuda</li><li>penha de frança</li><li>penha de frança centro penha de frança</li><li>prior coutinho nn campo de santana santa marta santo antónio</li><li>professor veiga beirão nn são joão de brito alvalade</li><li>professor veiga beirão são joão de brito alvalade</li><li>raul de carvalho santa clara lisboa</li><li>rossio martim moniz santa maria maior</li><li>santa bárbara anjos arroios</li><li>santa clara lisboa</li><li>santa engrácia são vicente</li><li>santo antoninho bica misericórdia</li><li>santos pinto lapa estrela</li><li>saraiva de carvalho centro campo de ourique</li><li>sargento armando monteiro ferreira olivais lisboa</li><li>sousa viterbo alto de são joão alto do varejão penha de frança</li><li>são cristóvão mouraria castelo santa maria maior</li><li>são vicente de fora são vicente</li><li>vasco da gama rodrigues gare do oriente zona sul parque das nações</li><li>vergílio ferreira marvila lisboa</li><li>veríssimo dias dos mestres campolide</li><li>viçoso nn boa hora ajuda</li><li>vítor bastos centro campolide</li><li>washington santa engrácia são vicente</li><li>º cabo josé martins silvestre olivais lisboa</li>
+        </ul>
+        
+        <h2>Unique Standardized Rental Locations</h2>
+        <ul>
+    <li>actiz palmira bastos marvila lisboa</li><li>adolfo coelho alto de são joão alto do varejão penha de frança</li><li>agostinho neto alto do lumiar quinta das conchas quinta do lambert lumiar</li><li>alfama</li><li>alto do lumiar quinta das conchas quinta do lambert lumiar</li><li>alvalade</li><li>b ao da liberdade da serafina campolide</li><li>barão de sabrosa olaias areeiro</li><li>birbantes pena arroios</li><li>bom pastor fonte nova calhariz benfica</li><li>campo de ourique</li><li>campo de santana santa marta santo antónio</li><li>campo grande alvalade</li><li>campolide</li><li>capelão mouraria castelo santa maria maior</li><li>capitão leitão marvila lisboa</li><li>cavaleiro de oliveira alameda do chile almirante reis são jorge de arroios arroios</li><li>da alegria santo antónio</li><li>da caridade campo de santana santa marta santo antónio</li><li>da conceição à lapa lapa estrela</li><li>da luz laranjeiras são domingos de benfica</li><li>da madalena mouraria castelo santa maria maior</li><li>da misericórdia alto misericórdia</li><li>da oliveira ao carmo chiado santa maria maior</li><li>da praia de pedrouços pedrouços belém</li><li>da rosa alto misericórdia</li><li>da venezuela do uruguai benfica</li><li>da verónica graça são vicente</li><li>das fontainhas a são lourenço mouraria castelo santa maria maior</li><li>das pedreiras centro belém</li><li>das taipas da alegria santo antónio</li><li>de benfica são domingos de benfica</li><li>de santa engrácia graça são vicente</li><li>de santo antónio da glória da alegria santo antónio</li><li>de são ciro lapa estrela</li><li>de são paulo cais do sodré santos misericórdia</li><li>defensores de chaves campo pequeno s novas</li><li>diogo do couto são vicente de fora são vicente</li><li>do cabral bica misericórdia</li><li>do conde de avintes são vicente de fora são vicente</li><li>do cruzeiro palácio da ajuda ajuda</li><li>do diário de notícias alto misericórdia</li><li>do forno do castelo mouraria castelo santa maria maior</li><li>do garcia dos mestres campolide</li><li>do meio à lapa lapa estrela</li><li>do rosário de santa clara são vicente de fora são vicente</li><li>do salvador são vicente de fora são vicente</li><li>do uruguai benfica</li><li>dom fuas roupinho alto de são joão alto do varejão penha de frança</li><li>dom rodrigo da cunha são joão de brito alvalade</li><li>dos anjos anjos arroios</li><li>dos açores estefânia são jorge de arroios arroios</li><li>dos fanqueiros baixa santa maria maior</li><li>dos lusíadas alto de santo amaro alcântara</li><li>doutor antónio martins sete rios são domingos de benfica</li><li>doutora sara benoliel nn gare do oriente zona sul parque das nações</li><li>duque de ávila gulbenkian espanha s novas</li><li>eduardo coelho príncipe real são bento misericórdia</li><li>engenheiro fernando vicente mendes laranjeiras são domingos de benfica</li><li>eugénio de castro campo grande alvalade</li><li>expo central parque das nações</li><li>expo norte parque das nações</li><li>ferreira borges centro campo de ourique</li><li>ferreiros a belém centro belém</li><li>francisco baía alto dos moinhos são domingos de benfica</li><li>general josé paulo fernandes centro ajuda</li><li>general leman entrecampos s novas</li><li>giovanni antinori rio seco casalinho ajuda</li><li>graça</li><li>guiomar torresão novo carnide</li><li>gulbenkian espanha s novas</li><li>heliodoro salgado anjos arroios</li><li>henrique cardoso alvalade alvalade</li><li>infante santo doca de alcântara estrela</li><li>josé estêvão estefânia são jorge de arroios arroios</li><li>joão crisóstomo nn campo pequeno s novas</li><li>joão ortigão ramos arneiros benfica</li><li>lopes alto de são joão alto do varejão penha de frança</li><li>luciana stegagno picchio alto dos moinhos são domingos de benfica</li><li>luís braille torre de belém belém</li><li>marques da silva centro penha de frança</li><li>nery delgado centro penha de frança</li><li>nova da trindade chiado santa maria maior</li><li>olivais lisboa</li><li>passeio dos jacarandás expo norte parque das nações</li><li>penha de frança</li><li>pereira e sousa centro campo de ourique</li><li>possidónio da silva prazeres estrela</li><li>príncipe real são bento misericórdia</li><li>ribeiro sanches lapa estrela</li><li>rio seco boa hora ajuda</li><li>rocha martins telheiras carnide</li><li>saldanha picoas são jorge de arroios arroios</li><li>seara nova rato amoreiras santo antónio</li><li>sousa viterbo alto de são joão alto do varejão penha de frança</li><li>surradores mouraria castelo santa maria maior</li><li>são sebastião da pedreira s novas</li><li>sérgio vieira de mello santa clara lisboa</li><li>sócrates da costa beato lisboa</li><li>tenente ferreira durão centro campo de ourique</li><li>vila alferes chamusca n olivais lisboa</li><li>zambeze expo norte parque das nações</li>
+        </ul>
+    </body>
+    </html>
+    
