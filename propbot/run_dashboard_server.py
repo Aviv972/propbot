@@ -230,41 +230,23 @@ def run_analysis():
             os.makedirs(history_dir, exist_ok=True)
             logger.info(f"Ensured directory structure exists at {raw_sales_dir}")
             
-            scraper_result = subprocess.run(
-                ["python3", "-m", "propbot.scrapers.idealista_scraper"],
-                check=True,
-                capture_output=True,
-                text=True
-            )
-            
-            # Parse scraper output to find new properties count
-            for line in scraper_result.stdout.splitlines():
-                if "new properties found" in line:
+            # Run the scraper directly as a module import instead of subprocess
+            try:
+                logger.info("Importing and running sales scraper directly...")
+                from propbot.scrapers.idealista_scraper import run_scraper
+                new_properties_count = run_scraper()
+                results["new_properties"] = new_properties_count
+                
+                # Check file for total properties count
+                if sales_data_path.exists():
                     try:
-                        results["new_properties"] = int(line.split()[0])
-                    except (ValueError, IndexError):
-                        pass
-                elif "properties updated" in line:
-                    try:
-                        results["updated_properties"] = int(line.split()[2])
-                    except (ValueError, IndexError):
-                        pass
-                elif "Total properties:" in line:
-                    try:
-                        results["total_properties"] = int(line.split()[2])
-                    except (ValueError, IndexError):
-                        pass
-            
-            # If we couldn't parse the output, check the file count
-            if results["total_properties"] == 0 and sales_data_path.exists():
-                try:
-                    with open(sales_data_path, 'r') as f:
-                        results["total_properties"] = len(json.load(f))
-                        # Calculate new and updated if we have the total
-                        if initial_count > 0:
-                            results["new_properties"] = results["total_properties"] - initial_count
-                except Exception as e:
-                    logger.error(f"Error calculating property growth: {str(e)}")
+                        with open(sales_data_path, 'r') as f:
+                            properties_data = json.load(f)
+                            results["total_properties"] = len(properties_data)
+                    except Exception as e:
+                        logger.error(f"Error reading property data: {str(e)}")
+            except Exception as e:
+                logger.error(f"Error running sales scraper: {str(e)}")
             
             # Step 2: Check if rental data needs to be updated (once every 30 days)
             # Define the path to rental data file
