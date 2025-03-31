@@ -32,20 +32,28 @@ RAW_DIR = DATA_DIR / "raw"
 RENTALS_DIR = RAW_DIR / "rentals"
 HISTORY_DIR = RENTALS_DIR / "history"
 
+# Use /tmp directory for Heroku deployments
+TMP_DIR = Path('/tmp')
+TMP_RENTALS_DIR = TMP_DIR / "propbot_rentals"
+TMP_HISTORY_DIR = TMP_RENTALS_DIR / "history"
+
 # Debug prints for paths
 log_message(f"DEBUG: BASE_DIR absolute path: {os.path.abspath(BASE_DIR)}")
 log_message(f"DEBUG: DATA_DIR absolute path: {os.path.abspath(DATA_DIR)}")
 log_message(f"DEBUG: RAW_DIR absolute path: {os.path.abspath(RAW_DIR)}")
 log_message(f"DEBUG: RENTALS_DIR absolute path: {os.path.abspath(RENTALS_DIR)}")
 log_message(f"DEBUG: Current working directory: {os.getcwd()}")
+log_message(f"DEBUG: Using TMP_RENTALS_DIR: {os.path.abspath(TMP_RENTALS_DIR)}")
 
 # Ensure directories exist
 RENTALS_DIR.mkdir(parents=True, exist_ok=True)
 HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+TMP_RENTALS_DIR.mkdir(parents=True, exist_ok=True)
+TMP_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
 # Set output paths
-OUTPUT_FILE = RENTALS_DIR / "rental_listings.json"
-CREDITS_USED_FILE = RENTALS_DIR / "rental_credits_usage.json"
+OUTPUT_FILE = TMP_RENTALS_DIR / "rental_listings.json"
+CREDITS_USED_FILE = TMP_RENTALS_DIR / "rental_credits_usage.json"
 
 # Debug print for output file
 log_message(f"DEBUG: OUTPUT_FILE absolute path: {os.path.abspath(OUTPUT_FILE)}")
@@ -94,7 +102,7 @@ def save_listings(listings):
         
         # Create a historical snapshot
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        history_file = HISTORY_DIR / f"rental_listings_{timestamp}.json"
+        history_file = TMP_HISTORY_DIR / f"rental_listings_{timestamp}.json"
         
         # Create history directory again just in case
         try:
@@ -383,6 +391,9 @@ def run_rental_scraper():
         
         save_listings(stored_listings)
         
+        # Check for tmp directory contents
+        check_tmp_dir_contents()
+        
         # Check if save was successful
         try:
             log_message(f"DEBUG: Verifying saved data...")
@@ -440,7 +451,7 @@ def generate_monthly_csv():
         if not all_listings:
             continue
             
-        csv_filename = RENTALS_DIR / f"rental_data_{month}.csv"
+        csv_filename = TMP_RENTALS_DIR / f"rental_data_{month}.csv"
         
         # Generate CSV with the combined listings
         try:
@@ -462,6 +473,45 @@ def generate_monthly_csv():
             log_message(f"Error generating CSV file: {e}")
         
     log_message(f"Total months in rental database: {len(all_months)}")
+
+def check_tmp_dir_contents():
+    """Log the contents of the temporary directory."""
+    try:
+        log_message(f"DEBUG: Checking contents of TMP_RENTALS_DIR: {os.path.abspath(TMP_RENTALS_DIR)}")
+        
+        # List files in the rentals tmp directory
+        if os.path.exists(TMP_RENTALS_DIR):
+            files = os.listdir(TMP_RENTALS_DIR)
+            log_message(f"DEBUG: Files in TMP_RENTALS_DIR: {files}")
+            
+            # Check size of the main output file
+            if os.path.exists(OUTPUT_FILE):
+                file_size = os.path.getsize(OUTPUT_FILE)
+                log_message(f"DEBUG: Main output file size: {file_size} bytes")
+                
+                # Try to read the first few entries
+                try:
+                    with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                        num_entries = len(data)
+                        log_message(f"DEBUG: Number of entries in main output file: {num_entries}")
+                except Exception as e:
+                    log_message(f"DEBUG: Error reading main output file: {str(e)}")
+            else:
+                log_message(f"DEBUG: Main output file does not exist")
+        else:
+            log_message(f"DEBUG: TMP_RENTALS_DIR does not exist")
+            
+        # Check the history directory
+        if os.path.exists(TMP_HISTORY_DIR):
+            history_files = os.listdir(TMP_HISTORY_DIR)
+            log_message(f"DEBUG: Files in TMP_HISTORY_DIR: {history_files}")
+        else:
+            log_message(f"DEBUG: TMP_HISTORY_DIR does not exist")
+    except Exception as e:
+        log_message(f"DEBUG: Error checking tmp directory contents: {str(e)}")
+        import traceback
+        log_message(f"DEBUG: Stack trace: {traceback.format_exc()}")
 
 if __name__ == "__main__":
     run_rental_scraper() 
