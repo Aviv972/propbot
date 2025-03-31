@@ -32,6 +32,13 @@ RAW_DIR = DATA_DIR / "raw"
 RENTALS_DIR = RAW_DIR / "rentals"
 HISTORY_DIR = RENTALS_DIR / "history"
 
+# Debug prints for paths
+log_message(f"DEBUG: BASE_DIR absolute path: {os.path.abspath(BASE_DIR)}")
+log_message(f"DEBUG: DATA_DIR absolute path: {os.path.abspath(DATA_DIR)}")
+log_message(f"DEBUG: RAW_DIR absolute path: {os.path.abspath(RAW_DIR)}")
+log_message(f"DEBUG: RENTALS_DIR absolute path: {os.path.abspath(RENTALS_DIR)}")
+log_message(f"DEBUG: Current working directory: {os.getcwd()}")
+
 # Ensure directories exist
 RENTALS_DIR.mkdir(parents=True, exist_ok=True)
 HISTORY_DIR.mkdir(parents=True, exist_ok=True)
@@ -39,6 +46,9 @@ HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 # Set output paths
 OUTPUT_FILE = RENTALS_DIR / "rental_listings.json"
 CREDITS_USED_FILE = RENTALS_DIR / "rental_credits_usage.json"
+
+# Debug print for output file
+log_message(f"DEBUG: OUTPUT_FILE absolute path: {os.path.abspath(OUTPUT_FILE)}")
 
 def load_stored_listings():
     """Load previously stored rental listings from JSON file."""
@@ -51,16 +61,33 @@ def load_stored_listings():
 
 def save_listings(listings):
     """Save listings to JSON file."""
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(listings, f, indent=2, ensure_ascii=False)
-    log_message(f"Saved {len(listings)} rental listings to {OUTPUT_FILE.name}")
+    log_message(f"DEBUG: Attempting to save to absolute path: {os.path.abspath(OUTPUT_FILE)}")
+    log_message(f"DEBUG: Directory exists: {os.path.isdir(os.path.dirname(OUTPUT_FILE))}")
     
-    # Create a historical snapshot
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    history_file = HISTORY_DIR / f"rental_listings_{timestamp}.json"
-    with open(history_file, "w", encoding="utf-8") as f:
-        json.dump(listings, f, indent=2, ensure_ascii=False)
-    log_message(f"Created historical snapshot at {history_file.name}")
+    # Create directory again just in case
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    
+    try:
+        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+            json.dump(listings, f, indent=2, ensure_ascii=False)
+        log_message(f"Saved {len(listings)} rental listings to {OUTPUT_FILE.name}")
+        log_message(f"DEBUG: File exists after save: {os.path.exists(OUTPUT_FILE)}")
+        
+        # Create a historical snapshot
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        history_file = HISTORY_DIR / f"rental_listings_{timestamp}.json"
+        
+        # Create history directory again just in case
+        os.makedirs(os.path.dirname(history_file), exist_ok=True)
+        
+        with open(history_file, "w", encoding="utf-8") as f:
+            json.dump(listings, f, indent=2, ensure_ascii=False)
+        log_message(f"Created historical snapshot at {history_file.name}")
+        log_message(f"DEBUG: History file exists after save: {os.path.exists(history_file)}")
+    except Exception as e:
+        log_message(f"DEBUG: ERROR saving listings: {str(e)}")
+        import traceback
+        log_message(f"DEBUG: Stack trace: {traceback.format_exc()}")
 
 def load_credits_usage():
     """Load credits usage data from JSON file."""
