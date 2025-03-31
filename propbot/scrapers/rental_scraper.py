@@ -5,6 +5,7 @@ import time
 from datetime import datetime
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+from pathlib import Path
 
 # Load environment variables from .env file
 load_dotenv()
@@ -23,8 +24,21 @@ log_message(f"Using URL: {TARGET_URL}")
 # Configuration
 API_KEY = os.getenv("SCRAPINGBEE_API_KEY")
 BASE_API_URL = "https://app.scrapingbee.com/api/v1/"
-OUTPUT_FILE = "rental_listings.json"
-CREDITS_USED_FILE = "rental_credits_usage.json"
+
+# Get the correct paths using Path for cross-platform compatibility
+BASE_DIR = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DATA_DIR = BASE_DIR / "data"
+RAW_DIR = DATA_DIR / "raw"
+RENTALS_DIR = RAW_DIR / "rentals"
+HISTORY_DIR = RENTALS_DIR / "history"
+
+# Ensure directories exist
+RENTALS_DIR.mkdir(parents=True, exist_ok=True)
+HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+
+# Set output paths
+OUTPUT_FILE = RENTALS_DIR / "rental_listings.json"
+CREDITS_USED_FILE = RENTALS_DIR / "rental_credits_usage.json"
 
 def load_stored_listings():
     """Load previously stored rental listings from JSON file."""
@@ -36,38 +50,42 @@ def load_stored_listings():
         return []
 
 def save_listings(listings):
-    """Save rental listings to JSON file."""
+    """Save listings to JSON file."""
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(listings, f, ensure_ascii=False, indent=2)
-    log_message(f"Saved {len(listings)} rental listings to {OUTPUT_FILE}")
+        json.dump(listings, f, indent=2, ensure_ascii=False)
+    log_message(f"Saved {len(listings)} rental listings to {OUTPUT_FILE.name}")
+    
+    # Create a historical snapshot
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    history_file = HISTORY_DIR / f"rental_listings_{timestamp}.json"
+    with open(history_file, "w", encoding="utf-8") as f:
+        json.dump(listings, f, indent=2, ensure_ascii=False)
+    log_message(f"Created historical snapshot at {history_file.name}")
 
 def load_credits_usage():
-    """Load previously stored credits usage from JSON file."""
+    """Load credits usage data from JSON file."""
     try:
         with open(CREDITS_USED_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
-        return {"total_credits_used": 0, "usage_history": []}
+        return {"total_used": 0, "requests": []}
 
 def update_credits_usage(credits_used):
-    """Update credits usage file with new data."""
-    credits_data = load_credits_usage()
+    """Update credits usage data in JSON file."""
+    usage_data = load_credits_usage()
     
-    # Update total
-    credits_data["total_credits_used"] += credits_used
-    
-    # Add to history
-    usage_entry = {
+    request_data = {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "credits_used": credits_used
+        "credits": credits_used
     }
-    credits_data["usage_history"].append(usage_entry)
     
-    # Save updated data
+    usage_data["requests"].append(request_data)
+    usage_data["total_used"] += credits_used
+    
     with open(CREDITS_USED_FILE, "w", encoding="utf-8") as f:
-        json.dump(credits_data, f, ensure_ascii=False, indent=2)
+        json.dump(usage_data, f, indent=2)
     
-    log_message(f"Updated credits usage: +{credits_used}, total: {credits_data['total_credits_used']}")
+    log_message(f"Updated credits usage: +{credits_used}, total: {usage_data['total_used']}")
 
 def fetch_page(url, page_num=1):
     """Fetch a page using ScrapingBee API with optimized parameters."""
@@ -281,67 +299,96 @@ def run_rental_scraper():
             log_message(f"Waiting {delay} seconds before next request...")
             time.sleep(delay)  # More polite delay before fetching next page
     
-    # Add this month's data to the stored listings
-    monthly_data = {
-        "month": current_month,
-        "scan_date": datetime.now().strftime("%Y-%m-%d"),
-        "listings": monthly_listings
-    }
-    
-    # Check if we already have data for this month
-    month_exists = False
-    for i, data in enumerate(stored_listings):
-        if data.get('month') == current_month:
-            # Update existing month's data
-            log_message(f"Updating existing data for {current_month}")
-            stored_listings[i] = monthly_data
-            month_exists = True
-            break
-                
-    if not month_exists:
-        # Add a new month's data
-        log_message(f"Adding new data for {current_month}")
-        # Add first_seen_date to each listing in the monthly data
-        for listing in monthly_data["listings"]:
-            if "first_seen_date" not in listing:
-                listing["first_seen_date"] = listing["snapshot_date"]
-        stored_listings.append(monthly_data)
-    
-    # Save updated data
-    save_listings(stored_listings)
-    
-    log_message(f"Rental scraping completed: {len(monthly_listings)} properties collected for {current_month}")
-    log_message(f"Total months in rental database: {len(stored_listings)}")
-    
-    # Generate a monthly CSV for easy data analysis
-    generate_monthly_csv(monthly_listings, current_month)
-    
-    return len(monthly_listings)
-
-def generate_monthly_csv(listings, month):
-    """Generate a CSV file with the month's rental data for easy analysis."""
-    import csv
-    
-    csv_filename = f"rental_data_{month}.csv"
-    log_message(f"Generating CSV file: {csv_filename}")
-    
-    with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['size', 'num_rooms', 'rent_price', 'location', 'url']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    # Update the stored rental data with this month's listings
+    if len(monthly_listings) > 0:
+        log_message(f"Rental scraping completed: {len(monthly_listings)} properties collected for {current_month}")
         
-        writer.writeheader()
-        for prop in listings:
-            # Only write the specific fields we're interested in
-            writer.writerow({
-                'size': prop.get('size', ''),
-                'num_rooms': prop.get('num_rooms', ''),
-                'rent_price': prop.get('rent_price', ''),
-                'location': prop.get('location', ''),
-                'url': prop.get('url', '')
-            })
+        # Add this month's data to the stored listings
+        monthly_data = {
+            "month": current_month,
+            "scan_date": datetime.now().strftime("%Y-%m-%d"),
+            "listings": monthly_listings
+        }
+        
+        # Check if we already have data for this month and update or add accordingly
+        month_exists = False
+        for i, entry in enumerate(stored_listings):
+            if isinstance(entry, dict) and entry.get('month') == current_month:
+                # Update existing month's data
+                stored_listings[i] = monthly_data
+                month_exists = True
+                break
+                
+        if not month_exists:
+            # Add new month's data
+            stored_listings.append(monthly_data)
+            
+        # Save updated data
+        save_listings(stored_listings)
+        
+        # Generate updated CSV files
+        generate_monthly_csv()
+        
+        return len(monthly_listings)
+    else:
+        log_message("No new rental listings found.")
+        return 0
+
+def generate_monthly_csv():
+    """Generate CSV files with monthly data for analysis."""
+    stored_listings = load_stored_listings()
     
-    log_message(f"CSV file generated with {len(listings)} rental properties")
-    return csv_filename
+    # Check if we have a list of monthly entries
+    if not stored_listings or not isinstance(stored_listings, list):
+        log_message("No rental data suitable for CSV generation")
+        return
+    
+    # Get unique months from the data
+    all_months = set()
+    for entry in stored_listings:
+        if isinstance(entry, dict) and 'month' in entry:
+            all_months.add(entry['month'])
+    
+    # Generate CSV for each month
+    for month in all_months:
+        entries = [entry for entry in stored_listings if isinstance(entry, dict) and entry.get('month') == month]
+        
+        if not entries:
+            continue
+            
+        total_properties = 0
+        all_listings = []
+        
+        for entry in entries:
+            if 'listings' in entry and isinstance(entry['listings'], list):
+                all_listings.extend(entry['listings'])
+                total_properties += len(entry['listings'])
+        
+        if not all_listings:
+            continue
+            
+        csv_filename = RENTALS_DIR / f"rental_data_{month}.csv"
+        
+        # Generate CSV with the combined listings
+        try:
+            import csv
+            with open(csv_filename, 'w', newline='', encoding='utf-8') as f:
+                # Get field names from the first listing
+                fieldnames = ['size', 'num_rooms', 'rent_price', 'location', 'url', 'details', 'title', 'snapshot_date']
+                
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                
+                for listing in all_listings:
+                    # Ensure we only write the fields we want
+                    row = {field: listing.get(field, '') for field in fieldnames}
+                    writer.writerow(row)
+                    
+            log_message(f"CSV file generated with {total_properties} rental properties")
+        except Exception as e:
+            log_message(f"Error generating CSV file: {e}")
+        
+    log_message(f"Total months in rental database: {len(all_months)}")
 
 if __name__ == "__main__":
     run_rental_scraper() 
