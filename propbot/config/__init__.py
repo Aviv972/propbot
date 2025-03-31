@@ -166,15 +166,51 @@ BASE_DIR = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = BASE_DIR / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
+REPORTS_DIR = DATA_DIR / "reports"
+OUTPUT_DIR = DATA_DIR / "output"
 
-# Create directories if they don't exist
-DATA_DIR.mkdir(exist_ok=True)
-RAW_DATA_DIR.mkdir(exist_ok=True)
-PROCESSED_DATA_DIR.mkdir(exist_ok=True)
+# Function to ensure directories exist, creating parents if necessary
+def ensure_directories_exist(directories):
+    """
+    Ensure all specified directories exist, creating parent directories if needed.
+    
+    Args:
+        directories: List of Path objects representing directories to create
+    """
+    for directory in directories:
+        try:
+            directory.mkdir(parents=True, exist_ok=True)
+            logger.info(f"Ensured directory exists: {directory}")
+        except Exception as e:
+            logger.error(f"Failed to create directory {directory}: {e}")
 
-# UI directory
-UI_DIR = BASE_DIR / "propbot" / "ui"
-UI_DIR.mkdir(exist_ok=True)
+# Create required directories
+ensure_directories_exist([
+    DATA_DIR,
+    RAW_DATA_DIR,
+    RAW_DATA_DIR / "sales",
+    RAW_DATA_DIR / "sales" / "history",
+    RAW_DATA_DIR / "rentals",
+    RAW_DATA_DIR / "rentals" / "history",
+    PROCESSED_DATA_DIR,
+    REPORTS_DIR,
+    OUTPUT_DIR
+])
+
+# UI directory - handle differently since it's not in the data directory
+UI_DIR = BASE_DIR / "ui"
+try:
+    # First ensure the BASE_DIR exists
+    BASE_DIR.mkdir(exist_ok=True)
+    # Then create the UI_DIR
+    UI_DIR.mkdir(parents=True, exist_ok=True)
+    logger.info(f"Ensured UI directory exists: {UI_DIR}")
+except Exception as e:
+    logger.error(f"Failed to create UI directory {UI_DIR}: {e}")
+    # Fallback to a location we know will work on Heroku
+    UI_DIR = DATA_DIR / "ui"
+    UI_DIR.mkdir(parents=True, exist_ok=True)
+    logger.info(f"Using fallback UI directory: {UI_DIR}")
 
 # Load the configuration
 CONFIG = load_config()
