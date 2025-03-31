@@ -39,13 +39,27 @@ DATA_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), "data")
 RAW_SALES_DIR = os.path.join(DATA_DIR, "raw", "sales")
 HISTORY_DIR = os.path.join(RAW_SALES_DIR, "history")
 
+# Use /tmp directory for Heroku deployments
+TMP_DIR = os.path.join("/tmp", "propbot_sales")
+TMP_HISTORY_DIR = os.path.join(TMP_DIR, "history")
+
+# Debug logs for paths
+log_message(f"DEBUG: DATA_DIR: {DATA_DIR}")
+log_message(f"DEBUG: RAW_SALES_DIR: {RAW_SALES_DIR}")
+log_message(f"DEBUG: TMP_DIR: {TMP_DIR}")
+log_message(f"DEBUG: Current working directory: {os.getcwd()}")
+
 # Ensure directories exist
 os.makedirs(RAW_SALES_DIR, exist_ok=True)
 os.makedirs(HISTORY_DIR, exist_ok=True)
+os.makedirs(TMP_DIR, exist_ok=True)
+os.makedirs(TMP_HISTORY_DIR, exist_ok=True)
 
 # Output file paths
-OUTPUT_FILE = os.path.join(RAW_SALES_DIR, "idealista_listings.json")
-CREDITS_USED_FILE = os.path.join(DATA_DIR, "credits_usage.json")
+OUTPUT_FILE = os.path.join(TMP_DIR, "idealista_listings.json")
+CREDITS_USED_FILE = os.path.join(TMP_DIR, "credits_usage.json")
+
+log_message(f"DEBUG: OUTPUT_FILE: {OUTPUT_FILE}")
 
 def load_stored_listings():
     """Load previously stored listings from JSON file."""
@@ -210,6 +224,59 @@ def extract_properties(html_content):
     
     return properties, next_page_url
 
+def copy_files_to_persistent_storage():
+    """Copy files from temporary storage to the actual data directories."""
+    try:
+        log_message(f"DEBUG: Copying files from temporary to persistent storage")
+        
+        # Ensure target directories exist
+        os.makedirs(RAW_SALES_DIR, exist_ok=True)
+        os.makedirs(HISTORY_DIR, exist_ok=True)
+        
+        # Copy main output file
+        if os.path.exists(OUTPUT_FILE):
+            persistent_file = os.path.join(RAW_SALES_DIR, "idealista_listings.json")
+            log_message(f"DEBUG: Copying {OUTPUT_FILE} to {persistent_file}")
+            
+            # Read from temp and write to persistent
+            with open(OUTPUT_FILE, "r", encoding="utf-8") as source:
+                content = source.read()
+                with open(persistent_file, "w", encoding="utf-8") as target:
+                    target.write(content)
+            
+            if os.path.exists(persistent_file):
+                log_message(f"DEBUG: Successfully copied to {persistent_file} ({os.path.getsize(persistent_file)} bytes)")
+            else:
+                log_message(f"DEBUG: Failed to copy to {persistent_file}")
+        
+        # Copy history files
+        if os.path.exists(TMP_HISTORY_DIR):
+            history_files = os.listdir(TMP_HISTORY_DIR)
+            for filename in history_files:
+                source_file = os.path.join(TMP_HISTORY_DIR, filename)
+                target_file = os.path.join(HISTORY_DIR, filename)
+                
+                log_message(f"DEBUG: Copying history file {source_file} to {target_file}")
+                
+                # Read from temp and write to persistent
+                with open(source_file, "r", encoding="utf-8") as source:
+                    content = source.read()
+                    with open(target_file, "w", encoding="utf-8") as target:
+                        target.write(content)
+                
+                if os.path.exists(target_file):
+                    log_message(f"DEBUG: Successfully copied history file ({os.path.getsize(target_file)} bytes)")
+                else:
+                    log_message(f"DEBUG: Failed to copy history file")
+                
+        log_message(f"DEBUG: Completed copying files to persistent storage")
+        return True
+    except Exception as e:
+        log_message(f"DEBUG: Error copying files to persistent storage: {str(e)}")
+        import traceback
+        log_message(f"DEBUG: Stack trace: {traceback.format_exc()}")
+        return False
+
 def run_scraper():
     """Run the scraper to collect property listings."""
     log_message("Starting Idealista property scraper")
@@ -294,12 +361,15 @@ def run_scraper():
     # Save a historical snapshot with timestamp
     if new_found > 0 or updated_found > 0:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        history_file = os.path.join(HISTORY_DIR, f"idealista_listings_{timestamp}.json")
+        history_file = os.path.join(TMP_HISTORY_DIR, f"idealista_listings_{timestamp}.json")
         with open(history_file, "w", encoding="utf-8") as f:
             json.dump(stored_listings, f, ensure_ascii=False, indent=2)
         log_message(f"Created historical snapshot at {history_file} with {len(stored_listings)} properties")
     
-    return new_found  # Return number of new properties found
+    # After saving to temp directory, copy files to persistent storage
+    copy_files_to_persistent_storage()
+    
+    return new_found, updated_found, len(stored_listings)
 
 if __name__ == "__main__":
     run_scraper() 
