@@ -1,0 +1,23 @@
+{
+  "timestamp": "precheck",
+  "files_checked": 1,
+  "all_valid": true,
+  "results": [
+    {
+      "file_path": "data/raw/sales_listings.json",
+      "is_valid": true,
+      "message": "JSON file valid: 2/2 records have URLs",
+      "details": {
+        "file_path": "data/raw/sales_listings.json",
+        "file_size": 409,
+        "is_array": true,
+        "is_object": false,
+        "record_count": 2,
+        "has_listings": false,
+        "listings_count": 0,
+        "records_with_url": 2,
+        "url_percentage": 100.0
+      }
+    }
+  ]
+}

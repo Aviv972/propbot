@@ -1,0 +1,27 @@
+{
+  "pipeline_start": "2025-03-31T22:28:49.212722",
+  "stages": [
+    {
+      "stage": "consolidation",
+      "timestamp": "2025-03-31T22:28:49.221078",
+      "success": true,
+      "details": {
+        "property_type": "rentals",
+        "metadata": true,
+        "duration_seconds": 0.008249
+      }
+    },
+    {
+      "stage": "conversion",
+      "timestamp": "2025-03-31T22:28:49.262595",
+      "success": true,
+      "details": {
+        "property_type": "rentals",
+        "records": null,
+        "duration_seconds": 0.041346
+      }
+    }
+  ],
+  "success": true,
+  "pipeline_end": "2025-03-31T22:28:49.262737"
+}

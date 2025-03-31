@@ -317,9 +317,11 @@ def run_rental_scraper():
     
     current_url = TARGET_URL
     page_count = 0
-    max_pages = 32  # We'll scan more pages for rentals to get a good sample size
+    # Get max_pages from environment variable or use default
+    max_pages = int(os.environ.get("MAX_RENTAL_PAGES", 32))
+    log_message(f"Setting max_pages to {max_pages} from environment variable")
     consecutive_existing = 0
-    max_consecutive_existing = 5  # Stop after seeing this many consecutive existing properties
+    max_consecutive_existing = 5
     
     while current_url and page_count < max_pages:
         page_count += 1

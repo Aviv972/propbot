@@ -1,0 +1,28 @@
+{
+  "pipeline_start": "2025-03-23T16:28:55.290360",
+  "stages": [
+    {
+      "stage": "consolidation",
+      "timestamp": "2025-03-23T16:28:55.295385",
+      "success": true,
+      "details": {
+        "property_type": "rentals",
+        "metadata": true,
+        "duration_seconds": 0.004921
+      }
+    },
+    {
+      "stage": "conversion",
+      "timestamp": "2025-03-23T16:28:55.299225",
+      "success": true,
+      "details": {
+        "property_type": "rentals",
+        "input_file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/processed/rental_listings_consolidated.json",
+        "output_file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/processed/rentals.csv",
+        "duration_seconds": 0.003759
+      }
+    }
+  ],
+  "success": true,
+  "pipeline_end": "2025-03-23T16:28:55.299258"
+}

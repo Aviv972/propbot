@@ -1,0 +1,3790 @@
+{
+  "pipeline_start": "2025-03-23T13:10:10.161841",
+  "sales_pipeline": {
+    "pipeline_start": "2025-03-23T13:10:10.161875",
+    "stages": [
+      {
+        "stage": "validation",
+        "timestamp": "2025-03-23T13:10:10.190039",
+        "success": false,
+        "details": {
+          "basic_validation": false,
+          "schema_validation": {
+            "success": false,
+            "results": [
+              {
+                "file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/raw/sales/credits_usage.json",
+                "total_listings": 1,
+                "valid_listings": 0,
+                "invalid_listings": 1,
+                "invalid_details": [
+                  {
+                    "index": 0,
+                    "url": "Unknown",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  }
+                ],
+                "all_valid": false
+              },
+              {
+                "file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/raw/sales/idealista_listings.json",
+                "total_listings": 393,
+                "valid_listings": 0,
+                "invalid_listings": 393,
+                "invalid_details": [
+                  {
+                    "index": 0,
+                    "url": "https://www.idealista.pt/en/imovel/34023840/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 1,
+                    "url": "https://www.idealista.pt/en/imovel/33979881/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 2,
+                    "url": "https://www.idealista.pt/en/imovel/34026765/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 3,
+                    "url": "https://www.idealista.pt/en/imovel/33928673/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 4,
+                    "url": "https://www.idealista.pt/en/imovel/33980177/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 5,
+                    "url": "https://www.idealista.pt/en/imovel/34017222/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 6,
+                    "url": "https://www.idealista.pt/en/imovel/34012969/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 7,
+                    "url": "https://www.idealista.pt/en/imovel/33986347/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 8,
+                    "url": "https://www.idealista.pt/en/imovel/34025702/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 9,
+                    "url": "https://www.idealista.pt/en/imovel/33440538/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 10,
+                    "url": "https://www.idealista.pt/en/imovel/33993523/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 11,
+                    "url": "https://www.idealista.pt/en/imovel/33992484/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 12,
+                    "url": "https://www.idealista.pt/en/imovel/34057561/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 13,
+                    "url": "https://www.idealista.pt/en/imovel/32486708/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 14,
+                    "url": "https://www.idealista.pt/en/imovel/33524878/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 15,
+                    "url": "https://www.idealista.pt/en/imovel/33985445/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 16,
+                    "url": "https://www.idealista.pt/en/imovel/33984524/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 17,
+                    "url": "https://www.idealista.pt/en/imovel/34036434/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 18,
+                    "url": "https://www.idealista.pt/en/imovel/33799532/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 19,
+                    "url": "https://www.idealista.pt/en/imovel/34032579/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 20,
+                    "url": "https://www.idealista.pt/en/imovel/34020888/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 21,
+                    "url": "https://www.idealista.pt/en/imovel/33983484/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 22,
+                    "url": "https://www.idealista.pt/en/imovel/33934029/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 23,
+                    "url": "https://www.idealista.pt/en/imovel/33979648/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 24,
+                    "url": "https://www.idealista.pt/en/imovel/34062281/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 25,
+                    "url": "https://www.idealista.pt/en/imovel/34041352/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 26,
+                    "url": "https://www.idealista.pt/en/imovel/33957087/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 27,
+                    "url": "https://www.idealista.pt/en/imovel/34005065/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 28,
+                    "url": "https://www.idealista.pt/en/imovel/34037932/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 29,
+                    "url": "https://www.idealista.pt/en/imovel/34020973/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 30,
+                    "url": "https://www.idealista.pt/en/imovel/34014664/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 31,
+                    "url": "https://www.idealista.pt/en/imovel/34005974/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 32,
+                    "url": "https://www.idealista.pt/en/imovel/33985662/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 33,
+                    "url": "https://www.idealista.pt/en/imovel/34024577/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 34,
+                    "url": "https://www.idealista.pt/en/imovel/33928601/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 35,
+                    "url": "https://www.idealista.pt/en/imovel/33995907/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 36,
+                    "url": "https://www.idealista.pt/en/imovel/34057779/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 37,
+                    "url": "https://www.idealista.pt/en/imovel/34058868/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 38,
+                    "url": "https://www.idealista.pt/en/imovel/34055036/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 39,
+                    "url": "https://www.idealista.pt/en/imovel/34062579/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 40,
+                    "url": "https://www.idealista.pt/en/imovel/32726243/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 41,
+                    "url": "https://www.idealista.pt/en/imovel/34031027/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 42,
+                    "url": "https://www.idealista.pt/en/imovel/33546055/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 43,
+                    "url": "https://www.idealista.pt/en/imovel/34050744/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 44,
+                    "url": "https://www.idealista.pt/en/imovel/34062215/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 45,
+                    "url": "https://www.idealista.pt/en/imovel/34061219/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 46,
+                    "url": "https://www.idealista.pt/en/imovel/34028209/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 47,
+                    "url": "https://www.idealista.pt/en/imovel/34009332/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 48,
+                    "url": "https://www.idealista.pt/en/imovel/34062772/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 49,
+                    "url": "https://www.idealista.pt/en/imovel/34034329/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 50,
+                    "url": "https://www.idealista.pt/en/imovel/34028556/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 51,
+                    "url": "https://www.idealista.pt/en/imovel/34011921/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 52,
+                    "url": "https://www.idealista.pt/en/imovel/34052184/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 53,
+                    "url": "https://www.idealista.pt/en/imovel/34053976/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 54,
+                    "url": "https://www.idealista.pt/en/imovel/33993799/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 55,
+                    "url": "https://www.idealista.pt/en/imovel/34050617/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 56,
+                    "url": "https://www.idealista.pt/en/imovel/34013996/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 57,
+                    "url": "https://www.idealista.pt/en/imovel/33788189/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 58,
+                    "url": "https://www.idealista.pt/en/imovel/33992805/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 59,
+                    "url": "https://www.idealista.pt/en/imovel/34026676/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 60,
+                    "url": "https://www.idealista.pt/en/imovel/34017690/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 61,
+                    "url": "https://www.idealista.pt/en/imovel/34051152/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 62,
+                    "url": "https://www.idealista.pt/en/imovel/34026852/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 63,
+                    "url": "https://www.idealista.pt/en/imovel/33969959/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 64,
+                    "url": "https://www.idealista.pt/en/imovel/34030552/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 65,
+                    "url": "https://www.idealista.pt/en/imovel/33990050/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 66,
+                    "url": "https://www.idealista.pt/en/imovel/34041889/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 67,
+                    "url": "https://www.idealista.pt/en/imovel/34005229/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 68,
+                    "url": "https://www.idealista.pt/en/imovel/34013648/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 69,
+                    "url": "https://www.idealista.pt/en/imovel/34037683/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 70,
+                    "url": "https://www.idealista.pt/en/imovel/34002042/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 71,
+                    "url": "https://www.idealista.pt/en/imovel/34058782/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 72,
+                    "url": "https://www.idealista.pt/en/imovel/34020448/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 73,
+                    "url": "https://www.idealista.pt/en/imovel/34049858/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 74,
+                    "url": "https://www.idealista.pt/en/imovel/33984272/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 75,
+                    "url": "https://www.idealista.pt/en/imovel/34032986/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 76,
+                    "url": "https://www.idealista.pt/en/imovel/33985351/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 77,
+                    "url": "https://www.idealista.pt/en/imovel/34060865/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 78,
+                    "url": "https://www.idealista.pt/en/imovel/34057686/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 79,
+                    "url": "https://www.idealista.pt/en/imovel/33995413/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 80,
+                    "url": "https://www.idealista.pt/en/imovel/34022548/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 81,
+                    "url": "https://www.idealista.pt/en/imovel/33988425/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 82,
+                    "url": "https://www.idealista.pt/en/imovel/34037837/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 83,
+                    "url": "https://www.idealista.pt/en/imovel/33984467/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 84,
+                    "url": "https://www.idealista.pt/en/imovel/34020124/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 85,
+                    "url": "https://www.idealista.pt/en/imovel/34052765/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 86,
+                    "url": "https://www.idealista.pt/en/imovel/34061637/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 87,
+                    "url": "https://www.idealista.pt/en/imovel/33982707/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 88,
+                    "url": "https://www.idealista.pt/en/imovel/33989995/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 89,
+                    "url": "https://www.idealista.pt/en/imovel/33985055/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 90,
+                    "url": "https://www.idealista.pt/en/imovel/34033913/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 91,
+                    "url": "https://www.idealista.pt/en/imovel/34034170/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 92,
+                    "url": "https://www.idealista.pt/en/imovel/34061324/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 93,
+                    "url": "https://www.idealista.pt/en/imovel/34058801/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 94,
+                    "url": "https://www.idealista.pt/en/imovel/34055110/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 95,
+                    "url": "https://www.idealista.pt/en/imovel/34044237/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 96,
+                    "url": "https://www.idealista.pt/en/imovel/34030538/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 97,
+                    "url": "https://www.idealista.pt/en/imovel/34020268/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 98,
+                    "url": "https://www.idealista.pt/en/imovel/33625362/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 99,
+                    "url": "https://www.idealista.pt/en/imovel/34053475/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 100,
+                    "url": "https://www.idealista.pt/en/imovel/33853736/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 101,
+                    "url": "https://www.idealista.pt/en/imovel/34030535/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 102,
+                    "url": "https://www.idealista.pt/en/imovel/34042836/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 103,
+                    "url": "https://www.idealista.pt/en/imovel/34055706/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 104,
+                    "url": "https://www.idealista.pt/en/imovel/34047387/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 105,
+                    "url": "https://www.idealista.pt/en/imovel/34048706/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 106,
+                    "url": "https://www.idealista.pt/en/imovel/34050563/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 107,
+                    "url": "https://www.idealista.pt/en/imovel/33832574/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 108,
+                    "url": "https://www.idealista.pt/en/imovel/34034237/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 109,
+                    "url": "https://www.idealista.pt/en/imovel/34000565/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 110,
+                    "url": "https://www.idealista.pt/en/imovel/34037766/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 111,
+                    "url": "https://www.idealista.pt/en/imovel/34014617/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 112,
+                    "url": "https://www.idealista.pt/en/imovel/34027843/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 113,
+                    "url": "https://www.idealista.pt/en/imovel/34002154/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 114,
+                    "url": "https://www.idealista.pt/en/imovel/34028179/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 115,
+                    "url": "https://www.idealista.pt/en/imovel/34050979/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 116,
+                    "url": "https://www.idealista.pt/en/imovel/34047662/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 117,
+                    "url": "https://www.idealista.pt/en/imovel/33976954/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 118,
+                    "url": "https://www.idealista.pt/en/imovel/34053759/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 119,
+                    "url": "https://www.idealista.pt/en/imovel/33256934/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 120,
+                    "url": "https://www.idealista.pt/en/imovel/34041499/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 121,
+                    "url": "https://www.idealista.pt/en/imovel/34003524/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 122,
+                    "url": "https://www.idealista.pt/en/imovel/34013579/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 123,
+                    "url": "https://www.idealista.pt/en/imovel/34028316/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 124,
+                    "url": "https://www.idealista.pt/en/imovel/34003718/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 125,
+                    "url": "https://www.idealista.pt/en/imovel/34003355/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 126,
+                    "url": "https://www.idealista.pt/en/imovel/33954045/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 127,
+                    "url": "https://www.idealista.pt/en/imovel/34003381/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 128,
+                    "url": "https://www.idealista.pt/en/imovel/33987737/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 129,
+                    "url": "https://www.idealista.pt/en/imovel/34002988/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 130,
+                    "url": "https://www.idealista.pt/en/imovel/34044946/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 131,
+                    "url": "https://www.idealista.pt/en/imovel/34008276/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 132,
+                    "url": "https://www.idealista.pt/en/imovel/33843371/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 133,
+                    "url": "https://www.idealista.pt/en/imovel/34050773/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 134,
+                    "url": "https://www.idealista.pt/en/imovel/33979639/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 135,
+                    "url": "https://www.idealista.pt/en/imovel/33929639/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 136,
+                    "url": "https://www.idealista.pt/en/imovel/34008493/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 137,
+                    "url": "https://www.idealista.pt/en/imovel/34044220/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 138,
+                    "url": "https://www.idealista.pt/en/imovel/33993160/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 139,
+                    "url": "https://www.idealista.pt/en/imovel/33982678/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 140,
+                    "url": "https://www.idealista.pt/en/imovel/34033181/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 141,
+                    "url": "https://www.idealista.pt/en/imovel/34046084/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 142,
+                    "url": "https://www.idealista.pt/en/imovel/33993159/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 143,
+                    "url": "https://www.idealista.pt/en/imovel/34003122/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 144,
+                    "url": "https://www.idealista.pt/en/imovel/33995335/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 145,
+                    "url": "https://www.idealista.pt/en/imovel/34039074/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 146,
+                    "url": "https://www.idealista.pt/en/imovel/34062932/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 147,
+                    "url": "https://www.idealista.pt/en/imovel/34046420/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 148,
+                    "url": "https://www.idealista.pt/en/imovel/34022561/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 149,
+                    "url": "https://www.idealista.pt/en/imovel/33983218/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 150,
+                    "url": "https://www.idealista.pt/en/imovel/34019910/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 151,
+                    "url": "https://www.idealista.pt/en/imovel/33653840/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 152,
+                    "url": "https://www.idealista.pt/en/imovel/34027910/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 153,
+                    "url": "https://www.idealista.pt/en/imovel/33981492/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 154,
+                    "url": "https://www.idealista.pt/en/imovel/34036605/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 155,
+                    "url": "https://www.idealista.pt/en/imovel/33988435/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 156,
+                    "url": "https://www.idealista.pt/en/imovel/33979934/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 157,
+                    "url": "https://www.idealista.pt/en/imovel/34024999/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 158,
+                    "url": "https://www.idealista.pt/en/imovel/34000907/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 159,
+                    "url": "https://www.idealista.pt/en/imovel/33989423/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 160,
+                    "url": "https://www.idealista.pt/en/imovel/34009842/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 161,
+                    "url": "https://www.idealista.pt/en/imovel/33995382/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 162,
+                    "url": "https://www.idealista.pt/en/imovel/33992083/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 163,
+                    "url": "https://www.idealista.pt/en/imovel/34041336/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 164,
+                    "url": "https://www.idealista.pt/en/imovel/34003346/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 165,
+                    "url": "https://www.idealista.pt/en/imovel/34005205/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 166,
+                    "url": "https://www.idealista.pt/en/imovel/34010079/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 167,
+                    "url": "https://www.idealista.pt/en/imovel/34009087/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 168,
+                    "url": "https://www.idealista.pt/en/imovel/33956611/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 169,
+                    "url": "https://www.idealista.pt/en/imovel/34039073/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 170,
+                    "url": "https://www.idealista.pt/en/imovel/34050216/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 171,
+                    "url": "https://www.idealista.pt/en/imovel/33983717/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 172,
+                    "url": "https://www.idealista.pt/en/imovel/34001087/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 173,
+                    "url": "https://www.idealista.pt/en/imovel/34048820/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 174,
+                    "url": "https://www.idealista.pt/en/imovel/34008315/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 175,
+                    "url": "https://www.idealista.pt/en/imovel/34012957/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 176,
+                    "url": "https://www.idealista.pt/en/imovel/34038056/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 177,
+                    "url": "https://www.idealista.pt/en/imovel/34047803/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 178,
+                    "url": "https://www.idealista.pt/en/imovel/34033580/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 179,
+                    "url": "https://www.idealista.pt/en/imovel/34027780/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 180,
+                    "url": "https://www.idealista.pt/en/imovel/33704216/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 181,
+                    "url": "https://www.idealista.pt/en/imovel/33170895/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 182,
+                    "url": "https://www.idealista.pt/en/imovel/33956353/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 183,
+                    "url": "https://www.idealista.pt/en/imovel/33964327/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 184,
+                    "url": "https://www.idealista.pt/en/imovel/33789807/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 185,
+                    "url": "https://www.idealista.pt/en/imovel/33277885/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 186,
+                    "url": "https://www.idealista.pt/en/imovel/33694400/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 187,
+                    "url": "https://www.idealista.pt/en/imovel/33934110/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 188,
+                    "url": "https://www.idealista.pt/en/imovel/33922302/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 189,
+                    "url": "https://www.idealista.pt/en/imovel/33898547/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 190,
+                    "url": "https://www.idealista.pt/en/imovel/33924500/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 191,
+                    "url": "https://www.idealista.pt/en/imovel/33654320/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 192,
+                    "url": "https://www.idealista.pt/en/imovel/33736516/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 193,
+                    "url": "https://www.idealista.pt/en/imovel/33962583/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 194,
+                    "url": "https://www.idealista.pt/en/imovel/33851408/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 195,
+                    "url": "https://www.idealista.pt/en/imovel/33911212/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 196,
+                    "url": "https://www.idealista.pt/en/imovel/33846538/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 197,
+                    "url": "https://www.idealista.pt/en/imovel/33919754/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 198,
+                    "url": "https://www.idealista.pt/en/imovel/33799376/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 199,
+                    "url": "https://www.idealista.pt/en/imovel/33972383/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 200,
+                    "url": "https://www.idealista.pt/en/imovel/33917033/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 201,
+                    "url": "https://www.idealista.pt/en/imovel/33792891/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 202,
+                    "url": "https://www.idealista.pt/en/imovel/33904537/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 203,
+                    "url": "https://www.idealista.pt/en/imovel/33630455/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 204,
+                    "url": "https://www.idealista.pt/en/imovel/33964850/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 205,
+                    "url": "https://www.idealista.pt/en/imovel/33086982/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 206,
+                    "url": "https://www.idealista.pt/en/imovel/33364458/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 207,
+                    "url": "https://www.idealista.pt/en/imovel/33955347/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 208,
+                    "url": "https://www.idealista.pt/en/imovel/33755290/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 209,
+                    "url": "https://www.idealista.pt/en/imovel/33625352/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 210,
+                    "url": "https://www.idealista.pt/en/imovel/33096356/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 211,
+                    "url": "https://www.idealista.pt/en/imovel/33974797/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 212,
+                    "url": "https://www.idealista.pt/en/imovel/33935870/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 213,
+                    "url": "https://www.idealista.pt/en/imovel/33681153/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 214,
+                    "url": "https://www.idealista.pt/en/imovel/33712826/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 215,
+                    "url": "https://www.idealista.pt/en/imovel/33932941/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 216,
+                    "url": "https://www.idealista.pt/en/imovel/33749208/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 217,
+                    "url": "https://www.idealista.pt/en/imovel/33616511/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 218,
+                    "url": "https://www.idealista.pt/en/imovel/32537931/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 219,
+                    "url": "https://www.idealista.pt/en/imovel/33907990/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 220,
+                    "url": "https://www.idealista.pt/en/imovel/33485746/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 221,
+                    "url": "https://www.idealista.pt/en/imovel/33815374/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 222,
+                    "url": "https://www.idealista.pt/en/imovel/33780968/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 223,
+                    "url": "https://www.idealista.pt/en/imovel/33871132/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 224,
+                    "url": "https://www.idealista.pt/en/imovel/33750712/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 225,
+                    "url": "https://www.idealista.pt/en/imovel/33966386/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 226,
+                    "url": "https://www.idealista.pt/en/imovel/33415512/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 227,
+                    "url": "https://www.idealista.pt/en/imovel/33673087/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 228,
+                    "url": "https://www.idealista.pt/en/imovel/33772698/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 229,
+                    "url": "https://www.idealista.pt/en/imovel/33119789/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 230,
+                    "url": "https://www.idealista.pt/en/imovel/33164642/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 231,
+                    "url": "https://www.idealista.pt/en/imovel/33791667/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 232,
+                    "url": "https://www.idealista.pt/en/imovel/33059426/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 233,
+                    "url": "https://www.idealista.pt/en/imovel/33831271/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 234,
+                    "url": "https://www.idealista.pt/en/imovel/33750659/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 235,
+                    "url": "https://www.idealista.pt/en/imovel/32834508/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 236,
+                    "url": "https://www.idealista.pt/en/imovel/33444004/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 237,
+                    "url": "https://www.idealista.pt/en/imovel/33220551/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 238,
+                    "url": "https://www.idealista.pt/en/imovel/33572164/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 239,
+                    "url": "https://www.idealista.pt/en/imovel/33034841/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 240,
+                    "url": "https://www.idealista.pt/en/imovel/33773682/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 241,
+                    "url": "https://www.idealista.pt/en/imovel/33850250/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 242,
+                    "url": "https://www.idealista.pt/en/imovel/33967223/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 243,
+                    "url": "https://www.idealista.pt/en/imovel/33886530/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 244,
+                    "url": "https://www.idealista.pt/en/imovel/32813012/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 245,
+                    "url": "https://www.idealista.pt/en/imovel/32568986/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 246,
+                    "url": "https://www.idealista.pt/en/imovel/33015058/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 247,
+                    "url": "https://www.idealista.pt/en/imovel/33596805/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 248,
+                    "url": "https://www.idealista.pt/en/imovel/33932700/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 249,
+                    "url": "https://www.idealista.pt/en/imovel/33077474/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 250,
+                    "url": "https://www.idealista.pt/en/imovel/32401970/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 251,
+                    "url": "https://www.idealista.pt/en/imovel/33927261/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 252,
+                    "url": "https://www.idealista.pt/en/imovel/33737730/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 253,
+                    "url": "https://www.idealista.pt/en/imovel/33952410/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 254,
+                    "url": "https://www.idealista.pt/en/imovel/33895242/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 255,
+                    "url": "https://www.idealista.pt/en/imovel/33113830/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 256,
+                    "url": "https://www.idealista.pt/en/imovel/33882150/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 257,
+                    "url": "https://www.idealista.pt/en/imovel/33367986/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 258,
+                    "url": "https://www.idealista.pt/en/imovel/33958249/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 259,
+                    "url": "https://www.idealista.pt/en/imovel/33425899/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 260,
+                    "url": "https://www.idealista.pt/en/imovel/33861608/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 261,
+                    "url": "https://www.idealista.pt/en/imovel/33347728/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 262,
+                    "url": "https://www.idealista.pt/en/imovel/33873162/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 263,
+                    "url": "https://www.idealista.pt/en/imovel/32973030/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 264,
+                    "url": "https://www.idealista.pt/en/imovel/33938321/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 265,
+                    "url": "https://www.idealista.pt/en/imovel/30450592/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 266,
+                    "url": "https://www.idealista.pt/en/imovel/33746760/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 267,
+                    "url": "https://www.idealista.pt/en/imovel/33886997/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 268,
+                    "url": "https://www.idealista.pt/en/imovel/33789599/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 269,
+                    "url": "https://www.idealista.pt/en/imovel/33059145/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 270,
+                    "url": "https://www.idealista.pt/en/imovel/33359450/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 271,
+                    "url": "https://www.idealista.pt/en/imovel/33520741/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 272,
+                    "url": "https://www.idealista.pt/en/imovel/33922974/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 273,
+                    "url": "https://www.idealista.pt/en/imovel/32591572/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 274,
+                    "url": "https://www.idealista.pt/en/imovel/33914485/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 275,
+                    "url": "https://www.idealista.pt/en/imovel/33925481/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 276,
+                    "url": "https://www.idealista.pt/en/imovel/33340092/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 277,
+                    "url": "https://www.idealista.pt/en/imovel/33758009/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 278,
+                    "url": "https://www.idealista.pt/en/imovel/33244861/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 279,
+                    "url": "https://www.idealista.pt/en/imovel/33507444/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 280,
+                    "url": "https://www.idealista.pt/en/imovel/33120703/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 281,
+                    "url": "https://www.idealista.pt/en/imovel/33618417/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 282,
+                    "url": "https://www.idealista.pt/en/imovel/29027816/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 283,
+                    "url": "https://www.idealista.pt/en/imovel/33653372/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 284,
+                    "url": "https://www.idealista.pt/en/imovel/33249300/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 285,
+                    "url": "https://www.idealista.pt/en/imovel/33146222/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 286,
+                    "url": "https://www.idealista.pt/en/imovel/33574964/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 287,
+                    "url": "https://www.idealista.pt/en/imovel/33502393/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 288,
+                    "url": "https://www.idealista.pt/en/imovel/33879293/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 289,
+                    "url": "https://www.idealista.pt/en/imovel/33415554/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 290,
+                    "url": "https://www.idealista.pt/en/imovel/33840325/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 291,
+                    "url": "https://www.idealista.pt/en/imovel/33804904/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 292,
+                    "url": "https://www.idealista.pt/en/imovel/33739267/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 293,
+                    "url": "https://www.idealista.pt/en/imovel/33940409/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 294,
+                    "url": "https://www.idealista.pt/en/imovel/33746770/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 295,
+                    "url": "https://www.idealista.pt/en/imovel/33891400/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 296,
+                    "url": "https://www.idealista.pt/en/imovel/33360895/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 297,
+                    "url": "https://www.idealista.pt/en/imovel/33905805/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 298,
+                    "url": "https://www.idealista.pt/en/imovel/33836023/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 299,
+                    "url": "https://www.idealista.pt/en/imovel/33473969/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 300,
+                    "url": "https://www.idealista.pt/en/imovel/33973726/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 301,
+                    "url": "https://www.idealista.pt/en/imovel/33940533/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 302,
+                    "url": "https://www.idealista.pt/en/imovel/31301952/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 303,
+                    "url": "https://www.idealista.pt/en/imovel/33547441/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 304,
+                    "url": "https://www.idealista.pt/en/imovel/32973902/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 305,
+                    "url": "https://www.idealista.pt/en/imovel/31730465/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 306,
+                    "url": "https://www.idealista.pt/en/imovel/33765250/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 307,
+                    "url": "https://www.idealista.pt/en/imovel/33783909/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 308,
+                    "url": "https://www.idealista.pt/en/imovel/33545220/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 309,
+                    "url": "https://www.idealista.pt/en/imovel/33970104/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 310,
+                    "url": "https://www.idealista.pt/en/imovel/33602234/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 311,
+                    "url": "https://www.idealista.pt/en/imovel/30257667/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 312,
+                    "url": "https://www.idealista.pt/en/imovel/33479958/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 313,
+                    "url": "https://www.idealista.pt/en/imovel/33936382/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 314,
+                    "url": "https://www.idealista.pt/en/imovel/33674465/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 315,
+                    "url": "https://www.idealista.pt/en/imovel/33797896/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 316,
+                    "url": "https://www.idealista.pt/en/imovel/33418991/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 317,
+                    "url": "https://www.idealista.pt/en/imovel/33097996/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 318,
+                    "url": "https://www.idealista.pt/en/imovel/33956092/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 319,
+                    "url": "https://www.idealista.pt/en/imovel/33871908/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 320,
+                    "url": "https://www.idealista.pt/en/imovel/33370179/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 321,
+                    "url": "https://www.idealista.pt/en/imovel/33918510/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 322,
+                    "url": "https://www.idealista.pt/en/imovel/33852582/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 323,
+                    "url": "https://www.idealista.pt/en/imovel/33677556/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 324,
+                    "url": "https://www.idealista.pt/en/imovel/33947763/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 325,
+                    "url": "https://www.idealista.pt/en/imovel/33677566/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 326,
+                    "url": "https://www.idealista.pt/en/imovel/33873276/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 327,
+                    "url": "https://www.idealista.pt/en/imovel/32950184/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 328,
+                    "url": "https://www.idealista.pt/en/imovel/33845091/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 329,
+                    "url": "https://www.idealista.pt/en/imovel/33571421/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 330,
+                    "url": "https://www.idealista.pt/en/imovel/33886877/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 331,
+                    "url": "https://www.idealista.pt/en/imovel/33969701/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 332,
+                    "url": "https://www.idealista.pt/en/imovel/33671705/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 333,
+                    "url": "https://www.idealista.pt/en/imovel/33613343/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 334,
+                    "url": "https://www.idealista.pt/en/imovel/33975817/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 335,
+                    "url": "https://www.idealista.pt/en/imovel/33304593/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 336,
+                    "url": "https://www.idealista.pt/en/imovel/33951033/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 337,
+                    "url": "https://www.idealista.pt/en/imovel/33145538/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 338,
+                    "url": "https://www.idealista.pt/en/imovel/32620524/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 339,
+                    "url": "https://www.idealista.pt/en/imovel/33898635/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 340,
+                    "url": "https://www.idealista.pt/en/imovel/33084983/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 341,
+                    "url": "https://www.idealista.pt/en/imovel/32490930/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 342,
+                    "url": "https://www.idealista.pt/en/imovel/33948960/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 343,
+                    "url": "https://www.idealista.pt/en/imovel/33906311/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 344,
+                    "url": "https://www.idealista.pt/en/imovel/33908094/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 345,
+                    "url": "https://www.idealista.pt/en/imovel/33867284/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 346,
+                    "url": "https://www.idealista.pt/en/imovel/33668458/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 347,
+                    "url": "https://www.idealista.pt/en/imovel/33705568/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 348,
+                    "url": "https://www.idealista.pt/en/imovel/33880614/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 349,
+                    "url": "https://www.idealista.pt/en/imovel/33741333/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 350,
+                    "url": "https://www.idealista.pt/en/imovel/33845035/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 351,
+                    "url": "https://www.idealista.pt/en/imovel/33502174/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 352,
+                    "url": "https://www.idealista.pt/en/imovel/33972841/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 353,
+                    "url": "https://www.idealista.pt/en/imovel/33752551/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 354,
+                    "url": "https://www.idealista.pt/en/imovel/33964267/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 355,
+                    "url": "https://www.idealista.pt/en/imovel/33691556/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 356,
+                    "url": "https://www.idealista.pt/en/imovel/33891422/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 357,
+                    "url": "https://www.idealista.pt/en/imovel/33815265/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 358,
+                    "url": "https://www.idealista.pt/en/imovel/33957421/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 359,
+                    "url": "https://www.idealista.pt/en/imovel/33643633/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 360,
+                    "url": "https://www.idealista.pt/en/imovel/33909925/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 361,
+                    "url": "https://www.idealista.pt/en/imovel/33830608/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 362,
+                    "url": "https://www.idealista.pt/en/imovel/33764407/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 363,
+                    "url": "https://www.idealista.pt/en/imovel/33976726/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 364,
+                    "url": "https://www.idealista.pt/en/imovel/32699634/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 365,
+                    "url": "https://www.idealista.pt/en/imovel/33791295/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 366,
+                    "url": "https://www.idealista.pt/en/imovel/33789783/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 367,
+                    "url": "https://www.idealista.pt/en/imovel/33715551/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 368,
+                    "url": "https://www.idealista.pt/en/imovel/33432730/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 369,
+                    "url": "https://www.idealista.pt/en/imovel/33168759/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 370,
+                    "url": "https://www.idealista.pt/en/imovel/33496582/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 371,
+                    "url": "https://www.idealista.pt/en/imovel/33461228/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 372,
+                    "url": "https://www.idealista.pt/en/imovel/33954176/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 373,
+                    "url": "https://www.idealista.pt/en/imovel/33662008/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 374,
+                    "url": "https://www.idealista.pt/en/imovel/34081375/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 375,
+                    "url": "https://www.idealista.pt/en/imovel/34077448/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 376,
+                    "url": "https://www.idealista.pt/en/imovel/34081497/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 377,
+                    "url": "https://www.idealista.pt/en/imovel/34081561/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 378,
+                    "url": "https://www.idealista.pt/en/imovel/34081669/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 379,
+                    "url": "https://www.idealista.pt/en/imovel/34081374/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 380,
+                    "url": "https://www.idealista.pt/en/imovel/34078464/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 381,
+                    "url": "https://www.idealista.pt/en/imovel/33749530/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 382,
+                    "url": "https://www.idealista.pt/en/imovel/34078058/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 383,
+                    "url": "https://www.idealista.pt/en/imovel/34073475/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 384,
+                    "url": "https://www.idealista.pt/en/imovel/34075745/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 385,
+                    "url": "https://www.idealista.pt/en/imovel/34081468/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 386,
+                    "url": "https://www.idealista.pt/en/imovel/34073318/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 387,
+                    "url": "https://www.idealista.pt/en/imovel/34073821/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 388,
+                    "url": "https://www.idealista.pt/en/imovel/34073114/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 389,
+                    "url": "https://www.idealista.pt/en/imovel/34073785/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 390,
+                    "url": "https://www.idealista.pt/en/imovel/34072221/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 391,
+                    "url": "https://www.idealista.pt/en/imovel/34074501/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 392,
+                    "url": "https://www.idealista.pt/en/imovel/34073038/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  }
+                ],
+                "all_valid": false
+              },
+              {
+                "file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/raw/sales/test_sales.json",
+                "total_listings": 2,
+                "valid_listings": 0,
+                "invalid_listings": 2,
+                "invalid_details": [
+                  {
+                    "index": 0,
+                    "url": "https://example.com/property/123",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 1,
+                    "url": "https://example.com/property/456",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  }
+                ],
+                "all_valid": false
+              }
+            ]
+          },
+          "duration_seconds": 0.028075
+        }
+      }
+    ],
+    "success": false,
+    "pipeline_end": "2025-03-23T13:10:10.190097"
+  },
+  "rentals_pipeline": {
+    "pipeline_start": "2025-03-23T13:10:10.190134",
+    "stages": [
+      {
+        "stage": "validation",
+        "timestamp": "2025-03-23T13:10:10.201187",
+        "success": false,
+        "details": {
+          "basic_validation": false,
+          "schema_validation": {
+            "success": false,
+            "results": [
+              {
+                "file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/raw/rentals/rental_listings.json",
+                "total_listings": 128,
+                "valid_listings": 0,
+                "invalid_listings": 128,
+                "invalid_details": [
+                  {
+                    "index": 0,
+                    "url": "Unknown",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 1,
+                    "url": "https://www.idealista.pt/en/imovel/34057380/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 2,
+                    "url": "https://www.idealista.pt/en/imovel/34057339/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 3,
+                    "url": "https://www.idealista.pt/en/imovel/34057043/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 4,
+                    "url": "https://www.idealista.pt/en/imovel/34057373/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 5,
+                    "url": "https://www.idealista.pt/en/imovel/34046741/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 6,
+                    "url": "https://www.idealista.pt/en/imovel/34053113/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 7,
+                    "url": "https://www.idealista.pt/en/imovel/34057275/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 8,
+                    "url": "https://www.idealista.pt/en/imovel/34057372/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 9,
+                    "url": "https://www.idealista.pt/en/imovel/34053086/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 10,
+                    "url": "https://www.idealista.pt/en/imovel/34057378/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 11,
+                    "url": "https://www.idealista.pt/en/imovel/34052954/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 12,
+                    "url": "https://www.idealista.pt/en/imovel/34047354/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 13,
+                    "url": "https://www.idealista.pt/en/imovel/34047277/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 14,
+                    "url": "https://www.idealista.pt/en/imovel/34048590/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 15,
+                    "url": "https://www.idealista.pt/en/imovel/34057039/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 16,
+                    "url": "https://www.idealista.pt/en/imovel/34054957/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 17,
+                    "url": "https://www.idealista.pt/en/imovel/34053034/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 18,
+                    "url": "https://www.idealista.pt/en/imovel/34055593/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 19,
+                    "url": "https://www.idealista.pt/en/imovel/34015973/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 20,
+                    "url": "https://www.idealista.pt/en/imovel/34046397/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 21,
+                    "url": "https://www.idealista.pt/en/imovel/34055321/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 22,
+                    "url": "https://www.idealista.pt/en/imovel/34057276/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 23,
+                    "url": "https://www.idealista.pt/en/imovel/33058586/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 24,
+                    "url": "https://www.idealista.pt/en/imovel/34059669/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 25,
+                    "url": "https://www.idealista.pt/en/imovel/33277714/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 26,
+                    "url": "https://www.idealista.pt/en/imovel/27800797/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 27,
+                    "url": "https://www.idealista.pt/en/imovel/34012458/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 28,
+                    "url": "https://www.idealista.pt/en/imovel/27822334/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 29,
+                    "url": "https://www.idealista.pt/en/imovel/33950399/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 30,
+                    "url": "https://www.idealista.pt/en/imovel/33439184/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 31,
+                    "url": "https://www.idealista.pt/en/imovel/34051254/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 32,
+                    "url": "https://www.idealista.pt/en/imovel/34040609/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 33,
+                    "url": "https://www.idealista.pt/en/imovel/34020892/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 34,
+                    "url": "https://www.idealista.pt/en/imovel/33977208/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 35,
+                    "url": "https://www.idealista.pt/en/imovel/27801143/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 36,
+                    "url": "https://www.idealista.pt/en/imovel/34012434/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 37,
+                    "url": "https://www.idealista.pt/en/imovel/33039206/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 38,
+                    "url": "https://www.idealista.pt/en/imovel/27833263/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 39,
+                    "url": "https://www.idealista.pt/en/imovel/34012463/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 40,
+                    "url": "https://www.idealista.pt/en/imovel/34054473/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 41,
+                    "url": "https://www.idealista.pt/en/imovel/33446727/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 42,
+                    "url": "https://www.idealista.pt/en/imovel/33994537/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 43,
+                    "url": "https://www.idealista.pt/en/imovel/34046095/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 44,
+                    "url": "https://www.idealista.pt/en/imovel/34010254/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 45,
+                    "url": "https://www.idealista.pt/en/imovel/34046247/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 46,
+                    "url": "https://www.idealista.pt/en/imovel/28427419/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 47,
+                    "url": "https://www.idealista.pt/en/imovel/34026788/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 48,
+                    "url": "https://www.idealista.pt/en/imovel/34025898/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 49,
+                    "url": "https://www.idealista.pt/en/imovel/34050585/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 50,
+                    "url": "https://www.idealista.pt/en/imovel/34056264/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 51,
+                    "url": "https://www.idealista.pt/en/imovel/34050601/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 52,
+                    "url": "https://www.idealista.pt/en/imovel/34054468/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 53,
+                    "url": "https://www.idealista.pt/en/imovel/32841982/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 54,
+                    "url": "https://www.idealista.pt/en/imovel/34046803/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 55,
+                    "url": "https://www.idealista.pt/en/imovel/34012433/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 56,
+                    "url": "https://www.idealista.pt/en/imovel/34048694/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 57,
+                    "url": "https://www.idealista.pt/en/imovel/34012416/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 58,
+                    "url": "https://www.idealista.pt/en/imovel/33993098/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 59,
+                    "url": "https://www.idealista.pt/en/imovel/34055738/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 60,
+                    "url": "https://www.idealista.pt/en/imovel/34012431/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 61,
+                    "url": "https://www.idealista.pt/en/imovel/34048323/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 62,
+                    "url": "https://www.idealista.pt/en/imovel/34049897/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 63,
+                    "url": "https://www.idealista.pt/en/imovel/34040613/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 64,
+                    "url": "https://www.idealista.pt/en/imovel/34022545/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 65,
+                    "url": "https://www.idealista.pt/en/imovel/31515577/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 66,
+                    "url": "https://www.idealista.pt/en/imovel/34060874/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 67,
+                    "url": "https://www.idealista.pt/en/imovel/34054855/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 68,
+                    "url": "https://www.idealista.pt/en/imovel/34051932/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 69,
+                    "url": "https://www.idealista.pt/en/imovel/34046630/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 70,
+                    "url": "https://www.idealista.pt/en/imovel/34057332/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 71,
+                    "url": "https://www.idealista.pt/en/imovel/34057330/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 72,
+                    "url": "https://www.idealista.pt/en/imovel/34057369/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 73,
+                    "url": "https://www.idealista.pt/en/imovel/34057329/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 74,
+                    "url": "https://www.idealista.pt/en/imovel/34052695/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 75,
+                    "url": "https://www.idealista.pt/en/imovel/34057349/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 76,
+                    "url": "https://www.idealista.pt/en/imovel/34052685/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 77,
+                    "url": "https://www.idealista.pt/en/imovel/34046041/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 78,
+                    "url": "https://www.idealista.pt/en/imovel/34057277/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 79,
+                    "url": "https://www.idealista.pt/en/imovel/34057367/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 80,
+                    "url": "https://www.idealista.pt/en/imovel/34057331/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 81,
+                    "url": "https://www.idealista.pt/en/imovel/34057328/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 82,
+                    "url": "https://www.idealista.pt/en/imovel/34054400/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 83,
+                    "url": "https://www.idealista.pt/en/imovel/34057338/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 84,
+                    "url": "https://www.idealista.pt/en/imovel/34057327/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 85,
+                    "url": "https://www.idealista.pt/en/imovel/34054922/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 86,
+                    "url": "https://www.idealista.pt/en/imovel/34053611/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 87,
+                    "url": "https://www.idealista.pt/en/imovel/34050405/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 88,
+                    "url": "https://www.idealista.pt/en/imovel/32339617/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 89,
+                    "url": "https://www.idealista.pt/en/imovel/34050588/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 90,
+                    "url": "https://www.idealista.pt/en/imovel/34046603/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 91,
+                    "url": "https://www.idealista.pt/en/imovel/34048389/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 92,
+                    "url": "https://www.idealista.pt/en/imovel/33970277/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 93,
+                    "url": "https://www.idealista.pt/en/imovel/34052225/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 94,
+                    "url": "https://www.idealista.pt/en/imovel/34049224/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 95,
+                    "url": "https://www.idealista.pt/en/imovel/34054431/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 96,
+                    "url": "https://www.idealista.pt/en/imovel/34050236/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 97,
+                    "url": "https://www.idealista.pt/en/imovel/34055749/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 98,
+                    "url": "https://www.idealista.pt/en/imovel/34057702/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 99,
+                    "url": "https://www.idealista.pt/en/imovel/33881331/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 100,
+                    "url": "https://www.idealista.pt/en/imovel/34050261/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 101,
+                    "url": "https://www.idealista.pt/en/imovel/34047183/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 102,
+                    "url": "https://www.idealista.pt/en/imovel/34045896/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 103,
+                    "url": "https://www.idealista.pt/en/imovel/34052744/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 104,
+                    "url": "https://www.idealista.pt/en/imovel/34048795/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 105,
+                    "url": "https://www.idealista.pt/en/imovel/34046355/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 106,
+                    "url": "https://www.idealista.pt/en/imovel/33167004/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 107,
+                    "url": "https://www.idealista.pt/en/imovel/34045620/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 108,
+                    "url": "https://www.idealista.pt/en/imovel/31590260/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 109,
+                    "url": "https://www.idealista.pt/en/imovel/32591210/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 110,
+                    "url": "https://www.idealista.pt/en/imovel/34051208/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 111,
+                    "url": "https://www.idealista.pt/en/imovel/34047736/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 112,
+                    "url": "https://www.idealista.pt/en/imovel/33960824/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 113,
+                    "url": "https://www.idealista.pt/en/imovel/34054938/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 114,
+                    "url": "https://www.idealista.pt/en/imovel/34046260/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 115,
+                    "url": "https://www.idealista.pt/en/imovel/34046556/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 116,
+                    "url": "https://www.idealista.pt/en/imovel/34046155/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 117,
+                    "url": "https://www.idealista.pt/en/imovel/34046092/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 118,
+                    "url": "https://www.idealista.pt/en/imovel/33974300/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 119,
+                    "url": "https://www.idealista.pt/en/imovel/32970907/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 120,
+                    "url": "https://www.idealista.pt/en/imovel/31081674/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 121,
+                    "url": "https://www.idealista.pt/en/imovel/34046929/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 122,
+                    "url": "https://www.idealista.pt/en/imovel/33922311/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 123,
+                    "url": "https://www.idealista.pt/en/imovel/34010981/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 124,
+                    "url": "https://www.idealista.pt/en/imovel/34046309/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 125,
+                    "url": "https://www.idealista.pt/en/imovel/34061436/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 126,
+                    "url": "https://www.idealista.pt/en/imovel/34050468/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 127,
+                    "url": "https://www.idealista.pt/en/imovel/34059250/",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  }
+                ],
+                "all_valid": false
+              },
+              {
+                "file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/raw/rentals/test_rentals.json",
+                "total_listings": 2,
+                "valid_listings": 0,
+                "invalid_listings": 2,
+                "invalid_details": [
+                  {
+                    "index": 0,
+                    "url": "https://example.com/rental/123",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  },
+                  {
+                    "index": 1,
+                    "url": "https://example.com/rental/456",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  }
+                ],
+                "all_valid": false
+              },
+              {
+                "file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/raw/rentals/rental_credits_usage.json",
+                "total_listings": 1,
+                "valid_listings": 0,
+                "invalid_listings": 1,
+                "invalid_details": [
+                  {
+                    "index": 0,
+                    "url": "Unknown",
+                    "errors": [
+                      "jsonschema package is not installed"
+                    ]
+                  }
+                ],
+                "all_valid": false
+              }
+            ]
+          },
+          "duration_seconds": 0.010924
+        }
+      }
+    ],
+    "success": false,
+    "pipeline_end": "2025-03-23T13:10:10.201251"
+  },
+  "success": false,
+  "pipeline_end": "2025-03-23T13:10:10.201253"
+}

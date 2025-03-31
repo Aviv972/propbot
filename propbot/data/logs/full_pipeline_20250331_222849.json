@@ -1,0 +1,71 @@
+{
+  "pipeline_start": "2025-03-31T22:28:49.175653",
+  "sales_pipeline": {
+    "pipeline_start": "2025-03-31T22:28:49.175699",
+    "stages": [
+      {
+        "stage": "consolidation",
+        "timestamp": "2025-03-31T22:28:49.191328",
+        "success": true,
+        "details": {
+          "property_type": "sales",
+          "metadata": {
+            "source_files": [
+              "/Users/avivcarmi/Desktop/Projects/investmentbot_copy/propbot/data/raw/sales_listings.json"
+            ],
+            "raw_directory": "/Users/avivcarmi/Desktop/Projects/investmentbot_copy/propbot/data/raw/sales",
+            "legacy_csv": null,
+            "output_file": "/Users/avivcarmi/Desktop/Projects/investmentbot_copy/propbot/data/processed/sales_listings_consolidated.json",
+            "total_listings": 420,
+            "new_listings": 3,
+            "updated_listings": 831,
+            "skipped_listings": 0,
+            "timestamp": "2025-03-31T22:28:49.190197"
+          },
+          "duration_seconds": 0.015531
+        }
+      },
+      {
+        "stage": "conversion",
+        "timestamp": "2025-03-31T22:28:49.212137",
+        "success": true,
+        "details": {
+          "property_type": "sales",
+          "records": null,
+          "duration_seconds": 0.020735
+        }
+      }
+    ],
+    "success": true,
+    "pipeline_end": "2025-03-31T22:28:49.212169"
+  },
+  "rentals_pipeline": {
+    "pipeline_start": "2025-03-31T22:28:49.212722",
+    "stages": [
+      {
+        "stage": "consolidation",
+        "timestamp": "2025-03-31T22:28:49.221078",
+        "success": true,
+        "details": {
+          "property_type": "rentals",
+          "metadata": true,
+          "duration_seconds": 0.008249
+        }
+      },
+      {
+        "stage": "conversion",
+        "timestamp": "2025-03-31T22:28:49.262595",
+        "success": true,
+        "details": {
+          "property_type": "rentals",
+          "records": null,
+          "duration_seconds": 0.041346
+        }
+      }
+    ],
+    "success": true,
+    "pipeline_end": "2025-03-31T22:28:49.262737"
+  },
+  "success": true,
+  "pipeline_end": "2025-03-31T22:28:49.263076"
+}

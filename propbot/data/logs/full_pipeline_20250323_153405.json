@@ -1,0 +1,73 @@
+{
+  "pipeline_start": "2025-03-23T15:34:05.273483",
+  "sales_pipeline": {
+    "pipeline_start": "2025-03-23T15:34:05.273530",
+    "stages": [
+      {
+        "stage": "consolidation",
+        "timestamp": "2025-03-23T15:34:05.280085",
+        "success": true,
+        "details": {
+          "property_type": "sales",
+          "metadata": {
+            "source_files": [
+              "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/raw/sales_listings.json"
+            ],
+            "raw_directory": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/raw/sales",
+            "legacy_csv": null,
+            "output_file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/processed/sales_listings_consolidated.json",
+            "total_listings": 413,
+            "new_listings": 413,
+            "updated_listings": 0,
+            "skipped_listings": 0,
+            "timestamp": "2025-03-23T15:34:05.279792"
+          },
+          "duration_seconds": 0.006458
+        }
+      },
+      {
+        "stage": "conversion",
+        "timestamp": "2025-03-23T15:34:05.286885",
+        "success": true,
+        "details": {
+          "property_type": "sales",
+          "input_file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/processed/sales_listings_consolidated.json",
+          "output_file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/processed/sales.csv",
+          "duration_seconds": 0.006746
+        }
+      }
+    ],
+    "success": true,
+    "pipeline_end": "2025-03-23T15:34:05.286913"
+  },
+  "rentals_pipeline": {
+    "pipeline_start": "2025-03-23T15:34:05.287152",
+    "stages": [
+      {
+        "stage": "consolidation",
+        "timestamp": "2025-03-23T15:34:05.290249",
+        "success": true,
+        "details": {
+          "property_type": "rentals",
+          "metadata": true,
+          "duration_seconds": 0.003013
+        }
+      },
+      {
+        "stage": "conversion",
+        "timestamp": "2025-03-23T15:34:05.293338",
+        "success": true,
+        "details": {
+          "property_type": "rentals",
+          "input_file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/processed/rental_listings_consolidated.json",
+          "output_file": "/Users/avivcarmi/Desktop/Projects/investmentbot/propbot/data/processed/rentals.csv",
+          "duration_seconds": 0.003036
+        }
+      }
+    ],
+    "success": true,
+    "pipeline_end": "2025-03-23T15:34:05.293371"
+  },
+  "success": true,
+  "pipeline_end": "2025-03-23T15:34:05.293608"
+}

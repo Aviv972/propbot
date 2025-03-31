@@ -1,0 +1,312 @@
+{
+  "Ajuda": {
+    "property_count": 16,
+    "avg_price_per_sqm": 4662.735625,
+    "median_price_per_sqm": 4367.1,
+    "min_price_per_sqm": 3014.71,
+    "max_price_per_sqm": 7500.0,
+    "price_range": 4485.29,
+    "std_deviation": 1273.3406139179401,
+    "total_size_sqm": 918.0
+  },
+  "Alc\u00e2ntara": {
+    "property_count": 14,
+    "avg_price_per_sqm": 5102.847857142857,
+    "median_price_per_sqm": 5297.139999999999,
+    "min_price_per_sqm": 3986.49,
+    "max_price_per_sqm": 6125.0,
+    "price_range": 2138.51,
+    "std_deviation": 770.1706265415232,
+    "total_size_sqm": 749.0
+  },
+  "Alfama": {
+    "property_count": 19,
+    "avg_price_per_sqm": 4495.72,
+    "median_price_per_sqm": 4416.67,
+    "min_price_per_sqm": 3314.61,
+    "max_price_per_sqm": 7048.78,
+    "price_range": 3734.1699999999996,
+    "std_deviation": 928.8477295851864,
+    "total_size_sqm": 1097.0
+  },
+  "Alvalade": {
+    "property_count": 4,
+    "avg_price_per_sqm": 4025.6349999999998,
+    "median_price_per_sqm": 3815.79,
+    "min_price_per_sqm": 3815.79,
+    "max_price_per_sqm": 4655.17,
+    "price_range": 839.3800000000001,
+    "std_deviation": 419.69000000000005,
+    "total_size_sqm": 286.0
+  },
+  "Anjos": {
+    "property_count": 8,
+    "avg_price_per_sqm": 4443.81625,
+    "median_price_per_sqm": 4064.765,
+    "min_price_per_sqm": 2500.0,
+    "max_price_per_sqm": 7000.0,
+    "price_range": 4500.0,
+    "std_deviation": 1357.8292291104892,
+    "total_size_sqm": 532.0
+  },
+  "Areeiro": {
+    "property_count": 1,
+    "avg_price_per_sqm": 2631.58,
+    "median_price_per_sqm": 2631.58,
+    "min_price_per_sqm": 2631.58,
+    "max_price_per_sqm": 2631.58,
+    "price_range": 0.0,
+    "std_deviation": NaN,
+    "total_size_sqm": 76.0
+  },
+  "Arroios": {
+    "property_count": 19,
+    "avg_price_per_sqm": 4538.377894736843,
+    "median_price_per_sqm": 4300.0,
+    "min_price_per_sqm": 2150.0,
+    "max_price_per_sqm": 6361.7,
+    "price_range": 4211.7,
+    "std_deviation": 1214.0860883148964,
+    "total_size_sqm": 1155.0
+  },
+  "Avenidas Novas": {
+    "property_count": 2,
+    "avg_price_per_sqm": 5378.46,
+    "median_price_per_sqm": 5378.46,
+    "min_price_per_sqm": 5180.0,
+    "max_price_per_sqm": 5576.92,
+    "price_range": 396.9200000000001,
+    "std_deviation": 280.6648235885645,
+    "total_size_sqm": 102.0
+  },
+  "Bairro Alto": {
+    "property_count": 4,
+    "avg_price_per_sqm": 4756.0575,
+    "median_price_per_sqm": 4708.735,
+    "min_price_per_sqm": 3626.76,
+    "max_price_per_sqm": 5980.0,
+    "price_range": 2353.24,
+    "std_deviation": 967.8593784352146,
+    "total_size_sqm": 225.0
+  },
+  "Baixa": {
+    "property_count": 6,
+    "avg_price_per_sqm": 4777.526666666666,
+    "median_price_per_sqm": 4361.15,
+    "min_price_per_sqm": 3888.89,
+    "max_price_per_sqm": 6425.0,
+    "price_range": 2536.11,
+    "std_deviation": 972.7457823638542,
+    "total_size_sqm": 341.0
+  },
+  "Beato": {
+    "property_count": 13,
+    "avg_price_per_sqm": 4315.094615384615,
+    "median_price_per_sqm": 4375.0,
+    "min_price_per_sqm": 2650.0,
+    "max_price_per_sqm": 5750.0,
+    "price_range": 3100.0,
+    "std_deviation": 997.3452481347285,
+    "total_size_sqm": 684.0
+  },
+  "Bel\u00e9m": {
+    "property_count": 8,
+    "avg_price_per_sqm": 5051.58625,
+    "median_price_per_sqm": 5468.75,
+    "min_price_per_sqm": 2950.0,
+    "max_price_per_sqm": 7000.0,
+    "price_range": 4050.0,
+    "std_deviation": 1729.096789788055,
+    "total_size_sqm": 471.0
+  },
+  "Benfica": {
+    "property_count": 16,
+    "avg_price_per_sqm": 4549.926875,
+    "median_price_per_sqm": 4093.2000000000003,
+    "min_price_per_sqm": 3424.66,
+    "max_price_per_sqm": 6750.0,
+    "price_range": 3325.34,
+    "std_deviation": 1191.2591420270053,
+    "total_size_sqm": 983.0
+  },
+  "Campo de Ourique": {
+    "property_count": 12,
+    "avg_price_per_sqm": 4287.474999999999,
+    "median_price_per_sqm": 4190.385,
+    "min_price_per_sqm": 3454.55,
+    "max_price_per_sqm": 5363.64,
+    "price_range": 1909.0900000000001,
+    "std_deviation": 714.195567404335,
+    "total_size_sqm": 705.0
+  },
+  "Campolide": {
+    "property_count": 11,
+    "avg_price_per_sqm": 4134.926363636364,
+    "median_price_per_sqm": 4179.1,
+    "min_price_per_sqm": 1571.43,
+    "max_price_per_sqm": 6000.0,
+    "price_range": 4428.57,
+    "std_deviation": 1474.3653975543018,
+    "total_size_sqm": 737.0
+  },
+  "Carnide": {
+    "property_count": 1,
+    "avg_price_per_sqm": 4180.33,
+    "median_price_per_sqm": 4180.33,
+    "min_price_per_sqm": 4180.33,
+    "max_price_per_sqm": 4180.33,
+    "price_range": 0.0,
+    "std_deviation": NaN,
+    "total_size_sqm": 61.0
+  },
+  "Chiado": {
+    "property_count": 2,
+    "avg_price_per_sqm": 4608.25,
+    "median_price_per_sqm": 4608.25,
+    "min_price_per_sqm": 3972.6,
+    "max_price_per_sqm": 5243.9,
+    "price_range": 1271.2999999999997,
+    "std_deviation": 898.9448509224577,
+    "total_size_sqm": 114.0
+  },
+  "Estrela": {
+    "property_count": 10,
+    "avg_price_per_sqm": 4886.898,
+    "median_price_per_sqm": 4909.09,
+    "min_price_per_sqm": 3571.43,
+    "max_price_per_sqm": 6000.0,
+    "price_range": 2428.57,
+    "std_deviation": 694.1936873940714,
+    "total_size_sqm": 548.0
+  },
+  "Gra\u00e7a": {
+    "property_count": 15,
+    "avg_price_per_sqm": 4336.844666666667,
+    "median_price_per_sqm": 3980.0,
+    "min_price_per_sqm": 2750.0,
+    "max_price_per_sqm": 6795.45,
+    "price_range": 4045.45,
+    "std_deviation": 1106.4867497100042,
+    "total_size_sqm": 857.0
+  },
+  "Lapa": {
+    "property_count": 13,
+    "avg_price_per_sqm": 5741.271538461538,
+    "median_price_per_sqm": 5980.0,
+    "min_price_per_sqm": 3736.84,
+    "max_price_per_sqm": 6953.49,
+    "price_range": 3216.6499999999996,
+    "std_deviation": 829.4112559605775,
+    "total_size_sqm": 630.0
+  },
+  "Marvila": {
+    "property_count": 10,
+    "avg_price_per_sqm": 3725.9369999999994,
+    "median_price_per_sqm": 3796.1499999999996,
+    "min_price_per_sqm": 3255.81,
+    "max_price_per_sqm": 4275.86,
+    "price_range": 1020.0499999999997,
+    "std_deviation": 400.6979180560393,
+    "total_size_sqm": 735.0
+  },
+  "Miseric\u00f3rdia": {
+    "property_count": 22,
+    "avg_price_per_sqm": 4915.478181818182,
+    "median_price_per_sqm": 4984.65,
+    "min_price_per_sqm": 3586.67,
+    "max_price_per_sqm": 7268.29,
+    "price_range": 3681.62,
+    "std_deviation": 908.5825022404346,
+    "total_size_sqm": 1177.0
+  },
+  "Mouraria": {
+    "property_count": 15,
+    "avg_price_per_sqm": 4933.3133333333335,
+    "median_price_per_sqm": 4666.67,
+    "min_price_per_sqm": 3333.33,
+    "max_price_per_sqm": 7000.0,
+    "price_range": 3666.67,
+    "std_deviation": 935.7700759929277,
+    "total_size_sqm": 776.0
+  },
+  "Olivais": {
+    "property_count": 12,
+    "avg_price_per_sqm": 4426.5025,
+    "median_price_per_sqm": 4399.0,
+    "min_price_per_sqm": 3098.59,
+    "max_price_per_sqm": 5918.37,
+    "price_range": 2819.7799999999997,
+    "std_deviation": 727.6074445384181,
+    "total_size_sqm": 699.0
+  },
+  "Parque das Na\u00e7\u00f5es": {
+    "property_count": 3,
+    "avg_price_per_sqm": 3207.443333333333,
+    "median_price_per_sqm": 3084.51,
+    "min_price_per_sqm": 2823.53,
+    "max_price_per_sqm": 3714.29,
+    "price_range": 890.7599999999998,
+    "std_deviation": 457.92772107979357,
+    "total_size_sqm": 209.0
+  },
+  "Penha de Fran\u00e7a": {
+    "property_count": 40,
+    "avg_price_per_sqm": 4110.387000000001,
+    "median_price_per_sqm": 4010.205,
+    "min_price_per_sqm": 2602.74,
+    "max_price_per_sqm": 5647.83,
+    "price_range": 3045.09,
+    "std_deviation": 755.2666845090089,
+    "total_size_sqm": 2541.0
+  },
+  "Pr\u00edncipe Real": {
+    "property_count": 3,
+    "avg_price_per_sqm": 5234.296666666666,
+    "median_price_per_sqm": 5434.78,
+    "min_price_per_sqm": 4833.33,
+    "max_price_per_sqm": 5434.78,
+    "price_range": 601.4499999999998,
+    "std_deviation": 347.2473194041003,
+    "total_size_sqm": 152.0
+  },
+  "Santa Clara": {
+    "property_count": 7,
+    "avg_price_per_sqm": 2982.137142857143,
+    "median_price_per_sqm": 2826.09,
+    "min_price_per_sqm": 2666.67,
+    "max_price_per_sqm": 3521.13,
+    "price_range": 854.46,
+    "std_deviation": 338.9258758054277,
+    "total_size_sqm": 602.0
+  },
+  "Santa Maria Maior": {
+    "property_count": 1,
+    "avg_price_per_sqm": 4887.5,
+    "median_price_per_sqm": 4887.5,
+    "min_price_per_sqm": 4887.5,
+    "max_price_per_sqm": 4887.5,
+    "price_range": 0.0,
+    "std_deviation": NaN,
+    "total_size_sqm": 40.0
+  },
+  "Santo Ant\u00f3nio": {
+    "property_count": 13,
+    "avg_price_per_sqm": 6003.336153846153,
+    "median_price_per_sqm": 5998.0,
+    "min_price_per_sqm": 4998.33,
+    "max_price_per_sqm": 7500.0,
+    "price_range": 2501.67,
+    "std_deviation": 815.50297158194,
+    "total_size_sqm": 633.0
+  },
+  "S\u00e3o Vicente": {
+    "property_count": 25,
+    "avg_price_per_sqm": 4722.614,
+    "median_price_per_sqm": 4760.32,
+    "min_price_per_sqm": 2084.21,
+    "max_price_per_sqm": 7497.5,
+    "price_range": 5413.29,
+    "std_deviation": 1148.1322348674246,
+    "total_size_sqm": 1489.0
+  }
+}

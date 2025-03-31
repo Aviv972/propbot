@@ -1,0 +1,53 @@
+{
+  "total_credits_used": 300.0,
+  "usage_history": [
+    {
+      "timestamp": "2025-03-23 15:29:57",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-23 15:31:42",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-23 15:33:03",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-23 15:35:36",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-24 09:41:54",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-24 09:57:57",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-24 10:08:09",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-24 10:24:39",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-24 10:53:50",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-24 14:23:48",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-24 15:32:43",
+      "credits_used": 25.0
+    },
+    {
+      "timestamp": "2025-03-24 15:35:32",
+      "credits_used": 25.0
+    }
+  ]
+}

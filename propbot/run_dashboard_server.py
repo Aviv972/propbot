@@ -244,12 +244,12 @@ def run_analysis():
             try:
                 logger.info("Importing and running sales scraper directly...")
                 from propbot.scrapers.idealista_scraper import run_scraper
-                # Pass max_pages if provided
+                # Set environment variable for max pages
                 if max_sales_pages:
                     logger.info(f"Using max_sales_pages={max_sales_pages}")
-                    new_properties_count = run_scraper(max_pages=int(max_sales_pages))
-                else:
-                    new_properties_count = run_scraper()
+                    os.environ["MAX_SALES_PAGES"] = str(max_sales_pages)
+                # Run the scraper with no parameters - it will use the environment variable
+                new_properties_count = run_scraper()
                 results["new_properties"] = new_properties_count
                 
                 # Check file for total properties count
@@ -305,12 +305,12 @@ def run_analysis():
                 try:
                     logger.info("Importing and running rental scraper directly...")
                     from propbot.scrapers.rental_scraper import run_rental_scraper
-                    # Pass max_pages if provided
+                    # Set environment variable for max pages
                     if max_rental_pages:
                         logger.info(f"Using max_rental_pages={max_rental_pages}")
-                        new_rentals_count = run_rental_scraper(max_pages=int(max_rental_pages))
-                    else:
-                        new_rentals_count = run_rental_scraper()
+                        os.environ["MAX_RENTAL_PAGES"] = str(max_rental_pages)
+                    # Run the scraper with no parameters - it will use the environment variable
+                    new_rentals_count = run_rental_scraper()
                     results["new_rentals"] = new_rentals_count
                 except Exception as e:
                     logger.error(f"Error running rental scraper: {str(e)}")
@@ -336,25 +336,62 @@ def run_analysis():
             os.makedirs(processed_dir, exist_ok=True)
             logger.info(f"Ensured processed data directory exists at {processed_dir}")
             
-            # Copy raw data to right locations for processing
+            # Set up paths correctly for processing
             sales_source = SCRIPT_DIR / "data" / "raw" / "sales" / "idealista_listings.json"
             sales_dest = SCRIPT_DIR / "data" / "raw" / "sales_listings.json"
             rentals_source = SCRIPT_DIR / "data" / "raw" / "rentals" / "rental_listings.json"
             rentals_dest = SCRIPT_DIR / "data" / "raw" / "rental_listings.json"
             
-            # Ensure the raw files are in the right place for processing
-            if sales_source.exists() and not sales_dest.exists():
-                logger.info(f"Copying {sales_source} to {sales_dest}")
-                shutil.copy2(sales_source, sales_dest)
+            # Create empty files for data processing pipeline if they don't exist
+            for file_path in [sales_source, rentals_source]:
+                if not os.path.exists(file_path):
+                    logger.info(f"Creating empty file at {file_path}")
+                    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                    with open(file_path, 'w') as f:
+                        f.write('[]')  # Empty JSON array instead of empty object
             
-            if rentals_source.exists() and not rentals_dest.exists():
-                logger.info(f"Copying {rentals_source} to {rentals_dest}")
-                shutil.copy2(rentals_source, rentals_dest)
-            
+            # Copy the source files to the destination paths needed by the pipeline
             try:
+                if os.path.exists(sales_source):
+                    logger.info(f"Copying {sales_source} to {sales_dest}")
+                    shutil.copy2(sales_source, sales_dest)
+                else:
+                    logger.warning(f"Sales source file not found at {sales_source}")
+                    # Create an empty file to avoid processing errors
+                    with open(sales_dest, 'w') as f:
+                        f.write('[]')
+                
+                if os.path.exists(rentals_source):
+                    logger.info(f"Copying {rentals_source} to {rentals_dest}")
+                    shutil.copy2(rentals_source, rentals_dest)
+                else:
+                    logger.warning(f"Rentals source file not found at {rentals_source}")
+                    # Create an empty file to avoid processing errors
+                    with open(rentals_dest, 'w') as f:
+                        f.write('[]')
+                
+                # Also ensure the processed directory has the necessary files
+                sales_processed = processed_dir / "sales_listings_consolidated.json"
+                rentals_processed = processed_dir / "rental_listings_consolidated.json"
+                
+                for file_path in [sales_processed, rentals_processed]:
+                    if not os.path.exists(file_path):
+                        logger.info(f"Creating empty processed file at {file_path}")
+                        with open(file_path, 'w') as f:
+                            f.write('[]')  # Empty JSON array
+            except Exception as e:
+                logger.error(f"Error setting up files for data processing: {str(e)}")
+            
+            # Now run the data processing pipeline
+            try:
+                # Use absolute paths for the environment variables
+                env = os.environ.copy()
+                env["PROPBOT_DATA_DIR"] = str(SCRIPT_DIR / "data")
+                
                 subprocess.run(
                     ["python3", "-m", "propbot.data_processing.pipeline.standard"],
-                    check=True
+                    check=True,
+                    env=env
                 )
                 logger.info("Data processing completed successfully")
             except subprocess.SubprocessError as e:
@@ -366,6 +403,19 @@ def run_analysis():
                 # Set up environment variables for the subprocess
                 env = os.environ.copy()
                 env["PROPBOT_DATA_DIR"] = str(SCRIPT_DIR / "data")
+                
+                # Ensure the right files exist for the rental analysis
+                sales_csv = processed_dir / "sales.csv"
+                rentals_csv = processed_dir / "rentals.csv"
+                
+                for file_path in [sales_csv, rentals_csv]:
+                    if not os.path.exists(file_path):
+                        logger.warning(f"Creating empty CSV file at {file_path}")
+                        with open(file_path, 'w') as f:
+                            if "sales" in str(file_path):
+                                f.write("url,title,price,location,size,room_type,details\n")
+                            else:
+                                f.write("url,title,price,location,size,room_type\n")
                 
                 subprocess.run(
                     ["python3", "-m", "propbot.analysis.metrics.rental_analysis"],
@@ -416,7 +466,7 @@ def run_analysis():
                 logger.error(f"Error in dashboard generation: {str(e)}")
             
             logger.info("Complete analysis workflow finished successfully")
-        except subprocess.SubprocessError as e:
+        except Exception as e:
             logger.error(f"Error running analysis: {str(e)}")
     
     # Start a background thread to run the analysis

@@ -298,7 +298,9 @@ def run_scraper():
     page_count = 0
     consecutive_existing_properties = 0
     max_consecutive_existing = 5  # If we see this many consecutive existing properties, we can stop
-    max_pages = 10  # Safety limit to avoid excessive scraping
+    # Get max_pages from environment variable or use default
+    max_pages = int(os.environ.get("MAX_SALES_PAGES", 10))
+    log_message(f"Setting max_pages to {max_pages} from environment variable")
     
     while current_url and page_count < max_pages:
         page_count += 1
