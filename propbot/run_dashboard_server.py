@@ -31,6 +31,28 @@ DASHBOARD_FILE = UI_DIR / "investment_dashboard_latest.html"
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+# Create necessary directories at startup
+def ensure_directory_structure():
+    """Ensure all required directories exist"""
+    directories = [
+        SCRIPT_DIR / "data",
+        SCRIPT_DIR / "data" / "raw",
+        SCRIPT_DIR / "data" / "raw" / "sales",
+        SCRIPT_DIR / "data" / "raw" / "sales" / "history",
+        SCRIPT_DIR / "data" / "raw" / "rentals",
+        SCRIPT_DIR / "data" / "raw" / "rentals" / "history",
+        SCRIPT_DIR / "data" / "processed",
+        SCRIPT_DIR / "data" / "output",
+        SCRIPT_DIR / "data" / "reports",
+    ]
+    
+    for directory in directories:
+        directory.mkdir(parents=True, exist_ok=True)
+        logger.info(f"Ensured directory exists: {directory}")
+
+# Ensure all directories exist on startup
+ensure_directory_structure()
+
 @app.route('/')
 def dashboard():
     """Serve the dashboard HTML file"""
