@@ -13,6 +13,7 @@ import threading
 import json
 import datetime
 import socket
+import re
 
 # Set up logging
 logging.basicConfig(
@@ -48,6 +49,30 @@ def dashboard():
             return f"Error generating dashboard: {str(e)}", 500
     
     try:
+        # Update localhost URLs in the dashboard file
+        if DASHBOARD_FILE.exists():
+            with open(DASHBOARD_FILE, 'r') as f:
+                content = f.read()
+            
+            # Replace any hardcoded localhost URLs with relative URLs
+            updated_content = re.sub(
+                r"(fetch\()'http://localhost:\d+(/[^']+)'", 
+                r"\1'\2'", 
+                content
+            )
+            
+            # Also replace any specific port references for run-analysis
+            updated_content = re.sub(
+                r"(fetch\()'http://localhost:\d+/run-analysis'", 
+                r"\1'/run-analysis'", 
+                updated_content
+            )
+            
+            if content != updated_content:
+                with open(DASHBOARD_FILE, 'w') as f:
+                    f.write(updated_content)
+                logger.info("Updated dashboard API endpoints to use relative URLs")
+        
         logger.info(f"Serving dashboard file: {DASHBOARD_FILE}")
         return send_file(str(DASHBOARD_FILE))
     except Exception as e:
@@ -316,7 +341,6 @@ def main():
                 content = f.read()
             
             # This regex will update any localhost:XXXX pattern in the fetch URL
-            import re
             updated_content = re.sub(
                 r"fetch\('http://localhost:\d+/run-analysis'", 
                 f"fetch(window.location.origin + '/run-analysis'", 
