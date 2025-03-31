@@ -1,0 +1,17 @@
+{
+  "name": "PropBot",
+  "description": "Real estate investment analysis tool for property data",
+  "repository": "https://github.com/yourusername/investmentbot",
+  "keywords": ["python", "flask", "real-estate", "investment", "analysis"],
+  "env": {
+    "FLASK_ENV": {
+      "description": "Environment for Flask application",
+      "value": "production"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+} 

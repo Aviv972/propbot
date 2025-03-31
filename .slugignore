@@ -1,0 +1,25 @@
+# Exclude test and documentation files from the Heroku slug
+/tests/
+/docs/
+/archive/
+*.md
+!README.md
+
+# Exclude non-essential raw data files (but keep critical ones)
+/propbot/data/raw/scrape_history/
+
+# Exclude development tools
+.github/
+.circleci/
+.gitlab-ci.yml
+.travis.yml
+
+# Exclude editor/IDE config files
+.vscode/
+.idea/
+*.sublime-*
+
+# Exclude git files
+.git/
+.gitignore
+.gitattributes 

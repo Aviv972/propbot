@@ -1,1 +1,1 @@
-web: gunicorn run_dashboard_server:app
+web: gunicorn propbot.run_dashboard_server:app 

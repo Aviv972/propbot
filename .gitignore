@@ -1,8 +1,35 @@
 # Environment variables and secrets
 .env
+.env.*
+*.env
 
-# Output files
-*.json
+# Exclude data files but keep directory structure
+propbot/data/raw/**/*.json
+propbot/data/raw/**/*.csv
+propbot/data/processed/**/*.json
+propbot/data/processed/**/*.csv
+propbot/data/reports/**/*.json
+propbot/data/reports/**/*.csv
+propbot/data/output/**/*.json
+propbot/data/output/**/*.csv
+propbot/data/metadata/**/*.json
+
+# Keep directory structure
+!propbot/data/raw/.gitkeep
+!propbot/data/processed/.gitkeep
+!propbot/data/reports/.gitkeep
+!propbot/data/output/.gitkeep
+!propbot/data/metadata/.gitkeep
+
+# Critical data files exceptions - these WILL be included in git
+!propbot/data/processed/sales_current.csv
+!propbot/data/processed/rentals_current.csv
+!propbot/data/reports/investment_summary_*.csv
+!propbot/data/processed/sales_listings_consolidated.json
+!propbot/data/processed/rental_listings_consolidated.json
+!propbot/data/reports/best_properties_*.json
+!propbot/data/reports/investment_summary_*.json
+!propbot/data/metadata/neighborhood_stats.json
 
 # Python
 __pycache__/
@@ -37,4 +64,21 @@ wheels/
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-Thumbs.db 
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Backup files
+*~
+*.bak
+*.backup
+
+# Heroku files that should be kept
+!requirements.txt
+!Procfile
+!runtime.txt
+!app.json 

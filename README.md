@@ -114,3 +114,62 @@ Then open `propbot/data/output/visualizations/investment_dashboard.html` in a we
 4. Reference data file paths from the manifest
 
 For a complete listing of all data files and their purpose, refer to `propbot/data_manifest.json`.
+
+## Heroku Deployment
+
+This project is configured for deployment on Heroku. Follow these steps to deploy:
+
+### Prerequisites
+
+- A Heroku account
+- Heroku CLI installed locally
+- Git repository set up
+
+### Deployment Steps
+
+1. Log in to Heroku CLI:
+```bash
+heroku login
+```
+
+2. Create a new Heroku app:
+```bash
+heroku create your-app-name
+```
+
+3. Push the code to Heroku:
+```bash
+git push heroku main
+```
+
+4. Set up any required environment variables:
+```bash
+heroku config:set FLASK_ENV=production
+```
+
+5. Open the deployed application:
+```bash
+heroku open
+```
+
+### Monitoring and Maintenance
+
+- View application logs:
+```bash
+heroku logs --tail
+```
+
+- Restart the application:
+```bash
+heroku restart
+```
+
+### Local Testing
+
+To test the application locally with the Heroku settings:
+
+```bash
+heroku local
+```
+
+For a complete listing of all data files and their purpose, refer to `propbot/data_manifest.json`.

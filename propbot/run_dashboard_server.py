@@ -303,64 +303,35 @@ def run_analysis():
     })
 
 def main():
-    """Run the Flask server"""
-    # Find an available port by trying a range of ports
-    def find_available_port(start_port=8000, max_tries=20):
-        port = start_port
-        for _ in range(max_tries):
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            try:
-                sock.bind(('0.0.0.0', port))
-                sock.close()
-                return port
-            except OSError:
-                logger.info(f"Port {port} is not available, trying next port...")
-                port += 1
-            finally:
-                sock.close()
-        raise RuntimeError(f"Could not find an available port after {max_tries} attempts")
+    """Run the dashboard server"""
+    # Get the port from environment variable for Heroku compatibility
+    port = int(os.environ.get("PORT", 8004))
     
+    logger.info(f"Starting dashboard server on port {port}")
+    
+    # Update dashboard file with correct port if it exists
     try:
-        port = find_available_port()
-        logger.info(f"Starting PropBot dashboard server on port {port}...")
-        
-        # Make sure the dashboard is generated with the correct port for the API
-        update_dashboard_port(port)
-        
-        # Turn off debug mode to avoid potential issues
-        app.run(host='0.0.0.0', port=port, debug=False)
-    except Exception as e:
-        logger.error(f"Server failed to start: {str(e)}")
-
-def update_dashboard_port(port):
-    """Update the dashboard HTML file to use the detected port"""
-    try:
-        if not DASHBOARD_FILE.exists():
-            # Generate a new dashboard file if it doesn't exist
-            subprocess.run(
-                ["python3", "-m", "propbot.generate_dashboard"],
-                check=True
-            )
-        
         if DASHBOARD_FILE.exists():
             with open(DASHBOARD_FILE, 'r') as f:
                 content = f.read()
             
-            # Update the port in the fetch URL
             # This regex will update any localhost:XXXX pattern in the fetch URL
             import re
             updated_content = re.sub(
                 r"fetch\('http://localhost:\d+/run-analysis'", 
-                f"fetch('http://localhost:{port}/run-analysis'", 
+                f"fetch(window.location.origin + '/run-analysis'", 
                 content
             )
             
             with open(DASHBOARD_FILE, 'w') as f:
                 f.write(updated_content)
             
-            logger.info(f"Updated dashboard to use port {port}")
+            logger.info(f"Updated dashboard API endpoints to use dynamic origin")
     except Exception as e:
-        logger.error(f"Error updating dashboard port: {str(e)}")
+        logger.error(f"Error updating dashboard endpoints: {str(e)}")
+    
+    # Start the Flask app
+    app.run(host="0.0.0.0", port=port, debug=False)
 
 if __name__ == "__main__":
     main() 
