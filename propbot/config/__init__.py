@@ -198,22 +198,37 @@ ensure_directories_exist([
 ])
 
 # UI directory - handle differently since it's not in the data directory
-UI_DIR = BASE_DIR / "ui"
-try:
-    # First ensure the BASE_DIR exists
-    BASE_DIR.mkdir(exist_ok=True)
-    # Then create the UI_DIR
-    UI_DIR.mkdir(parents=True, exist_ok=True)
-    logger.info(f"Ensured UI directory exists: {UI_DIR}")
-except Exception as e:
-    logger.error(f"Failed to create UI directory {UI_DIR}: {e}")
-    # Fallback to a location we know will work on Heroku
-    UI_DIR = DATA_DIR / "ui"
-    UI_DIR.mkdir(parents=True, exist_ok=True)
-    logger.info(f"Using fallback UI directory: {UI_DIR}")
+UI_DIR = None  # Initialize as None first
+
+# Try possible locations in order of preference
+possible_ui_paths = [
+    BASE_DIR / "ui",                 # Try the base/ui path first
+    DATA_DIR / "ui",                 # Try data/ui as fallback
+    Path("/app/propbot/ui"),         # Try absolute path as another fallback
+    Path("/tmp/propbot_ui")          # Last resort - use temp directory
+]
+
+for path in possible_ui_paths:
+    try:
+        # Try to create the directory
+        path.mkdir(parents=True, exist_ok=True)
+        # If we get here, the creation succeeded
+        UI_DIR = path
+        logger.info(f"Successfully created UI directory at: {UI_DIR}")
+        break
+    except Exception as e:
+        logger.warning(f"Failed to create UI directory at {path}: {e}")
+
+if UI_DIR is None:
+    # If all attempts failed, raise an error
+    logger.error("CRITICAL: Failed to create UI directory at any location")
+    # Use a guaranteed writable location as last resort
+    UI_DIR = Path("/tmp")
+    UI_DIR.mkdir(exist_ok=True)
+    logger.warning(f"Using system /tmp directory as last resort: {UI_DIR}")
 
 # Load the configuration
 CONFIG = load_config()
 
-# Neighborhood Report paths
+# Neighborhood Report paths - use UI_DIR variable instead of hardcoded paths
 NEIGHBORHOOD_REPORT_HTML = os.path.join(UI_DIR, "neighborhood_report_updated.html") 
