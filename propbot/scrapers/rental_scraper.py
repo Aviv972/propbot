@@ -413,6 +413,9 @@ def run_rental_scraper():
         # Generate updated CSV files
         generate_monthly_csv()
         
+        # Copy files to persistent storage
+        copy_files_to_persistent_storage()
+        
         return len(monthly_listings)
     else:
         log_message("No new rental listings found.")
@@ -512,6 +515,78 @@ def check_tmp_dir_contents():
         log_message(f"DEBUG: Error checking tmp directory contents: {str(e)}")
         import traceback
         log_message(f"DEBUG: Stack trace: {traceback.format_exc()}")
+
+def copy_files_to_persistent_storage():
+    """Copy files from temporary storage to the actual data directories."""
+    try:
+        log_message(f"DEBUG: Copying files from temporary to persistent storage")
+        
+        # Ensure target directories exist
+        RENTALS_DIR.mkdir(parents=True, exist_ok=True)
+        HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+        
+        # Copy main output file
+        if os.path.exists(OUTPUT_FILE):
+            persistent_file = RENTALS_DIR / "rental_listings.json"
+            log_message(f"DEBUG: Copying {OUTPUT_FILE} to {persistent_file}")
+            
+            # Read from temp and write to persistent
+            with open(OUTPUT_FILE, "r", encoding="utf-8") as source:
+                content = source.read()
+                with open(persistent_file, "w", encoding="utf-8") as target:
+                    target.write(content)
+            
+            if os.path.exists(persistent_file):
+                log_message(f"DEBUG: Successfully copied to {persistent_file} ({os.path.getsize(persistent_file)} bytes)")
+            else:
+                log_message(f"DEBUG: Failed to copy to {persistent_file}")
+        
+        # Copy history files
+        if os.path.exists(TMP_HISTORY_DIR):
+            history_files = os.listdir(TMP_HISTORY_DIR)
+            for filename in history_files:
+                source_file = TMP_HISTORY_DIR / filename
+                target_file = HISTORY_DIR / filename
+                
+                log_message(f"DEBUG: Copying history file {source_file} to {target_file}")
+                
+                # Read from temp and write to persistent
+                with open(source_file, "r", encoding="utf-8") as source:
+                    content = source.read()
+                    with open(target_file, "w", encoding="utf-8") as target:
+                        target.write(content)
+                
+                if os.path.exists(target_file):
+                    log_message(f"DEBUG: Successfully copied history file ({os.path.getsize(target_file)} bytes)")
+                else:
+                    log_message(f"DEBUG: Failed to copy history file")
+        
+        # Copy CSV files if they exist
+        csv_files = [f for f in os.listdir(TMP_RENTALS_DIR) if f.endswith('.csv')]
+        for filename in csv_files:
+            source_file = TMP_RENTALS_DIR / filename
+            target_file = RENTALS_DIR / filename
+            
+            log_message(f"DEBUG: Copying CSV file {source_file} to {target_file}")
+            
+            # Read from temp and write to persistent
+            with open(source_file, "r", encoding="utf-8") as source:
+                content = source.read()
+                with open(target_file, "w", encoding="utf-8") as target:
+                    target.write(content)
+            
+            if os.path.exists(target_file):
+                log_message(f"DEBUG: Successfully copied CSV file ({os.path.getsize(target_file)} bytes)")
+            else:
+                log_message(f"DEBUG: Failed to copy CSV file")
+                
+        log_message(f"DEBUG: Completed copying files to persistent storage")
+        return True
+    except Exception as e:
+        log_message(f"DEBUG: Error copying files to persistent storage: {str(e)}")
+        import traceback
+        log_message(f"DEBUG: Stack trace: {traceback.format_exc()}")
+        return False
 
 if __name__ == "__main__":
     run_rental_scraper() 
