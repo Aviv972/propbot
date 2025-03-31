@@ -286,10 +286,14 @@ def run_analysis():
                 os.makedirs(os.path.dirname(rental_metadata_path), exist_ok=True)
                 logger.info(f"Ensured directory structure exists at {raw_rentals_dir}")
                 
-                subprocess.run(
-                    ["python3", "-m", "propbot.scrapers.rental_scraper"],
-                    check=True
-                )
+                # Run the rental scraper directly as a module import instead of subprocess
+                try:
+                    logger.info("Importing and running rental scraper directly...")
+                    from propbot.scrapers.rental_scraper import run_rental_scraper
+                    new_rentals_count = run_rental_scraper()
+                    results["new_rentals"] = new_rentals_count
+                except Exception as e:
+                    logger.error(f"Error running rental scraper: {str(e)}")
                 
                 # Update metadata after successful collection
                 try:
