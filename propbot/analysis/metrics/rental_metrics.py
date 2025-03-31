@@ -735,11 +735,31 @@ def run_improved_analysis(similarity_threshold=40, min_comparable_properties=MIN
             max_price_per_sqm=45.0
         )
         
-        # Save the report to files - use absolute paths
-        current_file_path = os.path.abspath(__file__)
-        project_root = os.path.abspath(os.path.join(os.path.dirname(current_file_path), "../../../.."))
+        # Save the report to files - use absolute paths with proper environment detection
+        processed_dir = None
         
-        processed_dir = os.path.join(project_root, "propbot", "data", "processed")
+        # Check for Heroku environment first (should use /app/propbot)
+        if os.path.exists('/app/propbot/data'):
+            processed_dir = '/app/propbot/data/processed'
+            logging.info(f"Using Heroku environment path: {processed_dir}")
+        else:
+            # Fall back to calculating relative path from current file
+            current_file_path = os.path.abspath(__file__)
+            project_root = os.path.abspath(os.path.join(os.path.dirname(current_file_path), "../../../"))
+            
+            # Use config module path if available
+            try:
+                from ...config import DATA_DIR, PROCESSED_DATA_DIR
+                if os.path.exists(PROCESSED_DATA_DIR):
+                    processed_dir = PROCESSED_DATA_DIR
+                    logging.info(f"Using config module path: {processed_dir}")
+                else:
+                    processed_dir = os.path.join(project_root, "data", "processed")
+                    logging.info(f"Using calculated path: {processed_dir}")
+            except (ImportError, AttributeError):
+                processed_dir = os.path.join(project_root, "data", "processed")
+                logging.info(f"Using calculated path: {processed_dir}")
+        
         # Ensure the directory exists
         os.makedirs(processed_dir, exist_ok=True)
         
