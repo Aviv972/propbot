@@ -200,6 +200,14 @@ def run_analysis():
             
             # Step 1: Run the web scraper to get new listings
             logger.info("Running web scraper to collect new property listings...")
+            
+            # Ensure required directories exist before running scraper
+            raw_sales_dir = SCRIPT_DIR / "data" / "raw" / "sales"
+            history_dir = raw_sales_dir / "history"
+            os.makedirs(raw_sales_dir, exist_ok=True)
+            os.makedirs(history_dir, exist_ok=True)
+            logger.info(f"Ensured directory structure exists at {raw_sales_dir}")
+            
             scraper_result = subprocess.run(
                 ["python3", "-m", "propbot.scrapers.idealista_scraper"],
                 check=True,
@@ -265,6 +273,15 @@ def run_analysis():
             if should_update_rentals:
                 # Run rental scraper to collect rental data
                 logger.info("Collecting rental property data...")
+                
+                # Ensure required directories exist before running rental scraper
+                raw_rentals_dir = SCRIPT_DIR / "data" / "raw" / "rentals"
+                rentals_history_dir = raw_rentals_dir / "history"
+                os.makedirs(raw_rentals_dir, exist_ok=True)
+                os.makedirs(rentals_history_dir, exist_ok=True)
+                os.makedirs(os.path.dirname(rental_metadata_path), exist_ok=True)
+                logger.info(f"Ensured directory structure exists at {raw_rentals_dir}")
+                
                 subprocess.run(
                     ["python3", "-m", "propbot.scrapers.rental_scraper"],
                     check=True
@@ -272,7 +289,6 @@ def run_analysis():
                 
                 # Update metadata after successful collection
                 try:
-                    os.makedirs(os.path.dirname(rental_metadata_path), exist_ok=True)
                     with open(rental_metadata_path, 'w') as f:
                         json.dump({
                             'last_update': datetime.datetime.now().isoformat(),
@@ -286,6 +302,12 @@ def run_analysis():
             
             # Step 3: Process and consolidate data
             logger.info("Processing and consolidating data...")
+            
+            # Ensure processed directory exists
+            processed_dir = SCRIPT_DIR / "data" / "processed"
+            os.makedirs(processed_dir, exist_ok=True)
+            logger.info(f"Ensured processed data directory exists at {processed_dir}")
+            
             subprocess.run(
                 ["python3", "-m", "propbot.data_processing.pipeline.standard"],
                 check=True
