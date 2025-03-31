@@ -63,31 +63,56 @@ def save_listings(listings):
     """Save listings to JSON file."""
     log_message(f"DEBUG: Attempting to save to absolute path: {os.path.abspath(OUTPUT_FILE)}")
     log_message(f"DEBUG: Directory exists: {os.path.isdir(os.path.dirname(OUTPUT_FILE))}")
+    log_message(f"DEBUG: Current working directory: {os.getcwd()}")
+    log_message(f"DEBUG: File parents: {OUTPUT_FILE.parent}")
     
     # Create directory again just in case
-    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    try:
+        os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+        log_message(f"DEBUG: Directory created/confirmed: {os.path.dirname(OUTPUT_FILE)}")
+    except Exception as e:
+        log_message(f"DEBUG: Error creating directory: {str(e)}")
+    
+    try:
+        # First try to write to a temporary file to check permissions
+        temp_file = Path(os.path.dirname(OUTPUT_FILE)) / "temp_test.txt"
+        with open(temp_file, "w") as f:
+            f.write("Test write permission")
+        log_message(f"DEBUG: Successfully wrote to temp file at {temp_file}")
+        os.remove(temp_file)
+        log_message(f"DEBUG: Successfully removed temp file")
+    except Exception as e:
+        log_message(f"DEBUG: Error with test file: {str(e)}")
     
     try:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             json.dump(listings, f, indent=2, ensure_ascii=False)
-        log_message(f"Saved {len(listings)} rental listings to {OUTPUT_FILE.name}")
+        log_message(f"DEBUG: Successfully wrote data to file")
+        log_message(f"Saved {len(listings)} rental listings to {OUTPUT_FILE}")
         log_message(f"DEBUG: File exists after save: {os.path.exists(OUTPUT_FILE)}")
+        log_message(f"DEBUG: File size after save: {os.path.getsize(OUTPUT_FILE)} bytes")
         
         # Create a historical snapshot
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         history_file = HISTORY_DIR / f"rental_listings_{timestamp}.json"
         
         # Create history directory again just in case
-        os.makedirs(os.path.dirname(history_file), exist_ok=True)
+        try:
+            os.makedirs(os.path.dirname(history_file), exist_ok=True)
+            log_message(f"DEBUG: History directory created/confirmed: {os.path.dirname(history_file)}")
+        except Exception as e:
+            log_message(f"DEBUG: Error creating history directory: {str(e)}")
         
         with open(history_file, "w", encoding="utf-8") as f:
             json.dump(listings, f, indent=2, ensure_ascii=False)
-        log_message(f"Created historical snapshot at {history_file.name}")
+        log_message(f"Created historical snapshot at {history_file}")
         log_message(f"DEBUG: History file exists after save: {os.path.exists(history_file)}")
+        log_message(f"DEBUG: History file size after save: {os.path.getsize(history_file)} bytes")
     except Exception as e:
         log_message(f"DEBUG: ERROR saving listings: {str(e)}")
         import traceback
         log_message(f"DEBUG: Stack trace: {traceback.format_exc()}")
+        log_message(f"DEBUG: File permissions on directory: {os.access(os.path.dirname(OUTPUT_FILE), os.W_OK)}")
 
 def load_credits_usage():
     """Load credits usage data from JSON file."""
@@ -351,7 +376,28 @@ def run_rental_scraper():
             stored_listings.append(monthly_data)
             
         # Save updated data
+        log_message(f"DEBUG: About to save {len(stored_listings)} rental listings")
+        for i, entry in enumerate(stored_listings):
+            if isinstance(entry, dict) and 'month' in entry:
+                log_message(f"DEBUG: Entry {i}: month={entry['month']}, listings count={len(entry.get('listings', []))}")
+        
         save_listings(stored_listings)
+        
+        # Check if save was successful
+        try:
+            log_message(f"DEBUG: Verifying saved data...")
+            if os.path.exists(OUTPUT_FILE):
+                file_size = os.path.getsize(OUTPUT_FILE)
+                log_message(f"DEBUG: Output file exists with size: {file_size} bytes")
+                
+                # Try to read back the file
+                with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                    loaded_data = json.load(f)
+                log_message(f"DEBUG: Successfully read back the saved file with {len(loaded_data)} entries")
+            else:
+                log_message(f"DEBUG: WARNING - Output file does not exist after save attempt")
+        except Exception as e:
+            log_message(f"DEBUG: Error verifying saved data: {str(e)}")
         
         # Generate updated CSV files
         generate_monthly_csv()
