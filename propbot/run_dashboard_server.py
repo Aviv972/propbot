@@ -14,6 +14,7 @@ import json
 import datetime
 import socket
 import re
+import shutil
 
 # Set up logging
 logging.basicConfig(
@@ -201,6 +202,15 @@ def stats():
 @app.route('/run-analysis', methods=['POST'])
 def run_analysis():
     """Run the complete property analysis workflow in a separate thread and return immediately"""
+    # Get the max pages from query parameters
+    max_sales_pages = request.args.get('max_sales_pages', None)
+    max_rental_pages = request.args.get('max_rental_pages', None)
+    debug_mode = request.args.get('debug', 'false').lower() == 'true'
+    
+    if debug_mode:
+        logger.setLevel(logging.DEBUG)
+        logger.debug("Debug mode enabled for analysis run")
+    
     def run_analysis_task():
         try:
             results = {
@@ -234,7 +244,12 @@ def run_analysis():
             try:
                 logger.info("Importing and running sales scraper directly...")
                 from propbot.scrapers.idealista_scraper import run_scraper
-                new_properties_count = run_scraper()
+                # Pass max_pages if provided
+                if max_sales_pages:
+                    logger.info(f"Using max_sales_pages={max_sales_pages}")
+                    new_properties_count = run_scraper(max_pages=int(max_sales_pages))
+                else:
+                    new_properties_count = run_scraper()
                 results["new_properties"] = new_properties_count
                 
                 # Check file for total properties count
@@ -290,7 +305,12 @@ def run_analysis():
                 try:
                     logger.info("Importing and running rental scraper directly...")
                     from propbot.scrapers.rental_scraper import run_rental_scraper
-                    new_rentals_count = run_rental_scraper()
+                    # Pass max_pages if provided
+                    if max_rental_pages:
+                        logger.info(f"Using max_rental_pages={max_rental_pages}")
+                        new_rentals_count = run_rental_scraper(max_pages=int(max_rental_pages))
+                    else:
+                        new_rentals_count = run_rental_scraper()
                     results["new_rentals"] = new_rentals_count
                 except Exception as e:
                     logger.error(f"Error running rental scraper: {str(e)}")
@@ -316,31 +336,84 @@ def run_analysis():
             os.makedirs(processed_dir, exist_ok=True)
             logger.info(f"Ensured processed data directory exists at {processed_dir}")
             
-            subprocess.run(
-                ["python3", "-m", "propbot.data_processing.pipeline.standard"],
-                check=True
-            )
+            # Copy raw data to right locations for processing
+            sales_source = SCRIPT_DIR / "data" / "raw" / "sales" / "idealista_listings.json"
+            sales_dest = SCRIPT_DIR / "data" / "raw" / "sales_listings.json"
+            rentals_source = SCRIPT_DIR / "data" / "raw" / "rentals" / "rental_listings.json"
+            rentals_dest = SCRIPT_DIR / "data" / "raw" / "rental_listings.json"
+            
+            # Ensure the raw files are in the right place for processing
+            if sales_source.exists() and not sales_dest.exists():
+                logger.info(f"Copying {sales_source} to {sales_dest}")
+                shutil.copy2(sales_source, sales_dest)
+            
+            if rentals_source.exists() and not rentals_dest.exists():
+                logger.info(f"Copying {rentals_source} to {rentals_dest}")
+                shutil.copy2(rentals_source, rentals_dest)
+            
+            try:
+                subprocess.run(
+                    ["python3", "-m", "propbot.data_processing.pipeline.standard"],
+                    check=True
+                )
+                logger.info("Data processing completed successfully")
+            except subprocess.SubprocessError as e:
+                logger.error(f"Error in data processing pipeline: {str(e)}")
             
             # Step 4: Run rental analysis
             logger.info("Running rental analysis...")
-            subprocess.run(
-                ["python3", "-m", "propbot.analysis.metrics.rental_analysis"],
-                check=True
-            )
-            
+            try:
+                # Set up environment variables for the subprocess
+                env = os.environ.copy()
+                env["PROPBOT_DATA_DIR"] = str(SCRIPT_DIR / "data")
+                
+                subprocess.run(
+                    ["python3", "-m", "propbot.analysis.metrics.rental_analysis"],
+                    check=True,
+                    env=env
+                )
+                logger.info("Rental analysis completed successfully")
+            except subprocess.SubprocessError as e:
+                logger.error(f"Error in rental analysis: {str(e)}")
+                
             # Step 5: Run investment analysis
             logger.info("Running investment analysis...")
-            subprocess.run(
-                ["python3", "-m", "propbot.run_investment_analysis"],
-                check=True
-            )
-            
+            try:
+                subprocess.run(
+                    ["python3", "-m", "propbot.run_investment_analysis"],
+                    check=True,
+                    env=env
+                )
+                logger.info("Investment analysis completed successfully")
+            except subprocess.SubprocessError as e:
+                logger.error(f"Error in investment analysis: {str(e)}")
+                
             # Step 6: Generate the dashboard
             logger.info("Generating dashboard...")
-            subprocess.run(
-                ["python3", "-m", "propbot.generate_dashboard"],
-                check=True
-            )
+            try:
+                # Copy the output data to the UI directory for serving
+                output_dir = SCRIPT_DIR / "data" / "output"
+                ui_dir = SCRIPT_DIR / "ui"
+                os.makedirs(output_dir / "visualizations", exist_ok=True)
+                os.makedirs(ui_dir, exist_ok=True)
+                
+                subprocess.run(
+                    ["python3", "-m", "propbot.generate_dashboard"],
+                    check=True,
+                    env=env
+                )
+                
+                # Copy latest dashboard to correct location
+                dashboard_source = output_dir / "visualizations" / "investment_dashboard.html"
+                dashboard_dest = ui_dir / "investment_dashboard_latest.html"
+                
+                if dashboard_source.exists():
+                    logger.info(f"Copying dashboard from {dashboard_source} to {dashboard_dest}")
+                    shutil.copy2(dashboard_source, dashboard_dest)
+                
+                logger.info("Dashboard generation completed successfully")
+            except subprocess.SubprocessError as e:
+                logger.error(f"Error in dashboard generation: {str(e)}")
             
             logger.info("Complete analysis workflow finished successfully")
         except subprocess.SubprocessError as e:
