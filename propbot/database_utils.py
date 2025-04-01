@@ -18,15 +18,16 @@ logger = logging.getLogger(__name__)
 
 def get_database_url():
     """Get the database URL from environment variables"""
-    # Check for Schema To Go URL first
-    db_url = os.environ.get('SCHEMATOGO_COBALT_URL')
-    if not db_url:
-        # Fall back to standard Heroku PostgreSQL if Schema To Go is not available
-        db_url = os.environ.get('DATABASE_URL')
+    # Get DATABASE_URL from environment
+    db_url = os.environ.get('DATABASE_URL')
     
     if not db_url:
         logger.warning("No database URL found in environment variables")
         return None
+    
+    # Add sslmode=require if not already present in the URL
+    if 'sslmode=' not in db_url:
+        db_url += ('&' if '?' in db_url else '?') + 'sslmode=require'
     
     return db_url
 
