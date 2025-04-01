@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 SCRIPT_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = SCRIPT_DIR.parent
 UI_DIR = SCRIPT_DIR / "ui"
-DASHBOARD_FILE = UI_DIR / "investment_dashboard_latest.html"
+DASHBOARD_FILE = UI_DIR / "investment_dashboard_updated.html"
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -127,7 +127,7 @@ def dashboard():
                     <p>Try accessing one of these alternatives:</p>
                     <ul>
                         <li><a href="/standalone">Standalone dashboard</a></li>
-                        <li><a href="/static/investment_dashboard_latest.html">Direct file access</a></li>
+                        <li><a href="/static/investment_dashboard_updated.html">Direct file access</a></li>
                     </ul>
                 </div>
             </body>

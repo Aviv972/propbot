@@ -1050,32 +1050,59 @@ def generate_html_dashboard(investment_data):
             f.write(html_content)
         
         logger.info(f"Dashboard saved to {output_file}")
-        return output_file
+        return html_content
     else:
         logger.info("No properties to generate dashboard")
         return False
 
 def main():
-    """Main function to generate the dashboard"""
+    """Main entry point for the script"""
     logger.info("Starting dashboard generation...")
     
-    # Get the latest report
+    # Run new property analysis by default
+    skip_analysis = os.environ.get('SKIP_ANALYSIS', '').lower() == 'true'
+    
+    if not skip_analysis:
+        success = run_property_analysis()
+        if not success:
+            logger.warning("Property analysis failed. Attempting to use existing data.")
+    
+    # Get the latest investment summary report
     report_file = get_latest_report()
     if not report_file:
-        logger.error("No report file found")
-        return
+        logger.error("No investment summary report found. Cannot generate dashboard.")
+        return False
     
     # Load investment data
     investment_data = load_investment_data(report_file)
     if not investment_data:
-        logger.error("No investment data loaded")
-        return
+        logger.error("Failed to load investment data. Cannot generate dashboard.")
+        return False
     
     # Generate HTML dashboard
-    dashboard_file = generate_html_dashboard(investment_data)
+    dashboard_html = generate_html_dashboard(investment_data)
+    if not dashboard_html:
+        logger.error("Failed to generate dashboard HTML.")
+        return False
     
-    logger.info(f"Dashboard generation completed successfully: {dashboard_file}")
-    logger.info("Open this file in a web browser to view the dashboard.")
+    # Write to file
+    latest_dashboard_file = UI_DIR / "investment_dashboard_latest.html"
+    updated_dashboard_file = UI_DIR / "investment_dashboard_updated.html"
+    
+    try:
+        with open(latest_dashboard_file, 'w') as f:
+            f.write(dashboard_html)
+        logger.info(f"Saved latest dashboard to {latest_dashboard_file}")
+        
+        # Also create the updated dashboard file
+        with open(updated_dashboard_file, 'w') as f:
+            f.write(dashboard_html)
+        logger.info(f"Saved updated dashboard to {updated_dashboard_file}")
+        
+        return True
+    except Exception as e:
+        logger.error(f"Error saving dashboard: {str(e)}")
+        return False
 
 if __name__ == "__main__":
     main() 
