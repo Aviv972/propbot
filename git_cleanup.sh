@@ -57,6 +57,18 @@ git rm --cached propbot/ui/run_propbot.html 2>/dev/null || true
 git rm --cached propbot/ui/expense_report.html 2>/dev/null || true
 git rm --cached propbot/ui/location_matching_report.html 2>/dev/null || true
 
+# Remove all data files since we're using a database now
+echo "Removing all data files from git tracking..."
+git rm --cached propbot/data_manifest.json 2>/dev/null || true
+git rm --cached propbot/data/credits_usage.json 2>/dev/null || true
+git rm --cached propbot/data/scrapingbee_credits.json 2>/dev/null || true
+git rm --cached propbot/data/metadata/neighborhood_stats.json 2>/dev/null || true
+git rm --cached propbot/data/output/reports/investment_metrics_current.csv 2>/dev/null || true
+git rm --cached propbot/data/output/reports/rental_income_report_current.csv 2>/dev/null || true
+git rm --cached propbot/data/reports/best_properties_*.json 2>/dev/null || true
+git rm --cached propbot/data/reports/investment_summary_*.csv 2>/dev/null || true
+git rm --cached propbot/data/reports/investment_summary_*.json 2>/dev/null || true
+
 echo "Files have been removed from git tracking but remain in your local directory."
 echo "To complete the process, commit these changes:"
 echo "git add .gitignore"

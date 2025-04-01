@@ -3,7 +3,7 @@
 .env.*
 *.env
 
-# Exclude data files but keep directory structure
+# Exclude ALL data files since we now use a database
 propbot/data/raw/**/*.json
 propbot/data/raw/**/*.csv
 propbot/data/processed/**/*.json
@@ -13,23 +13,16 @@ propbot/data/reports/**/*.csv
 propbot/data/output/**/*.json
 propbot/data/output/**/*.csv
 propbot/data/metadata/**/*.json
+propbot/data_manifest.json
+propbot/data/credits_usage.json
+propbot/data/scrapingbee_credits.json
 
-# Keep directory structure
+# Keep only directory structure
 !propbot/data/raw/.gitkeep
 !propbot/data/processed/.gitkeep
 !propbot/data/reports/.gitkeep
 !propbot/data/output/.gitkeep
 !propbot/data/metadata/.gitkeep
-
-# Critical data files exceptions - these WILL be included in git
-!propbot/data/processed/sales_current.csv
-!propbot/data/processed/rentals_current.csv
-!propbot/data/reports/investment_summary_*.csv
-!propbot/data/processed/sales_listings_consolidated.json
-!propbot/data/processed/rental_listings_consolidated.json
-!propbot/data/reports/best_properties_*.json
-!propbot/data/reports/investment_summary_*.json
-!propbot/data/metadata/neighborhood_stats.json
 
 # Python
 __pycache__/
