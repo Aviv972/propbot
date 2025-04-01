@@ -56,6 +56,7 @@ wheels/
 
 # Log files
 *.log
+propbot/logs/**
 
 # OS specific files
 .DS_Store
@@ -76,9 +77,38 @@ Thumbs.db
 *~
 *.bak
 *.backup
+*.bak_*
 
 # Heroku files that should be kept
 !requirements.txt
 !Procfile
 !runtime.txt
-!app.json 
+!app.json
+
+# Archive folder - not needed for production
+archive/
+
+# Local data files - not needed for production
+rental_data_*.csv
+rental_listings.json
+rental_income_report.csv
+rental_income_report.json
+rental_credits_usage.json
+idealista_listings.json
+credits_usage.json
+local_rentals_data.csv
+
+# HTML files that are generated - not needed for source control
+dashboard.html
+dashboard_new.html
+neighborhood.html
+
+# Scripts used for development only
+download_data.sh
+verify_core_files.sh
+propbot/test_pipeline.sh
+
+# Documentation files not needed for production
+.cursorrules.md
+integrated_files.txt
+INTEGRATION_PLAN.md 
