@@ -57,6 +57,8 @@ wheels/
 # Log files
 *.log
 propbot/logs/**
+propbot/data/logs/**/*.json
+propbot/data/logs/**/*.log
 
 # OS specific files
 .DS_Store
