@@ -16,6 +16,8 @@ from statistics import mean, median
 from sklearn.neighbors import BallTree
 from ...utils.extraction_utils import extract_size as extract_size_robust, extract_room_type, validate_property_size
 from ...config import CONFIG
+# Add import for database utilities
+from ...database_utils import get_connection
 
 # Define default parameters here (originally in config.py)
 DEFAULT_INVESTMENT_PARAMS = {
@@ -54,9 +56,106 @@ MIN_COMPARABLE_PROPERTIES = 2  # Minimum number of comparable properties require
 MAX_SALES_PRICE_PER_SQM = 10000  # Maximum sale price per square meter
 MAX_RENTAL_PRICE_PER_SQM = 45  # Maximum rental price per square meter (monthly rent)
 
+def get_rental_listings_from_database(max_price_per_sqm=MAX_RENTAL_PRICE_PER_SQM):
+    """Query rental listings from the database.
+    
+    Args:
+        max_price_per_sqm: Maximum acceptable price per square meter
+        
+    Returns:
+        List of rental properties in standard format
+    """
+    logging.info("Querying rental listings from database...")
+    
+    filtered_rentals = []
+    outliers = []
+    
+    conn = get_connection()
+    if not conn:
+        logging.error("Could not connect to database to fetch rental listings")
+        return []
+    
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                # Query the database for rental properties
+                cur.execute("""
+                    SELECT 
+                        url, price, size, rooms, location, 
+                        price_per_sqm, details, title
+                    FROM 
+                        properties_rentals 
+                    WHERE 
+                        price > 0 AND size > 0
+                """)
+                
+                rows = cur.fetchall()
+                logging.info(f"Retrieved {len(rows)} rental listings from database")
+                
+                # Convert rows to dictionaries
+                for row in rows:
+                    url, price, size, rooms, location, price_per_sqm, details, title = row
+                    
+                    # Skip invalid entries
+                    if not (size > 0 and price > 0):
+                        continue
+                        
+                    # Calculate price per sqm if not provided
+                    if not price_per_sqm and size > 0:
+                        price_per_sqm = price / size
+                    
+                    # Extract room type from details or rooms field
+                    room_type = None
+                    if details:
+                        room_type = extract_room_type(details)
+                    elif rooms:
+                        room_type = f"T{rooms}"
+                    
+                    # Create rental property object
+                    rental = {
+                        'size': size,
+                        'room_type': room_type,
+                        'price': price,
+                        'location': location,
+                        'url': url,
+                        'price_per_sqm': price_per_sqm
+                    }
+                    
+                    # Filter based on price per sqm
+                    if price_per_sqm > max_price_per_sqm:
+                        outliers.append({
+                            'url': url,
+                            'price': price,
+                            'size': size,
+                            'price_per_sqm': price_per_sqm,
+                            'location': location
+                        })
+                        continue
+                        
+                    filtered_rentals.append(rental)
+        
+        logging.info(f"Filtered out {len(outliers)} rental outliers with price per sqm > €{max_price_per_sqm}")
+        logging.info(f"Retained {len(filtered_rentals)} rental properties from database after filtering")
+        return filtered_rentals
+        
+    except Exception as e:
+        logging.error(f"Error querying rental listings from database: {str(e)}")
+        logging.error(traceback.format_exc())
+        return []
+    finally:
+        conn.close()
+
 def load_complete_rental_data(filename=None, max_price_per_sqm=MAX_RENTAL_PRICE_PER_SQM):
-    """Load all rental data from the CSV file and perform filtering."""
+    """Load all rental data from the database or CSV file and perform filtering."""
     logging.info(f"Loading complete rental dataset...")
+    
+    # First try to get data from the database
+    db_rentals = get_rental_listings_from_database(max_price_per_sqm)
+    if db_rentals:
+        logging.info(f"Successfully loaded {len(db_rentals)} rental properties from database")
+        return db_rentals
+    
+    logging.info("No rental data found in database, falling back to file-based loading...")
     
     # If a specific filename was provided, use it
     if filename and os.path.exists(filename):
@@ -699,9 +798,20 @@ def run_improved_analysis(similarity_threshold=40, min_comparable_properties=MIN
     property_data = load_property_data(sales_file)
     logging.info(f"Loaded {len(property_data)} properties for sale")
     
-    # Load rental data from a more comprehensive source
-    rental_data = load_complete_rental_data()
-    logging.info(f"Loaded {len(rental_data)} rental properties from complete dataset")
+    # Load rental data - first from database, falling back to file if needed
+    from_db = True
+    db_rentals = get_rental_listings_from_database()
+    if db_rentals:
+        rental_data = db_rentals
+        logging.info(f"Loaded {len(rental_data)} rental properties from database")
+    else:
+        from_db = False
+        rental_data = load_complete_rental_data()
+        logging.info(f"Loaded {len(rental_data)} rental properties from files (database access failed)")
+    
+    if not rental_data:
+        logging.error("No rental data found in database or files. Cannot proceed with analysis.")
+        return {}
     
     # Debug a sample property to verify the process works as expected
     try:
@@ -718,7 +828,7 @@ def run_improved_analysis(similarity_threshold=40, min_comparable_properties=MIN
             room_type_match=True
         )
         
-        logging.info(f"Sample property has {len(sample_comparables)} comparables")
+        logging.info(f"Sample property has {len(sample_comparables)} comparables (from {'database' if from_db else 'files'})")
         
         if len(sample_comparables) < min_comparable_properties:
             logging.info(f"WARNING: Sample property has fewer than {min_comparable_properties} comparables; no valid estimate will be generated")

@@ -9,6 +9,8 @@ import pandas as pd
 from pathlib import Path
 from ...utils.extraction_utils import extract_size as extract_size_robust, extract_room_type
 from ...config import CONFIG
+# Import database rental loader
+from .rental_metrics import get_rental_listings_from_database
 
 # Setup logging
 logging.basicConfig(
@@ -118,11 +120,26 @@ def extract_room_type(details):
 
 def load_rental_data(filename=None):
     """
-    Load rental property data from CSV file.
+    Load rental property data from database first, then CSV file if needed.
     """
+    # First try to get data from the database
+    log_message("Attempting to load rental data from database...")
+    db_rentals = get_rental_listings_from_database()
+    if db_rentals:
+        log_message(f"Successfully loaded {len(db_rentals)} rental properties from database")
+        return db_rentals
+    
+    log_message("No rental data found in database, falling back to file-based loading...")
+    
     if filename is None:
         # Try different paths
         possible_paths = [
+            "propbot/data/processed/rentals_current.csv",  # Try current data first
+            "data/processed/rentals_current.csv",
+            "../../../data/processed/rentals_current.csv",
+            "propbot/data/processed/rentals.csv",
+            "data/processed/rentals.csv",
+            "../../../data/processed/rentals.csv",
             "propbot/data/raw/rentals/rental_data.csv",
             "data/raw/rentals/rental_data.csv",
             "../../../data/raw/rentals/rental_data.csv",
@@ -146,7 +163,7 @@ def load_rental_data(filename=None):
             reader = csv.DictReader(file)
             for row in reader:
                 # Skip empty rows
-                if not row.get('url') or not row.get('rent_price'):
+                if not row.get('url') or not row.get('rent_price') and not row.get('price'):
                     continue
                 
                 # Extract size from format like "250 m²"
@@ -168,41 +185,53 @@ def load_rental_data(filename=None):
                             size = float(size_match.group(1))
                         except (ValueError, TypeError):
                             size = None
+                    else:
+                        # Try direct conversion if it's a number
+                        try:
+                            size = float(size_str)
+                        except (ValueError, TypeError):
+                            size = None
                 
                 # Extract price from format like "2,600€/month"
-                price_str = row.get('rent_price', '')
+                price_str = row.get('rent_price', row.get('price', ''))
                 price = None
                 if price_str:
                     # Remove commas and convert to float
-                    price_match = re.search(r'([\d,.]+)', price_str)
+                    price_match = re.search(r'([\d,.]+)', str(price_str))
                     if price_match:
                         price_clean = price_match.group(1).replace(',', '')
                         try:
                             price = float(price_clean)
                         except (ValueError, TypeError):
                             price = None
+                    else:
+                        # Try direct conversion if it's a number
+                        try:
+                            price = float(price_str)
+                        except (ValueError, TypeError):
+                            price = None
                 
                 # Get room type
-                room_type = row.get('num_rooms', '')
+                room_type = row.get('room_type', row.get('num_rooms', ''))
                 
                 # Get location
                 location = row.get('location', '')
                 
-                if size and price and room_type and location:
+                if size and price and location:
                     # Add debug log for the first few rental properties
                     if len(rental_properties) < 5:
                         log_message(f"Parsed rental property: Size {size_str} -> {size}, Room Type: {room_type}, Price: {price}")
                     
                     rental_properties.append({
                         'url': row.get('url', ''),
-                        'title': f"{room_type} - {size} m²",
+                        'title': f"{room_type} - {size} m²" if room_type else f"{size} m²",
                         'price': price,
                         'location': location,
                         'size': size,
                         'room_type': room_type
                     })
         
-        log_message(f"Loaded {len(rental_properties)} valid rental properties")
+        log_message(f"Loaded {len(rental_properties)} valid rental properties from file")
         return rental_properties
     
     except Exception as e:
@@ -523,26 +552,34 @@ def run_analysis():
     """
     log_message("Starting rental income analysis")
     
-    # Load the data
+    # Load the sales data
     properties_for_sale = load_sales_data()
-    
-    # Determine the current month for loading the rental data
-    current_month = datetime.now().strftime("%Y-%m")
-    rental_filename = f"rental_data_{current_month}.csv"
-    rental_properties = load_rental_data(rental_filename)
-    
-    if not properties_for_sale or not rental_properties:
-        log_message("Error: Could not load required data")
+    if not properties_for_sale:
+        log_message("Error: No valid properties for sale found")
         return False
+    
+    # Load rental data - this now tries database first, then file-based loading
+    rental_properties = load_rental_data()
+    
+    if not rental_properties:
+        log_message("Error: Could not load rental data from database or files")
+        log_message("Please ensure your database contains rental listings or that rental data files exist")
+        return False
+    
+    log_message(f"Analysis will use {len(properties_for_sale)} properties for sale and {len(rental_properties)} rental properties")
     
     # Generate the report
     income_estimates = generate_income_report(properties_for_sale, rental_properties)
     
     # Save the results
-    json_saved = save_report_to_json(income_estimates)
-    csv_saved = save_report_to_csv(income_estimates)
+    report_path = os.path.join(os.getcwd(), "rental_income_report")
+    json_saved = save_report_to_json(income_estimates, f"{report_path}.json")
+    csv_saved = save_report_to_csv(income_estimates, f"{report_path}.csv")
     
-    log_message("Rental income analysis completed")
+    if json_saved and csv_saved:
+        log_message(f"Reports saved to {report_path}.json and {report_path}.csv")
+    
+    log_message("Rental income analysis completed successfully")
     return json_saved and csv_saved
 
 if __name__ == "__main__":
