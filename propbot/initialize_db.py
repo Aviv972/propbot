@@ -5,7 +5,7 @@ Initialize the database for PropBot
 
 import logging
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Set up logging
 logging.basicConfig(
@@ -35,10 +35,7 @@ def main():
         return False
     
     # Set initial rental last update (30 days ago to trigger an update on first run)
-    thirty_days_ago = datetime.now().replace(
-        hour=0, minute=0, second=0, microsecond=0
-    )
-    thirty_days_ago = thirty_days_ago.replace(day=thirty_days_ago.day - 30)
+    thirty_days_ago = datetime.now() - timedelta(days=30)
     
     if not set_rental_last_update(thirty_days_ago):
         logger.error("Failed to set initial rental last update")
