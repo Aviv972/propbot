@@ -206,6 +206,8 @@ def run_analysis():
     max_sales_pages = request.args.get('max_sales_pages', None)
     max_rental_pages = request.args.get('max_rental_pages', None)
     debug_mode = request.args.get('debug', 'false').lower() == 'true'
+    # Add new parameter to force rental update
+    force_rental_update = request.args.get('force_rental_update', 'false').lower() == 'true'
     
     if debug_mode:
         logger.setLevel(logging.DEBUG)
@@ -268,7 +270,15 @@ def run_analysis():
             rental_data_path = SCRIPT_DIR / "data" / "processed" / "rentals.csv"
             rental_metadata_path = SCRIPT_DIR / "data" / "processed" / "rental_metadata.json"
             
-            should_update_rentals = True
+            # Initialize should_update_rentals based on force parameter
+            if force_rental_update:
+                should_update_rentals = True
+                logger.info("Forced rental update requested - will update rental data regardless of age")
+            else:
+                should_update_rentals = True  # Default value
+            
+            # Ensure metadata directory exists
+            os.makedirs(os.path.dirname(rental_metadata_path), exist_ok=True)
             
             # Check if the metadata file exists and when the last update was done
             if os.path.exists(rental_metadata_path):
@@ -276,18 +286,35 @@ def run_analysis():
                     with open(rental_metadata_path, 'r') as f:
                         metadata = json.load(f)
                     
-                    last_update = datetime.datetime.fromisoformat(metadata.get('last_update', '2000-01-01'))
-                    days_since_update = (datetime.datetime.now() - last_update).days
-                    
-                    if days_since_update < 30:
-                        logger.info(f"Rental data was updated {days_since_update} days ago. Skipping rental data collection (limit: 30 days).")
-                        should_update_rentals = False
+                    # Make sure the timestamp is valid
+                    if 'last_update' in metadata:
+                        try:
+                            last_update = datetime.datetime.fromisoformat(metadata.get('last_update', '2000-01-01'))
+                            days_since_update = (datetime.datetime.now() - last_update).days
+                            
+                            if not force_rental_update and days_since_update < 30:
+                                logger.info(f"Rental data was updated {days_since_update} days ago. Skipping rental data collection (limit: 30 days).")
+                                should_update_rentals = False
+                            else:
+                                logger.info(f"Rental data is {days_since_update} days old. Running rental data collection.")
+                        except ValueError:
+                            logger.warning(f"Invalid date format in metadata: {metadata.get('last_update')}, will update rentals")
                     else:
-                        logger.info(f"Rental data is {days_since_update} days old. Running rental data collection.")
+                        logger.warning("No last_update field in metadata, will update rentals")
                 except Exception as e:
                     logger.warning(f"Error reading rental metadata, will update rentals: {str(e)}")
             else:
                 logger.info("No rental metadata found. Running initial rental data collection.")
+                # Create an initial metadata file
+                try:
+                    with open(rental_metadata_path, 'w') as f:
+                        json.dump({
+                            'last_update': '2000-01-01T00:00:00',
+                            'update_frequency': '30 days'
+                        }, f)
+                    logger.info(f"Created initial rental metadata file at {rental_metadata_path}")
+                except Exception as e:
+                    logger.error(f"Error creating rental metadata file: {str(e)}")
             
             if should_update_rentals:
                 # Run rental scraper to collect rental data
@@ -298,7 +325,6 @@ def run_analysis():
                 rentals_history_dir = raw_rentals_dir / "history"
                 os.makedirs(raw_rentals_dir, exist_ok=True)
                 os.makedirs(rentals_history_dir, exist_ok=True)
-                os.makedirs(os.path.dirname(rental_metadata_path), exist_ok=True)
                 logger.info(f"Ensured directory structure exists at {raw_rentals_dir}")
                 
                 # Run the rental scraper directly as a module import instead of subprocess
@@ -312,19 +338,21 @@ def run_analysis():
                     # Run the scraper with no parameters - it will use the environment variable
                     new_rentals_count = run_rental_scraper()
                     results["new_rentals"] = new_rentals_count
+                    
+                    # Always update the metadata with current time after successful run
+                    current_time = datetime.datetime.now().isoformat()
+                    try:
+                        with open(rental_metadata_path, 'w') as f:
+                            json.dump({
+                                'last_update': current_time,
+                                'update_frequency': '30 days'
+                            }, f)
+                        logger.info(f"Updated rental metadata with current timestamp: {current_time}")
+                    except Exception as e:
+                        logger.error(f"Error updating rental metadata: {str(e)}")
+                    
                 except Exception as e:
                     logger.error(f"Error running rental scraper: {str(e)}")
-                
-                # Update metadata after successful collection
-                try:
-                    with open(rental_metadata_path, 'w') as f:
-                        json.dump({
-                            'last_update': datetime.datetime.now().isoformat(),
-                            'update_frequency': '30 days'
-                        }, f)
-                    logger.info("Updated rental metadata with current timestamp.")
-                except Exception as e:
-                    logger.error(f"Error updating rental metadata: {str(e)}")
             else:
                 logger.info("Using existing rental data (less than 30 days old).")
             
