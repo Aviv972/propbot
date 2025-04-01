@@ -20,6 +20,12 @@ from propbot.data_processing.consolidation import consolidate_sales, consolidate
 from propbot.data_processing.conversion import convert_sales, convert_rentals
 from propbot.data_processing.utils import save_json
 
+# Import database update function
+try:
+    from propbot.data_processing.update_db import update_database_after_scrape
+except ImportError:
+    update_database_after_scrape = None
+
 # Set up logging
 logger = logging.getLogger(__name__)
 
@@ -427,6 +433,23 @@ def run_full_pipeline(config: Optional[Dict[str, Any]] = None,
     rentals_success = results.get("rentals_pipeline", {}).get("success", False) if config.get("run_rentals", True) else True
     results["success"] = sales_success and rentals_success
     results["pipeline_end"] = datetime.now().isoformat()
+    
+    # Update the database if pipeline was successful
+    if results["success"] and update_database_after_scrape is not None:
+        try:
+            logger.info("Updating database with new data...")
+            if update_database_after_scrape():
+                logger.info("Database updated successfully")
+                results["database_update"] = {"success": True}
+            else:
+                logger.warning("Database update failed")
+                results["database_update"] = {"success": False}
+        except Exception as e:
+            logger.error(f"Error updating database: {str(e)}")
+            results["database_update"] = {"success": False, "error": str(e)}
+    else:
+        if results["success"] and update_database_after_scrape is None:
+            logger.warning("Database update function not available, skipping database update")
     
     # Save combined results
     try:

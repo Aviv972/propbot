@@ -1,27 +1,37 @@
 #!/usr/bin/env python3
 """
-PropBot - Property Data Analysis Tool
+PropBot Main Entry Point
 
-Main entry point for running the complete property data processing pipeline.
+This module provides the main command-line interface for running
+the PropBot data processing pipeline.
 """
 
 import os
-import argparse
-import logging
-import json
 import sys
-from pathlib import Path
-from typing import Dict, Any, List, Optional, Union
+import json
+import logging
+import argparse
 from datetime import datetime
+from pathlib import Path
+from typing import Dict, Any, List, Optional
 
-# Import PropBot modules
+# Import pipeline functions
 from propbot.data_processing.pipeline import (
     run_sales_pipeline,
     run_rentals_pipeline,
     run_full_pipeline
 )
-from propbot.data_processing.utils import PathJSONEncoder, save_json
-from propbot.config import load_config, CONFIG_PATH
+
+# Import database functions
+try:
+    from propbot.db_data_import import main as import_db_data
+    from propbot.data_processing.update_db import update_database_after_scrape
+    HAS_DB_FUNCTIONS = True
+except ImportError:
+    HAS_DB_FUNCTIONS = False
+
+# Import utilities
+from propbot.data_processing.utils import save_json
 
 # Set up logging
 logging.basicConfig(
@@ -30,113 +40,105 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def get_input_files(raw_dir: Path, property_type: str) -> List[Path]:
-    """
-    Get a list of input files for a specific property type.
+def parse_args():
+    """Parse command-line arguments"""
+    parser = argparse.ArgumentParser(description="PropBot Data Processing CLI")
     
-    Args:
-        raw_dir: Raw data directory
-        property_type: Type of properties (sales or rentals)
-        
-    Returns:
-        List of input file paths
-    """
-    input_files = []
+    # Pipeline type
+    parser.add_argument('--type', choices=['sales', 'rentals', 'both'], 
+                        default='both', help='Pipeline type to run')
     
-    # Add the main property listing file if it exists
-    main_file = raw_dir / f"{property_type}_listings.json"
-    if os.path.exists(main_file):
-        input_files.append(main_file)
+    # Input files
+    parser.add_argument('--input', nargs='+', help='Input files to process')
     
-    # Add files from the property type subdirectory
-    property_dir = raw_dir / property_type
-    if os.path.exists(property_dir) and os.path.isdir(property_dir):
-        for file in os.listdir(property_dir):
-            file_path = property_dir / file
-            if os.path.isfile(file_path) and file_path.suffix.lower() in ['.json', '.csv']:
-                input_files.append(file_path)
+    # Skip flags
+    parser.add_argument('--skip-validation', action='store_true', help='Skip validation step')
+    parser.add_argument('--skip-consolidation', action='store_true', help='Skip consolidation step')
+    parser.add_argument('--skip-conversion', action='store_true', help='Skip conversion step')
     
-    # Add legacy CSV if it exists
-    legacy_csv = raw_dir / f"legacy_{property_type}.csv"
-    if os.path.exists(legacy_csv):
-        input_files.append(legacy_csv)
+    # Test data generation
+    parser.add_argument('--create-test-data', action='store_true', help='Create test data')
     
-    return input_files
+    # Data directory
+    parser.add_argument('--data-dir', help='Data directory path')
 
-def setup_environment(args):
-    """Set up the environment and configuration for the pipeline run."""
-    # Load configuration
-    try:
-        config = load_config(args.config)
-        logger.info(f"Loaded configuration from {args.config}")
-    except Exception as e:
-        logger.warning(f"Error loading configuration: {e}")
-        config = {}
+    # Database operations
+    if HAS_DB_FUNCTIONS:
+        parser.add_argument('--db-import', action='store_true', help='Import data to database')
+        parser.add_argument('--update-db', action='store_true', help='Update database after processing')
     
-    # Override data directory if specified
+    return parser.parse_args()
+
+def main():
+    """Main entry point"""
+    args = parse_args()
+    
+    # Determine data directory
     if args.data_dir:
-        config["data_dir"] = args.data_dir
+        data_dir = Path(args.data_dir)
+    elif 'PROPBOT_DATA_DIR' in os.environ:
+        data_dir = Path(os.environ['PROPBOT_DATA_DIR'])
+    elif 'DYNO' in os.environ:  # Running on Heroku
+        data_dir = Path('/app/propbot/data')
+    else:
+        # Default to a data directory inside the package
+        data_dir = Path(os.path.dirname(os.path.abspath(__file__))) / 'data'
     
-    # Set up data directories
-    data_dir = Path(config.get("data_dir", "data"))
-    raw_dir = data_dir / "raw"
-    processed_dir = data_dir / "processed"
-    logs_dir = data_dir / "logs"
+    # Ensure data directories exist
+    raw_dir = data_dir / 'raw'
+    processed_dir = data_dir / 'processed'
+    logs_dir = data_dir / 'logs'
     
-    # Ensure directories exist
     os.makedirs(raw_dir, exist_ok=True)
     os.makedirs(processed_dir, exist_ok=True)
     os.makedirs(logs_dir, exist_ok=True)
     
-    # Update configuration with command line options
-    pipeline_config = {
-        **config,
-        "force_continue": args.force_continue,
-        "run_sales": args.type in ["sales", "both"],
-        "run_rentals": args.type in ["rentals", "both"]
-    }
-    
-    return pipeline_config, data_dir, raw_dir, processed_dir, logs_dir
-
-def main():
-    """Main entry point for PropBot."""
-    # Parse command line arguments
-    parser = argparse.ArgumentParser(description="PropBot - Property Data Analysis Tool")
-    parser.add_argument("--config", default=CONFIG_PATH, help="Path to configuration file")
-    parser.add_argument("--data-dir", help="Data directory (overrides config)")
-    parser.add_argument("--type", choices=["sales", "rentals", "both"], default="both", 
-                        help="Type of properties to process")
-    parser.add_argument("--skip-validation", action="store_true", help="Skip validation step")
-    parser.add_argument("--skip-consolidation", action="store_true", help="Skip consolidation step")
-    parser.add_argument("--skip-conversion", action="store_true", help="Skip conversion step")
-    parser.add_argument("--force-continue", action="store_true", help="Continue pipeline even if a step fails")
-    parser.add_argument("--input-files", nargs="*", help="Specify input files for validation")
-    parser.add_argument("--test", action="store_true", help="Run in test mode with sample data")
-    
-    args = parser.parse_args()
-    
-    # Set up environment
-    pipeline_config, data_dir, raw_dir, processed_dir, logs_dir = setup_environment(args)
-    
-    # Create sample test data if in test mode
-    if args.test:
+    # Create test data if requested
+    if args.create_test_data:
         create_test_data(raw_dir)
+        return 0
     
-    # Get input files for validation
-    input_files = args.input_files if args.input_files else None
+    # Handle database import if requested
+    if HAS_DB_FUNCTIONS and args.db_import:
+        logger.info("Importing data to database...")
+        success = import_db_data()
+        if success:
+            logger.info("Database import completed successfully")
+            return 0
+        else:
+            logger.error("Database import failed")
+            return 1
     
-    # Get specific input files for each property type if processing both
+    # Set up input files
+    input_files = args.input if args.input else None
     sales_input_files = None
     rentals_input_files = None
     
-    if args.type == "both" and not args.input_files:
-        sales_input_files = get_input_files(raw_dir, "sales")
-        rentals_input_files = get_input_files(raw_dir, "rentals")
-    elif args.type == "sales" and not args.input_files:
-        input_files = get_input_files(raw_dir, "sales")
-    elif args.type == "rentals" and not args.input_files:
-        input_files = get_input_files(raw_dir, "rentals")
+    if input_files:
+        if args.type == 'sales':
+            sales_input_files = input_files
+        elif args.type == 'rentals':
+            rentals_input_files = input_files
+        else:  # both
+            # Try to determine which files are for which pipeline
+            sales_input_files = [f for f in input_files if 'sale' in f.lower()]
+            rentals_input_files = [f for f in input_files if 'rent' in f.lower()]
+            
+            # If we couldn't determine, use all files for both
+            if not sales_input_files and not rentals_input_files:
+                sales_input_files = input_files
+                rentals_input_files = input_files
     
+    # Set up pipeline configuration
+    pipeline_config = {
+        "data_dir": str(data_dir),
+        "raw_sales_dir": str(raw_dir / 'sales'),
+        "raw_rentals_dir": str(raw_dir / 'rentals'),
+        "processed_dir": str(processed_dir),
+        "logs_dir": str(logs_dir)
+    }
+    
+    # Track start time
     start_time = datetime.now()
     
     try:
@@ -180,6 +182,23 @@ def main():
         
         # Use our custom JSON encoder
         save_json(results, results_file)
+        
+        # Update database if requested and not already updated by the pipeline
+        if HAS_DB_FUNCTIONS and args.update_db and "database_update" not in results:
+            try:
+                logger.info("Updating database with new data...")
+                if update_database_after_scrape(args.type if args.type != 'both' else None):
+                    logger.info("Database updated successfully")
+                    results["database_update"] = {"success": True}
+                else:
+                    logger.warning("Database update failed")
+                    results["database_update"] = {"success": False}
+            except Exception as e:
+                logger.error(f"Error updating database: {str(e)}")
+                results["database_update"] = {"success": False, "error": str(e)}
+            
+            # Update the results file with database info
+            save_json(results, results_file)
         
         # Report final status
         if results["success"]:
