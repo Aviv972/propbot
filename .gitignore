@@ -81,6 +81,25 @@ Thumbs.db
 *.backup
 *.bak_*
 
+# UI template files
+propbot/ui/*.bak
+propbot/ui/*.backup
+propbot/ui/*.bak_*
+propbot/ui/.DS_Store
+# Non-essential UI templates
+propbot/ui/investment_dashboard_updated.html
+propbot/ui/neighborhood_report.html
+propbot/ui/new_investment_dashboard.html
+propbot/ui/run_propbot.html
+propbot/ui/expense_report.html
+propbot/ui/location_matching_report.html
+# Keep only essential templates
+!propbot/ui/investment_dashboard_latest.html
+!propbot/ui/standalone_dashboard.html
+!propbot/ui/neighborhood_report_updated.html
+!propbot/ui/dashboard_redirect.html
+!propbot/ui/neighborhood_redirect.html
+
 # Heroku files that should be kept
 !requirements.txt
 !Procfile

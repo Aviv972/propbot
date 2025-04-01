@@ -43,6 +43,20 @@ find . -name ".DS_Store" -exec git rm --cached {} \; 2>/dev/null || true
 # Remove backup files
 git rm --cached **/*.bak **/*.bak_* **/*.backup 2>/dev/null || true
 
+# Clean up UI directory - remove backup files and non-essential templates
+git rm --cached propbot/ui/*.bak propbot/ui/*.backup propbot/ui/*.bak_* 2>/dev/null || true
+git rm --cached propbot/ui/.DS_Store 2>/dev/null || true
+
+# Keep only essential UI templates
+# The main templates are: investment_dashboard_latest.html, standalone_dashboard.html, neighborhood_report_updated.html
+# And the necessary redirects: dashboard_redirect.html, neighborhood_redirect.html
+git rm --cached propbot/ui/investment_dashboard_updated.html 2>/dev/null || true
+git rm --cached propbot/ui/neighborhood_report.html 2>/dev/null || true
+git rm --cached propbot/ui/new_investment_dashboard.html 2>/dev/null || true
+git rm --cached propbot/ui/run_propbot.html 2>/dev/null || true
+git rm --cached propbot/ui/expense_report.html 2>/dev/null || true
+git rm --cached propbot/ui/location_matching_report.html 2>/dev/null || true
+
 echo "Files have been removed from git tracking but remain in your local directory."
 echo "To complete the process, commit these changes:"
 echo "git add .gitignore"
