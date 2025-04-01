@@ -16,6 +16,14 @@ import socket
 import re
 import shutil
 
+# Import the database utilities
+from propbot.database_utils import (
+    initialize_database, 
+    get_rental_last_update, 
+    set_rental_last_update,
+    get_rental_update_frequency
+)
+
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,
@@ -268,7 +276,6 @@ def run_analysis():
             # Step 2: Check if rental data needs to be updated (once every 30 days)
             # Define the path to rental data file
             rental_data_path = SCRIPT_DIR / "data" / "processed" / "rentals.csv"
-            rental_metadata_path = SCRIPT_DIR / "data" / "processed" / "rental_metadata.json"
             
             # Initialize should_update_rentals based on force parameter
             if force_rental_update:
@@ -277,44 +284,21 @@ def run_analysis():
             else:
                 should_update_rentals = True  # Default value
             
-            # Ensure metadata directory exists
-            os.makedirs(os.path.dirname(rental_metadata_path), exist_ok=True)
+            # Check the database for last update date
+            last_update = get_rental_last_update()
             
-            # Check if the metadata file exists and when the last update was done
-            if os.path.exists(rental_metadata_path):
-                try:
-                    with open(rental_metadata_path, 'r') as f:
-                        metadata = json.load(f)
-                    
-                    # Make sure the timestamp is valid
-                    if 'last_update' in metadata:
-                        try:
-                            last_update = datetime.datetime.fromisoformat(metadata.get('last_update', '2000-01-01'))
-                            days_since_update = (datetime.datetime.now() - last_update).days
-                            
-                            if not force_rental_update and days_since_update < 30:
-                                logger.info(f"Rental data was updated {days_since_update} days ago. Skipping rental data collection (limit: 30 days).")
-                                should_update_rentals = False
-                            else:
-                                logger.info(f"Rental data is {days_since_update} days old. Running rental data collection.")
-                        except ValueError:
-                            logger.warning(f"Invalid date format in metadata: {metadata.get('last_update')}, will update rentals")
-                    else:
-                        logger.warning("No last_update field in metadata, will update rentals")
-                except Exception as e:
-                    logger.warning(f"Error reading rental metadata, will update rentals: {str(e)}")
+            if last_update is not None:
+                # Calculate days since the last update
+                days_since_update = (datetime.datetime.now() - last_update).days
+                update_frequency = get_rental_update_frequency()
+                
+                if not force_rental_update and days_since_update < update_frequency:
+                    logger.info(f"Rental data was updated {days_since_update} days ago. Skipping rental data collection (limit: {update_frequency} days).")
+                    should_update_rentals = False
+                else:
+                    logger.info(f"Rental data is {days_since_update} days old. Running rental data collection.")
             else:
-                logger.info("No rental metadata found. Running initial rental data collection.")
-                # Create an initial metadata file
-                try:
-                    with open(rental_metadata_path, 'w') as f:
-                        json.dump({
-                            'last_update': '2000-01-01T00:00:00',
-                            'update_frequency': '30 days'
-                        }, f)
-                    logger.info(f"Created initial rental metadata file at {rental_metadata_path}")
-                except Exception as e:
-                    logger.error(f"Error creating rental metadata file: {str(e)}")
+                logger.info("No rental update history found in database. Running initial rental data collection.")
             
             if should_update_rentals:
                 # Run rental scraper to collect rental data
@@ -339,17 +323,9 @@ def run_analysis():
                     new_rentals_count = run_rental_scraper()
                     results["new_rentals"] = new_rentals_count
                     
-                    # Always update the metadata with current time after successful run
-                    current_time = datetime.datetime.now().isoformat()
-                    try:
-                        with open(rental_metadata_path, 'w') as f:
-                            json.dump({
-                                'last_update': current_time,
-                                'update_frequency': '30 days'
-                            }, f)
-                        logger.info(f"Updated rental metadata with current timestamp: {current_time}")
-                    except Exception as e:
-                        logger.error(f"Error updating rental metadata: {str(e)}")
+                    # Update the database with current time after successful run
+                    set_rental_last_update()
+                    logger.info("Updated rental last update timestamp in database")
                     
                 except Exception as e:
                     logger.error(f"Error running rental scraper: {str(e)}")
@@ -497,13 +473,19 @@ def run_analysis():
         except Exception as e:
             logger.error(f"Error running analysis: {str(e)}")
     
-    # Start a background thread to run the analysis
+    # Initialize the database on startup (this will do nothing if it's already initialized)
+    try:
+        initialize_database()
+    except Exception as e:
+        logger.error(f"Error initializing database: {str(e)}")
+    
+    # Start the analysis in a background thread
     thread = threading.Thread(target=run_analysis_task)
-    thread.daemon = True
+    thread.daemon = True  # Set as daemon so it won't prevent the app from exiting
     thread.start()
     
     return jsonify({
-        "success": True, 
+        "success": True,
         "message": "Complete analysis workflow started - this will take some time",
         "note": "The list of properties for sale will continuously grow as new properties are analyzed each time."
     })
