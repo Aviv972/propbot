@@ -7,6 +7,14 @@
 
 # Exclude non-essential raw data files (but keep critical ones)
 /propbot/data/raw/scrape_history/
+/propbot/data/logs/
+
+# Exclude development and test scripts
+download_data.sh
+verify_core_files.sh
+git_cleanup.sh
+**/test_*.py
+**/test_*.sh
 
 # Exclude development tools
 .github/
@@ -22,4 +30,13 @@
 # Exclude git files
 .git/
 .gitignore
-.gitattributes 
+.gitattributes
+
+# Exclude backup files
+**/*.bak
+**/*.backup
+**/*.bak_*
+
+# Exclude temporary data files
+/propbot/data/raw/temp/
+**/.DS_Store 
