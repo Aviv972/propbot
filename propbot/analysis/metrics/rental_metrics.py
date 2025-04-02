@@ -186,158 +186,57 @@ def load_complete_rental_data(filename=None, max_price_per_sqm=MAX_RENTAL_PRICE_
         for file_path in possible_files:
             if os.path.exists(file_path):
                 filename = file_path
-                logging.info(f"Using rental data file: {filename}")
+                logging.info(f"Found rental data file: {filename}")
                 break
         
         if not filename:
-            logging.error(f"Error: Complete rental data file not found")
-            logging.error(f"Try running data_processor.py first to generate rental data")
-            logging.error(f"Looked for: {', '.join(possible_files)}")
+            logging.error("No rental data file found")
             return []
     
-    filtered_rentals = []
-    outliers = []
-    
     try:
-        # Use pandas if available for easier CSV handling
-        try:
-            df = pd.read_csv(filename)
-            logging.info(f"Loaded {len(df)} rows from {filename}")
+        # Try pandas first for better performance
+        df = pd.read_csv(filename)
+        logging.info(f"Loaded {len(df)} rows from {filename}")
+        
+        # Convert DataFrame to list of dictionaries
+        rental_properties = []
+        for _, row in df.iterrows():
+            # Skip rows with missing required data
+            if pd.isna(row.get('price', None)) or pd.isna(row.get('size', None)):
+                continue
             
-            for _, row in df.iterrows():
-                # Parse size, ensuring it's a valid numeric value
-                size_str = row.get('size')
-                size_value = 0
-                if size_str is not None:
-                    try:
-                        # If it's a string, try to extract number
-                        if isinstance(size_str, str):
-                            size_match = re.search(r'(\d+(?:\.\d+)?)', size_str)
-                            if size_match:
-                                size_value = float(size_match.group(1))
-                        else:
-                            # Try direct conversion
-                            size_value = float(size_str)
-                    except (ValueError, TypeError):
-                        size_value = 0
-                
-                # Parse price, ensuring it's a valid numeric value
-                price_str = row.get('price')
-                price_value = 0
-                if price_str is not None:
-                    try:
-                        price_value = float(price_str)
-                    except (ValueError, TypeError):
-                        price_value = 0
-                
-                room_type = row.get('room_type', '')
-                location = row.get('location', '')
-                url = row.get('url', '')
-                
-                # Skip invalid entries - must have both size and price
-                if not (size_value > 0 and price_value > 0):
-                    continue
-                
-                # Calculate price per sqm
-                price_per_sqm = price_value / size_value if size_value > 0 else 0
-                
-                # Create rental property object
-                rental = {
-                    'size': size_value,
-                    'room_type': room_type,
-                    'price': price_value,
-                    'location': location,
-                    'url': url,
-                    'price_per_sqm': price_per_sqm
-                }
-                
-                # Filter based on price per sqm
-                if price_per_sqm > max_price_per_sqm:
-                    outliers.append({
-                        'url': url,
-                        'price': price_value,
-                        'size': size_value,
-                        'price_per_sqm': price_per_sqm,
-                        'location': location
-                    })
-                    continue
-                    
-                filtered_rentals.append(rental)
-                
-        except ImportError:
-            # Fall back to CSV reader if pandas is not available
-            logging.info("Pandas not available. Using CSV reader.")
-            with open(filename, 'r', encoding='utf-8') as f:
-                reader = csv.DictReader(f)
-                
-                for row in reader:
-                    # Parse size, ensuring it's a valid numeric value
-                    size_str = row.get('size')
-                    size_value = 0
-                    if size_str is not None:
-                        try:
-                            # If it's a string, try to extract number
-                            if isinstance(size_str, str):
-                                size_match = re.search(r'(\d+(?:\.\d+)?)', size_str)
-                                if size_match:
-                                    size_value = float(size_match.group(1))
-                            else:
-                                # Try direct conversion
-                                size_value = float(size_str)
-                        except (ValueError, TypeError):
-                            size_value = 0
-                    
-                    # Parse price, ensuring it's a valid numeric value
-                    price_str = row.get('price')
-                    price_value = 0
-                    if price_str is not None:
-                        try:
-                            price_value = float(price_str)
-                        except (ValueError, TypeError):
-                            price_value = 0
-                    
-                    room_type = row.get('room_type', '')
-                    location = row.get('location', '')
-                    url = row.get('url', '')
-                    
-                    # Skip invalid entries - must have both size and price
-                    if not (size_value > 0 and price_value > 0):
-                        continue
-                    
-                    # Calculate price per sqm
-                    price_per_sqm = price_value / size_value if size_value > 0 else 0
-                    
-                    # Create rental property object
-                    rental = {
-                        'size': size_value,
-                        'room_type': room_type,
-                        'price': price_value,
-                        'location': location,
-                        'url': url,
-                        'price_per_sqm': price_per_sqm
-                    }
-                    
-                    # Filter based on price per sqm
-                    if price_per_sqm > max_price_per_sqm:
-                        outliers.append({
-                            'url': url,
-                            'price': price_value,
-                            'size': size_value,
-                            'price_per_sqm': price_per_sqm,
-                            'location': location
-                        })
-                        continue
-                        
-                    filtered_rentals.append(rental)
+            price = float(row['price'])
+            size = float(row['size'])
+            
+            # Skip invalid data
+            if price <= 0 or size <= 0:
+                continue
+            
+            # Calculate price per sqm
+            price_per_sqm = price / size
+            
+            # Skip outliers
+            if price_per_sqm > max_price_per_sqm:
+                continue
+            
+            rental_property = {
+                'url': row.get('url', ''),
+                'price': price,
+                'size': size,
+                'rooms': row.get('rooms', None),
+                'location': row.get('location', ''),
+                'price_per_sqm': price_per_sqm,
+                'details': row.get('details', ''),
+                'title': row.get('title', '')
+            }
+            
+            rental_properties.append(rental_property)
         
-        logging.info(f"Filtered out {len(outliers)} rental outliers with price per sqm > €{max_price_per_sqm}")
-        logging.info(f"Retained {len(filtered_rentals)} rental properties after filtering")
-        
-        return filtered_rentals
+        logging.info(f"Loaded {len(rental_properties)} valid rental properties")
+        return rental_properties
         
     except Exception as e:
         logging.error(f"Error loading rental data: {str(e)}")
-        logging.error(traceback.format_exc())
         return []
 
 def standardize_location(location_text):

@@ -11,6 +11,7 @@ from ...utils.extraction_utils import extract_size as extract_size_robust, extra
 from ...config import CONFIG
 # Import database rental loader
 from .rental_metrics import get_rental_listings_from_database
+from ...db_functions import get_sales_listings_from_database
 
 # Setup logging
 logging.basicConfig(
@@ -27,6 +28,19 @@ def load_sales_data(filename=None):
     Load the JSON file containing properties for sale.
     Validate that each record includes purchase price, size (sqm), location, and room type.
     """
+    # First try to get data from the database
+    try:
+        db_sales = get_sales_listings_from_database()
+        if db_sales:
+            log_message(f"Loaded {len(db_sales)} sales listings from database")
+            return db_sales
+        else:
+            log_message("No sales data found in database, falling back to file")
+    except Exception as e:
+        log_message(f"Error loading sales data from database: {str(e)}")
+        log_message("Falling back to file-based loading")
+    
+    # Fall back to file loading if database loading failed or returned no results
     if filename is None:
         # Try different paths relative to the module
         possible_paths = [
