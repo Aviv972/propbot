@@ -11,7 +11,6 @@ from typing import List, Dict, Any, Optional
 from datetime import datetime
 
 import pandas as pd
-from sqlalchemy import text
 
 from propbot.database_utils import get_connection
 
@@ -40,8 +39,13 @@ def get_connection():
 def get_rental_listings_from_database() -> List[Dict]:
     """Get all rental listings from the database."""
     try:
-        with get_connection() as conn:
-            query = text("""
+        conn = get_connection()
+        if not conn:
+            logger.error("Could not get connection to database")
+            return []
+            
+        with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
+            cur.execute("""
                 SELECT 
                     id, url, title, price, size, rooms, 
                     price_per_sqm, location, neighborhood,
@@ -50,19 +54,26 @@ def get_rental_listings_from_database() -> List[Dict]:
                 FROM properties_rentals
                 ORDER BY snapshot_date DESC
             """)
-            result = conn.execute(query)
-            listings = [dict(row) for row in result]
+            listings = [dict(row) for row in cur.fetchall()]
             logger.info(f"Retrieved {len(listings)} rental listings from database")
             return listings
     except Exception as e:
         logger.error(f"Error getting rental listings from database: {e}")
         return []
+    finally:
+        if conn:
+            conn.close()
 
 def get_sales_listings_from_database() -> List[Dict]:
     """Get all sales listings from the database."""
     try:
-        with get_connection() as conn:
-            query = text("""
+        conn = get_connection()
+        if not conn:
+            logger.error("Could not get connection to database")
+            return []
+            
+        with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
+            cur.execute("""
                 SELECT 
                     id, url, title, price, size, rooms,
                     price_per_sqm, location, neighborhood,
@@ -71,73 +82,105 @@ def get_sales_listings_from_database() -> List[Dict]:
                 FROM properties_sales
                 ORDER BY snapshot_date DESC
             """)
-            result = conn.execute(query)
-            listings = [dict(row) for row in result]
+            listings = [dict(row) for row in cur.fetchall()]
             logger.info(f"Retrieved {len(listings)} sales listings from database")
             return listings
     except Exception as e:
         logger.error(f"Error getting sales listings from database: {e}")
         return []
+    finally:
+        if conn:
+            conn.close()
 
 def get_rental_last_update() -> Optional[datetime]:
     """Get the last update timestamp for rental data."""
     try:
-        with get_connection() as conn:
-            query = text("""
+        conn = get_connection()
+        if not conn:
+            logger.error("Could not get connection to database")
+            return None
+            
+        with conn.cursor() as cur:
+            cur.execute("""
                 SELECT MAX(snapshot_date) as last_update
                 FROM properties_rentals
             """)
-            result = conn.execute(query).fetchone()
+            result = cur.fetchone()
             return result[0] if result else None
     except Exception as e:
         logger.error(f"Error getting rental last update: {e}")
         return None
+    finally:
+        if conn:
+            conn.close()
 
 def set_rental_last_update(timestamp: datetime) -> bool:
     """Set the last update timestamp for rental data."""
     try:
-        with get_connection() as conn:
-            query = text("""
+        conn = get_connection()
+        if not conn:
+            logger.error("Could not get connection to database")
+            return False
+            
+        with conn.cursor() as cur:
+            cur.execute("""
                 UPDATE properties_rentals
-                SET snapshot_date = :timestamp
+                SET snapshot_date = %s
                 WHERE snapshot_date IS NULL
-            """)
-            conn.execute(query, {"timestamp": timestamp})
+            """, (timestamp,))
             conn.commit()
             return True
     except Exception as e:
         logger.error(f"Error setting rental last update: {e}")
         return False
+    finally:
+        if conn:
+            conn.close()
 
 def get_sales_last_update() -> Optional[datetime]:
     """Get the last update timestamp for sales data."""
     try:
-        with get_connection() as conn:
-            query = text("""
+        conn = get_connection()
+        if not conn:
+            logger.error("Could not get connection to database")
+            return None
+            
+        with conn.cursor() as cur:
+            cur.execute("""
                 SELECT MAX(snapshot_date) as last_update
                 FROM properties_sales
             """)
-            result = conn.execute(query).fetchone()
+            result = cur.fetchone()
             return result[0] if result else None
     except Exception as e:
         logger.error(f"Error getting sales last update: {e}")
         return None
+    finally:
+        if conn:
+            conn.close()
 
 def set_sales_last_update(timestamp: datetime) -> bool:
     """Set the last update timestamp for sales data."""
     try:
-        with get_connection() as conn:
-            query = text("""
+        conn = get_connection()
+        if not conn:
+            logger.error("Could not get connection to database")
+            return False
+            
+        with conn.cursor() as cur:
+            cur.execute("""
                 UPDATE properties_sales
-                SET snapshot_date = :timestamp
+                SET snapshot_date = %s
                 WHERE snapshot_date IS NULL
-            """)
-            conn.execute(query, {"timestamp": timestamp})
+            """, (timestamp,))
             conn.commit()
             return True
     except Exception as e:
         logger.error(f"Error setting sales last update: {e}")
         return False
+    finally:
+        if conn:
+            conn.close()
 
 def get_rental_update_frequency() -> int:
     """Get the rental data update frequency in days."""
