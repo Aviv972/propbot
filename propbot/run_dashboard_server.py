@@ -210,268 +210,286 @@ def stats():
 @app.route('/run-analysis', methods=['POST'])
 def run_analysis():
     """Run the complete property analysis workflow in a separate thread and return immediately"""
-    # Get the max pages from query parameters
-    max_sales_pages = request.args.get('max_sales_pages', None)
-    max_rental_pages = request.args.get('max_rental_pages', None)
-    debug_mode = request.args.get('debug', 'false').lower() == 'true'
-    # Add new parameter to force rental update
-    force_rental_update = request.args.get('force_rental_update', 'false').lower() == 'true'
+    # Get parameters from the request JSON if available
+    force_rental_update = request.json.get('force_rental_update', False) if request.is_json else False
+    max_sales_pages = request.json.get('max_sales_pages', None) if request.is_json else None
+    max_rental_pages = request.json.get('max_rental_pages', None) if request.is_json else None
     
-    if debug_mode:
-        logger.setLevel(logging.DEBUG)
-        logger.debug("Debug mode enabled for analysis run")
+    # Define paths
+    sales_data_path = SCRIPT_DIR / "idealista_listings.json"
     
-    def run_analysis_task():
+    # Create results object
+    results = {
+        "success": True,
+        "message": "Complete analysis workflow started - this will take some time",
+        "note": "The list of properties for sale will continuously grow as new properties are analyzed each time."
+    }
+    
+    # Define task with parameters
+    def task():
+        run_analysis_task(force_rental_update, max_sales_pages, max_rental_pages)
+    
+    # Start analysis in background thread
+    thread = threading.Thread(target=task)
+    thread.daemon = True
+    thread.start()
+    
+    return jsonify(results)
+
+def run_analysis_task(force_rental_update=False, max_sales_pages=None, max_rental_pages=None):
+    """Run the complete property analysis workflow"""
+    try:
+        results = {}
+        sales_data_path = SCRIPT_DIR / "idealista_listings.json"
+        
+        # Step 1: Run the scraper for sales properties
+        # Ensure the data directory exists
+        os.makedirs(os.path.dirname(os.path.join(SCRIPT_DIR, "propbot/data/raw/sales")), exist_ok=True)
+        
+        # Run the scraper directly as a module import instead of subprocess
         try:
-            results = {
-                "new_properties": 0,
-                "updated_properties": 0,
-                "total_properties": 0,
-                "start_time": datetime.datetime.now().isoformat()
-            }
+            logger.info("Importing and running sales scraper directly...")
+            from propbot.scrapers.idealista_scraper import run_scraper
+            # Set environment variable for max pages
+            if max_sales_pages:
+                logger.info(f"Using max_sales_pages={max_sales_pages}")
+                os.environ["MAX_SALES_PAGES"] = str(max_sales_pages)
+            # Run the scraper with no parameters - it will use the environment variable
+            new_properties_count = run_scraper()
+            results["new_properties"] = new_properties_count
             
-            # Record initial property count
-            sales_data_path = SCRIPT_DIR / "data" / "raw" / "sales" / "idealista_listings.json"
-            initial_count = 0
+            # Immediately update the database with new sales data
+            try:
+                logger.info("Updating database with new sales data...")
+                from propbot.data_processing.update_db import update_database_after_scrape
+                if update_database_after_scrape('sales'):
+                    logger.info("Database successfully updated with new sales data")
+                else:
+                    logger.warning("Failed to update database with new sales data")
+            except Exception as e:
+                logger.error(f"Error updating database with sales data: {str(e)}")
+            
+            # Check file for total properties count
             if sales_data_path.exists():
                 try:
                     with open(sales_data_path, 'r') as f:
-                        initial_count = len(json.load(f))
+                        properties_data = json.load(f)
+                        results["total_properties"] = len(properties_data)
                 except Exception as e:
-                    logger.error(f"Error reading initial property count: {str(e)}")
-            
-            # Step 1: Run the web scraper to get new listings
-            logger.info("Running web scraper to collect new property listings...")
-            
-            # Ensure required directories exist before running scraper
-            raw_sales_dir = SCRIPT_DIR / "data" / "raw" / "sales"
-            history_dir = raw_sales_dir / "history"
-            os.makedirs(raw_sales_dir, exist_ok=True)
-            os.makedirs(history_dir, exist_ok=True)
-            logger.info(f"Ensured directory structure exists at {raw_sales_dir}")
-            
-            # Run the scraper directly as a module import instead of subprocess
-            try:
-                logger.info("Importing and running sales scraper directly...")
-                from propbot.scrapers.idealista_scraper import run_scraper
-                # Set environment variable for max pages
-                if max_sales_pages:
-                    logger.info(f"Using max_sales_pages={max_sales_pages}")
-                    os.environ["MAX_SALES_PAGES"] = str(max_sales_pages)
-                # Run the scraper with no parameters - it will use the environment variable
-                new_properties_count = run_scraper()
-                results["new_properties"] = new_properties_count
-                
-                # Check file for total properties count
-                if sales_data_path.exists():
-                    try:
-                        with open(sales_data_path, 'r') as f:
-                            properties_data = json.load(f)
-                            results["total_properties"] = len(properties_data)
-                    except Exception as e:
-                        logger.error(f"Error reading property data: {str(e)}")
-            except Exception as e:
-                logger.error(f"Error running sales scraper: {str(e)}")
-            
-            # Step 2: Check if rental data needs to be updated (once every 30 days)
-            # Define the path to rental data file
-            rental_data_path = SCRIPT_DIR / "data" / "processed" / "rentals.csv"
-            
-            # Initialize should_update_rentals based on force parameter
-            if force_rental_update:
-                should_update_rentals = True
-                logger.info("Forced rental update requested - will update rental data regardless of age")
-            else:
-                should_update_rentals = True  # Default value
-            
-            # Check the database for last update date
-            last_update = get_rental_last_update()
-            
-            if last_update is not None:
-                # Calculate days since the last update
-                days_since_update = (datetime.datetime.now() - last_update).days
-                update_frequency = get_rental_update_frequency()
-                
-                if not force_rental_update and days_since_update < update_frequency:
-                    logger.info(f"Rental data was updated {days_since_update} days ago. Skipping rental data collection (limit: {update_frequency} days).")
-                    should_update_rentals = False
-                else:
-                    logger.info(f"Rental data is {days_since_update} days old. Running rental data collection.")
-            else:
-                logger.info("No rental update history found in database. Running initial rental data collection.")
-            
-            if should_update_rentals:
-                # Run rental scraper to collect rental data
-                logger.info("Collecting rental property data...")
-                
-                # Ensure required directories exist before running rental scraper
-                raw_rentals_dir = SCRIPT_DIR / "data" / "raw" / "rentals"
-                rentals_history_dir = raw_rentals_dir / "history"
-                os.makedirs(raw_rentals_dir, exist_ok=True)
-                os.makedirs(rentals_history_dir, exist_ok=True)
-                logger.info(f"Ensured directory structure exists at {raw_rentals_dir}")
-                
-                # Run the rental scraper directly as a module import instead of subprocess
-                try:
-                    logger.info("Importing and running rental scraper directly...")
-                    from propbot.scrapers.rental_scraper import run_rental_scraper
-                    # Set environment variable for max pages
-                    if max_rental_pages:
-                        logger.info(f"Using max_rental_pages={max_rental_pages}")
-                        os.environ["MAX_RENTAL_PAGES"] = str(max_rental_pages)
-                    # Run the scraper with no parameters - it will use the environment variable
-                    new_rentals_count = run_rental_scraper()
-                    results["new_rentals"] = new_rentals_count
-                    
-                    # Update the database with current time after successful run
-                    set_rental_last_update()
-                    logger.info("Updated rental last update timestamp in database")
-                    
-                except Exception as e:
-                    logger.error(f"Error running rental scraper: {str(e)}")
-            else:
-                logger.info("Using existing rental data (less than 30 days old).")
-            
-            # Step 3: Process and consolidate data
-            logger.info("Processing and consolidating data...")
-            
-            # Ensure processed directory exists
-            processed_dir = SCRIPT_DIR / "data" / "processed"
-            os.makedirs(processed_dir, exist_ok=True)
-            logger.info(f"Ensured processed data directory exists at {processed_dir}")
-            
-            # Set up paths correctly for processing
-            sales_source = SCRIPT_DIR / "data" / "raw" / "sales" / "idealista_listings.json"
-            sales_dest = SCRIPT_DIR / "data" / "raw" / "sales_listings.json"
-            rentals_source = SCRIPT_DIR / "data" / "raw" / "rentals" / "rental_listings.json"
-            rentals_dest = SCRIPT_DIR / "data" / "raw" / "rental_listings.json"
-            
-            # Create empty files for data processing pipeline if they don't exist
-            for file_path in [sales_source, rentals_source]:
-                if not os.path.exists(file_path):
-                    logger.info(f"Creating empty file at {file_path}")
-                    os.makedirs(os.path.dirname(file_path), exist_ok=True)
-                    with open(file_path, 'w') as f:
-                        f.write('[]')  # Empty JSON array instead of empty object
-            
-            # Copy the source files to the destination paths needed by the pipeline
-            try:
-                if os.path.exists(sales_source):
-                    logger.info(f"Copying {sales_source} to {sales_dest}")
-                    shutil.copy2(sales_source, sales_dest)
-                else:
-                    logger.warning(f"Sales source file not found at {sales_source}")
-                    # Create an empty file to avoid processing errors
-                    with open(sales_dest, 'w') as f:
-                        f.write('[]')
-                
-                if os.path.exists(rentals_source):
-                    logger.info(f"Copying {rentals_source} to {rentals_dest}")
-                    shutil.copy2(rentals_source, rentals_dest)
-                else:
-                    logger.warning(f"Rentals source file not found at {rentals_source}")
-                    # Create an empty file to avoid processing errors
-                    with open(rentals_dest, 'w') as f:
-                        f.write('[]')
-                
-                # Also ensure the processed directory has the necessary files
-                sales_processed = processed_dir / "sales_listings_consolidated.json"
-                rentals_processed = processed_dir / "rental_listings_consolidated.json"
-                
-                for file_path in [sales_processed, rentals_processed]:
-                    if not os.path.exists(file_path):
-                        logger.info(f"Creating empty processed file at {file_path}")
-                        with open(file_path, 'w') as f:
-                            f.write('[]')  # Empty JSON array
-            except Exception as e:
-                logger.error(f"Error setting up files for data processing: {str(e)}")
-            
-            # Now run the data processing pipeline
-            try:
-                # Use absolute paths for the environment variables
-                env = os.environ.copy()
-                env["PROPBOT_DATA_DIR"] = str(SCRIPT_DIR / "data")
-                
-                subprocess.run(
-                    ["python3", "-m", "propbot.data_processing.pipeline.standard"],
-                    check=True,
-                    env=env
-                )
-                logger.info("Data processing completed successfully")
-            except subprocess.SubprocessError as e:
-                logger.error(f"Error in data processing pipeline: {str(e)}")
-            
-            # Step 4: Run rental analysis
-            logger.info("Running rental analysis...")
-            try:
-                # Set up environment variables for the subprocess
-                env = os.environ.copy()
-                env["PROPBOT_DATA_DIR"] = str(SCRIPT_DIR / "data")
-                
-                # Ensure the right files exist for the rental analysis
-                sales_csv = processed_dir / "sales.csv"
-                rentals_csv = processed_dir / "rentals.csv"
-                
-                for file_path in [sales_csv, rentals_csv]:
-                    if not os.path.exists(file_path):
-                        logger.warning(f"Creating empty CSV file at {file_path}")
-                        with open(file_path, 'w') as f:
-                            if "sales" in str(file_path):
-                                f.write("url,title,price,location,size,room_type,details\n")
-                            else:
-                                f.write("url,title,price,location,size,room_type\n")
-                
-                subprocess.run(
-                    ["python3", "-m", "propbot.analysis.metrics.rental_analysis"],
-                    check=True,
-                    env=env
-                )
-                logger.info("Rental analysis completed successfully")
-            except subprocess.SubprocessError as e:
-                logger.error(f"Error in rental analysis: {str(e)}")
-                
-            # Step 5: Run investment analysis
-            logger.info("Running investment analysis...")
-            try:
-                subprocess.run(
-                    ["python3", "-m", "propbot.run_investment_analysis"],
-                    check=True,
-                    env=env
-                )
-                logger.info("Investment analysis completed successfully")
-            except subprocess.SubprocessError as e:
-                logger.error(f"Error in investment analysis: {str(e)}")
-                
-            # Step 6: Generate the dashboard
-            logger.info("Generating dashboard...")
-            try:
-                # Copy the output data to the UI directory for serving
-                output_dir = SCRIPT_DIR / "data" / "output"
-                ui_dir = SCRIPT_DIR / "ui"
-                os.makedirs(output_dir / "visualizations", exist_ok=True)
-                os.makedirs(ui_dir, exist_ok=True)
-                
-                subprocess.run(
-                    ["python3", "-m", "propbot.generate_dashboard"],
-                    check=True,
-                    env=env
-                )
-                
-                # Copy latest dashboard to correct location
-                dashboard_source = output_dir / "visualizations" / "investment_dashboard.html"
-                dashboard_dest = ui_dir / "investment_dashboard_latest.html"
-                
-                if dashboard_source.exists():
-                    logger.info(f"Copying dashboard from {dashboard_source} to {dashboard_dest}")
-                    shutil.copy2(dashboard_source, dashboard_dest)
-                
-                logger.info("Dashboard generation completed successfully")
-            except subprocess.SubprocessError as e:
-                logger.error(f"Error in dashboard generation: {str(e)}")
-            
-            logger.info("Complete analysis workflow finished successfully")
+                    logger.error(f"Error reading property data: {str(e)}")
         except Exception as e:
-            logger.error(f"Error running analysis: {str(e)}")
+            logger.error(f"Error running sales scraper: {str(e)}")
+        
+        # Step 2: Check if rental data needs to be updated (once every 30 days)
+        # Define the path to rental data file
+        rental_data_path = SCRIPT_DIR / "data" / "processed" / "rentals.csv"
+        
+        # Initialize should_update_rentals based on force parameter
+        if force_rental_update:
+            should_update_rentals = True
+            logger.info("Forced rental update requested - will update rental data regardless of age")
+        else:
+            should_update_rentals = True  # Default value
+        
+        # Check the database for last update date
+        last_update = get_rental_last_update()
+        
+        if last_update is not None:
+            # Calculate days since the last update
+            days_since_update = (datetime.datetime.now() - last_update).days
+            update_frequency = get_rental_update_frequency()
+            
+            if not force_rental_update and days_since_update < update_frequency:
+                logger.info(f"Rental data was updated {days_since_update} days ago. Skipping rental data collection (limit: {update_frequency} days).")
+                should_update_rentals = False
+            else:
+                logger.info(f"Rental data is {days_since_update} days old. Running rental data collection.")
+        else:
+            logger.info("No rental update history found in database. Running initial rental data collection.")
+        
+        if should_update_rentals:
+            # Run rental scraper to collect rental data
+            logger.info("Collecting rental property data...")
+            
+            # Ensure required directories exist before running rental scraper
+            raw_rentals_dir = SCRIPT_DIR / "data" / "raw" / "rentals"
+            rentals_history_dir = raw_rentals_dir / "history"
+            os.makedirs(raw_rentals_dir, exist_ok=True)
+            os.makedirs(rentals_history_dir, exist_ok=True)
+            logger.info(f"Ensured directory structure exists at {raw_rentals_dir}")
+            
+            # Run the rental scraper directly as a module import instead of subprocess
+            try:
+                logger.info("Importing and running rental scraper directly...")
+                from propbot.scrapers.rental_scraper import run_rental_scraper
+                # Set environment variable for max pages
+                if max_rental_pages:
+                    logger.info(f"Using max_rental_pages={max_rental_pages}")
+                    os.environ["MAX_RENTAL_PAGES"] = str(max_rental_pages)
+                # Run the scraper with no parameters - it will use the environment variable
+                new_rentals_count = run_rental_scraper()
+                results["new_rentals"] = new_rentals_count
+                
+                # Update the database with rental data after successful run
+                try:
+                    logger.info("Updating database with new rental data...")
+                    from propbot.data_processing.update_db import update_database_after_scrape
+                    if update_database_after_scrape('rentals'):
+                        logger.info("Database successfully updated with new rental data")
+                    else:
+                        logger.warning("Failed to update database with new rental data")
+                except Exception as e:
+                    logger.error(f"Error updating database with rental data: {str(e)}")
+                
+                # Update the database with current time after successful run
+                set_rental_last_update()
+                logger.info("Updated rental last update timestamp in database")
+                
+            except Exception as e:
+                logger.error(f"Error running rental scraper: {str(e)}")
+        else:
+            logger.info("Using existing rental data (less than update frequency threshold).")
+            
+        # Step 3: Process and consolidate data
+        logger.info("Processing and consolidating data...")
+        
+        # Ensure processed directory exists
+        processed_dir = SCRIPT_DIR / "data" / "processed"
+        os.makedirs(processed_dir, exist_ok=True)
+        logger.info(f"Ensured processed data directory exists at {processed_dir}")
+        
+        # Set up paths correctly for processing
+        sales_source = SCRIPT_DIR / "data" / "raw" / "sales" / "idealista_listings.json"
+        sales_dest = SCRIPT_DIR / "data" / "raw" / "sales_listings.json"
+        rentals_source = SCRIPT_DIR / "data" / "raw" / "rentals" / "rental_listings.json"
+        rentals_dest = SCRIPT_DIR / "data" / "raw" / "rental_listings.json"
+        
+        # Create empty files for data processing pipeline if they don't exist
+        for file_path in [sales_source, rentals_source]:
+            if not os.path.exists(file_path):
+                logger.info(f"Creating empty file at {file_path}")
+                os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                with open(file_path, 'w') as f:
+                    f.write('[]')  # Empty JSON array instead of empty object
+        
+        # Copy the source files to the destination paths needed by the pipeline
+        try:
+            if os.path.exists(sales_source):
+                logger.info(f"Copying {sales_source} to {sales_dest}")
+                shutil.copy2(sales_source, sales_dest)
+            else:
+                logger.warning(f"Sales source file not found at {sales_source}")
+                # Create an empty file to avoid processing errors
+                with open(sales_dest, 'w') as f:
+                    f.write('[]')
+            
+            if os.path.exists(rentals_source):
+                logger.info(f"Copying {rentals_source} to {rentals_dest}")
+                shutil.copy2(rentals_source, rentals_dest)
+            else:
+                logger.warning(f"Rentals source file not found at {rentals_source}")
+                # Create an empty file to avoid processing errors
+                with open(rentals_dest, 'w') as f:
+                    f.write('[]')
+            
+            # Also ensure the processed directory has the necessary files
+            sales_processed = processed_dir / "sales_listings_consolidated.json"
+            rentals_processed = processed_dir / "rental_listings_consolidated.json"
+            
+            for file_path in [sales_processed, rentals_processed]:
+                if not os.path.exists(file_path):
+                    logger.info(f"Creating empty processed file at {file_path}")
+                    with open(file_path, 'w') as f:
+                        f.write('[]')  # Empty JSON array
+        except Exception as e:
+            logger.error(f"Error setting up files for data processing: {str(e)}")
+        
+        # Now run the data processing pipeline
+        try:
+            # Use absolute paths for the environment variables
+            env = os.environ.copy()
+            env["PROPBOT_DATA_DIR"] = str(SCRIPT_DIR / "data")
+            
+            subprocess.run(
+                ["python3", "-m", "propbot.data_processing.pipeline.standard"],
+                check=True,
+                env=env
+            )
+            logger.info("Data processing completed successfully")
+        except subprocess.SubprocessError as e:
+            logger.error(f"Error in data processing pipeline: {str(e)}")
+        
+        # Step 4: Run rental analysis
+        logger.info("Running rental analysis...")
+        try:
+            # Set up environment variables for the subprocess
+            env = os.environ.copy()
+            env["PROPBOT_DATA_DIR"] = str(SCRIPT_DIR / "data")
+            
+            # Ensure the right files exist for the rental analysis
+            sales_csv = processed_dir / "sales.csv"
+            rentals_csv = processed_dir / "rentals.csv"
+            
+            for file_path in [sales_csv, rentals_csv]:
+                if not os.path.exists(file_path):
+                    logger.warning(f"Creating empty CSV file at {file_path}")
+                    with open(file_path, 'w') as f:
+                        if "sales" in str(file_path):
+                            f.write("url,title,price,location,size,room_type,details\n")
+                        else:
+                            f.write("url,title,price,location,size,room_type\n")
+            
+            subprocess.run(
+                ["python3", "-m", "propbot.analysis.metrics.rental_analysis"],
+                check=True,
+                env=env
+            )
+            logger.info("Rental analysis completed successfully")
+        except subprocess.SubprocessError as e:
+            logger.error(f"Error in rental analysis: {str(e)}")
+            
+        # Step 5: Run investment analysis
+        logger.info("Running investment analysis...")
+        try:
+            subprocess.run(
+                ["python3", "-m", "propbot.run_investment_analysis"],
+                check=True,
+                env=env
+            )
+            logger.info("Investment analysis completed successfully")
+        except subprocess.SubprocessError as e:
+            logger.error(f"Error in investment analysis: {str(e)}")
+            
+        # Step 6: Generate the dashboard
+        logger.info("Generating dashboard...")
+        try:
+            # Copy the output data to the UI directory for serving
+            output_dir = SCRIPT_DIR / "data" / "output"
+            ui_dir = SCRIPT_DIR / "ui"
+            os.makedirs(output_dir / "visualizations", exist_ok=True)
+            os.makedirs(ui_dir, exist_ok=True)
+            
+            subprocess.run(
+                ["python3", "-m", "propbot.generate_dashboard"],
+                check=True,
+                env=env
+            )
+            
+            # Copy latest dashboard to correct location
+            dashboard_source = output_dir / "visualizations" / "investment_dashboard.html"
+            dashboard_dest = ui_dir / "investment_dashboard_latest.html"
+            
+            if dashboard_source.exists():
+                logger.info(f"Copying dashboard from {dashboard_source} to {dashboard_dest}")
+                shutil.copy2(dashboard_source, dashboard_dest)
+            
+            logger.info("Dashboard generation completed successfully")
+        except subprocess.SubprocessError as e:
+            logger.error(f"Error in dashboard generation: {str(e)}")
+        
+        logger.info("Complete analysis workflow finished successfully")
+    except Exception as e:
+        logger.error(f"Error running analysis: {str(e)}")
     
     # Initialize the database on startup (this will do nothing if it's already initialized)
     try:
@@ -489,6 +507,73 @@ def run_analysis():
         "message": "Complete analysis workflow started - this will take some time",
         "note": "The list of properties for sale will continuously grow as new properties are analyzed each time."
     })
+
+@app.route('/import-csv-data', methods=['POST'])
+def import_csv_data():
+    """Import CSV data into the database as a one-time operation"""
+    # Define paths
+    processed_dir = SCRIPT_DIR / "data" / "processed"
+    sales_file = processed_dir / "sales_current.csv"
+    rental_file = processed_dir / "rentals_current.csv"
+    
+    # Verify files exist
+    if not sales_file.exists():
+        return jsonify({"success": False, "error": f"Sales file not found: {sales_file}"})
+    
+    if not rental_file.exists():
+        return jsonify({"success": False, "error": f"Rental file not found: {rental_file}"})
+    
+    # Get database connection
+    conn = get_connection()
+    if not conn:
+        return jsonify({"success": False, "error": "Failed to connect to database"})
+    
+    results = {
+        "success": True,
+        "sales": {"processed": 0, "inserted": 0, "updated": 0},
+        "rentals": {"processed": 0, "inserted": 0, "updated": 0}
+    }
+    
+    try:
+        # Import the required functions
+        from propbot.db_data_import import import_sales_data, import_rental_data
+        
+        # Import sales data
+        sales_result = import_sales_data(conn, processed_dir)
+        if not sales_result:
+            results["sales"]["success"] = False
+            logger.warning("Failed to import sales data")
+        else:
+            results["sales"]["success"] = True
+            logger.info("Successfully imported sales data")
+        
+        # Import rental data
+        rental_result = import_rental_data(conn, processed_dir)
+        if not rental_result:
+            results["rentals"]["success"] = False
+            logger.warning("Failed to import rental data")
+        else:
+            results["rentals"]["success"] = True
+            logger.info("Successfully imported rental data")
+        
+        # Check the counts
+        with conn.cursor() as cur:
+            cur.execute("SELECT COUNT(*) FROM properties_sales")
+            results["sales"]["count"] = cur.fetchone()[0]
+            
+            cur.execute("SELECT COUNT(*) FROM properties_rentals")
+            results["rentals"]["count"] = cur.fetchone()[0]
+        
+        logger.info(f"One-time data import completed. Sales: {results['sales']['count']}, Rentals: {results['rentals']['count']}")
+        return jsonify(results)
+    
+    except Exception as e:
+        logger.error(f"Error in data import: {str(e)}")
+        import traceback
+        logger.error(traceback.format_exc())
+        return jsonify({"success": False, "error": str(e)})
+    finally:
+        conn.close()
 
 def main():
     """Run the dashboard server"""
