@@ -17,6 +17,7 @@ from typing import List, Dict, Any, Optional, Union
 
 # Import from utils module
 from propbot.data_processing.utils import save_json as utils_save_json
+from propbot.database_utils import get_connection, get_rental_listings_from_database
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -150,9 +151,6 @@ def consolidate_rentals(primary_file: str, consolidated_file: str, raw_dir: Opti
         True if consolidation was successful, False otherwise
     """
     try:
-        from propbot.database_utils import get_connection
-        from propbot.analysis.metrics.db_functions import get_rental_listings_from_database
-        
         # Get rental listings from database
         rental_listings = get_rental_listings_from_database()
         
