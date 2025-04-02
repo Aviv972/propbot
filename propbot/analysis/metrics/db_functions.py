@@ -13,7 +13,7 @@ from datetime import datetime
 import pandas as pd
 from sqlalchemy import text
 
-from propbot.db import get_connection
+from propbot.database_utils import get_connection
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
