@@ -4,6 +4,7 @@ import json
 import logging
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
+from decimal import Decimal
 
 import pandas as pd
 import numpy as np
@@ -15,6 +16,14 @@ from .db_functions import (
 )
 
 logger = logging.getLogger(__name__)
+
+def convert_decimal_to_float(value):
+    """Convert decimal values to float, handling None values."""
+    if value is None:
+        return None
+    if isinstance(value, Decimal):
+        return float(value)
+    return float(value)
 
 def analyze_rental_yields(
     rental_data: Optional[List[Dict[str, Any]]] = None,
@@ -40,11 +49,11 @@ def analyze_rental_yields(
     # Convert decimal values to float
     for df in [rentals_df, sales_df]:
         if 'price' in df.columns:
-            df['price'] = pd.to_numeric(df['price'], errors='coerce')
+            df['price'] = df['price'].apply(convert_decimal_to_float)
         if 'size' in df.columns:
-            df['size'] = pd.to_numeric(df['size'], errors='coerce')
+            df['size'] = df['size'].apply(convert_decimal_to_float)
         if 'price_per_sqm' in df.columns:
-            df['price_per_sqm'] = pd.to_numeric(df['price_per_sqm'], errors='coerce')
+            df['price_per_sqm'] = df['price_per_sqm'].apply(convert_decimal_to_float)
     
     # Calculate yields by location
     location_yields = {}
@@ -58,7 +67,7 @@ def analyze_rental_yields(
         avg_rental_price = location_rentals['price'].mean()
         avg_sales_price = location_sales['price'].mean()
         
-        if pd.notna(avg_sales_price) and avg_sales_price > 0:
+        if pd.notna(avg_sales_price) and avg_sales_price > 0 and pd.notna(avg_rental_price):
             annual_yield = (avg_rental_price * 12) / avg_sales_price * 100
             location_yields[location] = {
                 'annual_yield': float(annual_yield),
