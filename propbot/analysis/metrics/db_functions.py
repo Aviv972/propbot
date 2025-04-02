@@ -10,6 +10,11 @@ import os
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 
+import pandas as pd
+from sqlalchemy import text
+
+from propbot.db import get_connection
+
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -32,198 +37,107 @@ def get_connection():
         logger.error(f"Error connecting to database: {str(e)}")
         return None
 
-def get_rental_listings_from_database(max_price_per_sqm: float = 45) -> List[Dict[str, Any]]:
-    """Query rental listings from the database.
-    
-    Args:
-        max_price_per_sqm: Maximum acceptable price per square meter
-        
-    Returns:
-        List of rental properties in standard format
-    """
-    logging.info("Querying rental listings from database...")
-    
-    filtered_rentals = []
-    outliers = []
-    
-    conn = get_connection()
-    if not conn:
-        logging.error("Could not connect to database to fetch rental listings")
-        return []
-    
+def get_rental_listings_from_database() -> List[Dict]:
+    """Get all rental listings from the database."""
     try:
-        with conn:
-            with conn.cursor() as cur:
-                # Query the database for rental properties
-                cur.execute("""
-                    SELECT 
-                        url, price, size, rooms, location, 
-                        price_per_sqm, details, title,
-                        neighborhood, is_furnished
-                    FROM 
-                        properties_rentals 
-                    WHERE 
-                        price > 0 AND size > 0
-                """)
-                
-                rows = cur.fetchall()
-                logging.info(f"Retrieved {len(rows)} rental listings from database")
-                
-                # Process each result
-                for row in rows:
-                    rental_property = {
-                        'url': row[0],
-                        'price': float(row[1]) if row[1] is not None else 0,
-                        'size': float(row[2]) if row[2] is not None else 0,
-                        'rooms': row[3],
-                        'location': row[4],
-                        'price_per_sqm': float(row[5]) if row[5] is not None else 0,
-                        'details': row[6],
-                        'title': row[7],
-                        'neighborhood': row[8],
-                        'is_furnished': row[9]
-                    }
-                    
-                    # Calculate price per sqm if missing
-                    if rental_property['price_per_sqm'] == 0 and rental_property['size'] > 0:
-                        rental_property['price_per_sqm'] = rental_property['price'] / rental_property['size']
-                    
-                    # Skip properties with excessively high price per sqm (likely data errors)
-                    if rental_property['price_per_sqm'] > max_price_per_sqm:
-                        outliers.append(rental_property)
-                        continue
-                    
-                    filtered_rentals.append(rental_property)
-                
-                logging.info(f"Filtered to {len(filtered_rentals)} valid rental listings")
-                if outliers:
-                    logging.info(f"Excluded {len(outliers)} outliers with price_per_sqm > {max_price_per_sqm}")
-        
-        return filtered_rentals
-        
+        with get_connection() as conn:
+            query = text("""
+                SELECT 
+                    id, url, title, price, size, rooms, 
+                    price_per_sqm, location, neighborhood,
+                    details, snapshot_date, first_seen_date,
+                    created_at, updated_at
+                FROM properties_rentals
+                ORDER BY snapshot_date DESC
+            """)
+            result = conn.execute(query)
+            listings = [dict(row) for row in result]
+            logger.info(f"Retrieved {len(listings)} rental listings from database")
+            return listings
     except Exception as e:
-        logging.error(f"Error querying rental listings from database: {str(e)}")
+        logger.error(f"Error getting rental listings from database: {e}")
         return []
-    finally:
-        conn.close()
 
-def get_sales_listings_from_database(max_price_per_sqm: float = 8000) -> List[Dict[str, Any]]:
-    """Query sales listings from the database.
-    
-    Args:
-        max_price_per_sqm: Maximum acceptable price per square meter
-        
-    Returns:
-        List of sales properties in standard format
-    """
-    logging.info("Querying sales listings from database...")
-    
-    filtered_sales = []
-    outliers = []
-    
-    conn = get_connection()
-    if not conn:
-        logging.error("Could not connect to database to fetch sales listings")
-        return []
-    
+def get_sales_listings_from_database() -> List[Dict]:
+    """Get all sales listings from the database."""
     try:
-        with conn:
-            with conn.cursor() as cur:
-                # Query the database for sales properties
-                cur.execute("""
-                    SELECT 
-                        url, price, size, rooms, location, 
-                        price_per_sqm, details, title,
-                        neighborhood, snapshot_date, first_seen_date
-                    FROM 
-                        properties_sales 
-                    WHERE 
-                        price > 0 AND size > 0
-                """)
-                
-                rows = cur.fetchall()
-                logging.info(f"Retrieved {len(rows)} sales listings from database")
-                
-                # Process each result
-                for row in rows:
-                    sales_property = {
-                        'url': row[0],
-                        'price': float(row[1]) if row[1] is not None else 0,
-                        'size': float(row[2]) if row[2] is not None else 0,
-                        'room_type': row[3],  # rooms column
-                        'location': row[4],
-                        'price_per_sqm': float(row[5]) if row[5] is not None else 0,
-                        'details': row[6],
-                        'title': row[7],
-                        'neighborhood': row[8],
-                        'snapshot_date': row[9],
-                        'first_seen_date': row[10]
-                    }
-                    
-                    # Calculate price per sqm if missing
-                    if sales_property['price_per_sqm'] == 0 and sales_property['size'] > 0:
-                        sales_property['price_per_sqm'] = sales_property['price'] / sales_property['size']
-                    
-                    # Skip properties with excessively high price per sqm (likely data errors)
-                    if sales_property['price_per_sqm'] > max_price_per_sqm:
-                        outliers.append(sales_property)
-                        continue
-                    
-                    filtered_sales.append(sales_property)
-                
-                logging.info(f"Filtered to {len(filtered_sales)} valid sales listings")
-                if outliers:
-                    logging.info(f"Excluded {len(outliers)} outliers with price_per_sqm > {max_price_per_sqm}")
-        
-        return filtered_sales
-        
+        with get_connection() as conn:
+            query = text("""
+                SELECT 
+                    id, url, title, price, size, rooms,
+                    price_per_sqm, location, neighborhood,
+                    details, snapshot_date, first_seen_date,
+                    created_at, updated_at
+                FROM properties_sales
+                ORDER BY snapshot_date DESC
+            """)
+            result = conn.execute(query)
+            listings = [dict(row) for row in result]
+            logger.info(f"Retrieved {len(listings)} sales listings from database")
+            return listings
     except Exception as e:
-        logging.error(f"Error querying sales listings from database: {str(e)}")
+        logger.error(f"Error getting sales listings from database: {e}")
         return []
-    finally:
-        conn.close()
 
 def get_rental_last_update() -> Optional[datetime]:
     """Get the last update timestamp for rental data."""
-    conn = get_connection()
-    if not conn:
-        return None
-    
     try:
-        with conn:
-            with conn.cursor() as cur:
-                cur.execute("""
-                    SELECT MAX(snapshot_date)
-                    FROM properties_rentals
-                """)
-                result = cur.fetchone()
-                return result[0] if result and result[0] else None
+        with get_connection() as conn:
+            query = text("""
+                SELECT MAX(snapshot_date) as last_update
+                FROM properties_rentals
+            """)
+            result = conn.execute(query).fetchone()
+            return result[0] if result else None
     except Exception as e:
-        logger.error(f"Error getting rental last update: {str(e)}")
+        logger.error(f"Error getting rental last update: {e}")
         return None
-    finally:
-        conn.close()
 
-def set_rental_last_update() -> bool:
-    """Set the last update timestamp for rental data to now."""
-    conn = get_connection()
-    if not conn:
-        return False
-    
+def set_rental_last_update(timestamp: datetime) -> bool:
+    """Set the last update timestamp for rental data."""
     try:
-        with conn:
-            with conn.cursor() as cur:
-                cur.execute("""
-                    UPDATE properties_rentals
-                    SET snapshot_date = NOW()
-                    WHERE snapshot_date IS NULL
-                """)
-                return True
+        with get_connection() as conn:
+            query = text("""
+                UPDATE properties_rentals
+                SET snapshot_date = :timestamp
+                WHERE snapshot_date IS NULL
+            """)
+            conn.execute(query, {"timestamp": timestamp})
+            conn.commit()
+            return True
     except Exception as e:
-        logger.error(f"Error setting rental last update: {str(e)}")
+        logger.error(f"Error setting rental last update: {e}")
         return False
-    finally:
-        conn.close()
+
+def get_sales_last_update() -> Optional[datetime]:
+    """Get the last update timestamp for sales data."""
+    try:
+        with get_connection() as conn:
+            query = text("""
+                SELECT MAX(snapshot_date) as last_update
+                FROM properties_sales
+            """)
+            result = conn.execute(query).fetchone()
+            return result[0] if result else None
+    except Exception as e:
+        logger.error(f"Error getting sales last update: {e}")
+        return None
+
+def set_sales_last_update(timestamp: datetime) -> bool:
+    """Set the last update timestamp for sales data."""
+    try:
+        with get_connection() as conn:
+            query = text("""
+                UPDATE properties_sales
+                SET snapshot_date = :timestamp
+                WHERE snapshot_date IS NULL
+            """)
+            conn.execute(query, {"timestamp": timestamp})
+            conn.commit()
+            return True
+    except Exception as e:
+        logger.error(f"Error setting sales last update: {e}")
+        return False
 
 def get_rental_update_frequency() -> int:
     """Get the rental data update frequency in days."""
