@@ -66,7 +66,64 @@ def initialize_database():
                         updated_at TIMESTAMP DEFAULT NOW()
                     )
                 """)
-        logger.info("Database initialized successfully")
+                
+                # Create sales properties table
+                cur.execute("""
+                    CREATE TABLE IF NOT EXISTS properties_sales (
+                        id SERIAL PRIMARY KEY,
+                        url TEXT UNIQUE NOT NULL,
+                        title TEXT,
+                        price NUMERIC,
+                        size NUMERIC,
+                        rooms INTEGER,
+                        price_per_sqm NUMERIC,
+                        location TEXT,
+                        neighborhood TEXT,
+                        details TEXT,
+                        snapshot_date TIMESTAMP,
+                        first_seen_date TIMESTAMP,
+                        created_at TIMESTAMP DEFAULT NOW(),
+                        updated_at TIMESTAMP DEFAULT NOW()
+                    )
+                """)
+                
+                # Create rental properties table
+                cur.execute("""
+                    CREATE TABLE IF NOT EXISTS properties_rentals (
+                        id SERIAL PRIMARY KEY,
+                        url TEXT UNIQUE NOT NULL,
+                        title TEXT,
+                        price NUMERIC,
+                        size NUMERIC,
+                        rooms INTEGER,
+                        price_per_sqm NUMERIC,
+                        location TEXT,
+                        neighborhood TEXT,
+                        details TEXT,
+                        is_furnished BOOLEAN,
+                        snapshot_date TIMESTAMP,
+                        first_seen_date TIMESTAMP,
+                        created_at TIMESTAMP DEFAULT NOW(),
+                        updated_at TIMESTAMP DEFAULT NOW()
+                    )
+                """)
+                
+                # Create indexes for better query performance
+                cur.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_properties_sales_location 
+                    ON properties_sales(location);
+                    
+                    CREATE INDEX IF NOT EXISTS idx_properties_rentals_location 
+                    ON properties_rentals(location);
+                    
+                    CREATE INDEX IF NOT EXISTS idx_properties_sales_price 
+                    ON properties_sales(price);
+                    
+                    CREATE INDEX IF NOT EXISTS idx_properties_rentals_price 
+                    ON properties_rentals(price);
+                """)
+                
+        logger.info("Database initialized successfully with all required tables")
         return True
     except Exception as e:
         logger.error(f"Error initializing database: {str(e)}")
