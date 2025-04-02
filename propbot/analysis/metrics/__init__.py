@@ -5,25 +5,26 @@ This package contains modules for analyzing rental data, calculating yields,
 and generating investment metrics for properties.
 """
 
+from .db_functions import (
+    get_rental_listings_from_database,
+    get_sales_listings_from_database,
+    get_rental_last_update,
+    set_rental_last_update,
+    get_sales_last_update,
+    set_sales_last_update
+)
+
 from .rental_metrics import (
     load_complete_rental_data,
-    standardize_location,
-    extract_neighborhoods,
-    extract_parish,
-    extract_neighborhood,
-    find_comparable_properties,
-    calculate_average_rent,
-    generate_income_report,
-    run_improved_analysis
+    filter_valid_rentals,
+    calculate_rental_metrics,
+    update_rental_metrics
 )
 
 from .rental_analysis import (
-    log_message,
-    load_sales_data,
-    extract_size,
-    extract_room_type,
-    save_report_to_json,
-    save_report_to_csv
+    analyze_rental_yields,
+    analyze_size_metrics,
+    save_analysis_results
 )
 
 # New imports from investment_metrics
@@ -50,24 +51,19 @@ from .segmentation import (
 )
 
 __all__ = [
-    # Rental metrics
+    'get_rental_listings_from_database',
+    'get_sales_listings_from_database',
+    'get_rental_last_update',
+    'set_rental_last_update',
+    'get_sales_last_update',
+    'set_sales_last_update',
     'load_complete_rental_data',
-    'standardize_location',
-    'extract_neighborhoods',
-    'extract_parish',
-    'extract_neighborhood',
-    'find_comparable_properties',
-    'calculate_average_rent',
-    'generate_income_report',
-    'run_improved_analysis',
-    
-    # Rental analysis
-    'log_message',
-    'load_sales_data',
-    'extract_size',
-    'extract_room_type',
-    'save_report_to_json',
-    'save_report_to_csv',
+    'filter_valid_rentals',
+    'calculate_rental_metrics',
+    'update_rental_metrics',
+    'analyze_rental_yields',
+    'analyze_size_metrics',
+    'save_analysis_results',
     
     # Investment metrics
     'calculate_noi',
