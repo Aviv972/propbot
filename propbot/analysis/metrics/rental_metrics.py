@@ -110,3 +110,58 @@ def update_rental_metrics() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         set_rental_last_update(datetime.now())
     
     return rental_data, metrics 
+
+def run_improved_analysis(similarity_threshold: int = 40, min_comparable_properties: int = 2) -> Dict[str, Any]:
+    """Run improved rental analysis with location-based comparison.
+    
+    Args:
+        similarity_threshold: Minimum similarity score for comparable properties
+        min_comparable_properties: Minimum number of comparable properties required
+        
+    Returns:
+        Dictionary containing analysis results
+    """
+    logger.info("Running improved rental analysis...")
+    
+    # Load rental data
+    rental_data = load_complete_rental_data()
+    if not rental_data:
+        logger.error("No rental data available for analysis")
+        return {}
+    
+    # Convert to DataFrame for easier analysis
+    df = pd.DataFrame(rental_data)
+    
+    # Calculate price per square meter if missing
+    if 'price_per_sqm' not in df.columns:
+        df['price_per_sqm'] = df['price'] / df['size']
+    
+    # Group by location and calculate metrics
+    location_metrics = {}
+    for location, group in df.groupby('location'):
+        if len(group) >= min_comparable_properties:
+            location_metrics[location] = {
+                'avg_price': group['price'].mean(),
+                'avg_size': group['size'].mean(),
+                'avg_price_per_sqm': group['price_per_sqm'].mean(),
+                'count': len(group)
+            }
+    
+    # Calculate overall metrics
+    overall_metrics = {
+        'total_properties': len(df),
+        'avg_price': df['price'].mean(),
+        'avg_size': df['size'].mean(),
+        'avg_price_per_sqm': df['price_per_sqm'].mean(),
+        'locations_analyzed': len(location_metrics)
+    }
+    
+    # Prepare results
+    results = {
+        'overall_metrics': overall_metrics,
+        'location_metrics': location_metrics,
+        'analysis_date': datetime.now().isoformat()
+    }
+    
+    logger.info(f"Analysis completed: {overall_metrics['total_properties']} properties analyzed across {overall_metrics['locations_analyzed']} locations")
+    return results 
