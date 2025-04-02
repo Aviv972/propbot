@@ -20,46 +20,16 @@ logger = logging.getLogger(__name__)
 MAX_RENTAL_PRICE_PER_SQM = 45  # Maximum reasonable rental price per square meter
 
 def load_complete_rental_data() -> List[Dict[str, Any]]:
-    """Load rental data from database or fallback to files."""
-    logger.info("Loading rental data...")
+    """Load rental data from database."""
+    logger.info("Loading rental data from database...")
     
-    # First try to load from database
+    # Load from database
     rental_data = get_rental_listings_from_database()
     if rental_data:
         logger.info(f"Loaded {len(rental_data)} rental properties from database")
         return filter_valid_rentals(rental_data)
     
-    # Fallback to file loading if database is empty
-    logger.warning("No rental data found in database, falling back to file loading")
-    
-    # Define possible file paths
-    file_paths = [
-        "propbot/data/processed/rentals_current.csv",
-        "data/processed/rentals_current.csv",
-        "../../../data/processed/rentals_current.csv",
-        "propbot/data/processed/rentals.csv",
-        "data/processed/rentals.csv",
-        "../../../data/processed/rentals.csv",
-        "propbot/data/processed/rental_data.csv",
-        "data/processed/rental_data.csv",
-        "../../../data/processed/rental_data.csv",
-        "rental_data.csv"
-    ]
-    
-    # Try each file path
-    for file_path in file_paths:
-        if os.path.exists(file_path):
-            logger.info(f"Loading rental data from {file_path}")
-            try:
-                df = pd.read_csv(file_path)
-                rental_data = df.to_dict('records')
-                logger.info(f"Loaded {len(rental_data)} rental properties from file")
-                return filter_valid_rentals(rental_data)
-            except Exception as e:
-                logger.error(f"Error loading rental data from {file_path}: {e}")
-                continue
-    
-    logger.error("No rental data file found")
+    logger.error("No rental data found in database")
     return []
 
 def filter_valid_rentals(rental_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
