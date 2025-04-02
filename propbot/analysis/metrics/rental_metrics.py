@@ -7,7 +7,6 @@ from typing import List, Dict, Any, Optional, Tuple
 
 import pandas as pd
 
-from propbot.config import get_config
 from .db_functions import (
     get_rental_listings_from_database,
     get_rental_last_update,
