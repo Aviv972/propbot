@@ -17,7 +17,7 @@ from typing import List, Dict, Any, Optional, Union
 
 # Import from utils module
 from propbot.data_processing.utils import save_json as utils_save_json
-from propbot.database_utils import get_connection, get_rental_listings_from_database
+from propbot.analysis.metrics.db_functions import get_rental_listings_from_database
 
 # Set up logging
 logger = logging.getLogger(__name__)
