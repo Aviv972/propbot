@@ -9,6 +9,12 @@ import psycopg2
 from psycopg2 import extras
 from datetime import datetime
 
+# Import environment loader module - this must be the first import
+from propbot.env_loader import reload_env
+
+# Make sure environment variables are loaded
+reload_env()
+
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,

@@ -1,175 +1,122 @@
-# PropertyBot Investment Analysis System
+# PropBot Investment Analyzer
 
-A comprehensive data pipeline and analysis system for evaluating real estate investment opportunities.
+A real estate investment analysis tool that scrapes property listings from Idealista, processes them, and provides detailed investment metrics and visualizations.
 
-## Overview
+## Features
 
-PropertyBot scrapes property listings, processes the data, analyzes rental yields and investment metrics, and generates visualizations to help identify the best investment opportunities.
+- Automated scraping of property listings (sales and rentals)
+- Database storage for property data
+- Investment analysis metrics (rental yield, cap rate, cash flow)
+- Interactive dashboard for exploring investment opportunities
+- Neighborhood-based analysis
 
-## Project Structure
-
-```
-investmentbot/
-├── propbot/                   # Main project code
-│   ├── data/                  # Data directories
-│   │   ├── raw/               # Original data files
-│   │   │   ├── scrape_history/ # Raw scrape data organized by date
-│   │   │   └── consolidated/  # Consolidated data files
-│   │   ├── processed/         # Processed, standardized data
-│   │   │   └── archive/       # Older versions of processed files
-│   │   ├── output/            # Analysis results and visualization data
-│   │   │   ├── reports/       # Generated reports and metrics
-│   │   │   └── visualizations/ # Dashboard and visualization files
-│   │   └── metadata/          # Metadata about the datasets
-│   ├── analysis/              # Analysis modules
-│   │   └── metrics/           # Rental and investment metrics calculation
-│   ├── utils/                 # Utility functions
-│   │   └── data_cleaning.py   # Data cleaning utilities
-│   └── ui/                    # User interface assets
-│       └── investment_dashboard.html # Dashboard HTML file
-├── archive/                   # Archived old scripts and data
-├── update_yields.py           # Script to run the yield analysis
-├── check_yields.py            # Script to check yield distribution
-└── propbot/data_manifest.json # Documentation of data files
-```
-
-## Data Organization
-
-Data is organized into a structured pipeline:
-
-1. **Raw Data** (`propbot/data/raw/`)
-   - Scraped data from various sources
-   - Data organized by date in `scrape_history/`
-   - Consolidated listings in `consolidated/`
-
-2. **Processed Data** (`propbot/data/processed/`)
-   - Cleaned, standardized datasets ready for analysis
-   - Current versions use the suffix `_current` (e.g., `sales_current.csv`)
-   - Previous versions archived in `processed/archive/`
-
-3. **Output** (`propbot/data/output/`)
-   - Analysis results in `reports/`
-   - Visualizations and dashboards in `visualizations/`
-
-4. **Metadata** (`propbot/data/metadata/`)
-   - Information about datasets and processing history
-
-## Key Files
-
-- `propbot/data/processed/rentals_current.csv` - Current rental property listings
-- `propbot/data/processed/sales_current.csv` - Current property sales listings
-- `propbot/data/output/reports/rental_income_report_current.csv` - Rental income analysis
-- `propbot/data/output/reports/investment_metrics_current.csv` - Investment metrics
-- `propbot/data/output/visualizations/investment_dashboard.html` - Interactive dashboard
-
-## Running the System
-
-### Updating Rental Data
-
-To scrape new rental listings and update the consolidated data:
-
-```bash
-python propbot/scrape_additional_rentals.py
-python propbot/consolidate_rentals.py
-```
-
-### Processing Data
-
-To convert consolidated data to standardized format:
-
-```bash
-python propbot/convert_from_consolidated.py
-python propbot/convert_sales_from_consolidated.py
-```
-
-### Generating Yields and Investment Metrics
-
-To calculate rental yields and generate investment metrics:
-
-```bash
-python update_yields.py
-```
-
-### Viewing Analytics
-
-To check the distribution of yields:
-
-```bash
-python check_yields.py
-```
-
-To generate the investment dashboard:
-
-```bash
-python propbot/dashboard_generator.py
-```
-
-Then open `propbot/data/output/visualizations/investment_dashboard.html` in a web browser.
-
-## Data Management Guidelines
-
-1. Always use the `_current` suffix for the latest version of a file
-2. When updating a file, move the old version to `archive/` with a timestamp
-3. Keep raw data organized by date in `scrape_history/`
-4. Reference data file paths from the manifest
-
-For a complete listing of all data files and their purpose, refer to `propbot/data_manifest.json`.
-
-## Heroku Deployment
-
-This project is configured for deployment on Heroku. Follow these steps to deploy:
+## Installation and Setup
 
 ### Prerequisites
 
-- A Heroku account
-- Heroku CLI installed locally
-- Git repository set up
+- Python 3.8+
+- PostgreSQL database
+- Heroku CLI (for deployment)
 
-### Deployment Steps
+### Local Development Setup
 
-1. Log in to Heroku CLI:
-```bash
+1. Clone the repository:
+```
+git clone https://github.com/yourusername/propbot-investment-analyzer.git
+cd propbot-investment-analyzer
+```
+
+2. Create a virtual environment and install dependencies:
+```
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+3. Copy the example .env file and fill in your values:
+```
+cp .env.example .env
+```
+
+4. Update the `.env` file with your configuration:
+```
+DATABASE_URL=postgres://username:password@host:port/database
+SCRAPINGBEE_API_KEY=your_api_key
+```
+
+5. Run the dashboard server:
+```
+python -m propbot.run_dashboard_server
+```
+
+### Running the Full Data Pipeline
+
+To run the complete end-to-end data pipeline:
+
+```
+python -m propbot.run_dashboard_server --run-analysis
+```
+
+This will:
+1. Scrape new property listings from Idealista
+2. Update the database with new data
+3. Process and consolidate the data
+4. Run investment analysis
+5. Generate an updated dashboard
+
+### Deploying to Heroku
+
+1. Make sure you have the Heroku CLI installed and you're logged in:
+```
 heroku login
 ```
 
-2. Create a new Heroku app:
-```bash
-heroku create your-app-name
+2. Run the deployment script:
+```
+./deploy_to_heroku.sh
 ```
 
-3. Push the code to Heroku:
-```bash
-git push heroku main
+3. Check the environment variables on Heroku:
+```
+./check_heroku_env.sh
 ```
 
-4. Set up any required environment variables:
-```bash
-heroku config:set FLASK_ENV=production
+4. Access your application at:
+```
+https://propbot-investment-analyzer-b56a7b23f6c1.herokuapp.com/
 ```
 
-5. Open the deployed application:
-```bash
-heroku open
+## Troubleshooting
+
+### Environment Variables
+
+If you encounter issues with database connections or missing data, check that your environment variables are properly set:
+
+1. For local development, verify `.env` file has `DATABASE_URL` properly configured
+2. For Heroku deployment, run:
+```
+heroku config -a propbot-investment-analyzer
 ```
 
-### Monitoring and Maintenance
+### Data Pipeline Errors
 
-- View application logs:
-```bash
-heroku logs --tail
-```
+To debug data pipeline issues:
 
-- Restart the application:
-```bash
-heroku restart
-```
+1. Check the logs:
+   - Local: Terminal output
+   - Heroku: `heroku logs --tail -a propbot-investment-analyzer`
 
-### Local Testing
+2. Run individual components separately to isolate the issue:
+   - Scraping: `python -m propbot.scrapers.idealista_scraper`
+   - Database update: `python -m propbot.data_processing.update_db`
+   - Investment analysis: `python -m propbot.run_investment_analysis`
 
-To test the application locally with the Heroku settings:
+## Recent Fixes
 
-```bash
-heroku local
-```
+- Fixed environment variable loading with centralized `env_loader.py`
+- Added error handling for None values in rental metrics calculation
+- Improved database connection reliability
 
-For a complete listing of all data files and their purpose, refer to `propbot/data_manifest.json`.
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

@@ -1,177 +1,270 @@
-"""Rental analysis module."""
+"""
+Rental Analysis Module
+
+This module analyzes rental yields and related metrics for properties.
+"""
+
 import os
 import json
 import logging
-from datetime import datetime
-from typing import List, Dict, Any, Optional, Tuple
-from decimal import Decimal
-
-import pandas as pd
 import numpy as np
-from sklearn.linear_model import LinearRegression
+import pandas as pd
+from decimal import Decimal
+from pathlib import Path
+from typing import Dict, Any, Optional, Union, List
+from datetime import datetime
 
-from .db_functions import (
-    get_rental_listings_from_database,
-    get_sales_listings_from_database
-)
+# Import environment loader module - this must be the first import
+from propbot.env_loader import reload_env
 
+# Make sure environment variables are loaded
+reload_env()
+
+from .db_functions import get_rental_listings_from_database, get_sales_listings_from_database
+
+# Configure logging
 logger = logging.getLogger(__name__)
 
-def convert_decimal_to_float(value):
-    """Convert decimal values to float, handling None values."""
-    if value is None:
+def convert_decimal_to_float(value: Any) -> Optional[float]:
+    """
+    Convert a value to float, handling None and Decimal types.
+    
+    Args:
+        value: Value to convert
+        
+    Returns:
+        Float value or None if conversion fails
+    """
+    if value is None or pd.isna(value):
         return None
-    if isinstance(value, Decimal):
-        return float(value)
     try:
+        if isinstance(value, Decimal):
+            return float(value)
         return float(value)
-    except (TypeError, ValueError):
+    except (ValueError, TypeError):
         return None
-
-def convert_dataframe_numeric(df: pd.DataFrame) -> pd.DataFrame:
-    """Convert all numeric columns in a DataFrame to float."""
-    numeric_columns = ['price', 'size', 'price_per_sqm', 'rooms', 'bathrooms']
-    for col in numeric_columns:
+    
+def convert_dataframe_numeric(df: pd.DataFrame, columns: List[str]) -> pd.DataFrame:
+    """
+    Convert specified numeric columns in a DataFrame to float.
+    
+    Args:
+        df: Input DataFrame
+        columns: List of column names to convert
+        
+    Returns:
+        DataFrame with converted columns
+    """
+    if df is None or df.empty:
+        return pd.DataFrame()
+    
+    for col in columns:
         if col in df.columns:
             df[col] = df[col].apply(convert_decimal_to_float)
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+    
     return df
 
-def analyze_rental_yields(
-    rental_data: Optional[List[Dict[str, Any]]] = None,
-    sales_data: Optional[List[Dict[str, Any]]] = None
-) -> Dict[str, Any]:
-    """Analyze rental yields by location."""
-    logger.info("Analyzing rental yields...")
+def convert_numeric_values(data: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Convert all numeric values in a dictionary to float.
     
+    Args:
+        data: Input dictionary
+        
+    Returns:
+        Dictionary with numeric values converted to float
+    """
+    result = {}
+    for key, value in data.items():
+        if isinstance(value, dict):
+            result[key] = convert_numeric_values(value)
+        elif isinstance(value, (Decimal, np.float32, np.float64, np.int32, np.int64)):
+            result[key] = float(value)
+        elif pd.isna(value):
+            result[key] = None
+        else:
+            result[key] = value
+    return result
+
+def analyze_rental_yields(rental_data: Optional[pd.DataFrame] = None,
+                        sales_data: Optional[pd.DataFrame] = None,
+                        location: Optional[str] = None) -> Dict[str, Any]:
+    """
+    Analyze rental yields by location.
+    
+    Args:
+        rental_data: DataFrame with rental listings (optional, will load from DB if None)
+        sales_data: DataFrame with sales listings (optional, will load from DB if None)
+        location: Location to analyze (e.g., neighborhood)
+        
+    Returns:
+        Dictionary with analysis results
+    """
     try:
         # Load data from database if not provided
         if rental_data is None:
-            rental_data = get_rental_listings_from_database()
+            rental_data = pd.DataFrame(get_rental_listings_from_database())
         if sales_data is None:
-            sales_data = get_sales_listings_from_database()
-        
-        if not rental_data or not sales_data:
-            logger.error("No rental or sales data available for analysis")
-            return {}
-        
-        # Convert to DataFrames for easier analysis
-        rentals_df = pd.DataFrame(rental_data)
-        sales_df = pd.DataFrame(sales_data)
-        
-        # Convert all numeric columns to float
-        rentals_df = convert_dataframe_numeric(rentals_df)
-        sales_df = convert_dataframe_numeric(sales_df)
-        
-        # Calculate yields by location
-        location_yields = {}
-        for location in sales_df['location'].unique():
-            location_rentals = rentals_df[rentals_df['location'] == location]
-            location_sales = sales_df[sales_df['location'] == location]
+            sales_data = pd.DataFrame(get_sales_listings_from_database())
             
-            if len(location_rentals) == 0 or len(location_sales) == 0:
-                continue
-                
-            avg_rental_price = location_rentals['price'].mean()
-            avg_sales_price = location_sales['price'].mean()
-            
-            if pd.notna(avg_sales_price) and avg_sales_price > 0 and pd.notna(avg_rental_price):
-                annual_yield = (avg_rental_price * 12) / avg_sales_price * 100
-                location_yields[location] = {
-                    'annual_yield': float(annual_yield),
-                    'avg_rental_price': float(avg_rental_price),
-                    'avg_sales_price': float(avg_sales_price),
-                    'rental_count': len(location_rentals),
-                    'sales_count': len(location_sales)
-                }
+        # Initialize empty DataFrames if None
+        rental_data = pd.DataFrame() if rental_data is None else rental_data.copy()
+        sales_data = pd.DataFrame() if sales_data is None else sales_data.copy()
         
-        # Calculate size-based metrics
-        size_metrics = analyze_size_metrics(rentals_df, sales_df)
+        # Early return if rental data is empty
+        if rental_data.empty:
+            logger.warning("No rental data available for analysis")
+            return {
+                'location': location,
+                'avg_rental_price': None,
+                'avg_sales_price': None,
+                'annual_yield': None,
+                'total_rentals': 0,
+                'total_sales': 0,
+                'size_metrics': {},
+                'analysis_date': datetime.now().isoformat()
+            }
         
-        # Combine results
-        analysis = {
-            'location_yields': location_yields,
+        # Convert numeric columns to float
+        numeric_columns = ['price', 'size', 'price_per_sqm']
+        rental_data = convert_dataframe_numeric(rental_data, numeric_columns)
+        sales_data = convert_dataframe_numeric(sales_data, numeric_columns)
+        
+        # Filter by location if specified
+        if location:
+            if not rental_data.empty and 'location' in rental_data.columns:
+                rental_data = rental_data[rental_data['location'] == location]
+            if not sales_data.empty and 'location' in sales_data.columns:
+                sales_data = sales_data[sales_data['location'] == location]
+        
+        # Drop rows with invalid prices (None, NaN, 0, or negative)
+        rental_data = rental_data[
+            rental_data['price'].notna() & 
+            (rental_data['price'] > 0)
+        ]
+        sales_data = sales_data[
+            sales_data['price'].notna() & 
+            (sales_data['price'] > 0)
+        ]
+        
+        # Calculate average rental and sales prices
+        avg_rental_price = rental_data['price'].mean() if not rental_data.empty else None
+        avg_sales_price = sales_data['price'].mean() if not sales_data.empty else None
+        
+        # Calculate annual yield if both prices are available and valid
+        annual_yield = None
+        if avg_rental_price is not None and avg_sales_price is not None:
+            if not pd.isna(avg_rental_price) and not pd.isna(avg_sales_price):
+                try:
+                    avg_rental_price = float(avg_rental_price)
+                    avg_sales_price = float(avg_sales_price)
+                    if avg_sales_price > 0:  # Only check sales price > 0, rental price already filtered
+                        annual_yield = (avg_rental_price * 12) / avg_sales_price
+                except (ValueError, TypeError) as e:
+                    logger.warning(f"Failed to convert rental or sales price to float: {e}")
+                    annual_yield = None
+        
+        # Get size metrics
+        size_metrics = analyze_size_metrics(rental_data, sales_data)
+        
+        # Prepare results
+        results = {
+            'location': location,
+            'avg_rental_price': convert_decimal_to_float(avg_rental_price),
+            'avg_sales_price': convert_decimal_to_float(avg_sales_price),
+            'annual_yield': convert_decimal_to_float(annual_yield),
+            'total_rentals': len(rental_data) if not rental_data.empty else 0,
+            'total_sales': len(sales_data) if not sales_data.empty else 0,
             'size_metrics': size_metrics,
-            'total_rentals': len(rental_data),
-            'total_sales': len(sales_data),
             'analysis_date': datetime.now().isoformat()
         }
         
-        return analysis
+        # Convert all numeric values to float
+        results = convert_numeric_values(results)
+        
+        return results
+        
     except Exception as e:
-        logger.error(f"Error in rental analysis: {str(e)}")
+        logger.error(f"Error analyzing rental yields: {e}")
         return {}
 
-def analyze_size_metrics(rentals_df: pd.DataFrame, sales_df: pd.DataFrame) -> Dict[str, Any]:
-    """Analyze price relationships with property size."""
-    metrics = {}
+def analyze_size_metrics(rental_data: Optional[pd.DataFrame], 
+                        sales_data: Optional[pd.DataFrame]) -> Dict[str, Any]:
+    """
+    Analyze relationship between property size and price.
     
+    Args:
+        rental_data: DataFrame with rental listings
+        sales_data: DataFrame with sales listings
+        
+    Returns:
+        Dictionary with size metrics
+    """
     try:
-        # Filter out rows with missing values
-        valid_rentals = rentals_df.dropna(subset=['size', 'price'])
-        valid_sales = sales_df.dropna(subset=['size', 'price'])
+        metrics = {}
         
-        # Rental price vs size regression
-        if len(valid_rentals) > 0:
-            X = valid_rentals['size'].values.reshape(-1, 1)
-            y = valid_rentals['price'].values
-            reg = LinearRegression().fit(X, y)
-            metrics['rental_size_coefficient'] = float(reg.coef_[0])
-            metrics['rental_size_intercept'] = float(reg.intercept_)
-            metrics['rental_size_r2'] = float(reg.score(X, y))
+        # Analyze rental data
+        if rental_data is not None and not rental_data.empty:
+            valid_rentals = rental_data.dropna(subset=['size', 'price'])
+            if not valid_rentals.empty:
+                rental_coef = np.polyfit(valid_rentals['size'], valid_rentals['price'], 1)
+                metrics['rental_size_coef'] = float(rental_coef[0])
+                metrics['rental_size_intercept'] = float(rental_coef[1])
+                if 'price_per_sqm' in valid_rentals.columns:
+                    metrics['rental_avg_price_per_sqm'] = float(valid_rentals['price_per_sqm'].mean())
         
-        # Sales price vs size regression
-        if len(valid_sales) > 0:
-            X = valid_sales['size'].values.reshape(-1, 1)
-            y = valid_sales['price'].values
-            reg = LinearRegression().fit(X, y)
-            metrics['sales_size_coefficient'] = float(reg.coef_[0])
-            metrics['sales_size_intercept'] = float(reg.intercept_)
-            metrics['sales_size_r2'] = float(reg.score(X, y))
-        
-        # Size distribution metrics
-        if len(valid_rentals) > 0:
-            metrics['rental_size_mean'] = float(valid_rentals['size'].mean())
-            metrics['rental_size_median'] = float(valid_rentals['size'].median())
-            metrics['rental_size_std'] = float(valid_rentals['size'].std())
-        
-        if len(valid_sales) > 0:
-            metrics['sales_size_mean'] = float(valid_sales['size'].mean())
-            metrics['sales_size_median'] = float(valid_sales['size'].median())
-            metrics['sales_size_std'] = float(valid_sales['size'].std())
+        # Analyze sales data
+        if sales_data is not None and not sales_data.empty:
+            valid_sales = sales_data.dropna(subset=['size', 'price'])
+            if not valid_sales.empty:
+                sales_coef = np.polyfit(valid_sales['size'], valid_sales['price'], 1)
+                metrics['sales_size_coef'] = float(sales_coef[0])
+                metrics['sales_size_intercept'] = float(sales_coef[1])
+                if 'price_per_sqm' in valid_sales.columns:
+                    metrics['sales_avg_price_per_sqm'] = float(valid_sales['price_per_sqm'].mean())
         
         return metrics
+        
     except Exception as e:
-        logger.error(f"Error in size metrics analysis: {str(e)}")
+        logger.error(f"Error analyzing size metrics: {e}")
         return {}
 
-def save_analysis_results(analysis: Dict[str, Any], output_dir: str = "data/reports") -> str:
-    """Save analysis results to a JSON file."""
+def save_analysis_results(results: Dict[str, Any], output_dir: Union[str, Path]) -> bool:
+    """
+    Save analysis results to a JSON file.
+    
+    Args:
+        results: Analysis results dictionary
+        output_dir: Directory to save the results
+        
+    Returns:
+        True if successful, False otherwise
+    """
     try:
+        # Convert Path to string
+        output_dir = str(output_dir)
+        
+        # Create output directory if it doesn't exist
         os.makedirs(output_dir, exist_ok=True)
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"rental_analysis_{timestamp}.json"
-        filepath = os.path.join(output_dir, filename)
         
-        # Ensure all numeric values are converted to float
-        def convert_numeric_values(obj):
-            if isinstance(obj, dict):
-                return {k: convert_numeric_values(v) for k, v in obj.items()}
-            elif isinstance(obj, list):
-                return [convert_numeric_values(i) for i in obj]
-            elif isinstance(obj, (Decimal, np.float64, np.int64)):
-                return float(obj)
-            return obj
+        # Generate output filename
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        output_file = os.path.join(output_dir, f'rental_analysis_{timestamp}.json')
         
-        converted_analysis = convert_numeric_values(analysis)
+        # Convert all numeric values to float before saving
+        results = convert_numeric_values(results)
         
-        with open(filepath, 'w') as f:
-            json.dump(converted_analysis, f, indent=2)
+        # Save results
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(results, f, indent=2)
         
-        logger.info(f"Saved rental analysis results to {filepath}")
-        return filepath
+        logger.info(f"Saved analysis results to {output_file}")
+        return True
+        
     except Exception as e:
-        logger.error(f"Error saving analysis results: {str(e)}")
-        return ""
+        logger.error(f"Error saving analysis results: {e}")
+        return False
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)

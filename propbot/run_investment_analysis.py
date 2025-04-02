@@ -10,6 +10,13 @@ import os
 import json
 from pathlib import Path
 from typing import Dict, Any, List
+
+# Import environment loader module - this must be the first import
+from propbot.env_loader import reload_env
+
+# Make sure environment variables are loaded
+reload_env()
+
 import pandas as pd
 
 # Import analysis modules
@@ -83,6 +90,19 @@ def analyze_rental_data() -> dict:
 def load_sales_data() -> List[Dict[str, Any]]:
     """Load sales data directly from CSV."""
     logger.info("Loading sales data...")
+    
+    # First try to get data from the database
+    try:
+        from propbot.analysis.metrics.db_functions import get_sales_listings_from_database
+        db_sales = get_sales_listings_from_database()
+        if db_sales and len(db_sales) > 0:
+            logger.info(f"Loaded {len(db_sales)} sales listings from database")
+            return db_sales
+        else:
+            logger.info("No sales data found in database, falling back to file-based loading")
+    except Exception as e:
+        logger.info(f"Error loading sales data from database: {str(e)}")
+        logger.info("Falling back to file-based loading")
     
     # Define file paths to use real data files
     sales_files = [

@@ -6,9 +6,17 @@ Database utility functions for analysis modules
 import logging
 import traceback
 import psycopg2
+import psycopg2.extras
 import os
 from typing import List, Dict, Any, Optional
 from datetime import datetime
+from decimal import Decimal
+
+# Import environment loader module - this must be the first import
+from propbot.env_loader import reload_env
+
+# Make sure environment variables are loaded
+reload_env()
 
 import pandas as pd
 
@@ -17,24 +25,6 @@ from propbot.database_utils import get_connection
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-def get_connection():
-    """Get a connection to the database."""
-    database_url = os.environ.get("DATABASE_URL")
-    if not database_url:
-        logger.error("DATABASE_URL environment variable not set")
-        return None
-    
-    # Add SSL mode if not present
-    if "sslmode=" not in database_url:
-        database_url += "?sslmode=require"
-    
-    try:
-        conn = psycopg2.connect(database_url)
-        return conn
-    except Exception as e:
-        logger.error(f"Error connecting to database: {str(e)}")
-        return None
 
 def get_rental_listings_from_database() -> List[Dict]:
     """Get all rental listings from the database."""
@@ -54,7 +44,14 @@ def get_rental_listings_from_database() -> List[Dict]:
                 FROM properties_rentals
                 ORDER BY snapshot_date DESC
             """)
-            listings = [dict(row) for row in cur.fetchall()]
+            listings = []
+            for row in cur.fetchall():
+                listing = dict(row)
+                # Convert Decimal values to float
+                for key, value in listing.items():
+                    if isinstance(value, Decimal):
+                        listing[key] = float(value)
+                listings.append(listing)
             logger.info(f"Retrieved {len(listings)} rental listings from database")
             return listings
     except Exception as e:
