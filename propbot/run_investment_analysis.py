@@ -25,6 +25,11 @@ from propbot.analysis.metrics.investment_metrics import (
     generate_best_properties_report
 )
 from propbot.analysis.metrics.rental_metrics import run_improved_analysis
+from propbot.analysis.metrics.db_functions import (
+    get_rental_estimates,
+    get_sales_listings_from_database,
+    save_multiple_analyzed_properties
+)
 
 # Set up logging
 logging.basicConfig(
@@ -46,41 +51,27 @@ def analyze_rental_data() -> dict:
     """Run the rental data analysis to estimate rental income and return the report dictionary."""
     logger.info("Running rental income analysis...")
     
-    # Parameters for rental analysis
-    similarity_threshold = 40  # Location similarity threshold
-    min_comparable_properties = 2  # Minimum number of comparable properties
-    
     try:
-        # Run the rental analysis
+        # First check if rental estimates exist in the database
+        rental_estimates = get_rental_estimates()
+        
+        if rental_estimates:
+            # Convert list of dictionaries to dictionary with URL as key
+            rental_estimates_dict = {estimate['url']: estimate for estimate in rental_estimates}
+            logger.info(f"Loaded {len(rental_estimates_dict)} rental estimates from database")
+            return rental_estimates_dict
+            
+        # If no rental estimates exist in database, run the rental analysis
         run_improved_analysis(
-            similarity_threshold=similarity_threshold,
-            min_comparable_properties=min_comparable_properties
+            similarity_threshold=40,  # Location similarity threshold
+            min_comparable_properties=2  # Minimum number of comparable properties
         )
         
-        # The function saves the report to a file, so we need to load it
-        report_path = BASE_DIR / "propbot" / "data" / "processed" / "rental_income_report_improved.json"
-        
-        if not report_path.exists():
-            # Try alternative paths
-            alternative_paths = [
-                PROCESSED_DIR / "rental_income_report_improved.json",
-                Path("/Users/avivcarmi/Desktop/Projects/propbot/data/processed/rental_income_report_improved.json")
-            ]
-            
-            for path in alternative_paths:
-                if path.exists():
-                    report_path = path
-                    break
-        
-        if not report_path.exists():
-            logger.error(f"Rental income report not found at {report_path}")
-            return {}
-        
-        with open(report_path, 'r') as f:
-            rental_analysis_dict = json.load(f)
-        
-        logger.info(f"Loaded rental analysis report with {len(rental_analysis_dict)} properties")
-        return rental_analysis_dict
+        # Try again to get rental estimates from database
+        rental_estimates = get_rental_estimates()
+        rental_estimates_dict = {estimate['url']: estimate for estimate in rental_estimates}
+        logger.info(f"Generated and loaded {len(rental_estimates_dict)} rental estimates from database")
+        return rental_estimates_dict
         
     except Exception as e:
         logger.error(f"Error in rental analysis: {str(e)}")
@@ -267,10 +258,10 @@ def main():
             # Merge the data
             property_with_estimate = property_item.copy()
             property_with_estimate['monthly_rent'] = rental_estimate.get('estimated_monthly_rent', 0)
-            property_with_estimate['annual_rent'] = rental_estimate.get('estimated_annual_rent', 0)
+            property_with_estimate['annual_rent'] = rental_estimate.get('estimated_monthly_rent', 0) * 12
             property_with_estimate['comparable_count'] = rental_estimate.get('comparable_count', 0)
-            property_with_estimate['avg_price_per_sqm'] = rental_estimate.get('avg_price_per_sqm', 0)
-            property_with_estimate['gross_rental_yield'] = rental_estimate.get('gross_rental_yield', 0)
+            property_with_estimate['rental_price_per_sqm'] = rental_estimate.get('price_per_sqm', 0)
+            property_with_estimate['confidence'] = rental_estimate.get('confidence', 'low')
             
             properties_with_rental_estimates.append(property_with_estimate)
         
@@ -282,17 +273,18 @@ def main():
         
         # Step 3: Generate investment summary
         logger.info("Step 3: Generating investment summary...")
-        generate_investment_summary(properties_with_metrics)
+        summary_result = generate_investment_summary(properties_with_metrics)
         
-        logger.info("Investment analysis completed successfully!")
+        # Step 4: Save analyzed properties to database
+        logger.info("Step 4: Saving analyzed properties to database...")
+        save_multiple_analyzed_properties(properties_with_metrics)
+        
+        logger.info("Investment analysis completed successfully")
+        return summary_result
         
     except Exception as e:
-        logger.error(f"Investment analysis failed: {str(e)}")
-        import traceback
-        logger.error(traceback.format_exc())
-        return False
-    
-    return True
+        logger.error(f"Error in investment analysis: {str(e)}")
+        return None
 
 if __name__ == "__main__":
     main() 

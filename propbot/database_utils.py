@@ -129,6 +129,58 @@ def initialize_database():
                     ON properties_rentals(price);
                 """)
                 
+                # Create rental_estimates table
+                cur.execute("""
+                    CREATE TABLE IF NOT EXISTS rental_estimates (
+                        id SERIAL PRIMARY KEY,
+                        url TEXT UNIQUE NOT NULL,
+                        neighborhood TEXT,
+                        size NUMERIC,
+                        rooms INTEGER,
+                        estimated_monthly_rent NUMERIC,
+                        price_per_sqm NUMERIC,
+                        comparable_count INTEGER,
+                        confidence TEXT,
+                        last_updated TIMESTAMP DEFAULT NOW()
+                    );
+                    
+                    CREATE INDEX IF NOT EXISTS idx_rental_estimates_url 
+                    ON rental_estimates(url);
+                    
+                    CREATE INDEX IF NOT EXISTS idx_rental_estimates_neighborhood 
+                    ON rental_estimates(neighborhood);
+                """)
+                
+                # Create analyzed_properties table
+                cur.execute("""
+                    CREATE TABLE IF NOT EXISTS analyzed_properties (
+                        id SERIAL PRIMARY KEY,
+                        property_id INTEGER REFERENCES properties_sales(id),
+                        url TEXT UNIQUE NOT NULL,
+                        title TEXT,
+                        price NUMERIC,
+                        size NUMERIC,
+                        rooms INTEGER,
+                        neighborhood TEXT,
+                        monthly_rent NUMERIC,
+                        price_per_sqm NUMERIC,
+                        rental_price_per_sqm NUMERIC,
+                        neighborhood_avg_rent NUMERIC,
+                        gross_yield NUMERIC,
+                        cap_rate NUMERIC,
+                        cash_on_cash NUMERIC,
+                        monthly_cash_flow NUMERIC,
+                        comparable_count INTEGER,
+                        analysis_date TIMESTAMP DEFAULT NOW()
+                    );
+                    
+                    CREATE INDEX IF NOT EXISTS idx_analyzed_properties_url 
+                    ON analyzed_properties(url);
+                    
+                    CREATE INDEX IF NOT EXISTS idx_analyzed_properties_neighborhood 
+                    ON analyzed_properties(neighborhood);
+                """)
+                
         logger.info("Database initialized successfully with all required tables")
         return True
     except Exception as e:
