@@ -130,13 +130,15 @@ def generate_html_dashboard(investment_data):
         return False
     
     # Filter out properties without valid rental estimates
-    valid_properties = [prop for prop in investment_data if prop.get('monthly_rent', 0) > 0]
+    valid_properties = investment_data
     
-    filtered_count = len(investment_data) - len(valid_properties)
+    # Log how many properties would be filtered if we required valid rental estimates
+    properties_without_rentals = [prop for prop in investment_data if prop.get('monthly_rent', 0) <= 0]
+    filtered_count = len(properties_without_rentals)
     if filtered_count > 0:
-        logger.info(f"Filtered out {filtered_count} properties without valid rental estimates")
+        logger.info(f"Found {filtered_count} properties without valid rental estimates (showing all properties anyway)")
     
-    # Use the filtered properties for the dashboard
+    # Use all properties for the dashboard
     investment_data = valid_properties
     
     # Calculate summaries
@@ -1050,7 +1052,7 @@ def generate_html_dashboard(investment_data):
             f.write(html_content)
         
         logger.info(f"Dashboard saved to {output_file}")
-        return html_content
+        return output_file
     else:
         logger.info("No properties to generate dashboard")
         return False
