@@ -49,7 +49,7 @@ git commit -m "Fix environment loading and None value handling"
 
 # Push to Heroku
 echo "Pushing to Heroku..."
-git push heroku master
+git push heroku main
 
 # Trigger the data processing pipeline on Heroku
 echo "Triggering data processing pipeline..."

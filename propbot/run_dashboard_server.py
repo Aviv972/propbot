@@ -214,6 +214,7 @@ def run_analysis():
     force_rental_update = request.json.get('force_rental_update', False) if request.is_json else False
     max_sales_pages = request.json.get('max_sales_pages', None) if request.is_json else None
     max_rental_pages = request.json.get('max_rental_pages', None) if request.is_json else None
+    skip_scraping = request.json.get('skip_scraping', False) if request.is_json else False
     
     # Define paths
     sales_data_path = SCRIPT_DIR / "idealista_listings.json"
@@ -225,9 +226,12 @@ def run_analysis():
         "note": "The list of properties for sale will continuously grow as new properties are analyzed each time."
     }
     
+    if skip_scraping:
+        results["message"] = "Analysis workflow started with scraping skipped - using existing data"
+    
     # Define task with parameters
     def task():
-        run_analysis_task(force_rental_update, max_sales_pages, max_rental_pages)
+        run_analysis_task(force_rental_update, max_sales_pages, max_rental_pages, skip_scraping)
     
     # Start analysis in background thread
     thread = threading.Thread(target=task)
@@ -236,49 +240,52 @@ def run_analysis():
     
     return jsonify(results)
 
-def run_analysis_task(force_rental_update=False, max_sales_pages=None, max_rental_pages=None):
+def run_analysis_task(force_rental_update=False, max_sales_pages=None, max_rental_pages=None, skip_scraping=False):
     """Run the complete property analysis workflow"""
     try:
         results = {}
         sales_data_path = SCRIPT_DIR / "idealista_listings.json"
         
-        # Step 1: Run the scraper for sales properties
-        # Ensure the data directory exists
-        os.makedirs(os.path.dirname(os.path.join(SCRIPT_DIR, "propbot/data/raw/sales")), exist_ok=True)
-        
-        # Run the scraper directly as a module import instead of subprocess
-        try:
-            logger.info("Importing and running sales scraper directly...")
-            from propbot.scrapers.idealista_scraper import run_scraper
-            # Set environment variable for max pages
-            if max_sales_pages:
-                logger.info(f"Using max_sales_pages={max_sales_pages}")
-                os.environ["MAX_SALES_PAGES"] = str(max_sales_pages)
-            # Run the scraper with no parameters - it will use the environment variable
-            new_properties_count = run_scraper()
-            results["new_properties"] = new_properties_count
+        if not skip_scraping:
+            # Step 1: Run the scraper for sales properties
+            # Ensure the data directory exists
+            os.makedirs(os.path.dirname(os.path.join(SCRIPT_DIR, "propbot/data/raw/sales")), exist_ok=True)
             
-            # Immediately update the database with new sales data
+            # Run the scraper directly as a module import instead of subprocess
             try:
-                logger.info("Updating database with new sales data...")
-                from propbot.data_processing.update_db import update_database_after_scrape
-                if update_database_after_scrape('sales'):
-                    logger.info("Database successfully updated with new sales data")
-                else:
-                    logger.warning("Failed to update database with new sales data")
-            except Exception as e:
-                logger.error(f"Error updating database with sales data: {str(e)}")
-            
-            # Check file for total properties count
-            if sales_data_path.exists():
+                logger.info("Importing and running sales scraper directly...")
+                from propbot.scrapers.idealista_scraper import run_scraper
+                # Set environment variable for max pages
+                if max_sales_pages:
+                    logger.info(f"Using max_sales_pages={max_sales_pages}")
+                    os.environ["MAX_SALES_PAGES"] = str(max_sales_pages)
+                # Run the scraper with no parameters - it will use the environment variable
+                new_properties_count = run_scraper()
+                results["new_properties"] = new_properties_count
+                
+                # Immediately update the database with new sales data
                 try:
-                    with open(sales_data_path, 'r') as f:
-                        properties_data = json.load(f)
-                        results["total_properties"] = len(properties_data)
+                    logger.info("Updating database with new sales data...")
+                    from propbot.data_processing.update_db import update_database_after_scrape
+                    if update_database_after_scrape('sales'):
+                        logger.info("Database successfully updated with new sales data")
+                    else:
+                        logger.warning("Failed to update database with new sales data")
                 except Exception as e:
-                    logger.error(f"Error reading property data: {str(e)}")
-        except Exception as e:
-            logger.error(f"Error running sales scraper: {str(e)}")
+                    logger.error(f"Error updating database with sales data: {str(e)}")
+                
+                # Check file for total properties count
+                if sales_data_path.exists():
+                    try:
+                        with open(sales_data_path, 'r') as f:
+                            properties_data = json.load(f)
+                            results["total_properties"] = len(properties_data)
+                    except Exception as e:
+                        logger.error(f"Error reading property data: {str(e)}")
+            except Exception as e:
+                logger.error(f"Error running sales scraper: {str(e)}")
+        else:
+            logger.info("Skipping scraping step as requested - using existing data")
         
         # Step 2: Check if rental data needs to be updated (once every 30 days)
         # Define the path to rental data file
@@ -497,83 +504,11 @@ def run_analysis_task(force_rental_update=False, max_sales_pages=None, max_renta
     except Exception as e:
         logger.error(f"Error initializing database: {str(e)}")
     
-    # Start the analysis in a background thread
-    thread = threading.Thread(target=run_analysis_task)
-    thread.daemon = True  # Set as daemon so it won't prevent the app from exiting
-    thread.start()
-    
     return jsonify({
         "success": True,
         "message": "Complete analysis workflow started - this will take some time",
         "note": "The list of properties for sale will continuously grow as new properties are analyzed each time."
     })
-
-@app.route('/import-csv-data', methods=['POST'])
-def import_csv_data():
-    """Import CSV data into the database as a one-time operation"""
-    # Define paths
-    processed_dir = SCRIPT_DIR / "data" / "processed"
-    sales_file = processed_dir / "sales_current.csv"
-    rental_file = processed_dir / "rentals_current.csv"
-    
-    # Verify files exist
-    if not sales_file.exists():
-        return jsonify({"success": False, "error": f"Sales file not found: {sales_file}"})
-    
-    if not rental_file.exists():
-        return jsonify({"success": False, "error": f"Rental file not found: {rental_file}"})
-    
-    # Get database connection
-    conn = get_connection()
-    if not conn:
-        return jsonify({"success": False, "error": "Failed to connect to database"})
-    
-    results = {
-        "success": True,
-        "sales": {"processed": 0, "inserted": 0, "updated": 0},
-        "rentals": {"processed": 0, "inserted": 0, "updated": 0}
-    }
-    
-    try:
-        # Import the required functions
-        from propbot.db_data_import import import_sales_data, import_rental_data
-        
-        # Import sales data
-        sales_result = import_sales_data(conn, processed_dir)
-        if not sales_result:
-            results["sales"]["success"] = False
-            logger.warning("Failed to import sales data")
-        else:
-            results["sales"]["success"] = True
-            logger.info("Successfully imported sales data")
-        
-        # Import rental data
-        rental_result = import_rental_data(conn, processed_dir)
-        if not rental_result:
-            results["rentals"]["success"] = False
-            logger.warning("Failed to import rental data")
-        else:
-            results["rentals"]["success"] = True
-            logger.info("Successfully imported rental data")
-        
-        # Check the counts
-        with conn.cursor() as cur:
-            cur.execute("SELECT COUNT(*) FROM properties_sales")
-            results["sales"]["count"] = cur.fetchone()[0]
-            
-            cur.execute("SELECT COUNT(*) FROM properties_rentals")
-            results["rentals"]["count"] = cur.fetchone()[0]
-        
-        logger.info(f"One-time data import completed. Sales: {results['sales']['count']}, Rentals: {results['rentals']['count']}")
-        return jsonify(results)
-    
-    except Exception as e:
-        logger.error(f"Error in data import: {str(e)}")
-        import traceback
-        logger.error(traceback.format_exc())
-        return jsonify({"success": False, "error": str(e)})
-    finally:
-        conn.close()
 
 def main():
     """Run the dashboard server"""

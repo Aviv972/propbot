@@ -121,7 +121,7 @@ def analyze_rental_yields(rental_data: Optional[pd.DataFrame] = None,
         if rental_data.empty:
             logger.warning("No rental data available for analysis")
             return {
-                'location': location,
+                        'location': location,
                 'avg_rental_price': None,
                 'avg_sales_price': None,
                 'annual_yield': None,

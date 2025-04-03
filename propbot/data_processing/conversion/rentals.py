@@ -17,53 +17,65 @@ from datetime import datetime
 from typing import Dict, Any, Optional, Union
 from ...utils.extraction_utils import extract_size as extract_size_robust
 from ...utils.extraction_utils import extract_room_type as extract_room_type_robust
+import psycopg2
+from psycopg2 import extras
+from decimal import Decimal
 
 # Set up logging
 logger = logging.getLogger(__name__)
 
-def extract_price(price_str: Optional[str]) -> int:
+def extract_price(price_str: Optional[Union[str, int, float]]) -> Optional[float]:
     """
-    Extract the rental price from a string and convert to numeric value.
+    Extract the rental price from a string or numeric value and convert to float.
     
     Args:
-        price_str: String containing price information
+        price_str: String or numeric value containing price information
         
     Returns:
-        Monthly rental price in euros as an integer (e.g., "1,400€/month" -> 1400)
+        Monthly rental price in euros as a float, or None if invalid
     """
-    if not price_str or not isinstance(price_str, str):
-        return 0
-    
-    # Try to extract the numeric part of the price
-    price_match = re.search(r'[\d,.]+', price_str.replace(' ', ''))
-    if not price_match:
-        return 0
-    
-    price_str = price_match.group(0)
-    
-    # Remove non-numeric characters except for the decimal point/comma
-    price_str = re.sub(r'[^\d.,]', '', price_str)
-    
-    # Replace comma with dot for decimal
-    if ',' in price_str and '.' in price_str:
-        # If both comma and dot exist, assume comma is thousands separator
-        price_str = price_str.replace(',', '')
-    else:
-        # Otherwise, treat comma as decimal point
-        price_str = price_str.replace(',', '.')
-    
-    try:
-        price = float(price_str)
+    # Handle None case
+    if price_str is None:
+        return None
         
-        # For rental prices, if the value is very small (like 1.40),
-        # it might actually mean 1400 (units confusion)
-        if price < 100:
-            price *= 1000
+    # Handle numeric types directly
+    if isinstance(price_str, (int, float)):
+        return float(price_str)
+    
+    # Handle string type
+    if isinstance(price_str, str):
+        # Remove whitespace and common currency symbols
+        price_str = price_str.strip().replace('€', '').replace('EUR', '')
+        
+        # Try to extract the numeric part of the price
+        price_match = re.search(r'[\d,.]+', price_str.replace(' ', ''))
+        if not price_match:
+            return None
+        
+        price_str = price_match.group(0)
+        
+        try:
+            # Handle different decimal separator formats
+            if ',' in price_str and '.' in price_str:
+                # If both separators present, assume comma is thousands separator
+                price_str = price_str.replace(',', '')
+            elif ',' in price_str:
+                # If only comma present, assume it's decimal separator
+                price_str = price_str.replace(',', '.')
             
-        return int(price)  # Return as integer
-    except (ValueError, TypeError):
-        logger.warning(f"Could not convert price string: {price_str}")
-        return 0
+            # Convert to float
+            price = float(price_str)
+            
+            # Validate the price
+            if price <= 0:
+                return None
+                
+            return price
+            
+        except (ValueError, TypeError):
+            return None
+    
+    return None
 
 def extract_size(size_str):
     """
@@ -131,138 +143,73 @@ def extract_location(location_str: Optional[str], title: Optional[str] = None) -
 
 def convert_rentals(input_path: Union[str, Path], output_path: Union[str, Path]) -> bool:
     """
-    Convert the consolidated rental data to a standardized CSV format.
+    Convert rental data from database to standardized CSV format.
     
     Args:
-        input_path: Path to the consolidated JSON input file
+        input_path: Path to input file (not used, kept for backward compatibility)
         output_path: Path to save the CSV output file
         
     Returns:
         True if conversion was successful, False otherwise
     """
-    input_path = Path(input_path)
-    output_path = Path(output_path)
-    
-    # Check if input file exists
-    if not os.path.exists(input_path):
-        logger.error(f"Input file not found: {input_path}")
-        return False
-    
-    # Load the consolidated rental data
     try:
-        with open(input_path, 'r', encoding='utf-8') as f:
-            rental_data = json.load(f)
-        
-        logger.info(f"Read {len(rental_data)} records from input file")
-    except Exception as e:
-        logger.error(f"Error loading input file: {e}")
-        return False
-    
-    # Create a backup of the existing file if it exists
-    if os.path.exists(output_path):
-        backup_file = f"{output_path}.backup.{datetime.now().strftime('%Y%m%d%H%M%S')}"
+        # Get database connection
+        conn = get_connection()
+        if not conn:
+            logger.error("Could not get connection to database")
+            return False
+            
         try:
-            os.rename(output_path, backup_file)
-            logger.info(f"Created backup of existing file: {backup_file}")
-        except Exception as e:
-            logger.warning(f"Could not create backup: {e}")
-    
-    # Ensure the output directory exists
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    
-    # Process and write the data to CSV
-    processed_count = 0
-    
-    try:
-        with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = [
-                'url', 'title', 'location', 'price', 'size', 'num_rooms', 
-                'room_type', 'details', 'snapshot_date', 'is_rental'
-            ]
+            # Query rental data from database
+            with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
+                cur.execute("""
+                    SELECT 
+                        url, title, price, size, rooms, 
+                        price_per_sqm, location, neighborhood,
+                        details, snapshot_date, first_seen_date
+                    FROM properties_rentals
+                    ORDER BY snapshot_date DESC
+                """)
+                
+                # Convert to list of dictionaries
+                records = []
+                for row in cur.fetchall():
+                    record = dict(row)
+                    # Convert Decimal values to float
+                    for key, value in record.items():
+                        if isinstance(value, Decimal):
+                            record[key] = float(value)
+                    records.append(record)
+                
+                logger.info(f"Retrieved {len(records)} rental records from database")
             
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writeheader()
+            if not records:
+                logger.warning("No rental records found in database")
+                return False
             
-            for listing in rental_data:
-                # Skip invalid listings
-                if 'url' not in listing or not listing['url']:
-                    continue
-                
-                # Extract key data
-                title = listing.get('title', '')
-                details = listing.get('details', '')
-                
-                # Handle different possible field names for price
-                price_value = 0
-                if 'rent_price' in listing:
-                    price_value = extract_price(listing['rent_price'])
-                elif 'price' in listing:
-                    price_value = extract_price(listing['price'])
-                
-                # Extract size - handle different field names
-                size_value = 0
-                if 'size' in listing and listing['size']:
-                    size_value = extract_size(listing['size'])
-                
-                # Extract room type
-                room_type = extract_room_type(title)
-                
-                # Extract number of rooms - try from room_type first then from other fields
-                num_rooms = 0
-                if room_type and room_type[0] == 'T' and len(room_type) > 1:
-                    try:
-                        num_rooms = int(room_type[1:])
-                    except ValueError:
-                        pass
-                elif 'num_rooms' in listing:
-                    try:
-                        num_rooms = int(listing['num_rooms'])
-                    except (ValueError, TypeError):
-                        pass
-                
-                # Extract location
-                location = extract_location(listing.get('location', ''), title)
-                
-                # Prepare row for CSV
-                row = {
-                    'url': listing.get('url', ''),
-                    'title': title,
-                    'location': location,
-                    'price': price_value,
-                    'size': size_value,
-                    'num_rooms': num_rooms,
-                    'room_type': room_type,
-                    'details': details,
-                    'snapshot_date': listing.get('snapshot_date', datetime.now().strftime('%Y-%m-%d')),
-                    'is_rental': True
-                }
-                
-                writer.writerow(row)
-                processed_count += 1
+            # Create output directory if it doesn't exist
+            os.makedirs(os.path.dirname(output_path), exist_ok=True)
             
-        logger.info(f"Converted {processed_count} records to CSV format")
-        
-        # Create metadata
-        metadata = {
-            'source_file': str(input_path),
-            'output_file': str(output_path),
-            'record_count': processed_count,
-            'processed_at': datetime.now().isoformat(),
-            'fields': fieldnames
-        }
-        
-        # Save metadata to a sidecar file
-        metadata_file = output_path.with_suffix('.metadata.json')
-        try:
-            with open(metadata_file, 'w', encoding='utf-8') as f:
-                json.dump(metadata, f, indent=2)
-            logger.info(f"Saved metadata to {metadata_file}")
-        except Exception as e:
-            logger.warning(f"Could not save metadata: {e}")
-        
-        return True
+            # Write to CSV
+            with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
+                fieldnames = [
+                    'url', 'title', 'price', 'size', 'rooms', 
+                    'price_per_sqm', 'location', 'neighborhood',
+                    'details', 'snapshot_date', 'first_seen_date'
+                ]
+                
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(records)
+            
+            logger.info(f"Converted {len(records)} rental records to CSV format")
+            return True
+            
+        finally:
+            conn.close()
+            
     except Exception as e:
-        logger.error(f"Error converting data: {e}")
+        logger.error(f"Error converting rental data: {e}")
         return False
 
 # CLI entry point

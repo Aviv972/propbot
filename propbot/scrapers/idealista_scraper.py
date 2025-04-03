@@ -5,21 +5,6 @@ import time
 from datetime import datetime
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
-from typing import Optional
-import logging
-import psycopg2
-from psycopg2 import extras
-from decimal import Decimal
-
-# Import our environment loader to ensure DATABASE_URL is available
-from propbot.env_loader import reload_env
-
-# Make sure environment variables are loaded
-reload_env()
-
-# Setup logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -27,7 +12,8 @@ load_dotenv()
 # Define log message function first
 def log_message(message):
     """Log a message with timestamp."""
-    logger.info(message)
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[{timestamp}] {message}")
 
 # Determine which URL to use based on scan mode
 scan_mode = os.getenv("SCAN_MODE", "recent").lower()
@@ -45,6 +31,10 @@ log_message(f"Using URL: {TARGET_URL}")
 # Configuration
 API_KEY = os.getenv("SCRAPINGBEE_API_KEY")
 BASE_API_URL = "https://app.scrapingbee.com/api/v1/"
+
+# API usage limits
+MAX_API_CREDITS = int(os.getenv("MAX_API_CREDITS", "5000"))  # Default 5000 credits per run
+API_CREDITS_SAFETY_MARGIN = 500  # Stop before hitting the absolute limit
 
 # Define file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -75,92 +65,14 @@ CREDITS_USED_FILE = os.path.join(TMP_DIR, "credits_usage.json")
 
 log_message(f"DEBUG: OUTPUT_FILE: {OUTPUT_FILE}")
 
-# Database connection function
-def get_connection():
-    """Get a database connection"""
-    # Get DATABASE_URL from environment
-    db_url = os.environ.get('DATABASE_URL')
-    
-    if not db_url:
-        log_message("No database URL found in environment variables")
-        return None
-    
-    # Add sslmode=require if not already present in the URL
-    if 'sslmode=' not in db_url:
-        db_url += ('&' if '?' in db_url else '?') + 'sslmode=require'
-    
-    try:
-        conn = psycopg2.connect(db_url)
-        return conn
-    except Exception as e:
-        log_message(f"Error connecting to database: {str(e)}")
-        return None
-
 def load_stored_listings():
-    """Load property listings directly from the database."""
+    """Load previously stored listings from JSON file."""
     try:
-        # Get database connection
-        conn = get_connection()
-        if not conn:
-            log_message("Could not connect to database")
-            # Fall back to JSON file if database connection fails
-            try:
-                with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-                    listings = json.load(f)
-                    log_message(f"Loaded {len(listings)} listings from JSON file (database connection failed)")
-                    return listings
-            except FileNotFoundError:
-                log_message(f"No existing file found at {OUTPUT_FILE}. Creating new dataset.")
-                return []
-            
-        listings = []
-        with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
-            cur.execute("""
-                SELECT id, url, title, price, size, rooms, 
-                    price_per_sqm, location, neighborhood,
-                    details, snapshot_date, first_seen_date,
-                    created_at, updated_at
-                FROM properties_sales
-                ORDER BY snapshot_date DESC
-            """)
-            
-            for row in cur.fetchall():
-                # Convert database row to property record format
-                property_record = {
-                    "title": row['title'],
-                    "url": row['url'],
-                    "price": float(row['price']) if row['price'] is not None else None,
-                    "price_str": f"€{float(row['price']):,.0f}" if row['price'] is not None else "",
-                    "details": row['details'],
-                    "location": row['location'],
-                    "last_updated": row['updated_at'].strftime("%Y-%m-%d %H:%M:%S") if row['updated_at'] else None,
-                    "first_seen_date": row['first_seen_date'].strftime("%Y-%m-%d %H:%M:%S") if row['first_seen_date'] else None
-                }
-                listings.append(property_record)
-                
-        log_message(f"Loaded {len(listings)} property listings from database")
-        
-        # Save to JSON file for backup/historical purposes
-        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-            json.dump(listings, f, ensure_ascii=False, indent=2)
-        log_message(f"Saved database listings to {OUTPUT_FILE} for backup")
-        
-        return listings
-    except Exception as e:
-        log_message(f"Error loading listings from database: {str(e)}")
-        # Fall back to JSON file if any error occurs
-        try:
-            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-                listings = json.load(f)
-                log_message(f"Loaded {len(listings)} listings from JSON file (after database error)")
-                return listings
-        except FileNotFoundError:
-            log_message(f"No existing file found at {OUTPUT_FILE}. Creating new dataset.")
-            return []
-    finally:
-        # Ensure connection is closed
-        if 'conn' in locals() and conn:
-            conn.close()
+        with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        log_message(f"No existing file found at {OUTPUT_FILE}. Creating new dataset.")
+        return []
 
 def save_listings(listings):
     """Save listings to JSON file."""
@@ -195,10 +107,57 @@ def update_credits_usage(credits_used):
         json.dump(credits_data, f, ensure_ascii=False, indent=2)
     
     log_message(f"Updated credits usage: +{credits_used}, total: {credits_data['total_credits_used']}")
+    return credits_data["total_credits_used"]
 
-def fetch_page(url, page_num=1):
+def get_current_api_usage():
+    """Get current API usage for the month."""
+    try:
+        response = requests.get(
+            f"https://app.scrapingbee.com/api/v1/usage?api_key={API_KEY}"
+        )
+        if response.status_code == 200:
+            data = response.json()
+            credits_used = data.get("usage", {}).get("credit_used", 0)
+            credit_limit = data.get("usage", {}).get("credit_limit", 0)
+            log_message(f"Current API usage: {credits_used}/{credit_limit} credits")
+            return credits_used, credit_limit
+        else:
+            log_message(f"Error getting API usage: {response.status_code}")
+            return None, None
+    except Exception as e:
+        log_message(f"Exception getting API usage: {str(e)}")
+        return None, None
+
+def check_api_limit(session_usage=0):
+    """Check if we're approaching API limits."""
+    # Check current monthly usage
+    monthly_usage, monthly_limit = get_current_api_usage()
+    
+    # If we couldn't get the usage, be cautious and check our session usage
+    if monthly_usage is None:
+        log_message(f"Couldn't get monthly API usage. Current session usage: {session_usage}")
+        return session_usage < MAX_API_CREDITS
+    
+    # Check against monthly limits
+    if monthly_limit and monthly_usage > (monthly_limit - API_CREDITS_SAFETY_MARGIN):
+        log_message(f"WARNING: Monthly API credits limit approaching. Used {monthly_usage} of {monthly_limit}")
+        return False
+    
+    # Also check session limit
+    if session_usage > MAX_API_CREDITS:
+        log_message(f"WARNING: Session API credits limit reached: {session_usage} > {MAX_API_CREDITS}")
+        return False
+    
+    return True
+
+def fetch_page(url, page_num=1, session_usage=0):
     """Fetch a page using ScrapingBee API with optimized parameters."""
     log_message(f"Fetching page {page_num}: {url}")
+    
+    # First check if we're approaching API limits
+    if not check_api_limit(session_usage):
+        log_message("API usage limit reached or approaching. Stopping requests.")
+        return None
     
     if not API_KEY:
         raise ValueError("ScrapingBee API key not found. Please set SCRAPINGBEE_API_KEY environment variable.")
@@ -226,7 +185,12 @@ def fetch_page(url, page_num=1):
         if 'Spb-cost' in response.headers:
             credits_used = float(response.headers['Spb-cost'])
             log_message(f"Request cost: {credits_used} credits")
-            update_credits_usage(credits_used)
+            total_used = update_credits_usage(credits_used)
+            
+            # Check if we've exceeded our session limit
+            if total_used > MAX_API_CREDITS:
+                log_message(f"WARNING: Session API credits limit exceeded: {total_used} > {MAX_API_CREDITS}")
+                return None
         
         # Log the resolved URL if there was a redirect
         if 'Spb-resolved-url' in response.headers:
@@ -239,17 +203,6 @@ def fetch_page(url, page_num=1):
             return None
     except Exception as e:
         log_message(f"Exception during fetch: {str(e)}")
-        return None
-
-def parse_price(price_str: str) -> Optional[float]:
-    """Parse price string into numeric value."""
-    try:
-        # Remove currency symbol and whitespace
-        price_str = price_str.replace('€', '').strip()
-        # Remove thousand separators and convert to float
-        price_str = price_str.replace('.', '').replace(',', '')
-        return float(price_str)
-    except (ValueError, AttributeError):
         return None
 
 def extract_properties(html_content):
@@ -292,8 +245,7 @@ def extract_properties(html_content):
         if url.startswith("/"):
             url = "https://www.idealista.pt" + url
             
-        price_str = price_elem.get_text(strip=True)
-        price = parse_price(price_str)
+        price = price_elem.get_text(strip=True)
         details = detail_elem.get_text(strip=True) if detail_elem else ""
         
         # Try to extract location from title or details
@@ -308,8 +260,7 @@ def extract_properties(html_content):
         property_record = {
             "title": title,
             "url": url,
-            "price": price,  # Now storing numeric price
-            "price_str": price_str,  # Keep original string for reference
+            "price": price,
             "details": details,
             "location": location,
             "last_updated": current_time
@@ -386,6 +337,12 @@ def run_scraper():
     """Run the scraper to collect property listings."""
     log_message("Starting Idealista property scraper")
     
+    # Check API usage before starting
+    monthly_usage, monthly_limit = get_current_api_usage()
+    if monthly_limit and monthly_usage > (monthly_limit - API_CREDITS_SAFETY_MARGIN):
+        log_message(f"Monthly API calls limit reached: {monthly_usage}/{monthly_limit}")
+        return 0
+    
     # Load previously stored listings
     stored_listings = load_stored_listings()
     
@@ -407,9 +364,40 @@ def run_scraper():
     max_pages = int(os.environ.get("MAX_SALES_PAGES", 10))
     log_message(f"Setting max_pages to {max_pages} from environment variable")
     
+    # Track API usage in this session
+    session_credits_used = 0
+    
+    # Setup page cache to avoid re-fetching the same pages
+    page_cache = {}
+    
     while current_url and page_count < max_pages:
         page_count += 1
-        html_content = fetch_page(current_url, page_count)
+        
+        # Get the current session API usage 
+        credits_data = load_credits_usage()
+        session_credits_used = credits_data.get("total_credits_used", 0)
+        
+        # Check if we're approaching limits before making the request
+        if not check_api_limit(session_credits_used):
+            log_message("API usage limit reached. Stopping scraper.")
+            break
+        
+        # Check if we already have this URL in cache
+        if current_url in page_cache:
+            log_message(f"Using cached content for page {page_count}: {current_url}")
+            html_content = page_cache[current_url]
+        else:
+            # Add a longer delay between requests to be extra cautious with API limits
+            if page_count > 1:
+                delay = 5  # 5 seconds between pages
+                log_message(f"Waiting {delay} seconds before next request...")
+                time.sleep(delay)
+                
+            html_content = fetch_page(current_url, page_count, session_credits_used)
+            
+            # Cache the result if successful
+            if html_content:
+                page_cache[current_url] = html_content
         
         if not html_content:
             log_message(f"Failed to fetch page {page_count}. Stopping.")
@@ -452,12 +440,6 @@ def run_scraper():
             break
         
         current_url = next_page_url
-        
-        if current_url and page_count < max_pages - 1:
-            # Add delay between page requests to be polite
-            delay = 3  # 3 seconds between pages
-            log_message(f"Waiting {delay} seconds before next request...")
-            time.sleep(delay)
     
     log_message(f"Scraping completed: {new_found} new properties found, {updated_found} properties updated")
     log_message(f"Total properties: {len(stored_listings)}")
@@ -476,7 +458,8 @@ def run_scraper():
     # After saving to temp directory, copy files to persistent storage
     copy_files_to_persistent_storage()
     
-    return new_found, updated_found, len(stored_listings)
+    # Return only new_found to match expected signature in run_dashboard_server.py
+    return new_found
 
 if __name__ == "__main__":
     run_scraper() 
