@@ -230,18 +230,41 @@ def analyze_size_metrics(rental_data: Optional[pd.DataFrame],
         logger.error(f"Error analyzing size metrics: {e}")
         return {}
 
-def save_analysis_results(results: Dict[str, Any], output_dir: Union[str, Path]) -> bool:
+def save_analysis_results(results: Dict[str, Any], output_dir: Union[str, Path] = None) -> bool:
     """
     Save analysis results to a JSON file.
     
     Args:
         results: Analysis results dictionary
-        output_dir: Directory to save the results
+        output_dir: Directory to save the results, defaults to propbot/data/processed
         
     Returns:
         True if successful, False otherwise
     """
     try:
+        # Set default output directory if not provided
+        if output_dir is None:
+            # Try to find the project root and data directory
+            current_dir = Path(__file__).resolve().parent
+            project_root = current_dir.parent.parent.parent  # Go up three levels
+            output_dir = project_root / "propbot" / "data" / "processed"
+            
+            # Fallback paths if the project structure is different
+            if not output_dir.exists():
+                fallback_paths = [
+                    Path("/app/propbot/data/processed"),
+                    Path.cwd() / "propbot" / "data" / "processed",
+                    Path.cwd() / "data" / "processed",
+                    Path.home() / "propbot" / "data" / "processed"
+                ]
+                
+                for path in fallback_paths:
+                    if path.exists():
+                        output_dir = path
+                        break
+                        
+            logger.info(f"Using default output directory: {output_dir}")
+        
         # Convert Path to string
         output_dir = str(output_dir)
         
