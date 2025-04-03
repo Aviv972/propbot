@@ -184,11 +184,22 @@ def generate_html_dashboard(investment_data):
             size = f"{prop.get('size', 0)} m²"
             room_type = prop.get('room_type', 'N/A')
             neighborhood = prop.get('neighborhood', 'N/A')
-            monthly_rent = f"€{prop.get('monthly_rent', 0):,.0f}"
-            gross_yield = f"{prop.get('gross_yield', 0):.2f}%"
-            cap_rate = f"{prop.get('cap_rate', 0):.2f}%"
-            cash_on_cash = f"{prop.get('cash_on_cash', 0):.2f}%"
-            monthly_cash_flow = f"€{prop.get('monthly_cash_flow', 0):,.0f}"
+            
+            # Handle potentially None or missing values
+            monthly_rent_val = prop.get('monthly_rent')
+            monthly_rent = f"€{monthly_rent_val:,.0f}" if monthly_rent_val is not None and monthly_rent_val > 0 else "€0"
+            
+            gross_yield_val = prop.get('gross_yield')
+            gross_yield = f"{gross_yield_val:.2f}%" if gross_yield_val is not None and gross_yield_val > 0 else "0.00%"
+            
+            cap_rate_val = prop.get('cap_rate')
+            cap_rate = f"{cap_rate_val:.2f}%" if cap_rate_val is not None and cap_rate_val > 0 else "0.00%"
+            
+            cash_on_cash_val = prop.get('cash_on_cash')
+            cash_on_cash = f"{cash_on_cash_val:.2f}%" if cash_on_cash_val is not None and cash_on_cash_val > 0 else "0.00%"
+            
+            monthly_cash_flow_val = prop.get('monthly_cash_flow')
+            monthly_cash_flow = f"€{monthly_cash_flow_val:,.0f}" if monthly_cash_flow_val is not None else "€0"
             
             # Calculate price per sqm
             if prop.get('size', 0) > 0:
