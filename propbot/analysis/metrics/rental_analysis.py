@@ -275,14 +275,22 @@ def save_analysis_results(results: Dict[str, Any], output_dir: Union[str, Path] 
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_file = os.path.join(output_dir, f'rental_analysis_{timestamp}.json')
         
+        # Also create the rental_income_report_improved.json file
+        rental_income_report = os.path.join(output_dir, 'rental_income_report_improved.json')
+        
         # Convert all numeric values to float before saving
         results = convert_numeric_values(results)
         
-        # Save results
+        # Save results to both files
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2)
         
+        # Also save to rental_income_report_improved.json
+        with open(rental_income_report, 'w', encoding='utf-8') as f:
+            json.dump(results, f, indent=2)
+        
         logger.info(f"Saved analysis results to {output_file}")
+        logger.info(f"Also saved to {rental_income_report}")
         return True
         
     except Exception as e:
