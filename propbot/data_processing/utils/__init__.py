@@ -4,17 +4,26 @@ Utility functions for PropBot data processing.
 
 import json
 from pathlib import Path
+from decimal import Decimal
+from datetime import datetime
 from typing import Any, Dict, List, Union, Optional
 
 class PathJSONEncoder(json.JSONEncoder):
     """
-    Custom JSON encoder that can handle Path objects.
+    Custom JSON encoder that can handle Path objects and Decimal objects.
     
-    This encoder converts Path objects to strings for JSON serialization.
+    This encoder converts:
+    - Path objects to strings
+    - Decimal objects to float
+    - datetime objects to ISO format strings
     """
     def default(self, obj):
         if isinstance(obj, Path):
             return str(obj)
+        if isinstance(obj, Decimal):
+            return float(obj)
+        if isinstance(obj, datetime):
+            return obj.isoformat()
         return super().default(obj)
 
 def save_json(data: Any, file_path: Union[str, Path], indent: int = 2) -> bool:
@@ -34,7 +43,7 @@ def save_json(data: Any, file_path: Union[str, Path], indent: int = 2) -> bool:
     
     try:
         with open(file_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=indent, cls=PathJSONEncoder)
+            json.dump(data, f, indent=indent, cls=PathJSONEncoder, ensure_ascii=False)
         return True
     except Exception as e:
         logger.error(f"Error saving JSON file: {e}")

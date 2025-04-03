@@ -14,13 +14,40 @@ from datetime import datetime
 from pathlib import Path
 import glob
 from typing import List, Dict, Any, Optional, Union
+from decimal import Decimal
+import pandas as pd
 
 # Import from utils module
 from propbot.data_processing.utils import save_json as utils_save_json
-from propbot.analysis.metrics.db_functions import get_rental_listings_from_database
+from propbot.data_processing.utils import PathJSONEncoder
 
 # Set up logging
 logger = logging.getLogger(__name__)
+
+def convert_decimal_to_float(value: Any) -> Any:
+    """Convert Decimal values to float."""
+    if isinstance(value, Decimal):
+        return float(value)
+    return value
+
+def convert_numeric_values(data: Any) -> Any:
+    """Recursively convert all Decimal values to float in a data structure."""
+    if isinstance(data, dict):
+        return {k: convert_numeric_values(v) for k, v in data.items()}
+    elif isinstance(data, list):
+        return [convert_numeric_values(v) for v in data]
+    return convert_decimal_to_float(data)
+
+def save_json_file(data: Any, file_path: str, indent: int = 2) -> bool:
+    """Save data to a JSON file, ensuring numeric values are converted to float."""
+    try:
+        # Use PathJSONEncoder which handles datetime and Decimal values
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=indent, cls=PathJSONEncoder, ensure_ascii=False)
+        return True
+    except Exception as e:
+        logger.error(f"Error saving JSON file: {e}")
+        return False
 
 def load_json_file(file_path: str) -> Optional[List[Dict[str, Any]]]:
     """
@@ -64,24 +91,6 @@ def load_csv_file(file_path: str) -> Optional[List[Dict[str, Any]]]:
     except Exception as e:
         logger.error(f"Error loading CSV file: {e}")
         return None
-
-def save_json_file(data: Any, file_path: str, indent: int = 2) -> bool:
-    """
-    Save data to a JSON file.
-    
-    Args:
-        data: Data to save
-        file_path: Path to save the JSON file
-        indent: JSON indentation level
-        
-    Returns:
-        True if successful, False otherwise
-    """
-    # Create directory if it doesn't exist
-    os.makedirs(os.path.dirname(file_path), exist_ok=True)
-    
-    # Use the utility function that handles Path objects
-    return utils_save_json(data, file_path, indent)
 
 def load_existing_consolidated_data(consolidated_json_path: str) -> List[Dict[str, Any]]:
     """
@@ -136,56 +145,115 @@ def standardize_rental_listing(listing: Dict[str, Any]) -> Dict[str, Any]:
     
     return standardized
 
-def consolidate_rentals(primary_file: str, consolidated_file: str, raw_dir: Optional[str] = None, 
-                        legacy_csv: Optional[str] = None) -> bool:
+def consolidate_rentals(input_path: Union[str, Path], output_path: Union[str, Path], db_listings: List[Dict[str, Any]] = None) -> bool:
     """
-    Consolidate rental listings from the database into a single file.
+    Consolidate rental listings from database and file sources.
     
     Args:
-        primary_file: Path to the primary rental listings file (unused)
-        consolidated_file: Path to save the consolidated output
-        raw_dir: Optional directory to search for additional rental files (unused)
-        legacy_csv: Optional path to legacy CSV data (unused)
+        input_path: Path to directory containing rental listing files
+        output_path: Path to save consolidated listings (not used, kept for backward compatibility)
+        db_listings: Optional list of rental listings from database
         
     Returns:
-        True if consolidation was successful, False otherwise
+        True if successful, False otherwise
     """
     try:
-        # Get rental listings from database
-        rental_listings = get_rental_listings_from_database()
+        logger.info(f"Starting rentals consolidation from {input_path}")
         
-        if not rental_listings:
-            logger.error("No rental listings found in database")
+        # Get database connection
+        conn = get_connection()
+        if not conn:
+            logger.error("Could not get connection to database")
             return False
             
-        logger.info(f"Loaded {len(rental_listings)} rental listings from database")
-        
-        # Save consolidated data
-        if save_json_file(rental_listings, consolidated_file):
-            logger.info(f"Successfully consolidated rental data to {consolidated_file}")
+        try:
+            # Load listings from database if provided
+            if db_listings:
+                # Convert any Decimal values to float
+                db_listings = convert_numeric_values(db_listings)
+                
+                # Insert or update listings in database
+                with conn.cursor() as cur:
+                    for listing in db_listings:
+                        if not listing.get('url'):
+                            continue
+                            
+                        # Standardize the listing
+                        listing = standardize_rental_listing(listing)
+                        
+                        # Create SQL query for insert with ON CONFLICT DO UPDATE
+                        columns = listing.keys()
+                        values_template = '(' + ','.join(['%s'] * len(columns)) + ')'
+                        
+                        upsert_query = (
+                            f"INSERT INTO properties_rentals ({','.join(columns)}) VALUES {values_template} "
+                            f"ON CONFLICT (url) DO UPDATE SET "
+                            f"{', '.join(f'{col} = EXCLUDED.{col}' for col in columns if col != 'url')}, "
+                            f"updated_at = NOW()"
+                        )
+                        
+                        try:
+                            values = [listing[col] for col in columns]
+                            cur.execute(upsert_query, values)
+                        except Exception as e:
+                            logger.error(f"Error inserting record {listing['url']}: {str(e)}")
+                            continue
+                
+                logger.info(f"Processed {len(db_listings)} listings from database")
             
-            # Create metadata file
-            metadata = {
-                'last_updated': datetime.now().isoformat(),
-                'rental_count': len(rental_listings),
-                'sources': {'database': len(rental_listings)},
-                'history': [{
-                    'timestamp': datetime.now().isoformat(),
-                    'added': len(rental_listings),
-                    'updated': 0,
-                    'skipped': 0,
-                    'sources': {'database': len(rental_listings)},
-                    'total': len(rental_listings)
-                }]
-            }
+            # Load listings from input file if it exists
+            if os.path.exists(input_path):
+                try:
+                    file_listings = load_json_file(input_path)
+                    if file_listings is None:
+                        logger.error("Failed to load input file")
+                        return False
+                    
+                    # Handle both list and dict formats
+                    if isinstance(file_listings, dict) and 'listings' in file_listings:
+                        file_listings = file_listings['listings']
+                    elif not isinstance(file_listings, list):
+                        file_listings = [file_listings]
+                    
+                    # Process each listing
+                    with conn.cursor() as cur:
+                        for listing in file_listings:
+                            if not listing.get('url'):
+                                continue
+                                
+                            # Standardize the listing
+                            listing = standardize_rental_listing(listing)
+                            
+                            # Create SQL query for insert with ON CONFLICT DO UPDATE
+                            columns = listing.keys()
+                            values_template = '(' + ','.join(['%s'] * len(columns)) + ')'
+                            
+                            upsert_query = (
+                                f"INSERT INTO properties_rentals ({','.join(columns)}) VALUES {values_template} "
+                                f"ON CONFLICT (url) DO UPDATE SET "
+                                f"{', '.join(f'{col} = EXCLUDED.{col}' for col in columns if col != 'url')}, "
+                                f"updated_at = NOW()"
+                            )
+                            
+                            try:
+                                values = [listing[col] for col in columns]
+                                cur.execute(upsert_query, values)
+                            except Exception as e:
+                                logger.error(f"Error inserting record {listing['url']}: {str(e)}")
+                                continue
+                    
+                    logger.info(f"Processed {len(file_listings)} listings from file")
+                except Exception as e:
+                    logger.error(f"Error processing input file: {e}")
+                    # Continue with what we have from database
             
-            metadata_file = str(consolidated_file).replace('.json', '_metadata.json')
-            save_json_file(metadata, metadata_file)
-            
+            # Commit the transaction
+            conn.commit()
+            logger.info("Rental data consolidation completed successfully")
             return True
-        else:
-            logger.error("Failed to save consolidated data")
-            return False
+            
+        finally:
+            conn.close()
             
     except Exception as e:
         logger.error(f"Error during rental consolidation: {e}")
