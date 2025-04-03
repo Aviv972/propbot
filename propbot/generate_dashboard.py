@@ -1077,14 +1077,32 @@ def main():
     updated_dashboard_file = UI_DIR / "investment_dashboard_updated.html"
     
     try:
-        with open(latest_dashboard_file, 'w') as f:
-            f.write(dashboard_html)
-        logger.info(f"Saved latest dashboard to {latest_dashboard_file}")
+        # Convert Path objects to strings when writing
+        latest_dashboard_path = str(latest_dashboard_file)
+        updated_dashboard_path = str(updated_dashboard_file)
         
-        # Also create the updated dashboard file
-        with open(updated_dashboard_file, 'w') as f:
-            f.write(dashboard_html)
-        logger.info(f"Saved updated dashboard to {updated_dashboard_file}")
+        # Write dashboard HTML content to files
+        if isinstance(dashboard_html, Path):
+            # If dashboard_html is a Path, read its contents and write to output files
+            with open(dashboard_html, 'r') as src:
+                content = src.read()
+                
+            with open(latest_dashboard_path, 'w') as f:
+                f.write(content)
+            logger.info(f"Saved latest dashboard to {latest_dashboard_file}")
+            
+            with open(updated_dashboard_path, 'w') as f:
+                f.write(content)
+            logger.info(f"Saved updated dashboard to {updated_dashboard_file}")
+        else:
+            # If dashboard_html is a string, write it directly
+            with open(latest_dashboard_path, 'w') as f:
+                f.write(dashboard_html)
+            logger.info(f"Saved latest dashboard to {latest_dashboard_file}")
+            
+            with open(updated_dashboard_path, 'w') as f:
+                f.write(dashboard_html)
+            logger.info(f"Saved updated dashboard to {updated_dashboard_file}")
         
         return True
     except Exception as e:
