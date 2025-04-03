@@ -5,6 +5,21 @@ import time
 from datetime import datetime
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+from typing import Optional
+import logging
+import psycopg2
+from psycopg2 import extras
+from decimal import Decimal
+
+# Import our environment loader to ensure DATABASE_URL is available
+from propbot.env_loader import reload_env
+
+# Make sure environment variables are loaded
+reload_env()
+
+# Setup logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -12,8 +27,7 @@ load_dotenv()
 # Define log message function first
 def log_message(message):
     """Log a message with timestamp."""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"[{timestamp}] {message}")
+    logger.info(message)
 
 # Determine which URL to use based on scan mode
 scan_mode = os.getenv("SCAN_MODE", "recent").lower()
@@ -61,14 +75,92 @@ CREDITS_USED_FILE = os.path.join(TMP_DIR, "credits_usage.json")
 
 log_message(f"DEBUG: OUTPUT_FILE: {OUTPUT_FILE}")
 
-def load_stored_listings():
-    """Load previously stored listings from JSON file."""
+# Database connection function
+def get_connection():
+    """Get a database connection"""
+    # Get DATABASE_URL from environment
+    db_url = os.environ.get('DATABASE_URL')
+    
+    if not db_url:
+        log_message("No database URL found in environment variables")
+        return None
+    
+    # Add sslmode=require if not already present in the URL
+    if 'sslmode=' not in db_url:
+        db_url += ('&' if '?' in db_url else '?') + 'sslmode=require'
+    
     try:
-        with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        log_message(f"No existing file found at {OUTPUT_FILE}. Creating new dataset.")
-        return []
+        conn = psycopg2.connect(db_url)
+        return conn
+    except Exception as e:
+        log_message(f"Error connecting to database: {str(e)}")
+        return None
+
+def load_stored_listings():
+    """Load property listings directly from the database."""
+    try:
+        # Get database connection
+        conn = get_connection()
+        if not conn:
+            log_message("Could not connect to database")
+            # Fall back to JSON file if database connection fails
+            try:
+                with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                    listings = json.load(f)
+                    log_message(f"Loaded {len(listings)} listings from JSON file (database connection failed)")
+                    return listings
+            except FileNotFoundError:
+                log_message(f"No existing file found at {OUTPUT_FILE}. Creating new dataset.")
+                return []
+            
+        listings = []
+        with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
+            cur.execute("""
+                SELECT id, url, title, price, size, rooms, 
+                    price_per_sqm, location, neighborhood,
+                    details, snapshot_date, first_seen_date,
+                    created_at, updated_at
+                FROM properties_sales
+                ORDER BY snapshot_date DESC
+            """)
+            
+            for row in cur.fetchall():
+                # Convert database row to property record format
+                property_record = {
+                    "title": row['title'],
+                    "url": row['url'],
+                    "price": float(row['price']) if row['price'] is not None else None,
+                    "price_str": f"€{float(row['price']):,.0f}" if row['price'] is not None else "",
+                    "details": row['details'],
+                    "location": row['location'],
+                    "last_updated": row['updated_at'].strftime("%Y-%m-%d %H:%M:%S") if row['updated_at'] else None,
+                    "first_seen_date": row['first_seen_date'].strftime("%Y-%m-%d %H:%M:%S") if row['first_seen_date'] else None
+                }
+                listings.append(property_record)
+                
+        log_message(f"Loaded {len(listings)} property listings from database")
+        
+        # Save to JSON file for backup/historical purposes
+        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+            json.dump(listings, f, ensure_ascii=False, indent=2)
+        log_message(f"Saved database listings to {OUTPUT_FILE} for backup")
+        
+        return listings
+    except Exception as e:
+        log_message(f"Error loading listings from database: {str(e)}")
+        # Fall back to JSON file if any error occurs
+        try:
+            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                listings = json.load(f)
+                log_message(f"Loaded {len(listings)} listings from JSON file (after database error)")
+                return listings
+        except FileNotFoundError:
+            log_message(f"No existing file found at {OUTPUT_FILE}. Creating new dataset.")
+            return []
+    finally:
+        # Ensure connection is closed
+        if 'conn' in locals() and conn:
+            conn.close()
 
 def save_listings(listings):
     """Save listings to JSON file."""
@@ -149,6 +241,17 @@ def fetch_page(url, page_num=1):
         log_message(f"Exception during fetch: {str(e)}")
         return None
 
+def parse_price(price_str: str) -> Optional[float]:
+    """Parse price string into numeric value."""
+    try:
+        # Remove currency symbol and whitespace
+        price_str = price_str.replace('€', '').strip()
+        # Remove thousand separators and convert to float
+        price_str = price_str.replace('.', '').replace(',', '')
+        return float(price_str)
+    except (ValueError, AttributeError):
+        return None
+
 def extract_properties(html_content):
     """Extract property listings from HTML content."""
     properties = []
@@ -189,7 +292,8 @@ def extract_properties(html_content):
         if url.startswith("/"):
             url = "https://www.idealista.pt" + url
             
-        price = price_elem.get_text(strip=True)
+        price_str = price_elem.get_text(strip=True)
+        price = parse_price(price_str)
         details = detail_elem.get_text(strip=True) if detail_elem else ""
         
         # Try to extract location from title or details
@@ -204,7 +308,8 @@ def extract_properties(html_content):
         property_record = {
             "title": title,
             "url": url,
-            "price": price,
+            "price": price,  # Now storing numeric price
+            "price_str": price_str,  # Keep original string for reference
             "details": details,
             "location": location,
             "last_updated": current_time
