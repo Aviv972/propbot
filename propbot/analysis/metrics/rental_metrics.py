@@ -35,8 +35,8 @@ def load_complete_rental_data() -> List[Dict[str, Any]]:
         return filter_valid_rentals(rental_data)
     
     logger.error("No rental data found in database")
-    return []
-
+            return []
+    
 def filter_valid_rentals(rental_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Filter out invalid rental properties."""
     valid_rentals = []
@@ -55,7 +55,7 @@ def filter_valid_rentals(rental_data: List[Dict[str, Any]]) -> List[Dict[str, An
             # Skip if invalid price or size
             if price is None or size is None or price <= 0 or size <= 0:
                 continue
-            
+        
             # Calculate price per sqm if missing
             price_per_sqm = rental.get('price_per_sqm')
             if price_per_sqm is None:
@@ -65,7 +65,7 @@ def filter_valid_rentals(rental_data: List[Dict[str, Any]]) -> List[Dict[str, An
             if price_per_sqm > MAX_RENTAL_PRICE_PER_SQM:
                 outliers.append(rental)
                 continue
-            
+        
             rental['price_per_sqm'] = price_per_sqm
             valid_rentals.append(rental)
         except (TypeError, ValueError) as e:
