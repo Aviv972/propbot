@@ -35,7 +35,7 @@ def load_complete_rental_data() -> List[Dict[str, Any]]:
         return filter_valid_rentals(rental_data)
     
     logger.error("No rental data found in database")
-            return []
+    return []
     
 def filter_valid_rentals(rental_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Filter out invalid rental properties."""
