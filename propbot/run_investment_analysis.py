@@ -10,6 +10,7 @@ import os
 import json
 from pathlib import Path
 from typing import Dict, Any, List
+import shutil
 
 # Import environment loader module - this must be the first import
 from propbot.env_loader import reload_env
@@ -30,6 +31,19 @@ from propbot.analysis.metrics.db_functions import (
     get_sales_listings_from_database,
     save_multiple_analyzed_properties
 )
+
+# Import database functions
+try:
+    from propbot.database_utils import (
+        get_connection, 
+        get_sales_listings_from_database,
+        get_analyzed_properties_from_database,
+        save_analyzed_property_to_database,
+        save_analysis_results
+    )
+    HAS_DB_FUNCTIONS = True
+except ImportError:
+    HAS_DB_FUNCTIONS = False
 
 # Set up logging
 logging.basicConfig(
@@ -199,92 +213,188 @@ def run_investment_metrics(properties_data: List[Dict[str, Any]]) -> List[Dict[s
     logger.info(f"Investment metrics calculated for {len(processed_properties)} properties")
     return processed_properties
 
-def generate_investment_summary(properties_with_metrics: List[Dict[str, Any]]) -> None:
-    """Generate the investment summary report."""
-    logger.info("Generating investment summary...")
+def generate_reports(investment_data, base_dir=None, output_dir=None):
+    """Generate investment analysis reports in JSON and CSV format."""
+    logger.info("Generating investment analysis reports")
     
-    if not properties_with_metrics:
-        logger.warning("No properties with metrics to include in the investment summary")
-        return
+    # Ensure the reports directory exists
+    if base_dir is None:
+        # Use default paths
+        output_dir = REPORTS_DIR
+    else:
+        output_dir = Path(base_dir) / "data" / "reports"
+        
+    os.makedirs(output_dir, exist_ok=True)
     
-    # Define output files
-    json_output = REPORTS_DIR / f"investment_summary_{pd.Timestamp.now().strftime('%Y%m%d')}.json"
-    csv_output = REPORTS_DIR / f"investment_summary_{pd.Timestamp.now().strftime('%Y%m%d')}.csv"
-    best_properties_output = REPORTS_DIR / f"best_properties_{pd.Timestamp.now().strftime('%Y%m%d')}.json"
+    # Generate a timestamp for the filenames
+    timestamp = pd.Timestamp.now().strftime('%Y%m%d')
     
-    # Save the complete report
-    with open(json_output, 'w') as f:
-        json.dump(properties_with_metrics, f, indent=2)
+    # Define output file paths
+    json_output = output_dir / f"investment_summary_{timestamp}.json"
+    csv_output = output_dir / f"investment_summary_{timestamp}.csv"
+    best_properties_output = output_dir / f"best_properties_{timestamp}.json"
     
-    # Convert to DataFrame for CSV export
-    try:
-        df = pd.DataFrame(properties_with_metrics)
-        df.to_csv(csv_output, index=False)
-    except Exception as e:
-        logger.error(f"Error saving CSV report: {str(e)}")
+    # Copy to standard locations (for compatibility with older code)
+    json_standard = output_dir / "investment_summary_current.json"
+    csv_standard = output_dir / "investment_summary_current.csv"
+    best_properties_standard = output_dir / "best_properties_current.json"
+    
+    # Filter to only properties with all metrics calculated
+    valid_properties = []
+    incomplete_properties = []
+    for prop in investment_data:
+        if all(key in prop and prop[key] is not None for key in INVESTMENT_METRICS):
+            valid_properties.append(prop)
+        else:
+            incomplete_properties.append(prop)
+    
+    logger.info(f"Properties with complete metrics: {len(valid_properties)}")
+    logger.info(f"Properties with incomplete metrics: {len(incomplete_properties)}")
+    
+    # Save the JSON file with all properties
+    with open(json_output, 'w', encoding='utf-8') as f:
+        json.dump(investment_data, f, indent=2, ensure_ascii=False)
+    logger.info(f"Saved full investment data to {json_output}")
+    
+    # Also save to the standard location
+    with open(json_standard, 'w', encoding='utf-8') as f:
+        json.dump(investment_data, f, indent=2, ensure_ascii=False)
+    
+    # Save to the database if available
+    if HAS_DB_FUNCTIONS:
+        try:
+            result_data = {
+                "total_properties": len(investment_data),
+                "valid_properties": len(valid_properties),
+                "incomplete_properties": len(incomplete_properties),
+                "metrics": INVESTMENT_METRICS
+            }
+            save_analysis_results("investment", result_data, len(investment_data))
+            logger.info("Saved investment analysis results to database history")
+        except Exception as e:
+            logger.error(f"Error saving analysis results to database: {str(e)}")
+    
+    # Convert to DataFrame for CSV output
+    df = pd.DataFrame(investment_data)
+    
+    # Save as CSV
+    df.to_csv(csv_output, index=False, encoding='utf-8')
+    logger.info(f"Saved investment data CSV to {csv_output}")
+    
+    # Also save to the standard location
+    df.to_csv(csv_standard, index=False, encoding='utf-8')
     
     # Generate the best properties report
-    try:
-        generate_best_properties_report(properties_with_metrics, str(best_properties_output))
-        logger.info(f"Best properties report saved to {best_properties_output}")
-    except Exception as e:
-        logger.error(f"Error generating best properties report: {str(e)}")
+    if valid_properties:
+        # Sort by cash flow, yield, etc.
+        cash_flow_sorted = sorted(valid_properties, key=lambda x: x.get('monthly_cash_flow', 0), reverse=True)
+        yield_sorted = sorted(valid_properties, key=lambda x: x.get('gross_yield', 0), reverse=True)
+        cap_rate_sorted = sorted(valid_properties, key=lambda x: x.get('cap_rate', 0), reverse=True)
+        
+        best_properties = {
+            'top_cash_flow': cash_flow_sorted[:20],
+            'top_yield': yield_sorted[:20],
+            'top_cap_rate': cap_rate_sorted[:20],
+            'generated_at': pd.Timestamp.now().isoformat()
+        }
+        
+        with open(best_properties_output, 'w', encoding='utf-8') as f:
+            json.dump(best_properties, f, indent=2, ensure_ascii=False)
+        logger.info(f"Generated best properties report at {best_properties_output}")
+        
+        # Also save to the standard location
+        with open(best_properties_standard, 'w', encoding='utf-8') as f:
+            json.dump(best_properties, f, indent=2, ensure_ascii=False)
+        
+        # Save best properties to database if available
+        if HAS_DB_FUNCTIONS:
+            try:
+                result_data = {
+                    "top_properties": {
+                        "cash_flow": [prop["url"] for prop in cash_flow_sorted[:20]],
+                        "yield": [prop["url"] for prop in yield_sorted[:20]],
+                        "cap_rate": [prop["url"] for prop in cap_rate_sorted[:20]]
+                    }
+                }
+                save_analysis_results("best_properties", result_data, len(valid_properties))
+                logger.info("Saved best properties to database history")
+            except Exception as e:
+                logger.error(f"Error saving best properties to database: {str(e)}")
+    else:
+        logger.warning("No valid properties found with complete metrics - best properties report not generated")
     
-    logger.info(f"Investment summary saved to:")
-    logger.info(f"  - JSON: {json_output}")
-    logger.info(f"  - CSV: {csv_output}")
+    return json_output, csv_output, best_properties_output
+
+def save_analyzed_property(property_data):
+    """Save analyzed property to database."""
+    if not HAS_DB_FUNCTIONS:
+        logger.warning("Database functions not available - cannot save analyzed property")
+        return False
+    
+    try:
+        # Check for required fields
+        required_fields = ['url', 'price', 'size', 'monthly_rent', 'gross_yield', 'cap_rate', 'monthly_cash_flow']
+        if not all(field in property_data for field in required_fields):
+            logger.warning(f"Missing required fields in property data - cannot save to database")
+            return False
+        
+        # Save to database
+        return save_analyzed_property_to_database(property_data)
+    except Exception as e:
+        logger.error(f"Error saving analyzed property to database: {str(e)}")
+        return False
 
 def main():
-    """Main function to run the investment analysis pipeline."""
-    logger.info("Starting PropBot investment analysis...")
+    """Main entry point for running the investment analysis."""
     
-    try:
-        # Step 1: Run the rental analysis and load the results
-        logger.info("Step 1: Running rental analysis and loading results...")
-        rental_analysis_dict = analyze_rental_data()
-        
-        if not rental_analysis_dict:
-            logger.warning("No rental analysis results available. The investment analysis may be incomplete.")
-        
-        # Load sales data
-        sales_data = load_sales_data()
-        
-        # Merge sales data with rental estimates
-        properties_with_rental_estimates = []
-        for property_item in sales_data:
-            url = property_item.get('url', '')
-            rental_estimate = rental_analysis_dict.get(url, {})
-            
-            # Merge the data
-            property_with_estimate = property_item.copy()
-            property_with_estimate['monthly_rent'] = rental_estimate.get('estimated_monthly_rent', 0)
-            property_with_estimate['annual_rent'] = rental_estimate.get('estimated_monthly_rent', 0) * 12
-            property_with_estimate['comparable_count'] = rental_estimate.get('comparable_count', 0)
-            property_with_estimate['rental_price_per_sqm'] = rental_estimate.get('price_per_sqm', 0)
-            property_with_estimate['confidence'] = rental_estimate.get('confidence', 'low')
-            
-            properties_with_rental_estimates.append(property_with_estimate)
-        
-        logger.info(f"Merged {len(properties_with_rental_estimates)} properties with rental estimates")
-        
-        # Step 2: Calculate investment metrics
-        logger.info("Step 2: Calculating investment metrics...")
-        properties_with_metrics = run_investment_metrics(properties_with_rental_estimates)
-        
-        # Step 3: Generate investment summary
-        logger.info("Step 3: Generating investment summary...")
-        summary_result = generate_investment_summary(properties_with_metrics)
-        
-        # Step 4: Save analyzed properties to database
-        logger.info("Step 4: Saving analyzed properties to database...")
-        save_multiple_analyzed_properties(properties_with_metrics)
-        
-        logger.info("Investment analysis completed successfully")
-        return summary_result
-        
-    except Exception as e:
-        logger.error(f"Error in investment analysis: {str(e)}")
-        return None
+    # Ensure directory structure exists
+    for directory in [PROCESSED_DIR, OUTPUT_DIR, REPORTS_DIR]:
+        os.makedirs(directory, exist_ok=True)
+    
+    # Copy current sales data to the processed directory
+    # This is a legacy step for compatibility but will be removed in the future
+    if os.path.exists(SALES_RAW_FILE) and not os.path.exists(SALES_PROCESSED_FILE):
+        logger.info(f"Copying sales data from {SALES_RAW_FILE} to {SALES_PROCESSED_FILE}")
+        shutil.copy2(SALES_RAW_FILE, SALES_PROCESSED_FILE)
+    
+    # Run the rental analysis to calculate estimated rents
+    logger.info("Running rental analysis")
+    rental_data, rental_metadata = analyze_rental_data()
+    
+    # Load sales data 
+    logger.info("Loading sales data")
+    if HAS_DB_FUNCTIONS:
+        logger.info("Using database for sales data")
+        investment_data = get_sales_listings_from_database()
+        if not investment_data:
+            logger.warning("No sales data found in database - falling back to CSV")
+            investment_data = load_sales_data()
+    else:
+        investment_data = load_sales_data()
+    
+    logger.info(f"Loaded {len(investment_data)} properties for investment analysis")
+    
+    # Calculate investment metrics for all properties
+    logger.info("Calculating investment metrics")
+    enriched_data = calculate_investment_metrics(investment_data, rental_data)
+    
+    # Generate reports
+    logger.info("Generating investment summary reports")
+    json_report, csv_report, best_properties = generate_reports(enriched_data)
+    
+    # Save all analyzed properties to the database if available
+    if HAS_DB_FUNCTIONS:
+        logger.info("Saving analyzed properties to database")
+        saved_count = 0
+        for property_data in enriched_data:
+            if save_analyzed_property(property_data):
+                saved_count += 1
+        logger.info(f"Saved {saved_count} analyzed properties to database")
+    
+    logger.info("Investment analysis complete")
+    logger.info(f"Reports saved to {REPORTS_DIR}")
+    
+    return enriched_data
 
 if __name__ == "__main__":
     main() 

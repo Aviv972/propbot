@@ -58,6 +58,14 @@ CREDITS_USED_FILE = TMP_RENTALS_DIR / "rental_credits_usage.json"
 # Debug print for output file
 log_message(f"DEBUG: OUTPUT_FILE absolute path: {os.path.abspath(OUTPUT_FILE)}")
 
+# Import the database utilities
+try:
+    from propbot.database_utils import save_historical_rental_snapshot
+    from propbot.data_processing.update_db import update_database_after_scrape
+    HAS_DB_FUNCTIONS = True
+except ImportError:
+    HAS_DB_FUNCTIONS = False
+
 def load_stored_listings():
     """Load previously stored rental listings from JSON file."""
     try:
@@ -69,28 +77,16 @@ def load_stored_listings():
 
 def save_listings(listings):
     """Save listings to JSON file."""
-    log_message(f"DEBUG: Attempting to save to absolute path: {os.path.abspath(OUTPUT_FILE)}")
-    log_message(f"DEBUG: Directory exists: {os.path.isdir(os.path.dirname(OUTPUT_FILE))}")
-    log_message(f"DEBUG: Current working directory: {os.getcwd()}")
-    log_message(f"DEBUG: File parents: {OUTPUT_FILE.parent}")
+    log_message(f"DEBUG: Attempting to save {len(listings)} listings to file")
+    log_message(f"DEBUG: Saving to: {OUTPUT_FILE}")
+    log_message(f"DEBUG: Permissions on directory: {os.access(os.path.dirname(OUTPUT_FILE), os.W_OK)}")
     
-    # Create directory again just in case
+    # Ensure the directory exists
     try:
         os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
         log_message(f"DEBUG: Directory created/confirmed: {os.path.dirname(OUTPUT_FILE)}")
     except Exception as e:
         log_message(f"DEBUG: Error creating directory: {str(e)}")
-    
-    try:
-        # First try to write to a temporary file to check permissions
-        temp_file = Path(os.path.dirname(OUTPUT_FILE)) / "temp_test.txt"
-        with open(temp_file, "w") as f:
-            f.write("Test write permission")
-        log_message(f"DEBUG: Successfully wrote to temp file at {temp_file}")
-        os.remove(temp_file)
-        log_message(f"DEBUG: Successfully removed temp file")
-    except Exception as e:
-        log_message(f"DEBUG: Error with test file: {str(e)}")
     
     try:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
@@ -116,6 +112,23 @@ def save_listings(listings):
         log_message(f"Created historical snapshot at {history_file}")
         log_message(f"DEBUG: History file exists after save: {os.path.exists(history_file)}")
         log_message(f"DEBUG: History file size after save: {os.path.getsize(history_file)} bytes")
+        
+        # Save a historical snapshot to the database
+        if HAS_DB_FUNCTIONS:
+            try:
+                new_count = getattr(listings, 'new_count', 0)
+                updated_count = getattr(listings, 'updated_count', 0)
+                save_historical_rental_snapshot(listings, new_count, updated_count)
+                log_message("Saved historical snapshot to database")
+                
+                # Update database with new rental data
+                update_database_after_scrape('rentals')
+                log_message("Updated database with latest rental data")
+            except Exception as e:
+                log_message(f"Error saving to database: {str(e)}")
+                import traceback
+                log_message(f"Stack trace: {traceback.format_exc()}")
+                
     except Exception as e:
         log_message(f"DEBUG: ERROR saving listings: {str(e)}")
         import traceback

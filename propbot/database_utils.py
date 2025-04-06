@@ -114,6 +114,43 @@ def initialize_database():
                     )
                 """)
                 
+                # Create historical snapshots tables
+                cur.execute("""
+                    CREATE TABLE IF NOT EXISTS sales_historical_snapshots (
+                        id SERIAL PRIMARY KEY,
+                        snapshot_date TIMESTAMP NOT NULL,
+                        property_count INTEGER NOT NULL,
+                        new_properties INTEGER NOT NULL,
+                        updated_properties INTEGER NOT NULL,
+                        snapshot_data JSONB,
+                        created_at TIMESTAMP DEFAULT NOW()
+                    )
+                """)
+                
+                cur.execute("""
+                    CREATE TABLE IF NOT EXISTS rental_historical_snapshots (
+                        id SERIAL PRIMARY KEY,
+                        snapshot_date TIMESTAMP NOT NULL,
+                        property_count INTEGER NOT NULL,
+                        new_properties INTEGER NOT NULL,
+                        updated_properties INTEGER NOT NULL,
+                        snapshot_data JSONB,
+                        created_at TIMESTAMP DEFAULT NOW()
+                    )
+                """)
+                
+                # Create analysis results historical table
+                cur.execute("""
+                    CREATE TABLE IF NOT EXISTS analysis_results_history (
+                        id SERIAL PRIMARY KEY,
+                        analysis_type VARCHAR(50) NOT NULL,
+                        analysis_date TIMESTAMP NOT NULL,
+                        property_count INTEGER NOT NULL,
+                        result_data JSONB,
+                        created_at TIMESTAMP DEFAULT NOW()
+                    )
+                """)
+                
                 # Create indexes for better query performance
                 cur.execute("""
                     CREATE INDEX IF NOT EXISTS idx_properties_sales_location 
@@ -127,61 +164,18 @@ def initialize_database():
                     
                     CREATE INDEX IF NOT EXISTS idx_properties_rentals_price 
                     ON properties_rentals(price);
+                    
+                    CREATE INDEX IF NOT EXISTS idx_sales_historical_snapshots_date
+                    ON sales_historical_snapshots(snapshot_date);
+                    
+                    CREATE INDEX IF NOT EXISTS idx_rental_historical_snapshots_date
+                    ON rental_historical_snapshots(snapshot_date);
+                    
+                    CREATE INDEX IF NOT EXISTS idx_analysis_results_history_type_date
+                    ON analysis_results_history(analysis_type, analysis_date);
                 """)
                 
-                # Create rental_estimates table
-                cur.execute("""
-                    CREATE TABLE IF NOT EXISTS rental_estimates (
-                        id SERIAL PRIMARY KEY,
-                        url TEXT UNIQUE NOT NULL,
-                        neighborhood TEXT,
-                        size NUMERIC,
-                        rooms INTEGER,
-                        estimated_monthly_rent NUMERIC,
-                        price_per_sqm NUMERIC,
-                        comparable_count INTEGER,
-                        confidence TEXT,
-                        last_updated TIMESTAMP DEFAULT NOW()
-                    );
-                    
-                    CREATE INDEX IF NOT EXISTS idx_rental_estimates_url 
-                    ON rental_estimates(url);
-                    
-                    CREATE INDEX IF NOT EXISTS idx_rental_estimates_neighborhood 
-                    ON rental_estimates(neighborhood);
-                """)
-                
-                # Create analyzed_properties table
-                cur.execute("""
-                    CREATE TABLE IF NOT EXISTS analyzed_properties (
-                        id SERIAL PRIMARY KEY,
-                        property_id INTEGER REFERENCES properties_sales(id),
-                        url TEXT UNIQUE NOT NULL,
-                        title TEXT,
-                        price NUMERIC,
-                        size NUMERIC,
-                        rooms INTEGER,
-                        neighborhood TEXT,
-                        monthly_rent NUMERIC,
-                        price_per_sqm NUMERIC,
-                        rental_price_per_sqm NUMERIC,
-                        neighborhood_avg_rent NUMERIC,
-                        gross_yield NUMERIC,
-                        cap_rate NUMERIC,
-                        cash_on_cash NUMERIC,
-                        monthly_cash_flow NUMERIC,
-                        comparable_count INTEGER,
-                        analysis_date TIMESTAMP DEFAULT NOW()
-                    );
-                    
-                    CREATE INDEX IF NOT EXISTS idx_analyzed_properties_url 
-                    ON analyzed_properties(url);
-                    
-                    CREATE INDEX IF NOT EXISTS idx_analyzed_properties_neighborhood 
-                    ON analyzed_properties(neighborhood);
-                """)
-                
-        logger.info("Database initialized successfully with all required tables")
+                logger.info("Database initialized successfully with all required tables")
         return True
     except Exception as e:
         logger.error(f"Error initializing database: {str(e)}")
@@ -293,6 +287,220 @@ def set_rental_update_frequency(days=30):
         return False
     finally:
         conn.close()
+
+def save_historical_sales_snapshot(property_data, new_count=0, updated_count=0):
+    """Save a historical snapshot of sales data to the database.
+    
+    Args:
+        property_data: List of property dictionaries 
+        new_count: Number of new properties in this snapshot
+        updated_count: Number of updated properties in this snapshot
+    
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    conn = get_connection()
+    if not conn:
+        logger.error("Could not save historical snapshot - no connection")
+        return False
+    
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                snapshot_date = datetime.now()
+                property_count = len(property_data)
+                
+                # Convert to JSON string and then to psycopg2 Json object
+                import json
+                from psycopg2.extras import Json
+                json_data = Json(property_data)
+                
+                cur.execute("""
+                    INSERT INTO sales_historical_snapshots 
+                    (snapshot_date, property_count, new_properties, updated_properties, snapshot_data)
+                    VALUES (%s, %s, %s, %s, %s)
+                    RETURNING id
+                """, (snapshot_date, property_count, new_count, updated_count, json_data))
+                
+                snapshot_id = cur.fetchone()[0]
+                logger.info(f"Saved historical sales snapshot #{snapshot_id} with {property_count} properties")
+                return True
+    except Exception as e:
+        logger.error(f"Error saving historical sales snapshot: {str(e)}")
+        return False
+
+def save_historical_rental_snapshot(property_data, new_count=0, updated_count=0):
+    """Save a historical snapshot of rental data to the database.
+    
+    Args:
+        property_data: List of property dictionaries
+        new_count: Number of new properties in this snapshot
+        updated_count: Number of updated properties in this snapshot
+    
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    conn = get_connection()
+    if not conn:
+        logger.error("Could not save historical snapshot - no connection")
+        return False
+    
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                snapshot_date = datetime.now()
+                property_count = len(property_data)
+                
+                # Convert to JSON string and then to psycopg2 Json object
+                import json
+                from psycopg2.extras import Json
+                json_data = Json(property_data)
+                
+                cur.execute("""
+                    INSERT INTO rental_historical_snapshots 
+                    (snapshot_date, property_count, new_properties, updated_properties, snapshot_data)
+                    VALUES (%s, %s, %s, %s, %s)
+                    RETURNING id
+                """, (snapshot_date, property_count, new_count, updated_count, json_data))
+                
+                snapshot_id = cur.fetchone()[0]
+                logger.info(f"Saved historical rental snapshot #{snapshot_id} with {property_count} properties")
+                return True
+    except Exception as e:
+        logger.error(f"Error saving historical rental snapshot: {str(e)}")
+        return False
+
+def save_analysis_results(analysis_type, result_data, property_count=0):
+    """Save analysis results to the history table.
+    
+    Args:
+        analysis_type: Type of analysis (e.g., 'investment', 'rental')
+        result_data: Dictionary of analysis results
+        property_count: Number of properties analyzed
+    
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    conn = get_connection()
+    if not conn:
+        logger.error("Could not save analysis results - no connection")
+        return False
+    
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                analysis_date = datetime.now()
+                
+                # Convert to JSON string and then to psycopg2 Json object
+                import json
+                from psycopg2.extras import Json
+                json_data = Json(result_data)
+                
+                cur.execute("""
+                    INSERT INTO analysis_results_history 
+                    (analysis_type, analysis_date, property_count, result_data)
+                    VALUES (%s, %s, %s, %s)
+                    RETURNING id
+                """, (analysis_type, analysis_date, property_count, json_data))
+                
+                result_id = cur.fetchone()[0]
+                logger.info(f"Saved {analysis_type} analysis results #{result_id} for {property_count} properties")
+                return True
+    except Exception as e:
+        logger.error(f"Error saving analysis results: {str(e)}")
+        return False
+
+def get_latest_historical_snapshot(snapshot_type='sales'):
+    """Get the latest historical snapshot of property data.
+    
+    Args:
+        snapshot_type: 'sales' or 'rental'
+    
+    Returns:
+        dict: Snapshot data or None if not found
+    """
+    conn = get_connection()
+    if not conn:
+        logger.error("Could not get historical snapshot - no connection")
+        return None
+    
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                if snapshot_type == 'sales':
+                    table = 'sales_historical_snapshots'
+                else:
+                    table = 'rental_historical_snapshots'
+                
+                cur.execute(f"""
+                    SELECT id, snapshot_date, property_count, new_properties, 
+                           updated_properties, snapshot_data
+                    FROM {table}
+                    ORDER BY snapshot_date DESC
+                    LIMIT 1
+                """)
+                
+                row = cur.fetchone()
+                if row:
+                    return {
+                        'id': row[0],
+                        'snapshot_date': row[1],
+                        'property_count': row[2],
+                        'new_properties': row[3],
+                        'updated_properties': row[4],
+                        'snapshot_data': row[5]
+                    }
+                return None
+    except Exception as e:
+        logger.error(f"Error getting latest historical snapshot: {str(e)}")
+        return None
+
+def get_historical_snapshot_by_date(snapshot_date, snapshot_type='sales'):
+    """Get a historical snapshot by date.
+    
+    Args:
+        snapshot_date: Date to search for (datetime)
+        snapshot_type: 'sales' or 'rental'
+    
+    Returns:
+        dict: Snapshot data or None if not found
+    """
+    conn = get_connection()
+    if not conn:
+        logger.error("Could not get historical snapshot - no connection")
+        return None
+    
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                if snapshot_type == 'sales':
+                    table = 'sales_historical_snapshots'
+                else:
+                    table = 'rental_historical_snapshots'
+                
+                # Find the nearest snapshot to the requested date
+                cur.execute(f"""
+                    SELECT id, snapshot_date, property_count, new_properties, 
+                           updated_properties, snapshot_data
+                    FROM {table}
+                    ORDER BY ABS(EXTRACT(EPOCH FROM (snapshot_date - %s))) ASC
+                    LIMIT 1
+                """, (snapshot_date,))
+                
+                row = cur.fetchone()
+                if row:
+                    return {
+                        'id': row[0],
+                        'snapshot_date': row[1],
+                        'property_count': row[2],
+                        'new_properties': row[3],
+                        'updated_properties': row[4],
+                        'snapshot_data': row[5]
+                    }
+                return None
+    except Exception as e:
+        logger.error(f"Error getting historical snapshot by date: {str(e)}")
+        return None
 
 if __name__ == "__main__":
     # If run directly, initialize the database

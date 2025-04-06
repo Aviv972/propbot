@@ -65,6 +65,14 @@ CREDITS_USED_FILE = os.path.join(TMP_DIR, "credits_usage.json")
 
 log_message(f"DEBUG: OUTPUT_FILE: {OUTPUT_FILE}")
 
+# Import the database utilities
+try:
+    from propbot.database_utils import save_historical_sales_snapshot
+    from propbot.data_processing.update_db import update_database_after_scrape
+    HAS_DB_FUNCTIONS = True
+except ImportError:
+    HAS_DB_FUNCTIONS = False
+
 def load_stored_listings():
     """Load previously stored listings from JSON file."""
     try:
@@ -444,10 +452,24 @@ def run_scraper():
     log_message(f"Scraping completed: {new_found} new properties found, {updated_found} properties updated")
     log_message(f"Total properties: {len(stored_listings)}")
     
-    # Save updated listings
+    # Save updated listings to file (keep as backup)
     save_listings(stored_listings)
     
-    # Save a historical snapshot with timestamp
+    # Save a historical snapshot to the database
+    if HAS_DB_FUNCTIONS:
+        try:
+            save_historical_sales_snapshot(stored_listings, new_found, updated_found)
+            log_message("Saved historical snapshot to database")
+            
+            # Update database with new sales data
+            update_database_after_scrape('sales')
+            log_message("Updated database with latest sales data")
+        except Exception as e:
+            log_message(f"Error saving to database: {str(e)}")
+            import traceback
+            log_message(f"Stack trace: {traceback.format_exc()}")
+    
+    # Save a historical snapshot with timestamp (keep as file backup)
     if new_found > 0 or updated_found > 0:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         history_file = os.path.join(TMP_HISTORY_DIR, f"idealista_listings_{timestamp}.json")
