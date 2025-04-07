@@ -5,6 +5,7 @@ import time
 from datetime import datetime
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+from ...utils.extraction_utils import extract_price_improved
 
 # Load environment variables from .env file
 load_dotenv()
@@ -253,7 +254,11 @@ def extract_properties(html_content):
         if url.startswith("/"):
             url = "https://www.idealista.pt" + url
             
-        price = price_elem.get_text(strip=True)
+        # Extract and process price
+        raw_price = price_elem.get_text(strip=True)
+        price = extract_price_improved(raw_price)
+        log_message(f"Extracted price: {raw_price} -> {price}")
+        
         details = detail_elem.get_text(strip=True) if detail_elem else ""
         
         # Try to extract location from title or details
@@ -268,7 +273,7 @@ def extract_properties(html_content):
         property_record = {
             "title": title,
             "url": url,
-            "price": price,
+            "price": price,  # Now storing the numeric price
             "details": details,
             "location": location,
             "last_updated": current_time
