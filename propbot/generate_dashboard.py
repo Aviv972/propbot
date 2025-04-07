@@ -116,8 +116,8 @@ def load_investment_data():
             logger.error(f"Error loading {standard_file}: {str(e)}")
     
     logger.warning("No investment data found")
-    return []
-
+            return []
+        
 def get_rental_update_info():
     """Get information about when rental data was last updated."""
     if HAS_DB_FUNCTIONS:
@@ -212,7 +212,7 @@ def generate_html_dashboard(investment_data):
             property_cards_html += card_html
         
         template_content = template_content.replace("{{PROPERTY_CARDS}}", property_cards_html)
-    else:
+                else:
         # No valid properties
         template_content = template_content.replace("{{PROPERTY_CARDS}}", "<p>No properties with valid rental estimates found.</p>")
     

@@ -34,6 +34,7 @@ def get_database_url():
     # Add sslmode=require if not already present in the URL
     if 'sslmode=' not in db_url:
         db_url += ('&' if '?' in db_url else '?') + 'sslmode=require'
+        logger.debug("Added sslmode=require to database URL")
     
     # Log the URL with sensitive information redacted
     redacted_url = db_url.split('@')[0] + '@[REDACTED]'
@@ -199,7 +200,7 @@ def initialize_database():
                 logger.info("Database initialized successfully with all required tables")
         return True
     except Exception as e:
-        logger.error(f"Error initializing database: {str(e)}")
+        logger.error(f"Error during database initialization: {str(e)}")
         import traceback
         logger.error(f"Initialization error details: {traceback.format_exc()}")
         return False
