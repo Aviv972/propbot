@@ -1,0 +1,24 @@
+Files that should be in the GitHub repository UI directory:
+
+# Main HTML Templates
+investment_dashboard_latest.html  (Main dashboard)
+standalone_dashboard.html         (Lightweight dashboard)
+neighborhood_report_updated.html  (Neighborhood report)
+
+# Redirect Files
+dashboard_redirect.html           (Dashboard redirect)
+neighborhood_redirect.html        (Neighborhood redirect)
+
+# Package Structure
+__init__.py                       (UI package initialization)
+components/__init__.py            (UI components package)
+dashboards/__init__.py            (Dashboard module package)
+generators/__init__.py            (Template generators package)
+
+# All other files should be removed from the GitHub repository
+# This includes:
+# - All backup files (*.bak, *.backup, *.bak_*)
+# - Alternative dashboard templates
+# - Specialized report templates
+# - Old/unused templates
+# - macOS .DS_Store files 

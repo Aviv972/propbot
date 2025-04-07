@@ -1,0 +1,421 @@
+url,title,location,price,size,num_rooms,price_per_sqm,room_type,snapshot_date
+https://www.idealista.pt/en/imovel/34023840/,"T1 flat in rua Passos Manuel, Nn, Estefânia, São Jorge de Arroios, Arroios","rua Passos Manuel, Nn, Estefânia, São Jorge de Arroios, Arroios",275000,50,1,5500.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33979881/,"T2 flat in rua Dom João de Castro, Alto de Alcântara, Alcântara","rua Dom João de Castro, Alto de Alcântara, Alcântara",299000,75,2,3986.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34026765/,"T1 flat in avenida Afonso III, Alto de São João - Alto do Varejão, Penha de França","avenida Afonso III, Alto de São João - Alto do Varejão, Penha de França",290000,73,1,3972.6,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33928673/,"T1 flat in Estefânia, São Jorge de Arroios, Arroios","Estefânia, São Jorge de Arroios, Arroios",267000,63,1,4238.1,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33980177/,"Semi-detached house in rua Particular à Rua Arco do Carvalhão, Nn, Bairro Calçada dos Mestres, Campolide","rua Particular à Rua Arco do Carvalhão, Nn, Bairro Calçada dos Mestres, Campolide",260000,127,0,2047.24,,2025-03-31
+https://www.idealista.pt/en/imovel/34017222/,"T1 flat in rua Santa Bárbara, Anjos, Arroios","rua Santa Bárbara, Anjos, Arroios",250000,45,1,5555.56,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34012969/,"T1 flat in Olivais, Lisboa","Olivais, Lisboa",218000,48,1,4541.67,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33986347/,"T2 flat in rua Emília das Neves, Portas de Benfica - Mercado de Benfica, Benfica","rua Emília das Neves, Portas de Benfica - Mercado de Benfica, Benfica",280000,60,2,4666.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34025702/,"T2 flat in beco do Forno do Sol, Graça, São Vicente","beco do Forno do Sol, Graça, São Vicente",240000,44,2,5454.55,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33440538/,"Duplex in Santa Engrácia, São Vicente","Santa Engrácia, São Vicente",285000,50,0,5700.0,,2025-03-31
+https://www.idealista.pt/en/imovel/33993523/,"T1 flat in rua Comandante Nunes da Silva, 1, Centro, Ajuda","rua Comandante Nunes da Silva, 1, Centro, Ajuda",272000,42,1,6476.19,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33992484/,"T2 flat in Olivais, Lisboa","Olivais, Lisboa",265000,62,2,4274.19,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34057561/,"T1 flat in rua Amadeu de Sousa Cardoso, Alto de Santo Amaro, Alcântara","rua Amadeu de Sousa Cardoso, Alto de Santo Amaro, Alcântara",280000,54,1,5185.19,T1,2025-03-31
+https://www.idealista.pt/en/imovel/32486708/,"T2 flat in rua Alviela, Santa Engrácia, São Vicente","rua Alviela, Santa Engrácia, São Vicente",198000,95,2,2084.21,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33524878/,"T2 flat in praça Faria da Costa, Olivais, Lisboa","praça Faria da Costa, Olivais, Lisboa",250000,62,2,4032.26,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33985445/,"T1 flat in travessa Paulo Martins, Calçada da Ajuda - Belém, Ajuda","travessa Paulo Martins, Calçada da Ajuda - Belém, Ajuda",237500,40,1,5937.5,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33984524/,"T1 flat in rua de Ponta Delgada, Estefânia, São Jorge de Arroios, Arroios","rua de Ponta Delgada, Estefânia, São Jorge de Arroios, Arroios",215000,100,1,2150.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34036434/,"T2 flat in rua Maria Pia, 478, Centro, Campo de Ourique","rua Maria Pia, 478, Centro, Campo de Ourique",239000,45,2,5311.11,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33799532/,"T1 flat in travessa Parreiras, 74, Campo de Santana - Santa Marta, Santo António","travessa Parreiras, 74, Campo de Santana - Santa Marta, Santo António",235560,45,1,5234.67,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34032579/,"T1 flat in rua do Figueiredo, Centro, Belém","rua do Figueiredo, Centro, Belém",280000,40,1,7000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34020888/,"T1 flat in Centro, Campolide","Centro, Campolide",285500,50,1,5710.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33983484/,"T1 flat in rua Alfredo Roque Gameiro, 1, Entrecampos, Avenidas Novas","rua Alfredo Roque Gameiro, 1, Entrecampos, Avenidas Novas",290000,52,1,5576.92,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33934029/,"T2 flat in rua São Cristóvão, Mouraria - Castelo, Santa Maria Maior","rua São Cristóvão, Mouraria - Castelo, Santa Maria Maior",225000,42,2,5357.14,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33979648/,"T1 flat in rua de Santa Marinha, 58, Graça, São Vicente","rua de Santa Marinha, 58, Graça, São Vicente",199000,50,1,3980.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34062281/,"T1 flat in rua Passos Manuel, Estefânia, São Jorge de Arroios, Arroios","rua Passos Manuel, Estefânia, São Jorge de Arroios, Arroios",275000,50,1,5500.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34041352/,"T1 flat in rua Paz à Ajuda, Calçada da Ajuda - Belém, Ajuda","rua Paz à Ajuda, Calçada da Ajuda - Belém, Ajuda",295000,48,1,6145.83,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33957087/,"T1 flat in rua Comandante Nunes da Silva, 1, Centro, Ajuda","rua Comandante Nunes da Silva, 1, Centro, Ajuda",272000,42,1,6476.19,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34005065/,"T2 flat in travessa do Oleiro, Nn, Santa Catarina, Misericórdia","travessa do Oleiro, Nn, Santa Catarina, Misericórdia",288000,57,2,5052.63,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34037932/,"T2 flat in rua Maria Pia, Nn, Prazeres - Maria Pia, Campo de Ourique","rua Maria Pia, Nn, Prazeres - Maria Pia, Campo de Ourique",239000,45,2,5311.11,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34020973/,"T1 flat in rua Carlos Ribeiro, Centro, Penha de França","rua Carlos Ribeiro, Centro, Penha de França",210000,40,1,5250.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34014664/,"T2 flat in travessa do Oleiro, Santa Catarina, Misericórdia","travessa do Oleiro, Santa Catarina, Misericórdia",288000,60,2,4800.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34005974/,"T1 flat in rua Paio Peres Correia, Alto de São João - Alto do Varejão, Penha de França","rua Paio Peres Correia, Alto de São João - Alto do Varejão, Penha de França",299500,79,1,3791.14,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33985662/,"T2 flat, Calçada dos Mestres, 94, Centro, Campolide",,210000,58,2,3620.69,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34024577/,"T2 flat in rua Cláudio Nunes, 85, Arneiros, Benfica","rua Cláudio Nunes, 85, Arneiros, Benfica",299900,67,2,4476.12,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33928601/,"T1 flat in rua Francisco Sanches, 182, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios","rua Francisco Sanches, 182, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",275000,46,1,5978.26,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33995907/,"T2 flat in estrada de Chelas, 6, Santa Apolónia - Cruz da Pedra, Penha de França","estrada de Chelas, 6, Santa Apolónia - Cruz da Pedra, Penha de França",275000,57,2,4824.56,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34057779/,"T1 flat in Graça, São Vicente","Graça, São Vicente",250000,52,1,4807.69,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34058868/,"T2 flat, Escadinhas das Portas do Mar, 5, Alfama, Santa Maria Maior",,299000,72,2,4152.78,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34055036/,"T2 flat in avenida Doutor Augusto de Castro, Marvila, Lisboa","avenida Doutor Augusto de Castro, Marvila, Lisboa",248000,58,2,4275.86,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34062579/,"T1 flat in avenida Almirante Reis, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios","avenida Almirante Reis, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",292000,48,1,6083.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/32726243/,"T1 flat in rua Luís Monteiro, 56, Bairro dos Actores - Barão Sabrosa, Penha de França","rua Luís Monteiro, 56, Bairro dos Actores - Barão Sabrosa, Penha de França",249990,89,1,2808.88,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34031027/,"T1 flat in rua Mestre António Martins, 15, Centro, Penha de França","rua Mestre António Martins, 15, Centro, Penha de França",225000,59,1,3813.56,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33546055/,"T2 flat in rua da Verónica, Nn, Graça, São Vicente","rua da Verónica, Nn, Graça, São Vicente",268000,49,2,5469.39,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34050744/,"T2 flat in rua Afonso Domingues, 24, Santa Engrácia, São Vicente","rua Afonso Domingues, 24, Santa Engrácia, São Vicente",247500,45,2,5500.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34062215/,"T1 flat in avenida Almirante Reis, 124, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios","avenida Almirante Reis, 124, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",292000,49,1,5959.18,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34061219/,"T1 flat in rua Frei Fortunato de São Boaventura, Nn, Beato, Lisboa","rua Frei Fortunato de São Boaventura, Nn, Beato, Lisboa",230000,40,1,5750.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34028209/,"Duplex in São Vicente de Fora, São Vicente","São Vicente de Fora, São Vicente",285000,72,0,3958.33,,2025-03-31
+https://www.idealista.pt/en/imovel/34009332/,"T2 flat in rua Bela Flor, Bairro Calçada dos Mestres, Campolide","rua Bela Flor, Bairro Calçada dos Mestres, Campolide",280000,67,2,4179.1,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34062772/,"T2 flat in Olivais, Lisboa","Olivais, Lisboa",225000,61,2,3688.52,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34034329/,"T2 flat in rua Carlos Ribeiro, Nn, Centro, Penha de França","rua Carlos Ribeiro, Nn, Centro, Penha de França",190000,73,2,2602.74,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34028556/,"Semi-detached house in rua Veríssimo Dias, 13, Bairro Calçada dos Mestres, Campolide","rua Veríssimo Dias, 13, Bairro Calçada dos Mestres, Campolide",140000,41,0,3414.63,,2025-03-31
+https://www.idealista.pt/en/imovel/34011921/,"T2 flat in estrada de Chelas, Santa Apolónia - Cruz da Pedra, Penha de França","estrada de Chelas, Santa Apolónia - Cruz da Pedra, Penha de França",275000,57,2,4824.56,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34052184/,"T2 flat, Alto do Varejão, Alto de São João - Alto do Varejão, Penha de França",,200000,116,2,1724.14,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34053976/,"T1 flat in Centro, Penha de França","Centro, Penha de França",240000,60,1,4000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33993799/,"T1 flat in rua Norberto de Araújo, Alfama, Santa Maria Maior","rua Norberto de Araújo, Alfama, Santa Maria Maior",255000,48,1,5312.5,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34050617/,"T1 flat in rua João do Nascimento Costa, 20 b, Beato, Lisboa","rua João do Nascimento Costa, 20 b, Beato, Lisboa",150000,40,1,3750.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34013996/,"T2 flat in estrada do Desvio, Nn, Santa Clara, Lisboa","estrada do Desvio, Nn, Santa Clara, Lisboa",285000,92,2,3097.83,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33788189/,"T1 flat in rua General Taborda, 28, Centro, Campolide","rua General Taborda, 28, Centro, Campolide",245000,68,1,3602.94,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33992805/,"T1 flat in rua Prior Coutinho, Nn, Campo de Santana - Santa Marta, Santo António","rua Prior Coutinho, Nn, Campo de Santana - Santa Marta, Santo António",285000,42,1,6785.71,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34026676/,"T2 flat in rua de São Lázaro, Pena, Arroios","rua de São Lázaro, Pena, Arroios",215000,50,2,4300.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34017690/,"T2 flat in Alfama, Santa Maria Maior","Alfama, Santa Maria Maior",239000,50,2,4780.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34051152/,"T2 flat in Anjos, Arroios","Anjos, Arroios",269000,70,2,3842.86,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34026852/,"T2 flat in rua Doutor João de Barros, Arneiros, Benfica","rua Doutor João de Barros, Arneiros, Benfica",295000,85,2,3470.59,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33969959/,"T1 flat in Baixa, Santa Maria Maior","Baixa, Santa Maria Maior",210000,54,1,3888.89,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34030552/,"T1 flat in estrada Loureiro, 13, Prazeres, Estrela","estrada Loureiro, 13, Prazeres, Estrela",225000,47,1,4787.23,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33990050/,"T2 flat in rua Professor Veiga Beirão, Nn, São João de Brito, Alvalade","rua Professor Veiga Beirão, Nn, São João de Brito, Alvalade",290000,76,2,3815.79,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34041889/,"T2 flat in rua Professor Veiga Beirão, Nn, São João de Brito, Alvalade","rua Professor Veiga Beirão, Nn, São João de Brito, Alvalade",290000,76,2,3815.79,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34005229/,"T2 flat in rua Professor Veiga Beirão, Nn, São João de Brito, Alvalade","rua Professor Veiga Beirão, Nn, São João de Brito, Alvalade",290000,76,2,3815.79,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34013648/,"T1 flat in rua do Olival, Lapa, Estrela","rua do Olival, Lapa, Estrela",230000,50,1,4600.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34037683/,"Semi-detached house in rua 3, Alvito - Quinta do Jacinto, Alcântara","rua 3, Alvito - Quinta do Jacinto, Alcântara",250000,45,0,5555.56,,2025-03-31
+https://www.idealista.pt/en/imovel/34002042/,"T1 flat in Pena, Arroios","Pena, Arroios",299000,47,1,6361.7,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34058782/,"T2 flat in Santa Catarina, Misericórdia","Santa Catarina, Misericórdia",298000,41,2,7268.29,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34020448/,"T1 flat in rua 1º de Maio, 63, Largo do Calvário - Lx Factory, Alcântara","rua 1º de Maio, 63, Largo do Calvário - Lx Factory, Alcântara",300000,54,1,5555.56,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34049858/,"T1 flat in rua Mestre António Martins, Centro, Penha de França","rua Mestre António Martins, Centro, Penha de França",225000,44,1,5113.64,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33984272/,"T2 flat in rua Doutor José Saraiva, Olivais, Lisboa","rua Doutor José Saraiva, Olivais, Lisboa",265000,62,2,4274.19,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34032986/,"T1 flat, Calçada de Santa Apolónia, 22, Santa Engrácia, São Vicente",,285000,70,1,4071.43,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33985351/,"T2 flat in rua Barata Feyo, Santa Clara, Lisboa","rua Barata Feyo, Santa Clara, Lisboa",260000,92,2,2826.09,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34060865/,"T2 flat in rua do Terreirinho, Mouraria - Castelo, Santa Maria Maior","rua do Terreirinho, Mouraria - Castelo, Santa Maria Maior",199500,44,2,4534.09,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34057686/,"T2 flat in beco das Farinhas, 5, Mouraria - Castelo, Santa Maria Maior","beco das Farinhas, 5, Mouraria - Castelo, Santa Maria Maior",280000,40,2,7000.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33995413/,"Semi-detached house in rua Cotovelo, Bairro da Serafina, Campolide","rua Cotovelo, Bairro da Serafina, Campolide",165000,105,0,1571.43,,2025-03-31
+https://www.idealista.pt/en/imovel/34022548/,"T2 flat in rua da Graça, Graça, São Vicente","rua da Graça, Graça, São Vicente",299000,79,2,3784.81,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33988425/,"T1 flat in Centro, Penha de França","Centro, Penha de França",240000,60,1,4000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34037837/,"T1 flat in Centro, Penha de França","Centro, Penha de França",240000,60,1,4000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33984467/,"T2 flat in Alto dos Moinhos, São Domingos de Benfica","Alto dos Moinhos, São Domingos de Benfica",245000,67,2,3656.72,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34020124/,"T2 flat in rua Abel Botelho, Estrada de Benfica, São Domingos de Benfica","rua Abel Botelho, Estrada de Benfica, São Domingos de Benfica",245000,70,2,3500.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34052765/,"T2 flat in Santa Engrácia, São Vicente","Santa Engrácia, São Vicente",247500,40,2,6187.5,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34061637/,"T2 flat in Campo de Santana - Santa Marta, Santo António","Campo de Santana - Santa Marta, Santo António",300000,50,2,6000.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33982707/,"T2 flat in Marvila, Lisboa","Marvila, Lisboa",300000,77,2,3896.1,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33989995/,"T2 flat in Alto de Alcântara, Alcântara","Alto de Alcântara, Alcântara",239000,40,2,5975.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33985055/,"T2 flat in Alto de São João - Alto do Varejão, Penha de França","Alto de São João - Alto do Varejão, Penha de França",255000,77,2,3311.69,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34033913/,"T1 flat in rua Carlos Pereira, Estrada de Benfica, São Domingos de Benfica","rua Carlos Pereira, Estrada de Benfica, São Domingos de Benfica",285000,43,1,6627.91,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34034170/,"T1 flat in Bairro Novo, Carnide","Bairro Novo, Carnide",255000,61,1,4180.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34061324/,"T2 flat, Calçada do Carrascal, Beato, Lisboa",,245000,58,2,4224.14,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34058801/,"T1 flat in Marvila, Lisboa","Marvila, Lisboa",292000,79,1,3696.2,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34055110/,"T1 flat in rua do Galvão, Centro, Belém","rua do Galvão, Centro, Belém",250000,50,1,5000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34044237/,"T2 flat in Beato, Lisboa","Beato, Lisboa",245000,56,2,4375.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34030538/,"T1 flat in São Vicente de Fora, São Vicente","São Vicente de Fora, São Vicente",299900,40,1,7497.5,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34020268/,"T1 flat in Santa Engrácia, São Vicente","Santa Engrácia, São Vicente",259000,52,1,4980.77,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33625362/,"T1 flat in São Vicente de Fora, São Vicente","São Vicente de Fora, São Vicente",299900,65,1,4613.85,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34053475/,"T2 flat in avenida General Roçadas, Centro, Penha de França","avenida General Roçadas, Centro, Penha de França",280000,65,2,4307.69,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33853736/,"T2 flat in Centro, Penha de França","Centro, Penha de França",250000,55,2,4545.45,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34030535/,"T2 flat in Santa Clara, Lisboa","Santa Clara, Lisboa",293000,88,2,3329.55,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34042836/,"T1 flat in rua Luís de Camões, 167, Alto de Santo Amaro, Alcântara","rua Luís de Camões, 167, Alto de Santo Amaro, Alcântara",299000,50,1,5980.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34055706/,"T2 flat in rua de Campolide, Nova Campolide, Campolide","rua de Campolide, Nova Campolide, Campolide",300000,50,2,6000.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34047387/,"T2 flat in avenida Vergílio Ferreira, Marvila, Lisboa","avenida Vergílio Ferreira, Marvila, Lisboa",248000,75,2,3306.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34048706/,"T2 flat, Calçada de Carriche, 6, Carriche - Hospital das Forças Armadas, Lumiar",,260000,68,2,3823.53,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34050563/,"T2 flat in rua Humberto Madeira, Olivais, Lisboa","rua Humberto Madeira, Olivais, Lisboa",285000,63,2,4523.81,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33832574/,"T1 flat in rua Marques da Silva, 45, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios","rua Marques da Silva, 45, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",229000,45,1,5088.89,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34034237/,"T2 flat in Santa Clara, Lisboa","Santa Clara, Lisboa",250000,71,2,3521.13,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34000565/,"T2 flat in Praça de Espanha - Sete Rios, Campolide","Praça de Espanha - Sete Rios, Campolide",280000,64,2,4375.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34037766/,"T2 flat in rua 1º Cabo José Martins Silvestre, Olivais, Lisboa","rua 1º Cabo José Martins Silvestre, Olivais, Lisboa",290000,49,2,5918.37,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34014617/,"T1 flat, Pátio Galega, 4, Santa Catarina, Misericórdia",,215000,40,1,5375.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34027843/,"T1 flat in rua do Passadiço, Campo de Santana - Santa Marta, Santo António","rua do Passadiço, Campo de Santana - Santa Marta, Santo António",300000,51,1,5882.35,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34002154/,"T2 flat in rua Alferes Carvalho Pereira, 28, Olivais, Lisboa","rua Alferes Carvalho Pereira, 28, Olivais, Lisboa",239900,60,2,3998.33,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34028179/,"T2 flat in Beato, Lisboa","Beato, Lisboa",220000,40,2,5500.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34050979/,"T1 flat in estrada A-da-Maia, 60 2°b, Portas de Benfica - Mercado de Benfica, Benfica","estrada A-da-Maia, 60 2°b, Portas de Benfica - Mercado de Benfica, Benfica",280000,65,1,4307.69,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34047662/,"T2 flat, Escadinhas das Portas do Mar, 5, Alfama, Santa Maria Maior",,299000,71,2,4211.27,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33976954/,"T2 flat in travessa Nova de Dom Vasco, Boa Hora, Ajuda","travessa Nova de Dom Vasco, Boa Hora, Ajuda",295000,69,2,4275.36,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34053759/,"T2 flat in rua General Justiniano Padrel, 17, Santa Engrácia, São Vicente","rua General Justiniano Padrel, 17, Santa Engrácia, São Vicente",289000,75,2,3853.33,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33256934/,"T2 flat in travessa Beirolas, 16, Gare do Oriente - Zona Sul, Parque das Nações","travessa Beirolas, 16, Gare do Oriente - Zona Sul, Parque das Nações",260000,70,2,3714.29,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34041499/,"T2 flat in rua João do Outeiro, Mouraria - Castelo, Santa Maria Maior","rua João do Outeiro, Mouraria - Castelo, Santa Maria Maior",250000,75,2,3333.33,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34003524/,"T1 flat in travessa do Cabral, 39, Bica, Misericórdia","travessa do Cabral, 39, Bica, Misericórdia",196300,40,1,4907.5,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34013579/,"T2 flat in rua Garrido, Bairro dos Actores, Areeiro","rua Garrido, Bairro dos Actores, Areeiro",200000,76,2,2631.58,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34028316/,"T1 flat in travessa do Pasteleiro, 5, Santos-o-Velho - Madragoa, Estrela","travessa do Pasteleiro, 5, Santos-o-Velho - Madragoa, Estrela",250000,50,1,5000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34003718/,"T1 flat in rua das Beatas, 9, Graça, São Vicente","rua das Beatas, 9, Graça, São Vicente",170000,51,1,3333.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34003355/,"T2 flat in rua Vasco da Gama Rodrigues, Gare do Oriente - Zona Sul, Parque das Nações","rua Vasco da Gama Rodrigues, Gare do Oriente - Zona Sul, Parque das Nações",219000,71,2,3084.51,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33954045/,"T2 flat in rua André Vidal Negreiros, Marvila, Lisboa","rua André Vidal Negreiros, Marvila, Lisboa",299000,90,2,3322.22,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34003381/,"T2 flat in beco do Mirante, São Vicente de Fora, São Vicente","beco do Mirante, São Vicente de Fora, São Vicente",289000,60,2,4816.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33987737/,"T2 flat in rua Frei Manuel do Cenáculo, Centro, Penha de França","rua Frei Manuel do Cenáculo, Centro, Penha de França",275000,70,2,3928.57,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34002988/,"T2 flat in avenida Afonso III, Alto de São João - Alto do Varejão, Penha de França","avenida Afonso III, Alto de São João - Alto do Varejão, Penha de França",288000,65,2,4430.77,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34044946/,"T2 flat in rua Fonseca Benevides, Rio Seco - Casalinho, Ajuda","rua Fonseca Benevides, Rio Seco - Casalinho, Ajuda",235000,54,2,4351.85,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34008276/,"T2 flat in Prazeres, Estrela","Prazeres, Estrela",275000,77,2,3571.43,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33843371/,"Detached house, Azinhaga do Reguengo, Santa Clara, Lisboa",,180000,56,0,3214.29,,2025-03-31
+https://www.idealista.pt/en/imovel/34050773/,"T2 flat in rua Professor Veiga Beirão, São João de Brito, Alvalade","rua Professor Veiga Beirão, São João de Brito, Alvalade",270000,58,2,4655.17,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33979639/,"T1 flat in rua dos Remédios, Alfama, Santa Maria Maior","rua dos Remédios, Alfama, Santa Maria Maior",265000,60,1,4416.67,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33929639/,"T2 flat in rua Fernando Gusmão, Santa Clara, Lisboa","rua Fernando Gusmão, Santa Clara, Lisboa",250000,92,2,2717.39,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34008493/,"T2 flat in rua Actor Augusto de Melo, Beato, Lisboa","rua Actor Augusto de Melo, Beato, Lisboa",269000,66,2,4075.76,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34044220/,"T1 flat in rua do Passadiço, Campo de Santana - Santa Marta, Santo António","rua do Passadiço, Campo de Santana - Santa Marta, Santo António",300000,50,1,6000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33993160/,"T1 flat in rua da Beneficência, Entrecampos, Avenidas Novas","rua da Beneficência, Entrecampos, Avenidas Novas",259000,50,1,5180.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33982678/,"T1 flat in rua de Marcos Marreiros, Santa Catarina, Misericórdia","rua de Marcos Marreiros, Santa Catarina, Misericórdia",235000,41,1,5731.71,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34033181/,"T1 flat in beco da cardoso, Baixa, Santa Maria Maior","beco da cardoso, Baixa, Santa Maria Maior",257000,40,1,6425.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34046084/,"T2 flat in travessa Flores, São Vicente de Fora, São Vicente","travessa Flores, São Vicente de Fora, São Vicente",160000,50,2,3200.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33993159/,"T1 flat in rua dos Remédios, Alfama, Santa Maria Maior","rua dos Remédios, Alfama, Santa Maria Maior",265000,60,1,4416.67,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34003122/,"T2 flat in rua Bartolomeu de Gusmão, Alfama, Santa Maria Maior","rua Bartolomeu de Gusmão, Alfama, Santa Maria Maior",299000,90,2,3322.22,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33995335/,"T2 flat in rua Jacinto Nunes, 3, Centro, Penha de França","rua Jacinto Nunes, 3, Centro, Penha de França",295000,73,2,4041.1,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34039074/,"T1 flat in rua do Grilo, 104, Beato, Lisboa","rua do Grilo, 104, Beato, Lisboa",250000,45,1,5555.56,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34062932/,"T1 flat, Calçada da Picheleira, 77, Beato, Lisboa",,275000,46,1,5978.26,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34046420/,"T1 flat in avenida Conselheiro Barjona de Freitas, 18, Estrada de Benfica, São Domingos de Benfica","avenida Conselheiro Barjona de Freitas, 18, Estrada de Benfica, São Domingos de Benfica",270000,40,1,6750.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34022561/,"T1 flat, Calçada da Picheleira, Beato, Lisboa",,217000,41,1,5292.68,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33983218/,"T2 flat in rua André Vidal Negreiros, Marvila, Lisboa","rua André Vidal Negreiros, Marvila, Lisboa",299000,90,2,3322.22,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34019910/,"T1 flat in rua da Esperança, Santos-o-Velho - Madragoa, Estrela","rua da Esperança, Santos-o-Velho - Madragoa, Estrela",270000,55,1,4909.09,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33653840/,"T2 flat in rua Sargento Armando Monteiro Ferreira, Olivais, Lisboa","rua Sargento Armando Monteiro Ferreira, Olivais, Lisboa",290000,62,2,4677.42,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34027910/,"T2 flat in rua de Santa Marinha, Graça, São Vicente","rua de Santa Marinha, Graça, São Vicente",275000,100,2,2750.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33981492/,"T1 flat in rua da Esperança, Santos-o-Velho - Madragoa, Estrela","rua da Esperança, Santos-o-Velho - Madragoa, Estrela",270000,55,1,4909.09,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34036605/,"T1 flat in rua Cesário Verde, Centro, Penha de França","rua Cesário Verde, Centro, Penha de França",260000,55,1,4727.27,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33988435/,"T1 flat in rua Castelo Branco Saraiva, Centro, Penha de França","rua Castelo Branco Saraiva, Centro, Penha de França",135000,44,1,3068.18,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33979934/,"T1 flat in rua da Esperança, Santos-o-Velho - Madragoa, Estrela","rua da Esperança, Santos-o-Velho - Madragoa, Estrela",270000,55,1,4909.09,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34024999/,"T2 flat in rua Raul de Carvalho, Santa Clara, Lisboa","rua Raul de Carvalho, Santa Clara, Lisboa",249900,92,2,2716.3,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34000907/,"T1 flat in rua Cesário Verde, Centro, Penha de França","rua Cesário Verde, Centro, Penha de França",265000,55,1,4818.18,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33989423/,"T1 flat in rua David Lopes, Alto de São João - Alto do Varejão, Penha de França","rua David Lopes, Alto de São João - Alto do Varejão, Penha de França",250000,76,1,3289.47,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34009842/,"T2 flat, Calçada da Quintinha, 29, Bairro Calçada dos Mestres, Campolide",,270000,82,2,3292.68,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33995382/,"T1 flat in praça de alegria, 28, Praça da Alegria, Santo António","praça de alegria, 28, Praça da Alegria, Santo António",300000,40,1,7500.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33992083/,"T1 flat in Lapa, Estrela","Lapa, Estrela",250000,45,1,5555.56,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34041336/,"T1 flat in rua da Bombarda, 53, Anjos, Arroios","rua da Bombarda, 53, Anjos, Arroios",280000,40,1,7000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34003346/,"T1 flat in rua Vítor Bastos, 48, Centro, Campolide","rua Vítor Bastos, 48, Centro, Campolide",285000,50,1,5700.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34005205/,"T2 flat, Calçada do Cascão, 6, São Vicente de Fora, São Vicente",,295000,53,2,5566.04,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34010079/,"T2 flat in Graça, São Vicente","Graça, São Vicente",195000,52,2,3750.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34009087/,"T2 flat in travessa da Madalena, Nn, Mouraria - Castelo, Santa Maria Maior","travessa da Madalena, Nn, Mouraria - Castelo, Santa Maria Maior",210000,45,2,4666.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33956611/,"T1 flat in rua do Embaixador, 146, Centro, Belém","rua do Embaixador, 146, Centro, Belém",230000,42,1,5476.19,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34039073/,"T1 flat, Parada Alto de São João, 14, Alto de São João - Alto do Varejão, Penha de França",,250000,58,1,4310.34,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34050216/,"T1 flat in beco das Cruzes, 6, Alfama, Santa Maria Maior","beco das Cruzes, 6, Alfama, Santa Maria Maior",260000,58,1,4482.76,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33983717/,"T1 flat in Alfama, Santa Maria Maior","Alfama, Santa Maria Maior",289000,41,1,7048.78,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34001087/,"T1 flat, Calçada da Picheleira, 54 Rc Esquerdo, Beato, Lisboa",,200000,90,1,2222.22,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34048820/,"T1 flat in travessa do Convento da Encarnação, 21, Pena, Arroios","travessa do Convento da Encarnação, 21, Pena, Arroios",220000,50,1,4400.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34008315/,"T1 flat in rua da Penha de França, 161, Centro, Penha de França","rua da Penha de França, 161, Centro, Penha de França",270000,50,1,5400.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34012957/,"T1 flat in Centro, Penha de França","Centro, Penha de França",240000,62,1,3870.97,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34038056/,"T2 flat in Boa Hora, Ajuda","Boa Hora, Ajuda",270000,70,2,3857.14,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34047803/,"T1 flat in Boa Hora, Ajuda","Boa Hora, Ajuda",230000,50,1,4600.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34033580/,"T1 flat in rua Engenheiro Santos Simões, 7 n, Alto de São João - Alto do Varejão, Penha de França","rua Engenheiro Santos Simões, 7 n, Alto de São João - Alto do Varejão, Penha de França",290000,69,1,4202.9,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34027780/,"T2 flat in travessa Irmãzinhas dos Pobres, 5, Centro, Campolide","travessa Irmãzinhas dos Pobres, 5, Centro, Campolide",300000,57,2,5263.16,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33704216/,"T2 flat in rua General Justiniano Padrel, Santa Engrácia, São Vicente","rua General Justiniano Padrel, Santa Engrácia, São Vicente",270000,71,2,3802.82,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33170895/,"Terraced house, Vila Graciete, Prazeres - Maria Pia, Campo de Ourique",,285000,40,0,7125.0,,2025-03-31
+https://www.idealista.pt/en/imovel/33956353/,"T1 flat in rua do Vale Formoso de Cima, Marvila, Lisboa","rua do Vale Formoso de Cima, Marvila, Lisboa",208000,49,1,4244.9,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33964327/,"T1 flat in rua Marcos Portugal, Príncipe Real - São Bento, Misericórdia","rua Marcos Portugal, Príncipe Real - São Bento, Misericórdia",290000,60,1,4833.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33789807/,"Terraced house, Calçada da Quintinha, Centro, Campolide",,285000,52,0,5480.77,,2025-03-31
+https://www.idealista.pt/en/imovel/33277885/,"T2 flat in rua do Duque, Chiado, Santa Maria Maior","rua do Duque, Chiado, Santa Maria Maior",215000,41,2,5243.9,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33694400/,"T2 flat, Calçada Cardeal, São Vicente de Fora, São Vicente",,289000,47,2,6148.94,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33934110/,"T1 flat in rua da Silva, 34, Cais do Sodré - Santos, Misericórdia","rua da Silva, 34, Cais do Sodré - Santos, Misericórdia",248000,60,1,4133.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33922302/,"Duplex in rua João do Outeiro, Mouraria - Castelo, Santa Maria Maior","rua João do Outeiro, Mouraria - Castelo, Santa Maria Maior",240000,40,0,6000.0,,2025-03-31
+https://www.idealista.pt/en/imovel/33898547/,"T1 flat in rua Aliança Operária, Boa Hora, Ajuda","rua Aliança Operária, Boa Hora, Ajuda",300000,40,1,7500.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33924500/,"T1 flat in rua da Oliveira ao Carmo, 57, Chiado, Santa Maria Maior","rua da Oliveira ao Carmo, 57, Chiado, Santa Maria Maior",290000,73,1,3972.6,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33654320/,"T2 flat in rua Doutor João de Barros, Arneiros, Benfica","rua Doutor João de Barros, Arneiros, Benfica",295000,75,2,3933.33,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33736516/,"T1 flat in Alfama, Santa Maria Maior","Alfama, Santa Maria Maior",255000,48,1,5312.5,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33962583/,"T2 flat in Marvila, Lisboa","Marvila, Lisboa",260000,66,2,3939.39,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33851408/,"T2 flat in rua Capitão Roby, Nn, Beato, Lisboa","rua Capitão Roby, Nn, Beato, Lisboa",230000,47,2,4893.62,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33911212/,"T2 flat in avenida General Roçadas, 169, Centro, Penha de França","avenida General Roçadas, 169, Centro, Penha de França",280000,55,2,5090.91,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33846538/,"T2 flat in Anjos, Arroios","Anjos, Arroios",250000,100,2,2500.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33919754/,"T1 flat in travessa de São Miguel, 10, Alfama, Santa Maria Maior","travessa de São Miguel, 10, Alfama, Santa Maria Maior",195000,42,1,4642.86,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33799376/,"T1 flat, Alto do Carvalhão, 21, Centro, Campolide",,285000,50,1,5700.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33972383/,"Duplex in rua de São Bento, Príncipe Real - São Bento, Misericórdia","rua de São Bento, Príncipe Real - São Bento, Misericórdia",250000,46,0,5434.78,,2025-03-31
+https://www.idealista.pt/en/imovel/33917033/,"T2 flat, Calçada do Monte, Nn, Graça, São Vicente",,299500,62,2,4830.65,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33792891/,"Duplex in Cais do Sodré - Santos, Misericórdia","Cais do Sodré - Santos, Misericórdia",300000,59,0,5084.75,,2025-03-31
+https://www.idealista.pt/en/imovel/33904537/,"T1 flat in Mouraria - Castelo, Santa Maria Maior","Mouraria - Castelo, Santa Maria Maior",290000,57,1,5087.72,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33630455/,"T2 flat in Mouraria - Castelo, Santa Maria Maior","Mouraria - Castelo, Santa Maria Maior",285000,55,2,5181.82,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33964850/,"T2 flat in rua Doutor João de Barros, Arneiros, Benfica","rua Doutor João de Barros, Arneiros, Benfica",250000,73,2,3424.66,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33086982/,"T1 flat in rua Francisco Mantero, Olivais, Lisboa","rua Francisco Mantero, Olivais, Lisboa",250000,48,1,5208.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33364458/,"T1 flat in Mouraria - Castelo, Santa Maria Maior","Mouraria - Castelo, Santa Maria Maior",290000,47,1,6170.21,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33955347/,"T2 flat in Largo do Calvário - Lx Factory, Alcântara","Largo do Calvário - Lx Factory, Alcântara",269000,65,2,4138.46,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33755290/,"Terraced house in Santa Engrácia, São Vicente","Santa Engrácia, São Vicente",230000,79,0,2911.39,,2025-03-31
+https://www.idealista.pt/en/imovel/33625352/,"T1 flat in Mouraria - Castelo, Santa Maria Maior","Mouraria - Castelo, Santa Maria Maior",170000,40,1,4250.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33096356/,"T1 flat in Lapa, Estrela","Lapa, Estrela",298000,55,1,5418.18,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33974797/,"T2 flat in Alto de Santo Amaro, Alcântara","Alto de Santo Amaro, Alcântara",230000,46,2,5000.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33935870/,"T1 flat in beco do Alegrete, 10, Mouraria - Castelo, Santa Maria Maior","beco do Alegrete, 10, Mouraria - Castelo, Santa Maria Maior",269000,60,1,4483.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33681153/,"T2 flat in Anjos, Arroios","Anjos, Arroios",299000,75,2,3986.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33712826/,"T2 flat in rua Aliança Operária, Alto de Alcântara, Alcântara","rua Aliança Operária, Alto de Alcântara, Alcântara",245000,60,2,4083.33,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33932941/,"Detached house in Alvito - Quinta do Jacinto, Alcântara","Alvito - Quinta do Jacinto, Alcântara",299000,60,0,4983.33,,2025-03-31
+https://www.idealista.pt/en/imovel/33749208/,"T2 flat in Alto de São João - Alto do Varejão, Penha de França","Alto de São João - Alto do Varejão, Penha de França",300000,58,2,5172.41,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33616511/,"T2 flat in rua Castelo Branco Saraiva, 47, Centro, Penha de França","rua Castelo Branco Saraiva, 47, Centro, Penha de França",260000,58,2,4482.76,T2,2025-03-31
+https://www.idealista.pt/en/imovel/32537931/,"T1 flat in rua da Senhora do Monte, 5, Graça, São Vicente","rua da Senhora do Monte, 5, Graça, São Vicente",299000,44,1,6795.45,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33907990/,"T2 flat in rua do Passadiço, Campo de Santana - Santa Marta, Santo António","rua do Passadiço, Campo de Santana - Santa Marta, Santo António",300000,50,2,6000.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33485746/,"T1 flat in Bairro Alto, Misericórdia","Bairro Alto, Misericórdia",299000,50,1,5980.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33815374/,"T1 flat, Calçado do Garcia, 31, Baixa, Santa Maria Maior",,290000,47,1,6170.21,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33780968/,"T2 flat in rua Heróis de Quionga, Nn, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios","rua Heróis de Quionga, Nn, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",285000,55,2,5181.82,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33871132/,"T1 flat in rua de Santo Amaro, 21, Lapa, Estrela","rua de Santo Amaro, 21, Lapa, Estrela",245000,40,1,6125.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33750712/,"T2 flat in rua Lopes, Alto de São João - Alto do Varejão, Penha de França","rua Lopes, Alto de São João - Alto do Varejão, Penha de França",250000,70,2,3571.43,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33966386/,"T2 flat in Santos-o-Velho - Madragoa, Estrela","Santos-o-Velho - Madragoa, Estrela",270000,50,2,5400.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33415512/,"T1 flat in rua da Atalaia, Nn, Bairro Alto, Misericórdia","rua da Atalaia, Nn, Bairro Alto, Misericórdia",257500,71,1,3626.76,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33673087/,"T1 flat in rua Maestro António Taborda, Lapa, Estrela","rua Maestro António Taborda, Lapa, Estrela",299000,43,1,6953.49,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33772698/,"T2 flat in travessa do Oleiro, 17, Santa Catarina, Misericórdia","travessa do Oleiro, 17, Santa Catarina, Misericórdia",288000,57,2,5052.63,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33119789/,"T2 flat in rua da Madalena, Baixa, Santa Maria Maior","rua da Madalena, Baixa, Santa Maria Maior",290000,66,2,4393.94,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33164642/,"T2 flat in estrada dos Prazeres, Prazeres - Maria Pia, Campo de Ourique","estrada dos Prazeres, Prazeres - Maria Pia, Campo de Ourique",275000,65,2,4230.77,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33791667/,"T2 flat in travessa do Zagalo, 19, São Vicente de Fora, São Vicente","travessa do Zagalo, 19, São Vicente de Fora, São Vicente",220000,42,2,5238.1,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33059426/,"T2 flat in estrada dos Prazeres, Prazeres - Maria Pia, Campo de Ourique","estrada dos Prazeres, Prazeres - Maria Pia, Campo de Ourique",275000,77,2,3571.43,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33831271/,"T2 flat in beco Birbantes, 25, Pena, Arroios","beco Birbantes, 25, Pena, Arroios",275000,74,2,3716.22,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33750659/,"T2 flat in travessa do Oleiro, Santa Catarina, Misericórdia","travessa do Oleiro, Santa Catarina, Misericórdia",288000,57,2,5052.63,T2,2025-03-31
+https://www.idealista.pt/en/imovel/32834508/,"T1 flat in largo Santo Antoninho , Bica, Misericórdia","largo Santo Antoninho , Bica, Misericórdia",225000,60,1,3750.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33444004/,"T1 flat in travessa dos Pescadores, Cais do Sodré - Santos, Misericórdia","travessa dos Pescadores, Cais do Sodré - Santos, Misericórdia",189000,52,1,3634.62,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33220551/,"T2 flat in rua Guarda Jóias,, Boa Hora, Ajuda","rua Guarda Jóias,, Boa Hora, Ajuda",205000,68,2,3014.71,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33572164/,"T1 flat in rua Cidade da Horta, 8, Estefânia, São Jorge de Arroios, Arroios","rua Cidade da Horta, 8, Estefânia, São Jorge de Arroios, Arroios",175000,47,1,3723.4,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33034841/,"T2 flat in estrada dos Prazeres, Prazeres - Maria Pia, Campo de Ourique","estrada dos Prazeres, Prazeres - Maria Pia, Campo de Ourique",275000,77,2,3571.43,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33773682/,"T1 flat in rua Santos Pinto, Lapa, Estrela","rua Santos Pinto, Lapa, Estrela",290000,50,1,5800.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33850250/,"T1 flat in Santos-o-Velho - Madragoa, Estrela","Santos-o-Velho - Madragoa, Estrela",270000,50,1,5400.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33967223/,"T1 flat in rua do Vale de Santo António, São Vicente de Fora, São Vicente","rua do Vale de Santo António, São Vicente de Fora, São Vicente",299900,40,1,7497.5,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33886530/,"T2 flat in travessa do Oleiro, Santa Catarina, Misericórdia","travessa do Oleiro, Santa Catarina, Misericórdia",288000,57,2,5052.63,T2,2025-03-31
+https://www.idealista.pt/en/imovel/32813012/,"T1 flat in Alfama, Santa Maria Maior","Alfama, Santa Maria Maior",219500,42,1,5226.19,T1,2025-03-31
+https://www.idealista.pt/en/imovel/32568986/,"T2 flat in Alfama, Santa Maria Maior","Alfama, Santa Maria Maior",300000,56,2,5357.14,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33015058/,"T2 flat in rua de São Pedro Mártir, Mouraria - Castelo, Santa Maria Maior","rua de São Pedro Mártir, Mouraria - Castelo, Santa Maria Maior",285000,55,2,5181.82,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33596805/,"T2 flat in Bica, Misericórdia","Bica, Misericórdia",295000,60,2,4916.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33932700/,"T2 flat in Estrada de Benfica, São Domingos de Benfica","Estrada de Benfica, São Domingos de Benfica",285000,47,2,6063.83,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33077474/,"T1 flat in Lapa, Estrela","Lapa, Estrela",299000,50,1,5980.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/32401970/,"T2 flat in Graça, São Vicente","Graça, São Vicente",250000,61,2,4098.36,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33927261/,"T2 flat in travessa Alcaide, 16, Santa Catarina, Misericórdia","travessa Alcaide, 16, Santa Catarina, Misericórdia",269000,75,2,3586.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33737730/,"T2 flat in Alto de Santo Amaro, Alcântara","Alto de Santo Amaro, Alcântara",295000,74,2,3986.49,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33952410/,"T1 flat in Prazeres, Estrela","Prazeres, Estrela",235000,59,1,3983.05,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33895242/,"T1 flat in Centro, Belém","Centro, Belém",280000,40,1,7000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33113830/,"T2 flat in rua Penha de França, Centro, Penha de França","rua Penha de França, Centro, Penha de França",285000,82,2,3475.61,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33882150/,"T1 flat in rua de São Bento, Príncipe Real - São Bento, Misericórdia","rua de São Bento, Príncipe Real - São Bento, Misericórdia",250000,46,1,5434.78,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33367986/,"T1 flat in rua Saraiva de Carvalho, 215, Centro, Campo de Ourique","rua Saraiva de Carvalho, 215, Centro, Campo de Ourique",295000,55,1,5363.64,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33958249/,"T2 flat in rua Heliodoro Salgado, Nn, Anjos, Arroios","rua Heliodoro Salgado, Nn, Anjos, Arroios",259000,70,2,3700.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33425899/,"T2 flat in Pena, Arroios","Pena, Arroios",253000,80,2,3162.5,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33861608/,"T2 flat in travessa João Alves, Rio Seco - Casalinho, Ajuda","travessa João Alves, Rio Seco - Casalinho, Ajuda",290000,59,2,4915.25,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33347728/,"T1 flat in Anjos, Arroios","Anjos, Arroios",299000,62,1,4822.58,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33873162/,"T1 flat in Beato, Lisboa","Beato, Lisboa",220000,47,1,4680.85,T1,2025-03-31
+https://www.idealista.pt/en/imovel/32973030/,"T2 flat in rua Engenheiro Paulo Barros, Bairro de Santa Cruz, Benfica","rua Engenheiro Paulo Barros, Bairro de Santa Cruz, Benfica",210000,53,2,3962.26,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33938321/,"T1 flat in largo dos Trigueiros, Mouraria - Castelo, Santa Maria Maior","largo dos Trigueiros, Mouraria - Castelo, Santa Maria Maior",245000,60,1,4083.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/30450592/,"T2 flat in rua Paz à Ajuda, Calçada da Ajuda - Belém, Ajuda","rua Paz à Ajuda, Calçada da Ajuda - Belém, Ajuda",244000,76,2,3210.53,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33746760/,"T2 flat in beco da Verónica, 3, São Vicente de Fora, São Vicente","beco da Verónica, 3, São Vicente de Fora, São Vicente",229000,45,2,5088.89,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33886997/,"T2 flat in Santa Catarina, Misericórdia","Santa Catarina, Misericórdia",288000,57,2,5052.63,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33789599/,"T2 flat in Baixa, Santa Maria Maior","Baixa, Santa Maria Maior",299000,72,2,4152.78,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33059145/,"T2 flat in Prazeres - Maria Pia, Campo de Ourique","Prazeres - Maria Pia, Campo de Ourique",275000,72,2,3819.44,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33359450/,"T2 flat in Marvila, Lisboa","Marvila, Lisboa",280000,86,2,3255.81,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33520741/,"T1 flat in rua do Vale de Santo António, Santa Engrácia, São Vicente","rua do Vale de Santo António, Santa Engrácia, São Vicente",299900,60,1,4998.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33922974/,"T2 flat in estrada de Chelas, Beato, Lisboa","estrada de Chelas, Beato, Lisboa",159000,60,2,2650.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/32591572/,"T1 flat in Avenida do Uruguai, Benfica","Avenida do Uruguai, Benfica",265000,42,1,6309.52,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33914485/,"T2 flat in rua David Lopes, Alto de São João - Alto do Varejão, Penha de França","rua David Lopes, Alto de São João - Alto do Varejão, Penha de França",288000,65,2,4430.77,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33925481/,"T1 flat in Alvito - Quinta do Jacinto, Alcântara","Alvito - Quinta do Jacinto, Alcântara",230000,42,1,5476.19,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33340092/,"T2 flat in rua do Mato Grosso, 16, Santa Engrácia, São Vicente","rua do Mato Grosso, 16, Santa Engrácia, São Vicente",265000,59,2,4491.53,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33758009/,"T2 flat in rua Hugo Casaes, Nn, Santa Clara, Lisboa","rua Hugo Casaes, Nn, Santa Clara, Lisboa",200000,75,2,2666.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33244861/,"T1 flat in rua do Passadiço, 96, Campo de Santana - Santa Marta, Santo António","rua do Passadiço, 96, Campo de Santana - Santa Marta, Santo António",255000,50,1,5100.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33507444/,"T1 flat in rua General Taborda, Centro, Campolide","rua General Taborda, Centro, Campolide",210000,58,1,3620.69,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33120703/,"T2 flat in rua da Madalena, 90, Baixa, Santa Maria Maior","rua da Madalena, 90, Baixa, Santa Maria Maior",290000,67,2,4328.36,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33618417/,"T2 flat in Arneiros, Benfica","Arneiros, Benfica",295000,75,2,3933.33,T2,2025-03-31
+https://www.idealista.pt/en/imovel/29027816/,"T2 flat in Anjos, Arroios","Anjos, Arroios",290000,70,2,4142.86,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33653372/,"T1 flat in travessa Giestal, Nn, Alto de Alcântara, Alcântara","travessa Giestal, Nn, Alto de Alcântara, Alcântara",245000,40,1,6125.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33249300/,"T2 flat in rua Borges Grainha, 38, Centro, Penha de França","rua Borges Grainha, 38, Centro, Penha de França",260000,55,2,4727.27,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33146222/,"T1 flat in rua Maria Pia, 164, Prazeres - Maria Pia, Campo de Ourique","rua Maria Pia, 164, Prazeres - Maria Pia, Campo de Ourique",190000,55,1,3454.55,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33574964/,"T1 flat in rua do Vale de Santo António, 23, São Vicente de Fora, São Vicente","rua do Vale de Santo António, 23, São Vicente de Fora, São Vicente",299900,50,1,5998.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33502393/,"T2 flat in rua Acúrsio Pereira, Nn, Olivais, Lisboa","rua Acúrsio Pereira, Nn, Olivais, Lisboa",220000,71,2,3098.59,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33879293/,"T2 flat in Centro, Penha de França","Centro, Penha de França",295000,105,2,2809.52,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33415554/,"T1 flat in Prazeres - Maria Pia, Campo de Ourique","Prazeres - Maria Pia, Campo de Ourique",249000,60,1,4150.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33840325/,"Duplex in avenida General Roçadas, Centro, Penha de França","avenida General Roçadas, Centro, Penha de França",267500,74,0,3614.86,,2025-03-31
+https://www.idealista.pt/en/imovel/33804904/,"T2 flat in rua dos Remédios, Alfama, Santa Maria Maior","rua dos Remédios, Alfama, Santa Maria Maior",295000,89,2,3314.61,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33739267/,"T1 flat in rua da Arrábida, Nn, Santa Isabel, Campo de Ourique","rua da Arrábida, Nn, Santa Isabel, Campo de Ourique",179000,40,1,4475.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33940409/,"T1 flat, campo Amoreiras, Santa Clara, Lisboa",,170000,45,1,3777.78,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33746770/,"T1 flat in rua da Atalaia, 110, Bairro Alto, Misericórdia","rua da Atalaia, 110, Bairro Alto, Misericórdia",197000,43,1,4581.4,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33891400/,"T2 flat in travessa do Oleiro, Santa Catarina, Misericórdia","travessa do Oleiro, Santa Catarina, Misericórdia",288000,41,2,7024.39,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33360895/,"T1 flat in rua dos Remédios, Alfama, Santa Maria Maior","rua dos Remédios, Alfama, Santa Maria Maior",189900,53,1,3583.02,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33905805/,"T1 flat in Lapa, Estrela","Lapa, Estrela",249500,40,1,6237.5,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33836023/,"T1 flat in rua das Farinhas, Mouraria - Castelo, Santa Maria Maior","rua das Farinhas, Mouraria - Castelo, Santa Maria Maior",255000,56,1,4553.57,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33473969/,"Duplex in travessa Crossing Verbena, Calçada da Ajuda - Belém, Ajuda","travessa Crossing Verbena, Calçada da Ajuda - Belém, Ajuda",295000,100,0,2950.0,,2025-03-31
+https://www.idealista.pt/en/imovel/33973726/,"T1 flat in São Vicente de Fora, São Vicente","São Vicente de Fora, São Vicente",299900,63,1,4760.32,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33940533/,"T1 flat in beco do Maquinez, Alfama, Santa Maria Maior","beco do Maquinez, Alfama, Santa Maria Maior",210000,54,1,3888.89,T1,2025-03-31
+https://www.idealista.pt/en/imovel/31301952/,"T2 flat in Alfama, Santa Maria Maior","Alfama, Santa Maria Maior",290000,79,2,3670.89,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33547441/,"T2 flat in Pena, Arroios","Pena, Arroios",285000,71,2,4014.08,T2,2025-03-31
+https://www.idealista.pt/en/imovel/32973902/,"T2 flat in São Vicente de Fora, São Vicente","São Vicente de Fora, São Vicente",280000,70,2,4000.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/31730465/,"T1 flat in largo Ascensor da Bica, Bica, Misericórdia","largo Ascensor da Bica, Bica, Misericórdia",289000,68,1,4250.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33765250/,"T2 flat in rua da Penha de França, 258, Centro, Penha de França","rua da Penha de França, 258, Centro, Penha de França",290000,72,2,4027.78,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33783909/,"T1 flat in rua Frederico Perry Vidal, 6, Beato, Lisboa","rua Frederico Perry Vidal, 6, Beato, Lisboa",220000,46,1,4782.61,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33545220/,"T2 flat in travessa Moinho Velho, 5, Boa Hora, Ajuda","travessa Moinho Velho, 5, Boa Hora, Ajuda",280000,54,2,5185.19,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33970104/,"T2 flat in travessa das Mónicas, Graça, São Vicente","travessa das Mónicas, Graça, São Vicente",280000,80,2,3500.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33602234/,"T2 flat in Centro, Penha de França","Centro, Penha de França",249000,70,2,3557.14,T2,2025-03-31
+https://www.idealista.pt/en/imovel/30257667/,"T2 flat in Pena, Arroios","Pena, Arroios",280000,117,2,2393.16,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33479958/,"T2 flat in Mouraria - Castelo, Santa Maria Maior","Mouraria - Castelo, Santa Maria Maior",247000,60,2,4116.67,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33936382/,"T2 flat in rua Abel Botelho, 5, Estrada de Benfica, São Domingos de Benfica","rua Abel Botelho, 5, Estrada de Benfica, São Domingos de Benfica",245000,58,2,4224.14,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33674465/,"T1 flat, Calçada de Santo André, 85, Mouraria - Castelo, Santa Maria Maior",,175000,58,1,3017.24,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33797896/,"T1 flat in Graça, São Vicente","Graça, São Vicente",250000,52,1,4807.69,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33418991/,"T2 flat in Beato, Lisboa","Beato, Lisboa",289000,75,2,3853.33,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33097996/,"T1 flat in São Vicente de Fora, São Vicente","São Vicente de Fora, São Vicente",270000,40,1,6750.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33956092/,"T1 flat in rua do Sol a Santa Catarina, Nn, Santa Catarina, Misericórdia","rua do Sol a Santa Catarina, Nn, Santa Catarina, Misericórdia",197500,44,1,4488.64,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33871908/,"T1 flat in Alto dos Moinhos, São Domingos de Benfica","Alto dos Moinhos, São Domingos de Benfica",220000,63,1,3492.06,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33370179/,"T1 flat in rua Martins Sarmento, 64, Centro, Penha de França","rua Martins Sarmento, 64, Centro, Penha de França",259800,46,1,5647.83,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33918510/,"T1 flat in rua dos Mouros, Bairro Alto, Misericórdia","rua dos Mouros, Bairro Alto, Misericórdia",295000,61,1,4836.07,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33852582/,"T1 flat in Graça, São Vicente","Graça, São Vicente",177000,50,1,3540.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33677556/,"T2 flat in rua do Chão da Feira, 15, Alfama, Santa Maria Maior","rua do Chão da Feira, 15, Alfama, Santa Maria Maior",295000,84,2,3511.9,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33947763/,"T1 flat in travessa das Fiandeiras, 3, Rio Seco - Casalinho, Ajuda","travessa das Fiandeiras, 3, Rio Seco - Casalinho, Ajuda",200000,53,1,3773.58,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33677566/,"T1 flat in travessa Amoreira, Nn, Lapa, Estrela","travessa Amoreira, Nn, Lapa, Estrela",284000,76,1,3736.84,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33873276/,"T1 flat, do Almada, 26, Bica, Misericórdia",,295000,43,1,6860.47,T1,2025-03-31
+https://www.idealista.pt/en/imovel/32950184/,"T1 flat, Calçadinha de São Miguel, 6, Alfama, Santa Maria Maior",,179000,40,1,4475.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33845091/,"T1 flat in Lapa, Estrela","Lapa, Estrela",280000,43,1,6511.63,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33571421/,"T1 flat in São Vicente de Fora, São Vicente","São Vicente de Fora, São Vicente",299900,63,1,4760.32,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33886877/,"T1 flat in rua Castelo Branco Saraiva, 68, Centro, Penha de França","rua Castelo Branco Saraiva, 68, Centro, Penha de França",135000,45,1,3000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33969701/,"T2 flat in Santa Engrácia, São Vicente","Santa Engrácia, São Vicente",290000,56,2,5178.57,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33671705/,"House in rua Washington, 27, Santa Engrácia, São Vicente","rua Washington, 27, Santa Engrácia, São Vicente",299900,63,0,4760.32,,2025-03-31
+https://www.idealista.pt/en/imovel/33613343/,"T1 flat in rua António Luís Inácio, 61, Bairro dos Actores - Barão Sabrosa, Penha de França","rua António Luís Inácio, 61, Bairro dos Actores - Barão Sabrosa, Penha de França",197000,49,1,4020.41,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33975817/,"T1 flat in São Vicente de Fora, São Vicente","São Vicente de Fora, São Vicente",299900,63,1,4760.32,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33304593/,"T1 flat in Santos-o-Velho - Madragoa, Estrela","Santos-o-Velho - Madragoa, Estrela",300000,50,1,6000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33951033/,"T1 flat in Santa Engrácia, São Vicente","Santa Engrácia, São Vicente",299900,63,1,4760.32,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33145538/,"T2 flat in Prazeres - Maria Pia, Campo de Ourique","Prazeres - Maria Pia, Campo de Ourique",275000,74,2,3716.22,T2,2025-03-31
+https://www.idealista.pt/en/imovel/32620524/,"T1 flat in rua Frei Fortunato São Boaventura, Beato, Lisboa","rua Frei Fortunato São Boaventura, Beato, Lisboa",190000,61,1,3114.75,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33898635/,"T2 flat in Marvila, Lisboa","Marvila, Lisboa",260000,65,2,4000.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33084983/,"T1 flat in Cais do Sodré - Santos, Misericórdia","Cais do Sodré - Santos, Misericórdia",170000,40,1,4250.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/32490930/,"T1 flat in rua Frei Fortunato de São Boaventura, Beato, Lisboa","rua Frei Fortunato de São Boaventura, Beato, Lisboa",190000,61,1,3114.75,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33948960/,"T1 flat in Alto da Ajuda, Ajuda","Alto da Ajuda, Ajuda",209653,64,1,3275.83,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33906311/,"T1 flat in Alto da Ajuda, Ajuda","Alto da Ajuda, Ajuda",196073,60,1,3267.88,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33908094/,"T2 flat in travessa Paulo Martins, Calçada da Ajuda - Belém, Ajuda","travessa Paulo Martins, Calçada da Ajuda - Belém, Ajuda",244000,77,2,3168.83,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33867284/,"House in beco Viçoso, Nn, Boa Hora, Ajuda","beco Viçoso, Nn, Boa Hora, Ajuda",298000,68,0,4382.35,,2025-03-31
+https://www.idealista.pt/en/imovel/33668458/,"T2 flat in rua da Quinta do Jacinto, Nn, Alvito - Quinta do Jacinto, Alcântara","rua da Quinta do Jacinto, Nn, Alvito - Quinta do Jacinto, Alcântara",238000,44,2,5409.09,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33705568/,"T1 flat in travessa das Amoreiras a Arroios, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios","travessa das Amoreiras a Arroios, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",239500,57,1,4201.75,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33880614/,"T1 flat in Lapa, Estrela","Lapa, Estrela",299999,50,1,5999.98,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33741333/,"T1 flat in rua do Sol à Graça, Graça, São Vicente","rua do Sol à Graça, Graça, São Vicente",240000,43,1,5581.4,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33845035/,"T2 flat, Calçada Necessidades, Lapa, Estrela",,285000,107,2,2663.55,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33502174/,"T1 flat in travessa das Amoreiras a Arroios, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios","travessa das Amoreiras a Arroios, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",239500,56,1,4276.79,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33972841/,"T1 flat, Calçada do Conde de Penafiel, 16, Alfama, Santa Maria Maior",,160000,52,1,3076.92,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33752551/,"T2 flat in travessa do Oleiro, Santa Catarina, Misericórdia","travessa do Oleiro, Santa Catarina, Misericórdia",288000,57,2,5052.63,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33964267/,"T1 flat in beco da Cardosa, 22, Alfama, Santa Maria Maior","beco da Cardosa, 22, Alfama, Santa Maria Maior",199000,40,1,4975.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33691556/,"T2 flat in rua Sousa Viterbo, Alto de São João - Alto do Varejão, Penha de França","rua Sousa Viterbo, Alto de São João - Alto do Varejão, Penha de França",269000,70,2,3842.86,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33891422/,"T2 flat in Gare do Oriente - Zona Sul, Parque das Nações","Gare do Oriente - Zona Sul, Parque das Nações",192000,68,2,2823.53,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33815265/,"T2 flat in rua do Cruzeiro, Rio Seco - Casalinho, Ajuda","rua do Cruzeiro, Rio Seco - Casalinho, Ajuda",290000,74,2,3918.92,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33957421/,"T1 flat in beco das Cruzes, Alfama, Santa Maria Maior","beco das Cruzes, Alfama, Santa Maria Maior",210000,49,1,4285.71,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33643633/,"T2 flat in Campo de Santana - Santa Marta, Santo António","Campo de Santana - Santa Marta, Santo António",285000,52,2,5480.77,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33909925/,"T2 flat, Calçada do Tojal, Calçada do Tojal, Benfica",,280000,72,2,3888.89,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33830608/,"T1 flat in Rossio - Martim Moniz, Santa Maria Maior","Rossio - Martim Moniz, Santa Maria Maior",195500,40,1,4887.5,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33764407/,"T1 flat in rua da Arrábida, Santa Isabel, Campo de Ourique","rua da Arrábida, Santa Isabel, Campo de Ourique",179000,40,1,4475.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33976726/,"T1 flat in Centro, Ajuda","Centro, Ajuda",272000,51,1,5333.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/32699634/,"T1 flat in Lapa, Estrela","Lapa, Estrela",265000,43,1,6162.79,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33791295/,"T2 flat in rua Sargento Armando Monteiro Ferreira, Olivais, Lisboa","rua Sargento Armando Monteiro Ferreira, Olivais, Lisboa",249000,51,2,4882.35,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33789783/,"T1 flat in rua do Meio à Lapa, Lapa, Estrela","rua do Meio à Lapa, Lapa, Estrela",250000,45,1,5555.56,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33715551/,"T1 flat in Bica, Misericórdia","Bica, Misericórdia",250000,52,1,4807.69,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33432730/,"T1 flat in rua do Passadiço, Nn, Campo de Santana - Santa Marta, Santo António","rua do Passadiço, Nn, Campo de Santana - Santa Marta, Santo António",295000,53,1,5566.04,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33168759/,"T1 flat in Graça, São Vicente","Graça, São Vicente",170000,50,1,3400.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33496582/,"T1 flat in Alfama, Santa Maria Maior","Alfama, Santa Maria Maior",209000,54,1,3870.37,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33461228/,"T1 flat in travessa dos Pescadores, Cais do Sodré - Santos, Misericórdia","travessa dos Pescadores, Cais do Sodré - Santos, Misericórdia",218000,42,1,5190.48,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33954176/,"T1 flat in Santa Engrácia, São Vicente","Santa Engrácia, São Vicente",299900,68,1,4410.29,T1,2025-03-31
+https://www.idealista.pt/en/imovel/33662008/,"T2 flat in praça Cottinelli Telmo, Olivais, Lisboa","praça Cottinelli Telmo, Olivais, Lisboa",278000,61,2,4557.38,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34081375/,"T2 flat in rua das Açucenas, Nn, Alto da Ajuda, Ajuda","rua das Açucenas, Nn, Alto da Ajuda, Ajuda",270000,55,2,4909.09,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34077448/,"T2 flat in Graça, São Vicente","Graça, São Vicente",300000,62,2,4838.71,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34081497/,"T1 flat in travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações","travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações",190000,47,1,4042.55,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34081561/,"T2 flat in travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações","travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações",190000,67,2,2835.82,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34081669/,"T2 flat in rua General Silva Freire, Olivais, Lisboa","rua General Silva Freire, Olivais, Lisboa",280000,57,2,4912.28,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34081374/,"T1 flat in rua das Açucenas, Nn, Alto da Ajuda, Ajuda","rua das Açucenas, Nn, Alto da Ajuda, Ajuda",230000,50,1,4600.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34078464/,"T2 flat in Estrada de Benfica, São Domingos de Benfica","Estrada de Benfica, São Domingos de Benfica",295000,77,2,3831.17,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33749530/,"T2 flat, Poço do Borratém, Rossio - Martim Moniz, Santa Maria Maior",,190000,45,2,4222.22,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34078058/,"T1 flat in avenida Almirante Reis, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios","avenida Almirante Reis, Alameda - Praça do Chile - Almirante Reis, São Jorge de Arroios, Arroios",292000,48,1,6083.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34073475/,"T1 flat in Alto de São João - Alto do Varejão, Penha de França","Alto de São João - Alto do Varejão, Penha de França",235000,53,1,4433.96,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34075745/,"T2 flat in Mouraria - Castelo, Santa Maria Maior","Mouraria - Castelo, Santa Maria Maior",289000,65,2,4446.15,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34081468/,"T1 flat in rua do Monte Olivete, 64, Príncipe Real, Santo António","rua do Monte Olivete, 64, Príncipe Real, Santo António",280000,55,1,5090.91,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34073318/,"T2 flat in rua Professor Veiga Beirão, Nn, São João de Brito, Alvalade","rua Professor Veiga Beirão, Nn, São João de Brito, Alvalade",290000,76,2,3815.79,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34073821/,"T1 flat in rua da Atalaia, Bairro Alto, Misericórdia","rua da Atalaia, Bairro Alto, Misericórdia",170000,47,1,3617.02,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34073114/,"T2 flat, Escadinhas das Portas do Mar, Alfama, Santa Maria Maior",,299000,72,2,4152.78,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34073785/,"T2 flat in rua Poiais de São Bento, Príncipe Real - São Bento, Misericórdia","rua Poiais de São Bento, Príncipe Real - São Bento, Misericórdia",274000,56,2,4892.86,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34072221/,"T1 flat in rua Pedro Alexandrino, Santa Engrácia, São Vicente","rua Pedro Alexandrino, Santa Engrácia, São Vicente",270000,42,1,6428.57,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34074501/,"T2 flat in rua Doutor José Saraiva, Olivais, Lisboa","rua Doutor José Saraiva, Olivais, Lisboa",280000,61,2,4590.16,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34073038/,"T2 flat in Olivais, Lisboa","Olivais, Lisboa",220000,66,2,3333.33,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34087379/,"T1 flat in rua do Benformoso, 190, Mouraria - Castelo, Santa Maria Maior","rua do Benformoso, 190, Mouraria - Castelo, Santa Maria Maior",200000,40,1,5000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34087552/,"T1 flat in Arneiros, Benfica","Arneiros, Benfica",280000,46,1,6086.96,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34087179/,"T2 flat in praça Eduardo Mondlane, Nn, Marvila, Lisboa","praça Eduardo Mondlane, Nn, Marvila, Lisboa",195000,66,2,2954.55,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33950236/,"T1 flat in rua do Carrião, Campo de Santana - Santa Marta, Santo António","rua do Carrião, Campo de Santana - Santa Marta, Santo António",245000,43,1,5697.67,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34089794/,"T2 flat, circular Sul do Bairro da Encarnação, Olivais, Lisboa",,239000,54,2,4425.93,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34090282/,"T2 flat in rua Conselheiro Martins de Carvalho, Restelo, Belém","rua Conselheiro Martins de Carvalho, Restelo, Belém",295000,65,2,4538.46,T2,2025-03-31
+https://www.idealista.pt/en/imovel/33694377/,"T1 flat in praça São Paulo, Cais do Sodré - Santos, Misericórdia","praça São Paulo, Cais do Sodré - Santos, Misericórdia",180000,40,1,4500.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34086073/,"T2 flat in rua Humberto Madeira, Olivais, Lisboa","rua Humberto Madeira, Olivais, Lisboa",285000,63,2,4523.81,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34088236/,"T2 flat in Olivais, Lisboa","Olivais, Lisboa",270000,62,2,4354.84,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34087230/,"T2 flat in travessa da Rabicha, Nn, Praça de Espanha - Sete Rios, Campolide","travessa da Rabicha, Nn, Praça de Espanha - Sete Rios, Campolide",275000,63,2,4365.08,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34084392/,"T1 flat in Centro, Penha de França","Centro, Penha de França",240000,60,1,4000.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34087621/,"T1 flat in rua Américo Durão, Olaias, Areeiro","rua Américo Durão, Olaias, Areeiro",295000,75,1,3933.33,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34087242/,"T2 flat in travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações","travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações",270000,72,2,3750.0,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34088009/,"T1 flat in travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações","travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações",190000,50,1,3800.0,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34085403/,"T1 flat in rua Mestre António Martins, Centro, Penha de França","rua Mestre António Martins, Centro, Penha de França",225000,44,1,5113.64,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34087632/,"T2 flat in travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações","travessa Beirolas, Gare do Oriente - Zona Sul, Parque das Nações",260000,72,2,3611.11,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34084783/,"T1 flat in rua Angelina Vidal, Anjos, Arroios","rua Angelina Vidal, Anjos, Arroios",299000,47,1,6361.7,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34085438/,"T1 flat in rua da Esperança, Santos-o-Velho - Madragoa, Estrela","rua da Esperança, Santos-o-Velho - Madragoa, Estrela",270000,55,1,4909.09,T1,2025-03-31
+https://example.com/property/123,Test Property 1,Lisbon,250000,85,0,2941.18,,2025-03-23
+https://example.com/property/456,Test Property 2,Porto,350000,20,0,17500.0,,2025-03-23
+https://www.idealista.pt/en/imovel/33539356/,"T2 flat in rua Feliciano de Sousa, Alvito - Quinta do Jacinto, Alcântara","rua Feliciano de Sousa, Alvito - Quinta do Jacinto, Alcântara",235000,54,2,4351.85,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34092002/,"T2 flat in rua Actor Augusto de Melo, Beato, Lisboa","rua Actor Augusto de Melo, Beato, Lisboa",130000,57,2,2280.7,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34091991/,"T2 flat in rua Actor Augusto de Melo, Beato, Lisboa","rua Actor Augusto de Melo, Beato, Lisboa",130000,57,2,2280.7,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34092089/,"T1 flat in travessa Pinheiro, 16, Lapa, Estrela","travessa Pinheiro, 16, Lapa, Estrela",290000,65,1,4461.54,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34092828/,"T2 flat in rua Dom João de Castro, 38 b, Alto de Alcântara, Alcântara","rua Dom João de Castro, 38 b, Alto de Alcântara, Alcântara",162095,66,2,2455.98,T2,2025-03-31
+https://www.idealista.pt/en/imovel/34062713/,"T1 flat in Arneiros, Benfica","Arneiros, Benfica",280000,46,1,6086.96,T1,2025-03-31
+https://www.idealista.pt/en/imovel/34093593/,"T1 flat, Calçada dos Barbadinhos, Nn, Santa Engrácia, São Vicente",,275000,45,1,6111.11,T1,2025-03-31
