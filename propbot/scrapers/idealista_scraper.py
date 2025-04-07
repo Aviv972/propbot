@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
-from ...utils.extraction_utils import extract_price_improved
+from propbot.utils.extraction_utils import extract_price_improved
 
 # Load environment variables from .env file
 load_dotenv()
