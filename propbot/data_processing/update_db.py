@@ -139,6 +139,7 @@ def import_sales_data_from_json(conn, json_file_path):
         for item in sales_data:
             # Skip if missing required fields
             if not item.get('url'):
+                logger.warning(f"Skipping item without URL: {item}")
                 continue
             
             # Extract and validate price 
@@ -148,26 +149,28 @@ def import_sales_data_from_json(conn, json_file_path):
             # Try to directly extract price 
             if isinstance(price_str, (int, float)):
                 price_value = float(price_str)
-                logger.debug(f"Direct numeric price: {price_value}")
+                logger.info(f"Direct numeric price: {price_value} for {item.get('url')}")
             else:
                 # Extract price using improved algorithm
                 price_value = extract_price_improved(price_str)
-                logger.debug(f"Extracted price from string: {price_str} -> {price_value}")
+                logger.info(f"Extracted price from string: {price_str} -> {price_value} for {item.get('url')}")
             
             # Ensure price is numeric
             try:
                 price_value = float(price_value) if price_value is not None else 0
-                logger.debug(f"Converted price to numeric: {price_value}")
+                logger.info(f"Converted price to numeric: {price_value} for {item.get('url')}")
             except (ValueError, TypeError):
-                logger.warning(f"Could not convert price to numeric: {price_value}")
+                logger.warning(f"Could not convert price to numeric: {price_value} for {item.get('url')}")
                 price_value = 0
             
             # Extract other data
             try:
-                size_value = extract_size(item.get('details', ''))
+                size_value, size_confidence = extract_size(item.get('details', ''))
+                logger.debug(f"Extracted size: {size_value} (confidence: {size_confidence}) for {item.get('url')}")
             except Exception as e:
-                logger.debug(f"Error extracting size: {e}")
+                logger.warning(f"Error extracting size: {e} for {item.get('url')}")
                 size_value = None
+                size_confidence = False
                 
             # Create record
             record = {
@@ -187,6 +190,7 @@ def import_sales_data_from_json(conn, json_file_path):
             records.append(record)
             if price_value and price_value > 0:
                 valid_count += 1
+                logger.info(f"Valid price record: {record['url']} - Price: {price_value}")
             else:
                 invalid_price_count += 1
                 logger.warning(f"Invalid price for property: {item.get('url')} - Raw price: {price_str}")
@@ -229,10 +233,12 @@ def import_sales_data_from_json(conn, json_file_path):
                         
                         if exists:
                             updated += 1
+                            logger.info(f"Updated record: {record['url']} - Price: {record['price']}")
                         else:
                             inserted += 1
+                            logger.info(f"Inserted record: {record['url']} - Price: {record['price']}")
                     except Exception as e:
-                        logger.error(f"Error inserting/updating record: {e}")
+                        logger.error(f"Error inserting/updating record for {record['url']}: {e}")
                         continue
                 
                 logger.info(f"Database import complete: {inserted} inserted, {updated} updated")
