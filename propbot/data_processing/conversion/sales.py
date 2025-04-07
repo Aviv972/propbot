@@ -17,6 +17,7 @@ from typing import Dict, Any, Optional, Union
 import pandas as pd
 from ...utils.extraction_utils import extract_size as extract_size_robust
 from ...utils.extraction_utils import extract_room_type as extract_room_type_robust
+from ...utils.extraction_utils import extract_price_improved
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -25,44 +26,23 @@ def extract_price(price_str: Optional[str]) -> int:
     """
     Extract the price from a string and convert to numeric value.
     
+    Note: This function is a wrapper around the improved version in extraction_utils.
+    It maintains backward compatibility while using the more robust implementation.
+    
     Args:
         price_str: String containing price information
         
     Returns:
         Price in euros as an integer (e.g., "350,000 €" -> 350000)
     """
-    if not price_str or not isinstance(price_str, str):
+    if not price_str:
         return 0
     
-    # Try to extract the numeric part of the price
-    price_match = re.search(r'[\d,.]+', price_str.replace(' ', ''))
-    if not price_match:
-        return 0
+    # Use the improved version from extraction_utils
+    price_value = extract_price_improved(price_str)
     
-    price_str = price_match.group(0)
-    
-    # Remove non-numeric characters except for the decimal point/comma
-    price_str = re.sub(r'[^\d.,]', '', price_str)
-    
-    # Replace comma with dot for decimal
-    if ',' in price_str and '.' in price_str:
-        # If both comma and dot exist, assume comma is thousands separator
-        price_str = price_str.replace(',', '')
-    else:
-        # Otherwise, treat comma as decimal point
-        price_str = price_str.replace(',', '.')
-    
-    try:
-        price = float(price_str)
-        
-        # If price is too low, it might be in thousands already, otherwise convert to thousands
-        if price < 1000 and "thousand" not in price_str.lower():
-            price *= 1000
-            
-        return int(price)  # Return as integer, in thousands of euros
-    except (ValueError, TypeError):
-        logger.warning(f"Could not convert price string: {price_str}")
-        return 0
+    # Convert to integer for backward compatibility
+    return int(price_value) if price_value > 0 else 0
 
 def extract_size(size_str, room_type=None):
     """

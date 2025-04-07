@@ -17,6 +17,7 @@ from datetime import datetime
 from typing import Dict, Any, Optional, Union
 from ...utils.extraction_utils import extract_size as extract_size_robust
 from ...utils.extraction_utils import extract_room_type as extract_room_type_robust
+from ...utils.extraction_utils import extract_price_improved
 import psycopg2
 from psycopg2 import extras
 from decimal import Decimal
@@ -27,6 +28,9 @@ logger = logging.getLogger(__name__)
 def extract_price(price_str: Optional[Union[str, int, float]]) -> Optional[float]:
     """
     Extract the rental price from a string or numeric value and convert to float.
+    
+    Note: This function is a wrapper around the improved version in extraction_utils.
+    It maintains backward compatibility while using the more robust implementation.
     
     Args:
         price_str: String or numeric value containing price information
@@ -42,40 +46,11 @@ def extract_price(price_str: Optional[Union[str, int, float]]) -> Optional[float
     if isinstance(price_str, (int, float)):
         return float(price_str)
     
-    # Handle string type
-    if isinstance(price_str, str):
-        # Remove whitespace and common currency symbols
-        price_str = price_str.strip().replace('€', '').replace('EUR', '')
-        
-        # Try to extract the numeric part of the price
-        price_match = re.search(r'[\d,.]+', price_str.replace(' ', ''))
-        if not price_match:
-            return None
-        
-        price_str = price_match.group(0)
-        
-        try:
-            # Handle different decimal separator formats
-            if ',' in price_str and '.' in price_str:
-                # If both separators present, assume comma is thousands separator
-                price_str = price_str.replace(',', '')
-            elif ',' in price_str:
-                # If only comma present, assume it's decimal separator
-                price_str = price_str.replace(',', '.')
-            
-            # Convert to float
-            price = float(price_str)
-            
-            # Validate the price
-            if price <= 0:
-                return None
-                
-            return price
-            
-        except (ValueError, TypeError):
-            return None
+    # Use the improved version from extraction_utils
+    price_value = extract_price_improved(price_str)
     
-    return None
+    # Return None for invalid prices to maintain backward compatibility
+    return price_value if price_value > 0 else None
 
 def extract_size(size_str, room_type=None):
     """
