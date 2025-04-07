@@ -241,11 +241,25 @@ def extract_properties(html_content):
     
     for listing in listing_containers:
         title_elem = listing.find("a", {"class": "item-link"})
-        price_elem = listing.find("div", {"class": "price-row"})
+        
+        # Try multiple price element selectors
+        price_elem = (
+            listing.find("div", {"class": "price-row"}) or
+            listing.find("span", {"class": "item-price"}) or
+            listing.find("div", {"class": "item-price"}) or
+            listing.find("span", {"class": "price"}) or
+            listing.find("div", {"class": "price"})
+        )
+        
         detail_elem = listing.find("div", {"class": "item-detail-char"})
         
-        if not title_elem or not price_elem:
-            continue  # Skip if something is missing
+        if not title_elem:
+            log_message("Warning: Missing title element for listing")
+            continue
+            
+        if not price_elem:
+            log_message("Warning: Missing price element for listing")
+            continue
         
         title = title_elem.get_text(strip=True)
         url = title_elem.get('href', '')
@@ -254,15 +268,28 @@ def extract_properties(html_content):
         if url.startswith("/"):
             url = "https://www.idealista.pt" + url
             
-        # Extract and process price
+        # Extract and process price with detailed logging
         raw_price = price_elem.get_text(strip=True)
+        log_message(f"Raw price text: {raw_price}")
+        
+        # Try to extract price using our improved function
         price = extract_price_improved(raw_price)
         log_message(f"Extracted price: {raw_price} -> {price}")
+        
+        # If price extraction failed, try to find any numeric value in the price element
+        if not price or price == 0:
+            # Look for any element containing numbers within the price element
+            numeric_elements = price_elem.find_all(text=lambda text: text and any(c.isdigit() for c in text))
+            for elem in numeric_elements:
+                alt_price = extract_price_improved(elem.strip())
+                if alt_price and alt_price > 0:
+                    price = alt_price
+                    log_message(f"Found alternative price: {elem.strip()} -> {price}")
+                    break
         
         details = detail_elem.get_text(strip=True) if detail_elem else ""
         
         # Try to extract location from title or details
-        # This is a simplified approach - might need refinement based on actual data format
         location = ""
         if "in " in title:
             location = title.split("in ", 1)[1]
@@ -280,6 +307,7 @@ def extract_properties(html_content):
             # first_seen_date will be added when the property is first saved
         }
         
+        log_message(f"Created property record: {property_record}")
         properties.append(property_record)
     
     # Find next page link if available
