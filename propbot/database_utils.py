@@ -35,6 +35,7 @@ def get_database_url():
     if 'sslmode=' not in db_url:
         db_url += ('&' if '?' in db_url else '?') + 'sslmode=require'
     
+    logger.debug(f"Using database URL: {db_url.split('@')[0]}@[REDACTED]")
     return db_url
 
 def get_connection():
@@ -45,14 +46,19 @@ def get_connection():
         return None
     
     try:
+        logger.debug("Attempting to connect to database...")
         conn = psycopg2.connect(db_url)
+        logger.debug("Successfully connected to database")
         return conn
     except Exception as e:
         logger.error(f"Error connecting to database: {str(e)}")
+        import traceback
+        logger.error(f"Connection error details: {traceback.format_exc()}")
         return None
 
 def initialize_database():
     """Initialize the database schema"""
+    logger.info("Starting database initialization")
     conn = get_connection()
     if not conn:
         logger.error("Could not initialize database - no connection")
@@ -61,6 +67,7 @@ def initialize_database():
     try:
         with conn:
             with conn.cursor() as cur:
+                logger.debug("Creating/verifying metadata table...")
                 # Create metadata table if it doesn't exist
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS rental_metadata (
@@ -73,6 +80,7 @@ def initialize_database():
                     )
                 """)
                 
+                logger.debug("Creating/verifying sales properties table...")
                 # Create sales properties table
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS properties_sales (
@@ -93,6 +101,7 @@ def initialize_database():
                     )
                 """)
                 
+                logger.debug("Creating/verifying rental properties table...")
                 # Create rental properties table
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS properties_rentals (
@@ -114,6 +123,7 @@ def initialize_database():
                     )
                 """)
                 
+                logger.debug("Creating/verifying historical snapshots tables...")
                 # Create historical snapshots tables
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS sales_historical_snapshots (
@@ -139,6 +149,7 @@ def initialize_database():
                     )
                 """)
                 
+                logger.debug("Creating/verifying analysis results table...")
                 # Create analysis results historical table
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS analysis_results_history (
@@ -151,6 +162,7 @@ def initialize_database():
                     )
                 """)
                 
+                logger.debug("Creating/verifying indexes...")
                 # Create indexes for better query performance
                 cur.execute("""
                     CREATE INDEX IF NOT EXISTS idx_properties_sales_location 
@@ -179,9 +191,13 @@ def initialize_database():
         return True
     except Exception as e:
         logger.error(f"Error initializing database: {str(e)}")
+        import traceback
+        logger.error(f"Initialization error details: {traceback.format_exc()}")
         return False
     finally:
-        conn.close()
+        if conn:
+            conn.close()
+            logger.debug("Database connection closed")
 
 def get_rental_last_update():
     """Get the last update time for rental data"""
