@@ -69,8 +69,15 @@ def extract_size(text):
     if pd.isna(text) or not isinstance(text, str):
         return 0
         
-    # Use the robust implementation from extraction_utils
-    size, _ = extract_size_robust(text)
+    # First try to extract room type for context
+    room_type = extract_room_type(text)
+    
+    # Use the robust implementation from extraction_utils with room type context
+    size, confidence = extract_size_robust(text, room_type)
+    
+    if not confidence:
+        logger.warning(f"Low confidence size extraction: '{text}' -> {size}. Room type: {room_type}")
+    
     return size if size is not None else 0
 
 def extract_room_type(details_str):

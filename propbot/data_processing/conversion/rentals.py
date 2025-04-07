@@ -77,7 +77,7 @@ def extract_price(price_str: Optional[Union[str, int, float]]) -> Optional[float
     
     return None
 
-def extract_size(size_str):
+def extract_size(size_str, room_type=None):
     """
     Extract numeric size value from a string.
     
@@ -86,6 +86,7 @@ def extract_size(size_str):
     
     Args:
         size_str: String containing size information (e.g., "120 m²")
+        room_type: Optional room type (T0, T1, T2, etc.) to help validate the extracted size
         
     Returns:
         Integer representing square meters or 0 if invalid
@@ -93,8 +94,11 @@ def extract_size(size_str):
     if not size_str:
         return 0
     
-    # Use the robust implementation from extraction_utils
-    size, _ = extract_size_robust(size_str)
+    # Use the robust implementation from extraction_utils with room type context
+    size, confidence = extract_size_robust(size_str, room_type)
+    if not confidence:
+        logger.debug(f"Low confidence size extraction: '{size_str}' -> {size}. Room type: {room_type}")
+    
     return int(size) if size is not None else 0
 
 def extract_room_type(title):

@@ -61,22 +61,43 @@ def extract_size(text: Union[str, None], room_type: str = None) -> Tuple[Optiona
     high_confidence = True
     extracted_size = None
     
-    # Case 1: Room type and size separated by space or hyphen (e.g., "T2 70 m²" or "T2-70 m²")
+    # Priority 1: Room type and size concatenated without space (e.g., "T275 m²") - most error-prone pattern
+    concatenated_pattern = re.search(r'T([0-6])(\d{2,})\s*m²', text)
+    if concatenated_pattern:
+        try:
+            room_digit = concatenated_pattern.group(1)
+            size_digits = concatenated_pattern.group(2)
+            extracted_size = float(size_digits)
+            
+            # This is the problematic pattern we're targeting
+            logger.info(f"Found concatenated room type and size: T{room_digit}{size_digits} m², extracting size as {extracted_size}")
+            detected_room_type = f"T{room_digit}"
+            
+            # If provided room_type matches what we found, this increases confidence
+            if room_type and room_type == detected_room_type:
+                high_confidence = True
+            
+            return extracted_size, high_confidence
+        except (ValueError, TypeError):
+            pass
+    
+    # Priority 2: Room type and size separated by space or hyphen (e.g., "T2 70 m²" or "T2-70 m²")
     separated_pattern = re.search(r'T([0-6])[\s-]+(\d+(?:\.\d+)?)\s*m²', text)
     if separated_pattern:
         try:
             extracted_size = float(separated_pattern.group(2))
-            # This is the most reliable pattern
+            logger.debug(f"Found separated room type and size: {text}, extracting size as {extracted_size}")
             return extracted_size, True
         except (ValueError, TypeError):
             pass
     
-    # Case 2: Standard size pattern (e.g., "70 m²")
+    # Priority 3: Standard size pattern (e.g., "70 m²")
     standard_pattern = re.search(r'(\d+(?:\.\d+)?)\s*m²', text)
     if standard_pattern:
         try:
             size_str = standard_pattern.group(1)
             extracted_size = float(size_str)
+            logger.debug(f"Found standard size pattern: {size_str} m², extracting size as {extracted_size}")
             
             # Validate: If size is suspiciously large and starts with a digit 1-6,
             # it might be a T-format with attached size (e.g., "T270 m²" represented as "270 m²")
@@ -91,63 +112,44 @@ def extract_size(text: Union[str, None], room_type: str = None) -> Tuple[Optiona
                         logger.warning(f"Corrected size from {extracted_size} to {new_size} based on room type {room_type}")
                         return new_size, False  # Lower confidence since we're making an assumption
                     
-                    # If the resulting size after correction would be more reasonable
-                    remaining_size = float(size_str[1:])
-                    if remaining_size >= 20 and remaining_size <= 200:
-                        logger.warning(f"Possible room type digit in size: {extracted_size}. Corrected to: {remaining_size}")
-                        return remaining_size, False  # Lower confidence
-            
-            # If we have room type information, validate against typical ranges
-            if room_type and room_type in TYPICAL_SIZE_RANGES:
-                min_size, max_size = TYPICAL_SIZE_RANGES[room_type]
-                max_threshold = MAX_SIZE_THRESHOLDS.get(room_type, MAX_SIZE_THRESHOLDS['default'])
-                
-                # If size is clearly outside typical range for this room type
-                if extracted_size > max_threshold:
-                    high_confidence = False
-                    logger.warning(f"Size {extracted_size} for {room_type} exceeds maximum threshold {max_threshold}")
+                    # If room type is present in text and matches first digit
+                    elif room_type and re.search(rf'T{first_digit}\b', text):
+                        new_size = float(size_str[1:])
+                        logger.warning(f"Corrected size from {extracted_size} to {new_size} based on room type in text")
+                        return new_size, False
+                    elif room_type:
+                        # If room type doesn't match the first digit, don't correct
+                        logger.debug(f"Room type {room_type} doesn't match first digit {first_digit}, keeping original size")
+                        return extracted_size, high_confidence
                     
-                    # If it's suspiciously large by an order of magnitude, try dividing
-                    if extracted_size > max_threshold * 3:
-                        alternative_size = extracted_size / 10
-                        if min_size <= alternative_size <= max_size:
-                            logger.warning(f"Size {extracted_size} for {room_type} might be decimal error. Suggesting: {alternative_size}")
-                            return alternative_size, False
+                    # If no room type is provided, be more conservative about correcting
+                    elif not room_type:
+                        logger.debug(f"No room type provided, keeping original size {extracted_size}")
+                        return extracted_size, high_confidence
             
             return extracted_size, high_confidence
         except (ValueError, TypeError):
             pass
     
-    # Case 3: Room type with attached size (e.g., "T270 m²")
-    combined_pattern = re.search(r'T([0-6])(\d+)\s*m²', text)
-    if combined_pattern:
+    # Check for size patterns with T that might be missing the space (e.g., "T270" without "m²")
+    implied_size_pattern = re.search(r'T([0-6])(\d{2,})', text)
+    if implied_size_pattern:
         try:
-            room_digit = combined_pattern.group(1)
-            size_digits = combined_pattern.group(2)
+            room_digit = implied_size_pattern.group(1) 
+            size_digits = implied_size_pattern.group(2)
             extracted_size = float(size_digits)
-            
-            # This pattern is clear but requires validation
-            detected_room_type = f"T{room_digit}"
-            
-            # If we have room type and it matches what's in the pattern, this is high confidence
-            if room_type and room_type == detected_room_type:
-                high_confidence = True
-            else:
-                # Without confirmation, treat as medium confidence
-                high_confidence = False
-                
-            return extracted_size, high_confidence
+            logger.debug(f"Extracted size {extracted_size} from pattern without m² unit: T{room_digit}{size_digits}")
+            return extracted_size, False  # Lower confidence without explicit unit
         except (ValueError, TypeError):
             pass
     
-    # Case 4: Size without unit (number near room type)
-    # This is the least reliable pattern, so low confidence
-    near_room_pattern = re.search(r'T([0-6]).*?(\d+(?:\.\d+)?)', text)
-    if near_room_pattern:
+    # Check for plain number after room type
+    plain_number_pattern = re.search(r'T\d.*?(\d+(?:\.\d+)?)', text)
+    if plain_number_pattern:
         try:
-            extracted_size = float(near_room_pattern.group(2))
-            # Very low confidence since we're making assumptions
-            return extracted_size, False
+            extracted_size = float(plain_number_pattern.group(1))
+            logger.debug(f"Found plain number after room type: {extracted_size}")
+            return extracted_size, False  # Lower confidence
         except (ValueError, TypeError):
             pass
     
@@ -157,7 +159,9 @@ def extract_size(text: Union[str, None], room_type: str = None) -> Tuple[Optiona
     if fallback_pattern:
         try:
             num = float(fallback_pattern.group(1))
-            if 20 <= num <= 400:  # Sanity range for apartment sizes
+            # Don't limit to 400 as some properties can be larger
+            if num >= 20:  # Just ensure it's a reasonable size
+                logger.debug(f"Using fallback extraction, found number: {num}")
                 return num, False
         except (ValueError, TypeError):
             pass

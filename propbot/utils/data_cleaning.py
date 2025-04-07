@@ -27,21 +27,41 @@ def extract_price(price_str):
     except (ValueError, TypeError):
         return None
 
-def extract_size(size_str):
-    """Extract numeric size from a size string with units."""
+def extract_size(size_str, room_type=None):
+    """
+    Extract numeric size from a size string with units.
+    
+    This function is deprecated and should be replaced with 
+    propbot.utils.extraction_utils.extract_size in new code.
+    
+    Args:
+        size_str: String containing size information
+        room_type: Optional room type (T0, T1, etc.) to help validate size
+        
+    Returns:
+        Float representing size in square meters or None if invalid
+    """
     if not size_str or pd.isna(size_str):
         return None
     
-    # Find all numbers in the string
-    matches = re.findall(r'\d+(?:\.\d+)?', str(size_str))
-    if not matches:
-        return None
-    
+    # Check if extraction_utils is available
     try:
-        # Return the first number found
-        return float(matches[0])
-    except (ValueError, TypeError, IndexError):
-        return None
+        from propbot.utils.extraction_utils import extract_size as extract_size_robust
+        # Use the robust implementation if available
+        size, _ = extract_size_robust(str(size_str), room_type)
+        return size
+    except ImportError:
+        # Fall back to simple implementation
+        # Find all numbers in the string
+        matches = re.findall(r'\d+(?:\.\d+)?', str(size_str))
+        if not matches:
+            return None
+        
+        try:
+            # Return the first number found
+            return float(matches[0])
+        except (ValueError, TypeError, IndexError):
+            return None
 
 def extract_room_type(details):
     """Extract room type from details text."""

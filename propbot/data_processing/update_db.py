@@ -146,53 +146,8 @@ def import_sales_data_from_json(conn, json_file_path):
                 price_value = float(price_str)
                 logger.debug(f"Direct numeric price: {price_value}")
             else:
-                # Improved price extraction for string values with Euro symbol
-                # First, clean up the string to make extraction easier
-                if isinstance(price_str, str):
-                    # Remove Euro symbol and other non-numeric characters except for commas and dots
-                    cleaned_price = price_str.replace('€', '').replace(' ', '')
-                    # Try to extract the numeric part
-                    price_match = re.search(r'[\d,.]+', cleaned_price)
-                    if price_match:
-                        price_numeric = price_match.group(0)
-                        # Handle both comma and dot as decimal separators
-                        if ',' in price_numeric and '.' in price_numeric:
-                            # If both are present, comma is likely a thousands separator
-                            price_numeric = price_numeric.replace(',', '')
-                        else:
-                            # Otherwise, comma could be a decimal separator
-                            price_numeric = price_numeric.replace(',', '.')
-                        
-                        try:
-                            price_value = float(price_numeric)
-                            logger.debug(f"Extracted price {price_value} from '{price_str}'")
-                        except ValueError:
-                            price_value = None
-                            logger.warning(f"Could not convert cleaned price '{price_numeric}' to float")
-                    else:
-                        # Fallback to the original extractor function
-                        price_value = extract_price(price_str)
-                else:
-                    # Fallback to the original extractor function
-                    price_value = extract_price(price_str)
-                
-            # Log and count invalid prices but still import with the original value
-            if not price_value or price_value <= 0:
-                logger.warning(f"Invalid price '{price_str}' for {item.get('url')}")
-                invalid_price_count += 1
-                # Try to use raw string value if possible
-                try:
-                    if isinstance(price_str, str) and "€" in price_str:
-                        logger.info(f"Attempting to manually parse price string: '{price_str}'")
-                        numeric_part = price_str.replace('€', '').replace(' ', '').replace('.', '').replace(',', '.')
-                        price_value = float(numeric_part)
-                        logger.info(f"Successfully parsed price: {price_value}")
-                    else:
-                        # Don't skip, we'll still import with price=0 for now
-                        price_value = 0
-                except Exception as e:
-                    logger.warning(f"Manual price parsing failed: {e}")
-                    price_value = 0
+                # Extract price using improved algorithm
+                price_value = extract_price_improved(price_str)
             
             # Extract other data
             try:
@@ -219,9 +174,11 @@ def import_sales_data_from_json(conn, json_file_path):
             records.append(record)
             if price_value and price_value > 0:
                 valid_count += 1
+            else:
+                invalid_price_count += 1
         
         logger.info(f"Prepared {len(records)} records for import ({valid_count} with valid prices, {invalid_price_count} with invalid prices)")
-        
+
         if not records:
             logger.warning("No valid sales records found in JSON file")
             return False
@@ -270,6 +227,87 @@ def import_sales_data_from_json(conn, json_file_path):
         import traceback
         logger.error(traceback.format_exc())
         return False
+
+def extract_price_improved(price_str):
+    """Extract price from string with improved parsing"""
+    price_value = None
+    
+    # Try to directly extract price 
+    if isinstance(price_str, (int, float)):
+        price_value = float(price_str)
+        logger.debug(f"Direct numeric price: {price_value}")
+        return price_value
+        
+    # Handle non-string or empty inputs
+    if not isinstance(price_str, str) or not price_str.strip():
+        logger.warning(f"Invalid price input: {price_str!r}")
+        return 0
+        
+    # Improved price extraction for string values with Euro symbol
+    # First, clean up the string to make extraction easier
+    cleaned_price = price_str.replace('€', '').strip()
+    
+    # Try to extract the numeric part
+    price_match = re.search(r'[\d.,\s]+', cleaned_price)
+    if price_match:
+        price_numeric = price_match.group(0).strip()
+        
+        # European format check (e.g., "350.000,00")
+        if '.' in price_numeric and ',' in price_numeric and price_numeric.rindex('.') < price_numeric.rindex(','):
+            # European format: "350.000,00" -> replace dots, then replace comma with dot
+            price_numeric = price_numeric.replace('.', '').replace(',', '.')
+            logger.debug(f"Detected European format: {price_str} -> {price_numeric}")
+        # American format check (e.g., "350,000.00")
+        elif ',' in price_numeric and '.' in price_numeric and price_numeric.rindex(',') < price_numeric.rindex('.'):
+            # American format: "350,000.00" -> just remove commas
+            price_numeric = price_numeric.replace(',', '')
+            logger.debug(f"Detected American format: {price_str} -> {price_numeric}")
+        # Only commas present - determine if thousand separator or decimal
+        elif ',' in price_numeric and '.' not in price_numeric:
+            # Check position of comma - if near end, likely decimal
+            if len(price_numeric.split(',')[1]) <= 2:
+                # Likely decimal comma: "350,00" -> replace with dot
+                price_numeric = price_numeric.replace(',', '.')
+                logger.debug(f"Detected decimal comma: {price_str} -> {price_numeric}")
+            else:
+                # Likely thousand separator: "350,000" -> remove comma
+                price_numeric = price_numeric.replace(',', '')
+                logger.debug(f"Detected thousand separator comma: {price_str} -> {price_numeric}")
+        # Only dots present - determine if thousand separator or decimal
+        elif '.' in price_numeric and ',' not in price_numeric:
+            # Check position of dot - if near end, likely decimal
+            if len(price_numeric.split('.')[1]) <= 2:
+                # Already in correct format: "350.00"
+                logger.debug(f"Detected decimal dot: {price_str} -> {price_numeric}")
+            else:
+                # Likely thousand separator: "350.000" -> treat as European
+                price_numeric = price_numeric.replace('.', '')
+                logger.debug(f"Detected thousand separator dot: {price_str} -> {price_numeric}")
+        
+        # Remove any spaces
+        price_numeric = price_numeric.replace(' ', '')
+        
+        try:
+            price_value = float(price_numeric)
+            logger.debug(f"Successfully parsed price: {price_value}")
+            return price_value
+        except ValueError as e:
+            logger.warning(f"Could not convert to float: {price_numeric}, Error: {e}")
+    else:
+        logger.warning(f"No price pattern found in '{price_str}'")
+    
+    # Fallback if all else fails - just extract digits and try again
+    digits_only = ''.join(c for c in price_str if c.isdigit())
+    if digits_only:
+        try:
+            price_value = float(digits_only)
+            logger.debug(f"Last resort digit extraction: {price_value}")
+            return price_value
+        except ValueError:
+            pass
+    
+    # If we couldn't extract anything valid, return 0
+    return 0
 
 def main():
     """Main entry point for the script"""
