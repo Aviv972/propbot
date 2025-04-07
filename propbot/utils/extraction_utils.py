@@ -306,58 +306,70 @@ def extract_price_improved(price_str: Union[str, None, int, float]) -> float:
         logger.warning(f"Invalid price input: {price_str!r}")
         return 0
         
-    # Improved price extraction for string values with Euro symbol
-    # First, clean up the string to make extraction easier
-    cleaned_price = price_str.replace('€', '').strip()
-    
-    # Try to extract the numeric part
-    price_match = re.search(r'[\d.,\s]+', cleaned_price)
-    if price_match:
-        price_numeric = price_match.group(0).strip()
-        
-        # European format check (e.g., "350.000,00")
-        if '.' in price_numeric and ',' in price_numeric and price_numeric.rindex('.') < price_numeric.rindex(','):
-            # European format: "350.000,00" -> replace dots, then replace comma with dot
-            price_numeric = price_numeric.replace('.', '').replace(',', '.')
-            logger.debug(f"Detected European format: {price_str} -> {price_numeric}")
-        # American format check (e.g., "350,000.00")
-        elif ',' in price_numeric and '.' in price_numeric and price_numeric.rindex(',') < price_numeric.rindex('.'):
-            # American format: "350,000.00" -> just remove commas
-            price_numeric = price_numeric.replace(',', '')
-            logger.debug(f"Detected American format: {price_str} -> {price_numeric}")
-        # Only commas present - determine if thousand separator or decimal
-        elif ',' in price_numeric and '.' not in price_numeric:
-            # Check position of comma - if near end, likely decimal
-            if len(price_numeric.split(',')[1]) <= 2:
-                # Likely decimal comma: "350,00" -> replace with dot
-                price_numeric = price_numeric.replace(',', '.')
-                logger.debug(f"Detected decimal comma: {price_str} -> {price_numeric}")
-            else:
-                # Likely thousand separator: "350,000" -> remove comma
-                price_numeric = price_numeric.replace(',', '')
-                logger.debug(f"Detected thousand separator comma: {price_str} -> {price_numeric}")
-        # Only dots present - determine if thousand separator or decimal
-        elif '.' in price_numeric and ',' not in price_numeric:
-            # Check position of dot - if near end, likely decimal
-            if len(price_numeric.split('.')[1]) <= 2:
-                # Already in correct format: "350.00"
-                logger.debug(f"Detected decimal dot: {price_str} -> {price_numeric}")
-            else:
-                # Likely thousand separator: "350.000" -> treat as European
-                price_numeric = price_numeric.replace('.', '')
-                logger.debug(f"Detected thousand separator dot: {price_str} -> {price_numeric}")
-        
-        # Remove any spaces
-        price_numeric = price_numeric.replace(' ', '')
-        
-        try:
-            price_value = float(price_numeric)
-            logger.debug(f"Successfully parsed price: {price_value}")
-            return price_value
-        except ValueError as e:
-            logger.warning(f"Could not convert to float: {price_numeric}, Error: {e}")
+    # First, try to find a complete price pattern with currency symbol
+    # This helps identify the main price when multiple prices are present
+    euro_price_pattern = re.search(r'(\d+(?:[\s.,]\d+)*)\s*€', price_str)
+    if euro_price_pattern:
+        cleaned_price = euro_price_pattern.group(1)
     else:
-        logger.warning(f"No price pattern found in '{price_str}'")
+        # If no price with currency found, clean up the string and look for numbers
+        cleaned_price = price_str.replace('€', '').strip()
+        
+        # If there are multiple prices in the string (e.g., "275,000€295,000 €7%"),
+        # take the first one that looks like a complete price
+        if '%' in cleaned_price:
+            # Split by percentage sign and take the first part
+            cleaned_price = cleaned_price.split('%')[0].strip()
+        
+        # Look for a price pattern without currency
+        price_pattern = re.search(r'(\d+(?:[\s.,]\d+)*)', cleaned_price)
+        if price_pattern:
+            cleaned_price = price_pattern.group(1)
+        else:
+            logger.warning(f"No valid price pattern found in '{price_str}'")
+            return 0
+    
+    # Remove any spaces within the number
+    price_numeric = cleaned_price.replace(' ', '')
+    
+    # European format check (e.g., "350.000,00")
+    if '.' in price_numeric and ',' in price_numeric and price_numeric.rindex('.') < price_numeric.rindex(','):
+        # European format: "350.000,00" -> replace dots, then replace comma with dot
+        price_numeric = price_numeric.replace('.', '').replace(',', '.')
+        logger.debug(f"Detected European format: {price_str} -> {price_numeric}")
+    # American format check (e.g., "350,000.00")
+    elif ',' in price_numeric and '.' in price_numeric and price_numeric.rindex(',') < price_numeric.rindex('.'):
+        # American format: "350,000.00" -> just remove commas
+        price_numeric = price_numeric.replace(',', '')
+        logger.debug(f"Detected American format: {price_str} -> {price_numeric}")
+    # Only commas present - determine if thousand separator or decimal
+    elif ',' in price_numeric and '.' not in price_numeric:
+        # Check position of comma - if near end, likely decimal
+        if len(price_numeric.split(',')[1]) <= 2:
+            # Likely decimal comma: "350,00" -> replace with dot
+            price_numeric = price_numeric.replace(',', '.')
+            logger.debug(f"Detected decimal comma: {price_str} -> {price_numeric}")
+        else:
+            # Likely thousand separator: "350,000" -> remove comma
+            price_numeric = price_numeric.replace(',', '')
+            logger.debug(f"Detected thousand separator comma: {price_str} -> {price_numeric}")
+    # Only dots present - determine if thousand separator or decimal
+    elif '.' in price_numeric and ',' not in price_numeric:
+        # Check position of dot - if near end, likely decimal
+        if len(price_numeric.split('.')[1]) <= 2:
+            # Already in correct format: "350.00"
+            logger.debug(f"Detected decimal dot: {price_str} -> {price_numeric}")
+        else:
+            # Likely thousand separator: "350.000" -> treat as European
+            price_numeric = price_numeric.replace('.', '')
+            logger.debug(f"Detected thousand separator dot: {price_str} -> {price_numeric}")
+    
+    try:
+        price_value = float(price_numeric)
+        logger.debug(f"Successfully parsed price: {price_value}")
+        return price_value
+    except ValueError as e:
+        logger.warning(f"Could not convert to float: {price_numeric}, Error: {e}")
     
     # Fallback if all else fails - just extract digits and try again
     digits_only = ''.join(c for c in price_str if c.isdigit())
