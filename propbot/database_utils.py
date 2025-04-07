@@ -35,7 +35,9 @@ def get_database_url():
     if 'sslmode=' not in db_url:
         db_url += ('&' if '?' in db_url else '?') + 'sslmode=require'
     
-    logger.debug(f"Using database URL: {db_url.split('@')[0]}@[REDACTED]")
+    # Log the URL with sensitive information redacted
+    redacted_url = db_url.split('@')[0] + '@[REDACTED]'
+    logger.debug(f"Using database URL: {redacted_url}")
     return db_url
 
 def get_connection():
@@ -79,6 +81,7 @@ def initialize_database():
                         updated_at TIMESTAMP DEFAULT NOW()
                     )
                 """)
+                logger.debug("Metadata table verified")
                 
                 logger.debug("Creating/verifying sales properties table...")
                 # Create sales properties table
@@ -100,6 +103,7 @@ def initialize_database():
                         updated_at TIMESTAMP DEFAULT NOW()
                     )
                 """)
+                logger.debug("Sales properties table verified")
                 
                 logger.debug("Creating/verifying rental properties table...")
                 # Create rental properties table
@@ -122,6 +126,7 @@ def initialize_database():
                         updated_at TIMESTAMP DEFAULT NOW()
                     )
                 """)
+                logger.debug("Rental properties table verified")
                 
                 logger.debug("Creating/verifying historical snapshots tables...")
                 # Create historical snapshots tables
@@ -136,6 +141,7 @@ def initialize_database():
                         created_at TIMESTAMP DEFAULT NOW()
                     )
                 """)
+                logger.debug("Sales historical snapshots table verified")
                 
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS rental_historical_snapshots (
@@ -148,6 +154,7 @@ def initialize_database():
                         created_at TIMESTAMP DEFAULT NOW()
                     )
                 """)
+                logger.debug("Rental historical snapshots table verified")
                 
                 logger.debug("Creating/verifying analysis results table...")
                 # Create analysis results historical table
@@ -161,6 +168,7 @@ def initialize_database():
                         created_at TIMESTAMP DEFAULT NOW()
                     )
                 """)
+                logger.debug("Analysis results table verified")
                 
                 logger.debug("Creating/verifying indexes...")
                 # Create indexes for better query performance
@@ -186,6 +194,7 @@ def initialize_database():
                     CREATE INDEX IF NOT EXISTS idx_analysis_results_history_type_date
                     ON analysis_results_history(analysis_type, analysis_date);
                 """)
+                logger.debug("All indexes verified")
                 
                 logger.info("Database initialized successfully with all required tables")
         return True
