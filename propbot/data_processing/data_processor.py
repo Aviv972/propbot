@@ -18,7 +18,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 from ..config import load_config
-from ..utils.extraction_utils import extract_size as extract_size_robust, extract_room_type, extract_price_improved
+from ..utils.extraction_utils import extract_size as extract_size_improved, extract_room_type, extract_price_improved
 
 # Set up logging
 logging.basicConfig(
@@ -52,33 +52,6 @@ RENTAL_RAW_FILE = RAW_DIR / "rentals" / "rental_listings.json"
 SALES_CSV_FILE = PROCESSED_DIR / "sales_current.csv"  # Updated to match the expected filename
 RENTAL_CSV_FILE = PROCESSED_DIR / "rentals.csv"
 METADATA_FILE = PROCESSED_DIR / "metadata.json"
-
-def extract_size(text):
-    """
-    Extract size in square meters from details text.
-    
-    Note: This function is deprecated and remains only for backward compatibility.
-    Use propbot.utils.extraction_utils.extract_size instead.
-    
-    Args:
-        text: Text that may contain size information
-        
-    Returns:
-        Extracted size as float or 0 if not found
-    """
-    if pd.isna(text) or not isinstance(text, str):
-        return 0
-        
-    # First try to extract room type for context
-    room_type = extract_room_type(text)
-    
-    # Use the robust implementation from extraction_utils with room type context
-    size, confidence = extract_size_robust(text, room_type)
-    
-    if not confidence:
-        logger.warning(f"Low confidence size extraction: '{text}' -> {size}. Room type: {room_type}")
-    
-    return size if size is not None else 0
 
 def extract_room_type(details_str):
     """
@@ -201,7 +174,7 @@ def process_rental_listings(rental_data):
             
         # Extract size
         size_str = listing.get('size', '')
-        size_value = extract_size(size_str)
+        size_value, size_confidence = extract_size_improved(size_str)
         
         # Extract room type
         room_type = listing.get('num_rooms', '')
@@ -265,7 +238,7 @@ def process_sales_listings(sales_data):
             
         # Extract size
         size_str = listing.get('details', '')
-        size_value = extract_size(size_str)
+        size_value, size_confidence = extract_size_improved(size_str)
         
         # Extract room type
         room_type = extract_room_type(listing.get('details', ''))
