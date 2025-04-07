@@ -378,6 +378,17 @@ def run_scraper():
     """Run the scraper to collect property listings."""
     log_message("Starting Idealista property scraper")
     
+    # Ensure all required directories exist
+    try:
+        os.makedirs(TMP_DIR, exist_ok=True)
+        os.makedirs(TMP_HISTORY_DIR, exist_ok=True)
+        os.makedirs(RAW_SALES_DIR, exist_ok=True)
+        os.makedirs(HISTORY_DIR, exist_ok=True)
+        log_message(f"Created/verified directories: {TMP_DIR}, {TMP_HISTORY_DIR}, {RAW_SALES_DIR}, {HISTORY_DIR}")
+    except Exception as e:
+        log_message(f"Error creating directories: {str(e)}")
+        return 0
+    
     # Check API usage before starting
     monthly_usage, monthly_limit = get_current_api_usage()
     if monthly_limit and monthly_usage > (monthly_limit - API_CREDITS_SAFETY_MARGIN):
@@ -486,7 +497,11 @@ def run_scraper():
     log_message(f"Total properties: {len(stored_listings)}")
     
     # Save updated listings to file (keep as backup)
-    save_listings(stored_listings)
+    try:
+        save_listings(stored_listings)
+        log_message(f"Saved {len(stored_listings)} listings to {OUTPUT_FILE}")
+    except Exception as e:
+        log_message(f"Error saving listings to file: {str(e)}")
     
     # Save a historical snapshot to the database
     if HAS_DB_FUNCTIONS:
@@ -498,9 +513,7 @@ def run_scraper():
             update_database_after_scrape('sales')
             log_message("Updated database with latest sales data")
         except Exception as e:
-            log_message(f"Error saving to database: {str(e)}")
-            import traceback
-            log_message(f"Stack trace: {traceback.format_exc()}")
+            log_message(f"Error updating database: {str(e)}")
     
     # Save a historical snapshot with timestamp (keep as file backup)
     if new_found > 0 or updated_found > 0:
@@ -513,8 +526,7 @@ def run_scraper():
     # After saving to temp directory, copy files to persistent storage
     copy_files_to_persistent_storage()
     
-    # Return only new_found to match expected signature in run_dashboard_server.py
-    return new_found
+    return len(stored_listings)
 
 if __name__ == "__main__":
     run_scraper() 
