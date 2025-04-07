@@ -111,10 +111,10 @@ def extract_price(price_str):
         price_str: String containing price information (e.g., "275,000€", "1,400€/month")
         
     Returns:
-        Float price value or None if parsing fails
+        Float price value or 0 if parsing fails
     """
     if not price_str:
-        return None
+        return 0
     
     # Log the raw price string for debugging
     logger.debug(f"Extracting price from: '{price_str}'")
@@ -122,8 +122,8 @@ def extract_price(price_str):
     # Use the improved version from extraction_utils
     price_value = extract_price_improved(price_str)
     
-    # Return None instead of 0 for consistency with old behavior
-    return price_value if price_value > 0 else None
+    # Return 0 for consistency with improved version
+    return price_value
 
 def extract_location(title_or_location):
     """
