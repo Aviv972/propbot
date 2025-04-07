@@ -14,6 +14,7 @@ from datetime import datetime
 from pathlib import Path
 import json
 from propbot.data_processing.data_processor import extract_price, extract_size
+import re
 
 # Set up logging
 logging.basicConfig(
@@ -145,14 +146,53 @@ def import_sales_data_from_json(conn, json_file_path):
                 price_value = float(price_str)
                 logger.debug(f"Direct numeric price: {price_value}")
             else:
-                # Use the price extractor
-                price_value = extract_price(price_str)
+                # Improved price extraction for string values with Euro symbol
+                # First, clean up the string to make extraction easier
+                if isinstance(price_str, str):
+                    # Remove Euro symbol and other non-numeric characters except for commas and dots
+                    cleaned_price = price_str.replace('€', '').replace(' ', '')
+                    # Try to extract the numeric part
+                    price_match = re.search(r'[\d,.]+', cleaned_price)
+                    if price_match:
+                        price_numeric = price_match.group(0)
+                        # Handle both comma and dot as decimal separators
+                        if ',' in price_numeric and '.' in price_numeric:
+                            # If both are present, comma is likely a thousands separator
+                            price_numeric = price_numeric.replace(',', '')
+                        else:
+                            # Otherwise, comma could be a decimal separator
+                            price_numeric = price_numeric.replace(',', '.')
+                        
+                        try:
+                            price_value = float(price_numeric)
+                            logger.debug(f"Extracted price {price_value} from '{price_str}'")
+                        except ValueError:
+                            price_value = None
+                            logger.warning(f"Could not convert cleaned price '{price_numeric}' to float")
+                    else:
+                        # Fallback to the original extractor function
+                        price_value = extract_price(price_str)
+                else:
+                    # Fallback to the original extractor function
+                    price_value = extract_price(price_str)
                 
-            # Skip properties with invalid prices
+            # Log and count invalid prices but still import with the original value
             if not price_value or price_value <= 0:
                 logger.warning(f"Invalid price '{price_str}' for {item.get('url')}")
                 invalid_price_count += 1
-                # Don't skip, we'll still import with price=0 for now
+                # Try to use raw string value if possible
+                try:
+                    if isinstance(price_str, str) and "€" in price_str:
+                        logger.info(f"Attempting to manually parse price string: '{price_str}'")
+                        numeric_part = price_str.replace('€', '').replace(' ', '').replace('.', '').replace(',', '.')
+                        price_value = float(numeric_part)
+                        logger.info(f"Successfully parsed price: {price_value}")
+                    else:
+                        # Don't skip, we'll still import with price=0 for now
+                        price_value = 0
+                except Exception as e:
+                    logger.warning(f"Manual price parsing failed: {e}")
+                    price_value = 0
             
             # Extract other data
             try:
