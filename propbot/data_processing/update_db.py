@@ -13,7 +13,8 @@ import logging
 from datetime import datetime
 from pathlib import Path
 import json
-from propbot.data_processing.data_processor import extract_price, extract_size
+from propbot.data_processing.data_processor import extract_size
+from propbot.utils.extraction_utils import extract_price_improved
 import re
 
 # Set up logging
@@ -75,12 +76,15 @@ def update_database_after_scrape(scrape_type=None):
                 possible_paths = [
                     Path('propbot/data/raw/sales/idealista_listings.json'),
                     Path('data/raw/sales/idealista_listings.json'),
-                    Path('idealista_listings.json')
+                    Path('idealista_listings.json'),
+                    Path('/tmp/propbot_sales/idealista_listings.json'),  # Add temporary directory
+                    Path('/tmp/idealista_listings.json')  # Add alternative temporary location
                 ]
                 
                 for path in possible_paths:
                     if path.exists():
                         raw_sales_file = path
+                        logger.info(f"Found sales data at: {path}")
                         break
             
             # Try importing from JSON first (faster and more direct)
@@ -148,6 +152,7 @@ def import_sales_data_from_json(conn, json_file_path):
             else:
                 # Extract price using improved algorithm
                 price_value = extract_price_improved(price_str)
+                logger.debug(f"Extracted price from string: {price_str} -> {price_value}")
             
             # Ensure price is numeric
             try:
@@ -184,6 +189,7 @@ def import_sales_data_from_json(conn, json_file_path):
                 valid_count += 1
             else:
                 invalid_price_count += 1
+                logger.warning(f"Invalid price for property: {item.get('url')} - Raw price: {price_str}")
         
         logger.info(f"Prepared {len(records)} records for import ({valid_count} with valid prices, {invalid_price_count} with invalid prices)")
 
