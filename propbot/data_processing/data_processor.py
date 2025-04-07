@@ -18,7 +18,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 from ..config import load_config
-from ..utils.extraction_utils import extract_size as extract_size_robust, extract_room_type
+from ..utils.extraction_utils import extract_size as extract_size_robust, extract_room_type, extract_price_improved
 
 # Set up logging
 logging.basicConfig(
@@ -104,6 +104,9 @@ def extract_price(price_str):
     """
     Extract numeric price value from a price string.
     
+    Note: This function is a wrapper around the improved version in extraction_utils.
+    It maintains backward compatibility while using the more robust implementation.
+    
     Args:
         price_str: String containing price information (e.g., "275,000€", "1,400€/month")
         
@@ -115,54 +118,12 @@ def extract_price(price_str):
     
     # Log the raw price string for debugging
     logger.debug(f"Extracting price from: '{price_str}'")
-        
-    try:
-        # Check if it's a rental price with €/month format
-        is_rental = '/month' in price_str or '€/month' in price_str
-        
-        # Remove currency symbols and spaces first
-        clean_price = price_str.replace('€', '').replace('EUR', '').replace(' ', '')
-        
-        # For sales listings, first try to extract a complete price with thousands separator
-        if not is_rental:
-            # Handle prices like 275.000 or 275,000
-            price_match = re.search(r'(\d+)[\.,](\d{3})[\.,]?(\d+)?', clean_price)
-            if price_match:
-                # We have a full price with thousands separator
-                if price_match.group(3):  # Has three groups: thousands, hundreds, decimals
-                    price_value = float(f"{price_match.group(1)}{price_match.group(2)}.{price_match.group(3)}")
-                else:  # Just thousands and hundreds
-                    price_value = float(f"{price_match.group(1)}{price_match.group(2)}")
-                logger.debug(f"Extracted price with thousands separator: {price_value}")
-                return price_value
-        
-        # Extract the numeric part of the price (for both rental and sales if above didn't match)
-        price_match = re.search(r'(\d+(?:[\.,]\d+)?)', clean_price)
-        if price_match:
-            # Replace comma with dot for decimal and convert to float
-            price_clean = price_match.group(1).replace(',', '.')
-            price_value = float(price_clean)
-            
-            # Fix the issue where rental prices like 1.40 should be 1400
-            # If it's a rental price and the value is small, multiply by 1000
-            if is_rental and price_value < 100:
-                price_value = price_value * 1000
-                logger.debug(f"Small rental price detected, adjusted to: {price_value}")
-            
-            # For sales listings, if the price is too small (less than 1000),
-            # it's likely in thousands and needs to be multiplied
-            elif not is_rental and price_value < 1000:
-                price_value = price_value * 1000
-                logger.debug(f"Small sales price detected, adjusted to: {price_value}")
-            
-            logger.debug(f"Extracted price: {price_value}")
-            return price_value
-            
-        logger.warning(f"Failed to extract price from: '{price_str}'")
-    except (ValueError, TypeError) as e:
-        logger.warning(f"Error parsing price '{price_str}': {e}")
-        
-    return None
+    
+    # Use the improved version from extraction_utils
+    price_value = extract_price_improved(price_str)
+    
+    # Return None instead of 0 for consistency with old behavior
+    return price_value if price_value > 0 else None
 
 def extract_location(title_or_location):
     """
