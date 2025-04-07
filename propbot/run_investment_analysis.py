@@ -355,8 +355,13 @@ def main():
     """Main entry point for running the investment analysis."""
     
     # Ensure directory structure exists
-    for directory in [PROCESSED_DIR, OUTPUT_DIR, REPORTS_DIR]:
-        os.makedirs(directory, exist_ok=True)
+    directories = [PROCESSED_DIR, OUTPUT_DIR, REPORTS_DIR]
+    for directory in directories:
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+            logger.info(f"Created directory: {directory}")
+        else:
+            logger.warning(f"Directory path is None, skipping creation")
     
     # Copy current sales data to the processed directory
     # This is a legacy step for compatibility but will be removed in the future
