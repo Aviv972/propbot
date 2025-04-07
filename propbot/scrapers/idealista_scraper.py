@@ -44,8 +44,8 @@ DATA_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), "data")
 RAW_SALES_DIR = os.path.join(DATA_DIR, "raw", "sales")
 HISTORY_DIR = os.path.join(RAW_SALES_DIR, "history")
 
-# Use /tmp directory for Heroku deployments
-TMP_DIR = os.path.join("/tmp", "propbot_sales")
+# Use a more reliable temporary directory approach
+TMP_DIR = os.path.join(os.getenv('TMPDIR', '/tmp'), 'propbot_sales')
 TMP_HISTORY_DIR = os.path.join(TMP_DIR, "history")
 
 # Debug logs for paths
@@ -55,10 +55,23 @@ log_message(f"DEBUG: TMP_DIR: {TMP_DIR}")
 log_message(f"DEBUG: Current working directory: {os.getcwd()}")
 
 # Ensure directories exist
-os.makedirs(RAW_SALES_DIR, exist_ok=True)
-os.makedirs(HISTORY_DIR, exist_ok=True)
-os.makedirs(TMP_DIR, exist_ok=True)
-os.makedirs(TMP_HISTORY_DIR, exist_ok=True)
+try:
+    os.makedirs(RAW_SALES_DIR, exist_ok=True)
+    os.makedirs(HISTORY_DIR, exist_ok=True)
+    os.makedirs(TMP_DIR, exist_ok=True)
+    os.makedirs(TMP_HISTORY_DIR, exist_ok=True)
+    log_message(f"Successfully created all required directories")
+except Exception as e:
+    log_message(f"Error creating directories: {str(e)}")
+    # Try alternative approach
+    try:
+        TMP_DIR = os.path.join('/tmp', 'propbot_sales')
+        TMP_HISTORY_DIR = os.path.join(TMP_DIR, "history")
+        os.makedirs(TMP_DIR, exist_ok=True)
+        os.makedirs(TMP_HISTORY_DIR, exist_ok=True)
+        log_message(f"Successfully created directories using alternative path")
+    except Exception as e2:
+        log_message(f"Failed to create directories using alternative path: {str(e2)}")
 
 # Output file paths
 OUTPUT_FILE = os.path.join(TMP_DIR, "idealista_listings.json")
@@ -77,17 +90,45 @@ except ImportError:
 def load_stored_listings():
     """Load previously stored listings from JSON file."""
     try:
-        with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        log_message(f"No existing file found at {OUTPUT_FILE}. Creating new dataset.")
+        if os.path.exists(OUTPUT_FILE):
+            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        else:
+            # Try alternative location
+            alt_file = os.path.join('/tmp', 'idealista_listings.json')
+            if os.path.exists(alt_file):
+                with open(alt_file, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            log_message(f"No existing file found at {OUTPUT_FILE} or {alt_file}. Creating new dataset.")
+            return []
+    except Exception as e:
+        log_message(f"Error loading stored listings: {str(e)}")
         return []
 
 def save_listings(listings):
     """Save listings to JSON file."""
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(listings, f, ensure_ascii=False, indent=2)
-    log_message(f"Saved {len(listings)} listings to {OUTPUT_FILE}")
+    try:
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+        
+        # Save to temporary file first
+        temp_file = OUTPUT_FILE + '.tmp'
+        with open(temp_file, "w", encoding="utf-8") as f:
+            json.dump(listings, f, ensure_ascii=False, indent=2)
+        
+        # If successful, rename to final file
+        os.replace(temp_file, OUTPUT_FILE)
+        log_message(f"Saved {len(listings)} listings to {OUTPUT_FILE}")
+    except Exception as e:
+        log_message(f"Error saving listings to file: {str(e)}")
+        # Try alternative location
+        try:
+            alt_file = os.path.join('/tmp', 'idealista_listings.json')
+            with open(alt_file, "w", encoding="utf-8") as f:
+                json.dump(listings, f, ensure_ascii=False, indent=2)
+            log_message(f"Saved listings to alternative location: {alt_file}")
+        except Exception as e2:
+            log_message(f"Failed to save listings to alternative location: {str(e2)}")
 
 def load_credits_usage():
     """Load previously stored credits usage from JSON file."""
