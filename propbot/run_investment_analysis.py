@@ -63,10 +63,9 @@ BASE_DIR = Path(os.path.dirname(os.path.abspath(__file__))).parent
 DATA_DIR = BASE_DIR / "propbot" / "data"
 PROCESSED_DIR = DATA_DIR / "processed"
 REPORTS_DIR = DATA_DIR / "reports"
-OUTPUT_DIR = DATA_DIR / "output"
 
 # Ensure directories exist
-for directory in [PROCESSED_DIR, OUTPUT_DIR, REPORTS_DIR]:
+for directory in [PROCESSED_DIR, REPORTS_DIR]:
     directory.mkdir(parents=True, exist_ok=True)
 
 def analyze_rental_data() -> dict:
