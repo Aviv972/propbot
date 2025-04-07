@@ -20,6 +20,12 @@ reload_env()
 
 import pandas as pd
 
+# Import configuration
+from propbot.config import (
+    DATA_DIR, RAW_DATA_DIR, PROCESSED_DATA_DIR, REPORTS_DIR, OUTPUT_DIR,
+    SALES_RAW_FILE, SALES_PROCESSED_FILE
+)
+
 # Import analysis modules
 from propbot.analysis.metrics.investment_metrics import (
     calculate_all_investment_metrics,
