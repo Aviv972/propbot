@@ -34,9 +34,10 @@ logger = logging.getLogger(__name__)
 # Load configuration
 config = load_config()
 
-# Set up paths using absolute paths
-WORKSPACE_DIR = Path('/Users/avivcarmi/Desktop/Projects/investmentbot')
-DATA_DIR = WORKSPACE_DIR / "propbot" / "data"
+# Set up paths
+SCRIPT_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
+ROOT_DIR = SCRIPT_DIR.parent.parent
+DATA_DIR = ROOT_DIR / "data"
 RAW_DIR = DATA_DIR / "raw"
 PROCESSED_DIR = DATA_DIR / "processed"
 
