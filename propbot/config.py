@@ -19,14 +19,13 @@ PROCESSED_DIR = PROCESSED_DATA_DIR  # Alias for backward compatibility
 OUTPUT_DIR = DATA_DIR / "output"
 REPORTS_DIR = DATA_DIR / "reports"
 
+# UI directory
+UI_DIR = ROOT_DIR / "propbot" / "ui"
+
 # Ensure directories exist
 for directory in [RAW_DATA_DIR / "sales", RAW_DATA_DIR / "rentals", 
                  PROCESSED_DATA_DIR, OUTPUT_DIR, REPORTS_DIR, UI_DIR]:
     os.makedirs(directory, exist_ok=True)
-
-# UI directory
-UI_DIR = ROOT_DIR / "propbot" / "ui"
-os.makedirs(UI_DIR, exist_ok=True)
 
 # Raw data files
 SALES_RAW_FILE = RAW_DATA_DIR / "sales" / "idealista_listings.json"
